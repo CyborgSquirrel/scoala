@@ -50,7 +50,7 @@ segment code use32 class=code
         sub al, dl
         
         ; (3+4+4)-(5+6)=0
-        ; rezultatul este in AL
+        ; rezultatul e in AL
         
         ; Înmulțiri, împărțiri
         ; a,b,c,d-byte, e,f,g,h-word
@@ -89,7 +89,7 @@ segment code use32 class=code
         div cx
         
         ; (8*21-7*3*5)/(6+11*4)=1
-        ; rezultatul este in AX
+        ; rezultatul e in AX
         
         ; exit(0)
         push    dword 0      ; push the parameter for exit onto the stack
