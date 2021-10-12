@@ -38,16 +38,16 @@ def longest_maxsum_sequence(s):
 	answer_sum = 0
 	
 	index = 0
-	my_sum = 0
+	current_sum = 0
 	for i,a in enumerate(s):
-		if my_sum < 0:
-			my_sum = 0
+		if current_sum < 0:
+			current_sum = 0
 			index = i
-		my_sum += a
+		current_sum += a
 		
-		if my_sum > answer_sum or (my_sum == answer_sum and i-index+1 > len(answer)):
+		if current_sum > answer_sum or (current_sum == answer_sum and i-index+1 > len(answer)):
 			answer = s[index:i+1]
-			answer_sum = my_sum
+			answer_sum = current_sum
 	return answer
 
 s = []
