@@ -368,17 +368,17 @@ def test_calculeaza_suma_totala_pe_tip():
 	apartamente = {}
 	
 	adauga_cheltuiala(apartamente, 1, creeaza_cheltuiala(1, 'apa'))
-	adauga_cheltuiala(apartamente, 1, creeaza_cheltuiala(15, 'canal'))
-	adauga_cheltuiala(apartamente, 1, creeaza_cheltuiala(100, 'gaz'))
 	adauga_cheltuiala(apartamente, 2, creeaza_cheltuiala(10, 'apa'))
-	adauga_cheltuiala(apartamente, 2, creeaza_cheltuiala(5, 'gaz'))
 	adauga_cheltuiala(apartamente, 10, creeaza_cheltuiala(15, 'apa'))
+	adauga_cheltuiala(apartamente, 1, creeaza_cheltuiala(15, 'canal'))
 	adauga_cheltuiala(apartamente, 10, creeaza_cheltuiala(999, 'canal'))
+	adauga_cheltuiala(apartamente, 1, creeaza_cheltuiala(100, 'gaz'))
+	adauga_cheltuiala(apartamente, 2, creeaza_cheltuiala(5, 'gaz'))
 	adauga_cheltuiala(apartamente, 10, creeaza_cheltuiala(1000, 'altele'))
 	
 	assert calculeaza_suma_totala_pe_tip(apartamente, 'apa') == 1+10+15
 	assert calculeaza_suma_totala_pe_tip(apartamente, 'canal') == 15+999
-	assert calculeaza_suma_totala_pe_tip(apartamente, 'gaz') == 5+100
+	assert calculeaza_suma_totala_pe_tip(apartamente, 'gaz') == 100+5
 	assert calculeaza_suma_totala_pe_tip(apartamente, 'altele') == 1000
 	assert calculeaza_suma_totala_pe_tip(apartamente, 'incalzire') == 0
 
