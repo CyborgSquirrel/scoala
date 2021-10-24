@@ -42,7 +42,7 @@ def get_tip(cheltuiala):
 
 def test_creeaza_cheltuiala():
 	cheltuiala = creeaza_cheltuiala(123, "apa")
-	assert get_suma(cheltuiala) == 123
+	assert math.isclose(get_suma(cheltuiala), 123)
 	assert get_tip(cheltuiala) == "apa"
 	
 	cheltuiala = creeaza_cheltuiala(13.37, "canal")
@@ -424,11 +424,11 @@ def ui_adauga_cheltuiala(apartamente):
 		return
 	
 	suma = valideaza_suma(input("suma = "))
-	if not suma: return
+	if suma is None: return
 	
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
-	if not tip: return
+	if tip is None: return
 	
 	adauga_cheltuiala(apartamente, indice_apartament, creeaza_cheltuiala(suma, tip))
 
@@ -458,14 +458,14 @@ def ui_modifica_cheltuiala(apartamente):
 	suma = input(f"suma (daca nu introduceti nimic ramane {get_suma(cheltuiala)}) = ")
 	if suma != "":
 		suma = valideaza_suma(suma)
-		if not suma: return
+		if suma is None: return
 		set_suma(cheltuiala, suma)
 	
 	mesaj_tip()
 	tip = input(f"tip (daca nu introduceti nimic ramane '{get_tip(cheltuiala)}') = ")
 	if tip != "":
 		tip = valideaza_tip(tip)
-		if not tip: return
+		if tip is None: return
 		set_tip(cheltuiala, tip)
 
 def ui_sterge_cheltuieli_apartament(apartamente):
@@ -504,13 +504,13 @@ def ui_sterge_cheltuieli_apartamente_consecutive(apartamente):
 def ui_sterge_cheltuieli_dupa_tip(apartamente):
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
-	if not tip: return
+	if tip is None: return
 	
 	sterge_cheltuieli_dupa_tip(apartamente, tip)
 
 def ui_cauta_apartamente_cu_cheltuieli_mai_mari(apartamente):
 	suma = valideaza_suma(input("suma = "))
-	if not suma: return
+	if suma is None: return
 	
 	apartamentele_cautate = cauta_apartamente_cu_cheltuieli_mai_mari(apartamente, suma)
 	
@@ -519,7 +519,7 @@ def ui_cauta_apartamente_cu_cheltuieli_mai_mari(apartamente):
 def ui_cauta_cheltuieli_de_tip(apartamente):
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
-	if not tip: return
+	if tip is None: return
 	
 	cheltuielile_cautate = cauta_cheltuieli_de_tip(apartamente, tip)
 	
@@ -528,7 +528,7 @@ def ui_cauta_cheltuieli_de_tip(apartamente):
 def ui_calculeaza_suma_totala_pe_tip(apartamente):
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
-	if not tip: return
+	if tip is None: return
 	
 	suma_totala = calculeaza_suma_totala_pe_tip(apartamente, tip)
 	
@@ -554,10 +554,8 @@ meniu = [
 # In specificatie zice ca o cheltuiala este suma si tipul cheltuielii.
 
 apartamente = {}
-# apartamente = {1: [{'suma': 1231.0, 'tip': 'apa'}, {'suma': 4343.0, 'tip': 'gaz'}], 4: [{'suma': 143123.0, 'tip': 'apa'}, {'suma': 123.0, 'tip': 'incalzire'}, {'suma': 14.0, 'tip': 'apa'}], 100: [{'suma': 3434.0, 'tip': 'canal'}]}
 
 while True:
-	# print(apartamente)
 	for i,v in enumerate(meniu):
 		print(f"{i+1}. {v[1]}")
 	
