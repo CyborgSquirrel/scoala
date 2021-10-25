@@ -2,3 +2,4 @@
 *.lst
 *.ilk
 *.pdb
+__pycache__/
