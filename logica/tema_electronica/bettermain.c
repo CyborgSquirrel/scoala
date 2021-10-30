@@ -11,7 +11,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-const int N = 256;
+const int N = 128;
 
 typedef struct {
 	int digits[N];
@@ -63,7 +63,6 @@ void number_print(Number *a){
 }
 
 Number number_new(char *s, int base){
-	assert(base >= 2);
 	Number num;
 	num.base = base;
 	int len = strlen(s);
@@ -81,8 +80,9 @@ Number number_new_zero(int base){
 
 Number number_from_digit(int digit, int base){
 	assert(digit < base);
-	char s[2] = { digit_to_char(digit), '\0' };
-	return number_new(s, base);
+	Number num = number_new_zero(base);
+	num.digits[0] = digit;
+	return num;
 }
 
 int number_is_digit(Number *num){
@@ -275,16 +275,12 @@ int parse_number(char *s, int *i, Number *number){
 	char base[16];
 	int baselen = 0;
 	
-	int digitmax = 0;
-	
 	int state = PARSING_NUMBER;
 	
 	for(; in_string(s, i); ++(*i)){
 		switch(state){
 			case PARSING_NUMBER: {
 				if(is_digit_anybase(s[*i])){
-					int digit = char_to_digit(s[*i]);
-					if(digit > digitmax)digitmax = digit;
 					num[numlen++] = s[*i];
 				}else if(s[*i] == '('){
 					if(numlen == 0){
@@ -321,10 +317,6 @@ after_loop:
 	int baseint = atoi(base);
 	if(baseint < 2) {
 		error("baza nu poate fi mai mica decat 2");
-		return 0;
-	}
-	if(digitmax > baseint){
-		error("cifrele nu pot fi mai mari decat baza");
 		return 0;
 	}
 	*number = number_new(num, baseint);
@@ -438,11 +430,6 @@ int parse_and_answer(char *s){
 			case '-':{
 				a = convert_smart(a, dest_base);
 				b = convert_smart(b, dest_base);
-				int cmp = number_cmp(&a, &b);
-				if(cmp == NUMBER_LT){
-					error("Primul operand nu poate fi mai mic decat al doilea operand in cazul scaderii");
-					return 0;
-				}
 				out = number_sub(&a, &b);
 			} break;
 			case '*':{
@@ -528,7 +515,7 @@ int main(){
 	// char s[] = "63(7)+BEEF(16)=?(2)";
 	// char s[] = "63(7)=10?(2)";
 	
-	// TODO: repara conversia rapida
+	// TODO: verifica ca cifrele sa nu fie mai mari decat baza
 	
 	printf("--- Calculator ---\n");
 	printf("Autor: Jardan Andrei\n");

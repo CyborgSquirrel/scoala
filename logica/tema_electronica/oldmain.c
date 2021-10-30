@@ -11,7 +11,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-const int N = 256;
+const int N = 128;
 
 typedef struct {
 	int digits[N];
@@ -63,7 +63,6 @@ void number_print(Number *a){
 }
 
 Number number_new(char *s, int base){
-	assert(base >= 2);
 	Number num;
 	num.base = base;
 	int len = strlen(s);
@@ -80,9 +79,9 @@ Number number_new_zero(int base){
 }
 
 Number number_from_digit(int digit, int base){
-	assert(digit < base);
-	char s[2] = { digit_to_char(digit), '\0' };
-	return number_new(s, base);
+	Number num = number_new_zero(base);
+	num.digits[0] = digit;
+	return num;
 }
 
 int number_is_digit(Number *num){
@@ -122,62 +121,54 @@ int number_cmp(Number *lhs, Number *rhs){
 // 	assert(number_cmp(&a, &b) == NUMBER_EQ);
 // }
 
-Number number_div_digit(Number *lhs, int rhs, int *r){
+void number_div_digit(Number *lhs, int rhs, int *r){
 	assert(rhs < lhs->base);
-	Number out = number_new_zero(lhs->base);
 	*r = 0;
 	for(int i = N-1; i >= 0; --i){
-		int v = (*r)*out.base + lhs->digits[i];
-		out.digits[i] = v / rhs;
+		int v = (*r)*lhs->base + lhs->digits[i];
+		lhs->digits[i] = v / rhs;
 		*r = v % rhs;
 	}
-	return out;
 }
 
-Number number_mul_digit(Number *lhs, int rhs){
+void number_mul_digit(Number *lhs, int rhs){
 	assert(rhs < lhs->base);
-	Number out = number_new_zero(lhs->base);
 	int t = 0;
 	for(int i = 0; i < N; ++i){
 		int v = lhs->digits[i]*rhs + t;
-		t = v / out.base;
-		out.digits[i] = v % lhs->base;
+		t = v / lhs->base;
+		lhs->digits[i] = v % lhs->base;
 	}
-	return out;
 }
 
-Number number_add(Number *lhs, Number *rhs){
+void number_add(Number *lhs, Number *rhs){
 	assert(lhs->base == rhs->base);
-	Number out = number_new_zero(lhs->base);
+	int base = lhs->base;
 	
 	int t = 0;
 	for(int i = 0; i < N; ++i){
 		int v = lhs->digits[i] + rhs->digits[i] + t;
-		out.digits[i] = v % out.base;
-		t = v / out.base;
+		lhs->digits[i] = v % base;
+		t = v / base;
 	}
-	
-	return out;
 }
 
-Number number_sub(Number *lhs, Number *rhs){
+void number_sub(Number *lhs, Number *rhs){
 	int cmp = number_cmp(lhs, rhs);
 	assert(cmp == NUMBER_GT || cmp == NUMBER_EQ);
 	assert(lhs->base == rhs->base);
-	Number out = number_new_zero(lhs->base);
+	int base = lhs->base;
 	
 	int t = 0;
 	for(int i = 0; i < N; ++i){
 		int v = lhs->digits[i] - rhs->digits[i] + t;
 		t = 0;
 		if(v < 0){
-			v += out.base;
+			v += base;
 			t = -1;
 		}
-		out.digits[i] = v;
+		lhs->digits[i] = v;
 	}
-	
-	return out;
 }
 
 Number convert_divison(Number in, int base){
@@ -186,7 +177,7 @@ Number convert_divison(Number in, int base){
 	int digitslen = 0;
 	while(!number_is_zero(&in)){
 		int r;
-		in = number_div_digit(&in, base, &r);
+		number_div_digit(&in, base, &r);
 		
 		digits[digitslen++] = r;
 	}
@@ -206,9 +197,9 @@ Number convert_substitution(Number in, int base){
 	for(int i = N-1; i >= 0; --i){
 		not_zero |= in.digits[i] != 0;
 		if(not_zero){
-			out = number_mul_digit(&out, in.base);
+			number_mul_digit(&out, in.base);
 			Number digit = number_from_digit(in.digits[i], base);
-			out = number_add(&out, &digit);
+			number_add(&out, &digit);
 		}
 	}
 	return out;
@@ -275,16 +266,12 @@ int parse_number(char *s, int *i, Number *number){
 	char base[16];
 	int baselen = 0;
 	
-	int digitmax = 0;
-	
 	int state = PARSING_NUMBER;
 	
 	for(; in_string(s, i); ++(*i)){
 		switch(state){
 			case PARSING_NUMBER: {
 				if(is_digit_anybase(s[*i])){
-					int digit = char_to_digit(s[*i]);
-					if(digit > digitmax)digitmax = digit;
 					num[numlen++] = s[*i];
 				}else if(s[*i] == '('){
 					if(numlen == 0){
@@ -321,10 +308,6 @@ after_loop:
 	int baseint = atoi(base);
 	if(baseint < 2) {
 		error("baza nu poate fi mai mica decat 2");
-		return 0;
-	}
-	if(digitmax > baseint){
-		error("cifrele nu pot fi mai mari decat baza");
 		return 0;
 	}
 	*number = number_new(num, baseint);
@@ -429,30 +412,24 @@ int parse_and_answer(char *s){
 		int dest_base;
 		if(!parse_question(s, &i, &dest_base, NULL))return 0;
 		
+		out = convert_smart(a, dest_base);
 		switch(op){
 			case '+':{
-				a = convert_smart(a, dest_base);
-				b = convert_smart(b, dest_base);
-				out = number_add(&a, &b);
+				Number cb = convert_smart(b, dest_base);
+				number_add(&out, &cb);
 			} break;
 			case '-':{
-				a = convert_smart(a, dest_base);
-				b = convert_smart(b, dest_base);
-				int cmp = number_cmp(&a, &b);
-				if(cmp == NUMBER_LT){
-					error("Primul operand nu poate fi mai mic decat al doilea operand in cazul scaderii");
-					return 0;
-				}
-				out = number_sub(&a, &b);
+				Number cb = convert_smart(b, dest_base);
+				number_sub(&out, &cb);
 			} break;
 			case '*':{
 				if(!number_is_digit(&b)){
 					error("Al doilea operand trebuie sa fie cifra in cazul inmultirii");
 					return 0;
 				}
-				a = convert_smart(a, b.base);
-				out = number_mul_digit(&a, number_to_digit(&b));
-				out = convert_smart(out, dest_base);
+				Number ca = convert_smart(a, b.base);
+				number_mul_digit(&ca, number_to_digit(&b));
+				out = convert_smart(ca, dest_base);
 			} break;
 			case '/':{
 				print_rout = 1;
@@ -460,10 +437,10 @@ int parse_and_answer(char *s){
 					error("Al doilea operand trebuie sa fie cifra in cazul impartirii");
 					return 0;
 				}
+				Number ca = convert_smart(a, b.base);
 				int r;
-				a = convert_smart(a, b.base);
-				out = number_div_digit(&a, number_to_digit(&b), &r);
-				out = convert_smart(out, dest_base);
+				number_div_digit(&ca, number_to_digit(&b), &r);
+				out = convert_smart(ca, dest_base);
 				rout = number_from_digit(r, dest_base);
 			} break;
 		}
@@ -528,7 +505,7 @@ int main(){
 	// char s[] = "63(7)+BEEF(16)=?(2)";
 	// char s[] = "63(7)=10?(2)";
 	
-	// TODO: repara conversia rapida
+	// TODO: verifica ca cifrele sa nu fie mai mari decat baza
 	
 	printf("--- Calculator ---\n");
 	printf("Autor: Jardan Andrei\n");
