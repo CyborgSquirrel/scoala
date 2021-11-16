@@ -1,0 +1,110 @@
+add student
+1
+Otilia Marculescu
+add student
+2
+Felix Sima
+add student
+3
+Titi Tulea
+add student
+4
+Aurica Tulea
+add student
+5
+Olimpia
+
+add discipline
+1
+Religion
+Simion Tulea
+add discipline
+2
+War
+Aglae Tulea
+add discipline
+3
+Politics
+Stanica Ratiu
+
+assign grade
+1
+1
+1
+9.5
+assign grade
+2
+1
+2
+7
+assign grade
+3
+1
+3
+7.5
+
+assign grade
+4
+2
+1
+10
+assign grade
+5
+2
+2
+9.5
+assign grade
+6
+2
+3
+9.75
+
+assign grade
+7
+3
+1
+7.25
+assign grade
+8
+3
+2
+6.5
+assign grade
+9
+3
+3
+4
+
+assign grade
+10
+4
+1
+7.5
+assign grade
+11
+4
+2
+3.5
+assign grade
+12
+4
+3
+5
+
+assign grade
+13
+5
+1
+8.75
+assign grade
+14
+5
+2
+7
+assign grade
+15
+5
+3
+9
+
+print top 20 percent

@@ -1,0 +1,23 @@
+int calculate_factorial_zeros(int n){
+	// numarul de zerouri in care se termina factorialul este de fapt puterea cea mai mare a lui 10 la care se poate divide factorialul
+	// mai intai calculez puterea la care se afla 2 si 5 in factorial
+	int div2 = 0, div5 = 0;
+	for(int i = 2; i <= n; ++i){
+		int a = i;
+		while(a % 2 == 0){
+			a /= 2;
+			div2++;
+		}
+		while(a % 5 == 0){
+			a /= 5;
+			div5++;
+		}
+	}
+	
+	// iar apoi puterea maxima a lui 10 la care se divide factorialul (si totodata si nr de zerouri din dreapta) este data de minimul puterilor maxime a lui 2 si a lui 5 la care se divide
+	int zeros;
+	if(div2 < div5)zeros = div2;
+	else           zeros = div5;
+	
+	return zeros;
+}

@@ -16,7 +16,7 @@ segment data use32 class=data
     LB equ $-B
     
     LR equ LA+LB
-    R resb LR
+    R times LR db 0
 
 ; our code starts here
 segment code use32 class=code
@@ -35,7 +35,7 @@ segment code use32 class=code
         inc ebx
         
         cmp ecx, B
-        jne loop_1
+    jne loop_1
     ; sfarsit loop_1
         
         mov ecx, A+LA
@@ -48,7 +48,7 @@ segment code use32 class=code
         inc ebx
         
         cmp ecx, A
-        jne loop_2
+    jne loop_2
     ; sfarsit loop_2
     
         ; exit(0)

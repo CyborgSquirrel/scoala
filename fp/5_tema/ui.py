@@ -48,10 +48,10 @@ def mesaj_indice_cheltuiala(apartament):
 
 ''' FUNCTII MENIU '''
 
-def afiseaza_tot(apartamente, operatii):
+def ui_afiseaza_tot(apartamente, operatii):
 	print(apartamente)
 
-def adauga_cheltuiala(apartamente, operatii):
+def ui_adauga_cheltuiala(apartamente, operatii):
 	indice_apartament = input("indice apartament = ")
 	try:
 		indice_apartament = int(indice_apartament)
@@ -74,13 +74,13 @@ def adauga_cheltuiala(apartamente, operatii):
 	else:
 		data = valideaza_data(data)
 	
-	ap.inceput_operatie(operatii, "adauga cheltuiala")
 	cheltuiala = ch.creeaza(suma, tip, data)
+	ap.inceput_operatie(operatii, f"adauga cheltuiala {cheltuiala}")
 	ap.adauga_cheltuiala(apartamente, operatii, indice_apartament, cheltuiala)
 	
 	print(f"Cheltuiala {cheltuiala} a fost adaugata")
 
-def modifica_cheltuiala(apartamente, operatii):
+def ui_modifica_cheltuiala(apartamente, operatii):
 	mesaj_indice_apartament(apartamente)
 	indice_apartament = input("indice apartament = ")
 	try:
@@ -129,7 +129,7 @@ def modifica_cheltuiala(apartamente, operatii):
 		
 	print(f"Cheltuiala {cheltuiala} a fost modificata")
 
-def sterge_cheltuieli_apartament(apartamente, operatii):
+def ui_sterge_cheltuieli_apartament(apartamente, operatii):
 	mesaj_indice_apartament(apartamente)
 	indice_apartament = input("indice apartament = ")
 	try:
@@ -142,12 +142,12 @@ def sterge_cheltuieli_apartament(apartamente, operatii):
 		eroare("Indice apartament invalid")
 		return
 	
-	ap.inceput_operatie(operatii, "sterge cheltuieli apartament")
+	ap.inceput_operatie(operatii, f"sterge cheltuielile apartamentului {indice_apartament}")
 	ir.sterge_cheltuieli_apartament(apartamente, operatii, indice_apartament)
 	
 	print(f"Cheltuielile apartamentului {indice_apartament} au fost sterse")
 
-def sterge_cheltuieli_apartamente_consecutive(apartamente, operatii):
+def ui_sterge_cheltuieli_apartamente_consecutive(apartamente, operatii):
 	indice_primul_apartament = input("indice primul apartament = ")
 	try:
 		indice_primul_apartament = int(indice_primul_apartament)
@@ -166,22 +166,22 @@ def sterge_cheltuieli_apartamente_consecutive(apartamente, operatii):
 		eroare("Indicele primului apartament este mai mare decat indicele ultimului apartament")
 		return
 	
-	ap.inceput_operatie(operatii, "sterge cheltuieli apartamente consecutive")
+	ap.inceput_operatie(operatii, f"sterge cheltuielile apartamentelor intre {indice_primul_apartament} si {indice_ultimul_apartament}")
 	ir.sterge_cheltuieli_apartamente_consecutive(apartamente, operatii, indice_primul_apartament, indice_ultimul_apartament)
 	
 	print(f"Cheltuielile tuturor apartamentelor intre {indice_primul_apartament} si {indice_ultimul_apartament} au fost sterse")
 
-def sterge_cheltuieli_dupa_tip(apartamente, operatii):
+def ui_sterge_cheltuieli_dupa_tip(apartamente, operatii):
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
 	if tip is None: return
 	
-	ap.inceput_operatie(operatii, "sterge cheltuieli dupa tip")
+	ap.inceput_operatie(operatii, f"sterge cheltuielile de tipul '{tip}'")
 	ir.sterge_cheltuieli_dupa_tip(apartamente, operatii, tip)
 	
 	print(f"Cheltuielile de tip '{tip}' au fost sterse")
 
-def cauta_apartamente_cu_cheltuieli_mai_mari(apartamente, operatii):
+def ui_cauta_apartamente_cu_cheltuieli_mai_mari(apartamente, operatii):
 	suma = valideaza_suma(input("suma = "))
 	if suma is None: return
 	
@@ -189,7 +189,7 @@ def cauta_apartamente_cu_cheltuieli_mai_mari(apartamente, operatii):
 	
 	print(f"Apartamentele cautate sunt: {apartamentele_cautate}")
 
-def cauta_cheltuieli_de_tip(apartamente, operatii):
+def ui_cauta_cheltuieli_de_tip(apartamente, operatii):
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
 	if tip is None: return
@@ -198,7 +198,7 @@ def cauta_cheltuieli_de_tip(apartamente, operatii):
 	
 	print(f"Cheltuielile cautate sunt: {cheltuielile_cautate}")
 
-def cauta_cheltuieli_inainte_de_zi_mai_mari_decat_suma(apartamente, operatii):
+def ui_cauta_cheltuieli_inainte_de_zi_mai_mari_decat_suma(apartamente, operatii):
 	data = valideaza_data(input("data = "))
 	if data is None: return
 	
@@ -209,7 +209,7 @@ def cauta_cheltuieli_inainte_de_zi_mai_mari_decat_suma(apartamente, operatii):
 	
 	print(f"Cheltuielile cautate sunt: {cheltuielile_cautate}")
 
-def calculeaza_suma_totala_pe_tip(apartamente, operatii):
+def ui_calculeaza_suma_totala_pe_tip(apartamente, operatii):
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
 	if tip is None: return
@@ -218,7 +218,7 @@ def calculeaza_suma_totala_pe_tip(apartamente, operatii):
 	
 	print(f"Suma totala pe tipul '{tip}' este: {suma_totala}")
 
-def sorteaza_apartamentele_dupa_suma_pe_tip(apartamente, operatii):
+def ui_sorteaza_apartamentele_dupa_suma_pe_tip(apartamente, operatii):
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
 	if tip is None: return
@@ -227,7 +227,7 @@ def sorteaza_apartamentele_dupa_suma_pe_tip(apartamente, operatii):
 	
 	print(f"Apartamentele sortate sunt: {apartamentele_sortate}")
 
-def calculeaza_suma_totala_pe_apartament(apartamente, operatii):
+def ui_calculeaza_suma_totala_pe_apartament(apartamente, operatii):
 	mesaj_indice_apartament(apartamente)
 	indice_apartament = input("indice apartament = ")
 	try:
@@ -244,7 +244,7 @@ def calculeaza_suma_totala_pe_apartament(apartamente, operatii):
 	
 	print(f"Suma totala a cheltuielilor la apartamentul {indice_apartament} este: {suma_totala}")
 
-def filtreaza_cheltuieli_diferite_de_tip(apartamente, operatii):
+def ui_filtreaza_cheltuieli_diferite_de_tip(apartamente, operatii):
 	mesaj_tip()
 	tip = valideaza_tip(input("tip = "))
 	if tip is None: return
@@ -253,7 +253,7 @@ def filtreaza_cheltuieli_diferite_de_tip(apartamente, operatii):
 	
 	print(f"Cheltuielile filtrate sunt: {cheltuielile_filtrate}")
 
-def filtreaza_cheltuieli_mai_mici_decat_suma(apartamente, operatii):
+def ui_filtreaza_cheltuieli_mai_mici_decat_suma(apartamente, operatii):
 	suma = valideaza_suma(input("suma = "))
 	if suma is None: return
 	
@@ -261,7 +261,7 @@ def filtreaza_cheltuieli_mai_mici_decat_suma(apartamente, operatii):
 	
 	print(f"Cheltuielile mai mici decat suma sunt: {cheltuielile_filtrate}")
 
-def undo(apartamente, operatii):
+def ui_undo(apartamente, operatii):
 	if len(operatii) == 0:
 		eroare("Nu mai sunt operatii care pot fi date inapoi")
 		return
@@ -271,26 +271,26 @@ def undo(apartamente, operatii):
 
 date_meniu = [
 	"Adaugare",
-	(adauga_cheltuiala, "Adauga cheltuiala"),
-	(modifica_cheltuiala, "Modifica cheltuiala"),
+	(ui_adauga_cheltuiala, "Adauga cheltuiala"),
+	(ui_modifica_cheltuiala, "Modifica cheltuiala"),
 	"Stergere",
-	(sterge_cheltuieli_apartament, "Sterge toate cheltuielile unui apartament"),
-	(sterge_cheltuieli_apartamente_consecutive, "Sterge cheltuielile de la apartamente consecutive"),
-	(sterge_cheltuieli_dupa_tip, "Sterge cheltuielile de un anumit tip de la toate apartamentele"),
+	(ui_sterge_cheltuieli_apartament, "Sterge toate cheltuielile unui apartament"),
+	(ui_sterge_cheltuieli_apartamente_consecutive, "Sterge cheltuielile de la apartamente consecutive"),
+	(ui_sterge_cheltuieli_dupa_tip, "Sterge cheltuielile de un anumit tip de la toate apartamentele"),
 	"Cautare",
-	(cauta_apartamente_cu_cheltuieli_mai_mari, "Tipareste toate apartamentele care au cheltuielile mai mari decat o suma"),
-	(cauta_cheltuieli_de_tip, "Tipareste cheltuielile de un anumit tip de la toate apartamentele"),
-	(cauta_cheltuieli_inainte_de_zi_mai_mari_decat_suma, "Cauta cheltuieli efectuate inainte de o zi si mai mari decat o suma"),
+	(ui_cauta_apartamente_cu_cheltuieli_mai_mari, "Tipareste toate apartamentele care au cheltuielile mai mari decat o suma"),
+	(ui_cauta_cheltuieli_de_tip, "Tipareste cheltuielile de un anumit tip de la toate apartamentele"),
+	(ui_cauta_cheltuieli_inainte_de_zi_mai_mari_decat_suma, "Cauta cheltuieli efectuate inainte de o zi si mai mari decat o suma"),
 	"Raportare",
-	(afiseaza_tot, "Tipareste toate cheltuielile de la toate apartamentele"),
-	(calculeaza_suma_totala_pe_tip, "Tipareste suma totala pentru un tip de cheltuiala"),
-	(sorteaza_apartamentele_dupa_suma_pe_tip, "Tipareste toate apartamentele sortate dupa un tip de cheltuiala"),
-	(calculeaza_suma_totala_pe_apartament, "Tipareste totalul de cheltuieli pentru un apartament dat"),
+	(ui_afiseaza_tot, "Tipareste toate cheltuielile de la toate apartamentele"),
+	(ui_calculeaza_suma_totala_pe_tip, "Tipareste suma totala pentru un tip de cheltuiala"),
+	(ui_sorteaza_apartamentele_dupa_suma_pe_tip, "Tipareste toate apartamentele sortate dupa un tip de cheltuiala"),
+	(ui_calculeaza_suma_totala_pe_apartament, "Tipareste totalul de cheltuieli pentru un apartament dat"),
 	"Filtrare",
-	(filtreaza_cheltuieli_diferite_de_tip, "Filtreaza cheltuielile cu tip diferit"),
-	(filtreaza_cheltuieli_mai_mici_decat_suma, "Filtreaza cheltuielile cu suma mai mica"),
+	(ui_filtreaza_cheltuieli_diferite_de_tip, "Filtreaza cheltuielile cu tip diferit"),
+	(ui_filtreaza_cheltuieli_mai_mici_decat_suma, "Filtreaza cheltuielile cu suma mai mica"),
 	"Undo",
-	(undo, "Undo"),
+	(ui_undo, "Undo"),
 ]
 
 def creeaza_meniu(date_meniu):

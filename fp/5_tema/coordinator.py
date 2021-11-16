@@ -4,7 +4,6 @@ from ui import meniu, eroare
 import datetime
 
 apartamente = {}
-apartamente = {1: [[100.0, 'apa', datetime.date(2021, 10, 31)]], 2: [[123.0, 'canal', datetime.date(2021, 10, 31)]], 5: [[23232.0, 'gaz', datetime.date(2021, 10, 15)]]}
 operatii = []
 
 while True:

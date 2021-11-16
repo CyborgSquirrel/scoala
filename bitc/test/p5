@@ -1,0 +1,14 @@
+int get_index_of(int val, int n, int *arr){
+	// algoritmul folosit e cautarea binara
+	int lt = 0, rt = n;
+	while(lt < rt){
+		int mid = (lt+rt)/2;
+		if(arr[mid] < val){
+			lt = mid+1;
+		}else{
+			rt = mid;
+		}
+	}
+	if(arr[lt] == val)return lt;
+	else              return -1;
+}
