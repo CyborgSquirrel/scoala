@@ -1,0 +1,2963 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Gra",
+				"GradeValidator"
+			],
+			[
+				"Dis",
+				"DisciplineValidator"
+			],
+			[
+				"run",
+				"run_domain_tests"
+			],
+			[
+				"StudentGr",
+				"StudentGradeAverageDTO"
+			],
+			[
+				"Stu",
+				"StudentGradeDTO"
+			],
+			[
+				"st",
+				"student_id"
+			],
+			[
+				"find",
+				"find_student"
+			],
+			[
+				"get",
+				"get_grades_with_discipline_sorted_by_criterion"
+			],
+			[
+				"grades",
+				"grades_disicpline_1"
+			],
+			[
+				"gra",
+				"grades_disicpline_1"
+			],
+			[
+				"stude",
+				"student_grade_dto"
+			],
+			[
+				"student",
+				"student_grade_dto"
+			],
+			[
+				"get_stu",
+				"get_student_id"
+			],
+			[
+				"studen",
+				"student_grade_sum"
+			],
+			[
+				"stud",
+				"student_id"
+			],
+			[
+				"get_",
+				"get_student_id"
+			],
+			[
+				"stu",
+				"student_id"
+			],
+			[
+				"stuede",
+				"student_grade_sum"
+			],
+			[
+				"gdid",
+				"get_discipline_id"
+			],
+			[
+				"__",
+				"__student_service"
+			],
+			[
+				"gegt",
+				"get_grades_sorted_by_criterion"
+			],
+			[
+				"get_g",
+				"test_get_grades_sorted_by_criterion"
+			],
+			[
+				"get_ga",
+				"get_grades_sorted_by_criterion"
+			],
+			[
+				"fi",
+				"find"
+			],
+			[
+				"gd",
+				"get_disciplines"
+			],
+			[
+				"imdr",
+				"InMemoryDisciplineRepo"
+			],
+			[
+				"erase",
+				"erase_discipline_and_all_its_grades"
+			],
+			[
+				"era",
+				"erase_grade"
+			],
+			[
+				"__add",
+				"__add_grade"
+			],
+			[
+				"disc",
+				"discipline_id"
+			],
+			[
+				"add",
+				"add_discipline"
+			],
+			[
+				"discip",
+				"discipline_repo"
+			],
+			[
+				"grade",
+				"grade_validator"
+			],
+			[
+				"dis",
+				"discipline_id"
+			],
+			[
+				"get_dis",
+				"get_disciplines"
+			],
+			[
+				"Di",
+				"Discipline"
+			],
+			[
+				"__fi",
+				"__find_discipline_index"
+			],
+			[
+				"test_e",
+				"test_erase_discipline"
+			],
+			[
+				"test",
+				"test_add_discipline"
+			],
+			[
+				"disci",
+				"discipline_service"
+			],
+			[
+				"DI",
+				"DisciplineValidator"
+			],
+			[
+				"Se",
+				"self"
+			],
+			[
+				"vali",
+				"validate"
+			],
+			[
+				"Student",
+				"StudentNotFoundException"
+			],
+			[
+				"discipl",
+				"discipline"
+			],
+			[
+				"Stude",
+				"StudentValidator"
+			],
+			[
+				"stund",
+				"student_id"
+			],
+			[
+				"ligh",
+				"light_border"
+			],
+			[
+				"all",
+				"alllight"
+			],
+			[
+				"LAMP",
+				"LAMP_RED"
+			],
+			[
+				"sub",
+				"checked_sub"
+			],
+			[
+				"bloc",
+				"block_width"
+			],
+			[
+				"sun",
+				"sunlight_color"
+			],
+			[
+				"block",
+				"block_height"
+			],
+			[
+				"prin",
+				"println!"
+			],
+			[
+				"Beh",
+				"SamplerBehavior"
+			],
+			[
+				"div",
+				"div_euclid"
+			],
+			[
+				"light",
+				"light_index"
+			],
+			[
+				"ma",
+				"map_write"
+			],
+			[
+				"BufferT",
+				"BufferTextureType::Unsigned"
+			],
+			[
+				"unwra",
+				"unwrap_or"
+			],
+			[
+				"push",
+				"push_light"
+			],
+			[
+				"Blur",
+				"BlurLightMesh"
+			],
+			[
+				"vec",
+				"Vector2"
+			],
+			[
+				"delta",
+				"delta_abs"
+			],
+			[
+				"del",
+				"delta_abs"
+			],
+			[
+				"LAM",
+				"LAMP_RED"
+			],
+			[
+				"adj",
+				"adj_updated"
+			],
+			[
+				"Vec",
+				"Vector2"
+			],
+			[
+				"Ver",
+				"Vertex"
+			],
+			[
+				"draw",
+				"draw_light_debug_mesh"
+			],
+			[
+				"Vir",
+				"VirtualKeyCode::Key1"
+			],
+			[
+				"ro",
+				"rotate_right"
+			],
+			[
+				"unw",
+				"unwrap_or"
+			],
+			[
+				"W",
+				"World"
+			],
+			[
+				"Or",
+				"Ordering::Greater"
+			],
+			[
+				"OR",
+				"Ordering"
+			],
+			[
+				"rot",
+				"rotate_right"
+			],
+			[
+				"iter",
+				"iter_mut"
+			],
+			[
+				"event",
+				"event_loop"
+			],
+			[
+				"Clo",
+				"Clone"
+			],
+			[
+				"gen",
+				"gen_range"
+			],
+			[
+				"ge",
+				"gen_bool"
+			],
+			[
+				"worm",
+				"worm_length"
+			],
+			[
+				"g",
+				"gen_range"
+			],
+			[
+				"with",
+				"with_freq"
+			],
+			[
+				"res",
+				"resize"
+			],
+			[
+				"A",
+				"LAMP"
+			],
+			[
+				"Rgb",
+				"RgbaImage"
+			],
+			[
+				"Rg",
+				"RgbaImage"
+			],
+			[
+				"glut",
+				"glutin_time"
+			],
+			[
+				"sat",
+				"saturating_sub"
+			],
+			[
+				"from",
+				"from_millis"
+			],
+			[
+				"println",
+				"println!"
+			],
+			[
+				"ptr",
+				"as_ptr"
+			],
+			[
+				"transla",
+				"translate"
+			],
+			[
+				"texture",
+				"texture_tetris"
+			],
+			[
+				"into_rgba",
+				"into_rgba8"
+			],
+			[
+				"to_by",
+				"into_bytes"
+			],
+			[
+				"into",
+				"into_rgb8"
+			],
+			[
+				"as_",
+				"as_secs_f32"
+			],
+			[
+				"as",
+				"as_millis"
+			],
+			[
+				"Unsigned",
+				"UNSIGNED_INT"
+			],
+			[
+				"window",
+				"windowed_context"
+			],
+			[
+				"EnableVertex",
+				"EnableVertexArrayAttrib"
+			],
+			[
+				"print",
+				"print_shader_info_log"
+			],
+			[
+				"info",
+				"info_log"
+			],
+			[
+				"as_mu",
+				"as_mut_ptr"
+			],
+			[
+				"GetShaderInfoLog",
+				"GetShaderInfoLog"
+			],
+			[
+				"GetShader",
+				"GetShaderiv"
+			],
+			[
+				"VERTE",
+				"VERTEX_SHADER_SOURCE"
+			],
+			[
+				"Crae",
+				"CreateShader"
+			],
+			[
+				"Stat",
+				"STATIC_DRAW"
+			],
+			[
+				"win",
+				"windowed_context"
+			],
+			[
+				"windo",
+				"windowed_context"
+			],
+			[
+				"pr",
+				"println!"
+			],
+			[
+				"Contr",
+				"ControlFlow::Exit"
+			],
+			[
+				"pan",
+				"panic!"
+			],
+			[
+				"Start",
+				"StartCause::Poll"
+			],
+			[
+				"Wait",
+				"WaitUntil"
+			],
+			[
+				"StartC",
+				"StartCause::ResumeTimeReached"
+			],
+			[
+				"gl",
+				"glium"
+			],
+			[
+				"macro",
+				"macro"
+			],
+			[
+				"and",
+				"and_then(…)\t  pub fn and_then<U, F: FnOnce(T) -> Option<U>>(self, f: F) -> Option<U>"
+			],
+			[
+				"Fn",
+				"FnMut\t  Interface"
+			],
+			[
+				"line",
+				"line_clear_frames\t  u32"
+			],
+			[
+				"text",
+				"text_creator\t  &TextCreator"
+			],
+			[
+				"game",
+				"game_font\t  Font"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ui/interactive.py",
+			"settings":
+			{
+				"buffer_size": 6538,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "repo/disciplinerepo.py",
+			"settings":
+			{
+				"buffer_size": 1892,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "domain/entity.py",
+			"settings":
+			{
+				"buffer_size": 2211,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"BAAAAC0BAAAAAAAALgEAAAAAAAAAAAAALgEAAAAAAAAvAQAAAAAAAAAAAAAvAQAAAAAAADABAAAAAAAAAAAAADABAAAAAAAAMQEAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAC0BAAAAAAAALQEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "getter"
+					},
+					"BgAAAC8BAAAAAAAAMAEAAAAAAAAAAAAAMAEAAAAAAAAxAQAAAAAAAAAAAAAxAQAAAAAAADIBAAAAAAAAAAAAADIBAAAAAAAAMwEAAAAAAAAAAAAAMwEAAAAAAAA0AQAAAAAAAAAAAAA0AQAAAAAAADUBAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAC8BAAAAAAAALwEAAAAAAAAAAAAAAABGQA"
+				],
+				[
+					11,
+					1,
+					"insert_completion",
+					{
+						"completion": "def get_$1(self):\n\treturn self.__$1\n",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "getter"
+					},
+					"AgAAAC8BAAAAAAAALwEAAAAAAAAGAAAAZ2V0dGVyLwEAAAAAAABRAQAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAADUBAAAAAAAANQEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": "student_id"
+					},
+					"FAAAAE8BAAAAAAAAUAEAAAAAAAAAAAAANwEAAAAAAAA4AQAAAAAAAAAAAABRAQAAAAAAAFIBAAAAAAAAAAAAADgBAAAAAAAAOQEAAAAAAAAAAAAAUwEAAAAAAABUAQAAAAAAAAAAAAA5AQAAAAAAADoBAAAAAAAAAAAAAFUBAAAAAAAAVgEAAAAAAAAAAAAAOgEAAAAAAAA7AQAAAAAAAAAAAABXAQAAAAAAAFgBAAAAAAAAAAAAADsBAAAAAAAAPAEAAAAAAAAAAAAAWQEAAAAAAABaAQAAAAAAAAAAAAA8AQAAAAAAAD0BAAAAAAAAAAAAAFsBAAAAAAAAXAEAAAAAAAAAAAAAPQEAAAAAAAA+AQAAAAAAAAAAAABdAQAAAAAAAF4BAAAAAAAAAAAAAD4BAAAAAAAAPwEAAAAAAAAAAAAAXwEAAAAAAABgAQAAAAAAAAAAAAA/AQAAAAAAAEABAAAAAAAAAAAAAGEBAAAAAAAAYgEAAAAAAAAAAAAAQAEAAAAAAABBAQAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAgAAADcBAAAAAAAANwEAAAAAAAAAAAAAAADwv08BAAAAAAAATwEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "\nsetter"
+					},
+					"CAAAAGUBAAAAAAAAZgEAAAAAAAAAAAAAZgEAAAAAAABnAQAAAAAAAAAAAABnAQAAAAAAAGgBAAAAAAAAAAAAAGgBAAAAAAAAaQEAAAAAAAAAAAAAaQEAAAAAAABqAQAAAAAAAAAAAABqAQAAAAAAAGsBAAAAAAAAAAAAAGsBAAAAAAAAbAEAAAAAAAAAAAAAbAEAAAAAAABtAQAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGUBAAAAAAAAZQEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					16,
+					1,
+					"insert_completion",
+					{
+						"completion": "def set_$1(self, $1):\n\tself.__$1 = $1\n",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "setter"
+					},
+					"AgAAAGcBAAAAAAAAZwEAAAAAAAAGAAAAc2V0dGVyZwEAAAAAAACHAQAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAG0BAAAAAAAAbQEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "studdent_"
+					},
+					"JAAAAIUBAAAAAAAAhgEAAAAAAAAAAAAAggEAAAAAAACDAQAAAAAAAAAAAAB2AQAAAAAAAHcBAAAAAAAAAAAAAG8BAAAAAAAAcAEAAAAAAAAAAAAAiQEAAAAAAACKAQAAAAAAAAAAAACFAQAAAAAAAIYBAAAAAAAAAAAAAHgBAAAAAAAAeQEAAAAAAAAAAAAAcAEAAAAAAABxAQAAAAAAAAAAAACNAQAAAAAAAI4BAAAAAAAAAAAAAIgBAAAAAAAAiQEAAAAAAAAAAAAAegEAAAAAAAB7AQAAAAAAAAAAAABxAQAAAAAAAHIBAAAAAAAAAAAAAJEBAAAAAAAAkgEAAAAAAAAAAAAAiwEAAAAAAACMAQAAAAAAAAAAAAB8AQAAAAAAAH0BAAAAAAAAAAAAAHIBAAAAAAAAcwEAAAAAAAAAAAAAlQEAAAAAAACWAQAAAAAAAAAAAACOAQAAAAAAAI8BAAAAAAAAAAAAAH4BAAAAAAAAfwEAAAAAAAAAAAAAcwEAAAAAAAB0AQAAAAAAAAAAAACZAQAAAAAAAJoBAAAAAAAAAAAAAJEBAAAAAAAAkgEAAAAAAAAAAAAAgAEAAAAAAACBAQAAAAAAAAAAAAB0AQAAAAAAAHUBAAAAAAAAAAAAAJ0BAAAAAAAAngEAAAAAAAAAAAAAlAEAAAAAAACVAQAAAAAAAAAAAACCAQAAAAAAAIMBAAAAAAAAAAAAAHUBAAAAAAAAdgEAAAAAAAAAAAAAoQEAAAAAAACiAQAAAAAAAAAAAACXAQAAAAAAAJgBAAAAAAAAAAAAAIQBAAAAAAAAhQEAAAAAAAAAAAAAdgEAAAAAAAB3AQAAAAAAAAAAAAClAQAAAAAAAKYBAAAAAAAAAAAAAJoBAAAAAAAAmwEAAAAAAAAAAAAAhgEAAAAAAACHAQAAAAAAAAAAAAB3AQAAAAAAAHgBAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAABAAAAG8BAAAAAAAAbwEAAAAAAAAAAAAAAADwv3YBAAAAAAAAdgEAAAAAAAAAAAAAAADwv4IBAAAAAAAAggEAAAAAAAAAAAAAAADwv4UBAAAAAAAAhQEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					18,
+					5,
+					"left_delete",
+					null,
+					"FAAAAKgBAAAAAAAAqAEAAAAAAAABAAAAX5wBAAAAAAAAnAEAAAAAAAABAAAAX4cBAAAAAAAAhwEAAAAAAAABAAAAX3cBAAAAAAAAdwEAAAAAAAABAAAAX6QBAAAAAAAApAEAAAAAAAABAAAAdJkBAAAAAAAAmQEAAAAAAAABAAAAdIUBAAAAAAAAhQEAAAAAAAABAAAAdHYBAAAAAAAAdgEAAAAAAAABAAAAdKABAAAAAAAAoAEAAAAAAAABAAAAbpYBAAAAAAAAlgEAAAAAAAABAAAAboMBAAAAAAAAgwEAAAAAAAABAAAAbnUBAAAAAAAAdQEAAAAAAAABAAAAbpwBAAAAAAAAnAEAAAAAAAABAAAAZZMBAAAAAAAAkwEAAAAAAAABAAAAZYEBAAAAAAAAgQEAAAAAAAABAAAAZXQBAAAAAAAAdAEAAAAAAAABAAAAZZgBAAAAAAAAmAEAAAAAAAABAAAAZJABAAAAAAAAkAEAAAAAAAABAAAAZH8BAAAAAAAAfwEAAAAAAAABAAAAZHMBAAAAAAAAcwEAAAAAAAABAAAAZA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAABAAAAHgBAAAAAAAAeAEAAAAAAAAAAAAAAADwv4gBAAAAAAAAiAEAAAAAAAAAAAAAAADwv50BAAAAAAAAnQEAAAAAAAAAAAAAAADwv6kBAAAAAAAAqQEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					19,
+					1,
+					"insert",
+					{
+						"characters": "ent_id"
+					},
+					"GAAAAJUBAAAAAAAAlgEAAAAAAAAAAAAAjgEAAAAAAACPAQAAAAAAAAAAAAB+AQAAAAAAAH8BAAAAAAAAAAAAAHMBAAAAAAAAdAEAAAAAAAAAAAAAmQEAAAAAAACaAQAAAAAAAAAAAACRAQAAAAAAAJIBAAAAAAAAAAAAAIABAAAAAAAAgQEAAAAAAAAAAAAAdAEAAAAAAAB1AQAAAAAAAAAAAACdAQAAAAAAAJ4BAAAAAAAAAAAAAJQBAAAAAAAAlQEAAAAAAAAAAAAAggEAAAAAAACDAQAAAAAAAAAAAAB1AQAAAAAAAHYBAAAAAAAAAAAAAKEBAAAAAAAAogEAAAAAAAAAAAAAlwEAAAAAAACYAQAAAAAAAAAAAACEAQAAAAAAAIUBAAAAAAAAAAAAAHYBAAAAAAAAdwEAAAAAAAAAAAAApQEAAAAAAACmAQAAAAAAAAAAAACaAQAAAAAAAJsBAAAAAAAAAAAAAIYBAAAAAAAAhwEAAAAAAAAAAAAAdwEAAAAAAAB4AQAAAAAAAAAAAACpAQAAAAAAAKoBAAAAAAAAAAAAAJ0BAAAAAAAAngEAAAAAAAAAAAAAiAEAAAAAAACJAQAAAAAAAAAAAAB4AQAAAAAAAHkBAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAABAAAAHMBAAAAAAAAcwEAAAAAAAAAAAAAAADwv34BAAAAAAAAfgEAAAAAAAAAAAAAAADwv44BAAAAAAAAjgEAAAAAAAAAAAAAAADwv5UBAAAAAAAAlQEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					22,
+					1,
+					"left_delete",
+					null,
+					"AQAAACsBAAAAAAAAKwEAAAAAAACEAAAACgkKCWRlZiBnZXRfc3R1ZGVudF9pZChzZWxmKToKCQlyZXR1cm4gc2VsZi5fX3N0dWRlbnRfaWQKCQoJZGVmIHNldF9zdHVkZW50X2lkKHNlbGYsIHN0dWRlbnRfaWQpOgoJCXNlbGYuX19zdHVkZW50X2lkID0gc3R1ZGVudF9pZAoJ",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAK8BAAAAAAAAKwEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AgAAACYCAAAAAAAAJwIAAAAAAAAAAAAAJwIAAAAAAAAoAgAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACYCAAAAAAAAJgIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					27,
+					1,
+					"insert",
+					{
+						"characters": "clasas"
+					},
+					"BgAAACcCAAAAAAAAKAIAAAAAAAAAAAAAKAIAAAAAAAApAgAAAAAAAAAAAAApAgAAAAAAACoCAAAAAAAAAAAAACoCAAAAAAAAKwIAAAAAAAAAAAAAKwIAAAAAAAAsAgAAAAAAAAAAAAAsAgAAAAAAAC0CAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACcCAAAAAAAAJwIAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					28,
+					1,
+					"insert",
+					{
+						"characters": "\t"
+					},
+					"AQAAAC0CAAAAAAAALgIAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAC0CAAAAAAAALQIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					29,
+					3,
+					"left_delete",
+					null,
+					"AwAAAC0CAAAAAAAALQIAAAAAAAABAAAACSwCAAAAAAAALAIAAAAAAAABAAAAcysCAAAAAAAAKwIAAAAAAAABAAAAYQ",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAC4CAAAAAAAALgIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					30,
+					1,
+					"insert",
+					{
+						"characters": "s"
+					},
+					"AQAAACsCAAAAAAAALAIAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACsCAAAAAAAAKwIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					31,
+					1,
+					"insert_completion",
+					{
+						"completion": "class ${1:ClassName}:\n\tdef __init__(self, $2):${2/,?\\s*([A-Za-z_][A-Za-z_0-9]*)/\\n\\t\\tself.__\\1 = \\1/g}\n",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "class"
+					},
+					"AgAAACcCAAAAAAAAJwIAAAAAAAAFAAAAY2xhc3MnAgAAAAAAAE8CAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACwCAAAAAAAALAIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					32,
+					1,
+					"insert",
+					{
+						"characters": "N"
+					},
+					"AgAAAC0CAAAAAAAALgIAAAAAAAAAAAAALgIAAAAAAAAuAgAAAAAAAAkAAABDbGFzc05hbWU",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAC0CAAAAAAAANgIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					33,
+					1,
+					"left_delete",
+					null,
+					"AQAAAC0CAAAAAAAALQIAAAAAAAABAAAATg",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAC4CAAAAAAAALgIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": "Salami"
+					},
+					"BgAAAC0CAAAAAAAALgIAAAAAAAAAAAAALgIAAAAAAAAvAgAAAAAAAAAAAAAvAgAAAAAAADACAAAAAAAAAAAAADACAAAAAAAAMQIAAAAAAAAAAAAAMQIAAAAAAAAyAgAAAAAAAAAAAAAyAgAAAAAAADMCAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAC0CAAAAAAAALQIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					35,
+					1,
+					"next_field",
+					null,
+					"AQAAAEsCAAAAAAAASwIAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAADMCAAAAAAAAMwIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					36,
+					1,
+					"insert",
+					{
+						"characters": "pepperoni,"
+					},
+					"HQAAAEkCAAAAAAAASgIAAAAAAAAAAAAATAIAAAAAAABbAgAAAAAAAAAAAABKAgAAAAAAAEsCAAAAAAAAAAAAAE0CAAAAAAAAXgIAAAAAAAAAAAAAXgIAAAAAAABeAgAAAAAAAA8AAAAKCQlzZWxmLl9fcCA9IHBLAgAAAAAAAEwCAAAAAAAAAAAAAE4CAAAAAAAAYQIAAAAAAAAAAAAAYQIAAAAAAABhAgAAAAAAABEAAAAKCQlzZWxmLl9fcGUgPSBwZUwCAAAAAAAATQIAAAAAAAAAAAAATwIAAAAAAABkAgAAAAAAAAAAAABkAgAAAAAAAGQCAAAAAAAAEwAAAAoJCXNlbGYuX19wZXAgPSBwZXBNAgAAAAAAAE4CAAAAAAAAAAAAAFACAAAAAAAAZwIAAAAAAAAAAAAAZwIAAAAAAABnAgAAAAAAABUAAAAKCQlzZWxmLl9fcGVwcCA9IHBlcHBOAgAAAAAAAE8CAAAAAAAAAAAAAFECAAAAAAAAagIAAAAAAAAAAAAAagIAAAAAAABqAgAAAAAAABcAAAAKCQlzZWxmLl9fcGVwcGUgPSBwZXBwZU8CAAAAAAAAUAIAAAAAAAAAAAAAUgIAAAAAAABtAgAAAAAAAAAAAABtAgAAAAAAAG0CAAAAAAAAGQAAAAoJCXNlbGYuX19wZXBwZXIgPSBwZXBwZXJQAgAAAAAAAFECAAAAAAAAAAAAAFMCAAAAAAAAcAIAAAAAAAAAAAAAcAIAAAAAAABwAgAAAAAAABsAAAAKCQlzZWxmLl9fcGVwcGVybyA9IHBlcHBlcm9RAgAAAAAAAFICAAAAAAAAAAAAAFQCAAAAAAAAcwIAAAAAAAAAAAAAcwIAAAAAAABzAgAAAAAAAB0AAAAKCQlzZWxmLl9fcGVwcGVyb24gPSBwZXBwZXJvblICAAAAAAAAUwIAAAAAAAAAAAAAVQIAAAAAAAB1AgAAAAAAAAAAAAB1AgAAAAAAAHUCAAAAAAAAHwAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmk",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEkCAAAAAAAASQIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": " berlusc"
+					},
+					"GAAAAFMCAAAAAAAAVAIAAAAAAAAAAAAAVgIAAAAAAAB3AgAAAAAAAAAAAAB3AgAAAAAAAHcCAAAAAAAAIAAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmksVAIAAAAAAABVAgAAAAAAAAAAAABXAgAAAAAAAIUCAAAAAAAAAAAAAIUCAAAAAAAAhQIAAAAAAAAhAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaSwgVQIAAAAAAABWAgAAAAAAAAAAAABYAgAAAAAAAIgCAAAAAAAAAAAAAIgCAAAAAAAAiAIAAAAAAAAuAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iID0gYlYCAAAAAAAAVwIAAAAAAAAAAAAAWQIAAAAAAACLAgAAAAAAAAAAAACLAgAAAAAAAIsCAAAAAAAAMAAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmUgPSBiZVcCAAAAAAAAWAIAAAAAAAAAAAAAWgIAAAAAAACOAgAAAAAAAAAAAACOAgAAAAAAAI4CAAAAAAAAMgAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVyID0gYmVyWAIAAAAAAABZAgAAAAAAAAAAAABbAgAAAAAAAJECAAAAAAAAAAAAAJECAAAAAAAAkQIAAAAAAAA0AAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsID0gYmVybFkCAAAAAAAAWgIAAAAAAAAAAAAAXAIAAAAAAACUAgAAAAAAAAAAAACUAgAAAAAAAJQCAAAAAAAANgAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHUgPSBiZXJsdVoCAAAAAAAAWwIAAAAAAAAAAAAAXQIAAAAAAACXAgAAAAAAAAAAAACXAgAAAAAAAJcCAAAAAAAAOAAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzID0gYmVybHVz",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAFMCAAAAAAAAUwIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					38,
+					1,
+					"insert",
+					{
+						"characters": "oni,"
+					},
+					"DAAAAFsCAAAAAAAAXAIAAAAAAAAAAAAAXgIAAAAAAACaAgAAAAAAAAAAAACaAgAAAAAAAJoCAAAAAAAAOgAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzYyA9IGJlcmx1c2NcAgAAAAAAAF0CAAAAAAAAAAAAAF8CAAAAAAAAnQIAAAAAAAAAAAAAnQIAAAAAAACdAgAAAAAAADwAAAAKCQlzZWxmLl9fcGVwcGVyb25pID0gcGVwcGVyb25pCgkJc2VsZi5fX2Jlcmx1c2NvID0gYmVybHVzY29dAgAAAAAAAF4CAAAAAAAAAAAAAGACAAAAAAAAoAIAAAAAAAAAAAAAoAIAAAAAAACgAgAAAAAAAD4AAAAKCQlzZWxmLl9fcGVwcGVyb25pID0gcGVwcGVyb25pCgkJc2VsZi5fX2Jlcmx1c2NvbiA9IGJlcmx1c2Nvbl4CAAAAAAAAXwIAAAAAAAAAAAAAYQIAAAAAAACiAgAAAAAAAAAAAACiAgAAAAAAAKICAAAAAAAAQAAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2Nvbmk",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAFsCAAAAAAAAWwIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					39,
+					1,
+					"insert",
+					{
+						"characters": " massimo,"
+					},
+					"GwAAAF8CAAAAAAAAYAIAAAAAAAAAAAAAYgIAAAAAAACkAgAAAAAAAAAAAACkAgAAAAAAAKQCAAAAAAAAQQAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2NvbmksYAIAAAAAAABhAgAAAAAAAAAAAABjAgAAAAAAALICAAAAAAAAAAAAALICAAAAAAAAsgIAAAAAAABCAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsdXNjb25pID0gYmVybHVzY29uaSwgYQIAAAAAAABiAgAAAAAAAAAAAABkAgAAAAAAALUCAAAAAAAAAAAAALUCAAAAAAAAtQIAAAAAAABPAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsdXNjb25pID0gYmVybHVzY29uaQoJCXNlbGYuX19tID0gbWICAAAAAAAAYwIAAAAAAAAAAAAAZQIAAAAAAAC4AgAAAAAAAAAAAAC4AgAAAAAAALgCAAAAAAAAUQAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2NvbmkKCQlzZWxmLl9fbWEgPSBtYWMCAAAAAAAAZAIAAAAAAAAAAAAAZgIAAAAAAAC7AgAAAAAAAAAAAAC7AgAAAAAAALsCAAAAAAAAUwAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2NvbmkKCQlzZWxmLl9fbWFzID0gbWFzZAIAAAAAAABlAgAAAAAAAAAAAABnAgAAAAAAAL4CAAAAAAAAAAAAAL4CAAAAAAAAvgIAAAAAAABVAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsdXNjb25pID0gYmVybHVzY29uaQoJCXNlbGYuX19tYXNzID0gbWFzc2UCAAAAAAAAZgIAAAAAAAAAAAAAaAIAAAAAAADBAgAAAAAAAAAAAADBAgAAAAAAAMECAAAAAAAAVwAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2NvbmkKCQlzZWxmLl9fbWFzc2kgPSBtYXNzaWYCAAAAAAAAZwIAAAAAAAAAAAAAaQIAAAAAAADEAgAAAAAAAAAAAADEAgAAAAAAAMQCAAAAAAAAWQAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2NvbmkKCQlzZWxmLl9fbWFzc2ltID0gbWFzc2ltZwIAAAAAAABoAgAAAAAAAAAAAABqAgAAAAAAAMYCAAAAAAAAAAAAAMYCAAAAAAAAxgIAAAAAAABbAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsdXNjb25pID0gYmVybHVzY29uaQoJCXNlbGYuX19tYXNzaW1vID0gbWFzc2ltbw",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAF8CAAAAAAAAXwIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": " dutti"
+					},
+					"EgAAAGgCAAAAAAAAaQIAAAAAAAAAAAAAawIAAAAAAADIAgAAAAAAAAAAAADIAgAAAAAAAMgCAAAAAAAAXAAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2NvbmkKCQlzZWxmLl9fbWFzc2ltbyA9IG1hc3NpbW8saQIAAAAAAABqAgAAAAAAAAAAAABsAgAAAAAAANYCAAAAAAAAAAAAANYCAAAAAAAA1gIAAAAAAABdAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsdXNjb25pID0gYmVybHVzY29uaQoJCXNlbGYuX19tYXNzaW1vID0gbWFzc2ltbywgagIAAAAAAABrAgAAAAAAAAAAAABtAgAAAAAAANkCAAAAAAAAAAAAANkCAAAAAAAA2QIAAAAAAABqAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsdXNjb25pID0gYmVybHVzY29uaQoJCXNlbGYuX19tYXNzaW1vID0gbWFzc2ltbwoJCXNlbGYuX19kID0gZGsCAAAAAAAAbAIAAAAAAAAAAAAAbgIAAAAAAADcAgAAAAAAAAAAAADcAgAAAAAAANwCAAAAAAAAbAAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2NvbmkKCQlzZWxmLl9fbWFzc2ltbyA9IG1hc3NpbW8KCQlzZWxmLl9fZHUgPSBkdWwCAAAAAAAAbQIAAAAAAAAAAAAAbwIAAAAAAADfAgAAAAAAAAAAAADfAgAAAAAAAN8CAAAAAAAAbgAAAAoJCXNlbGYuX19wZXBwZXJvbmkgPSBwZXBwZXJvbmkKCQlzZWxmLl9fYmVybHVzY29uaSA9IGJlcmx1c2NvbmkKCQlzZWxmLl9fbWFzc2ltbyA9IG1hc3NpbW8KCQlzZWxmLl9fZHV0ID0gZHV0bQIAAAAAAABuAgAAAAAAAAAAAABwAgAAAAAAAOICAAAAAAAAAAAAAOICAAAAAAAA4gIAAAAAAABwAAAACgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsdXNjb25pID0gYmVybHVzY29uaQoJCXNlbGYuX19tYXNzaW1vID0gbWFzc2ltbwoJCXNlbGYuX19kdXR0ID0gZHV0dA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGgCAAAAAAAAaAIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					43,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAOICAAAAAAAA4wIAAAAAAAAAAAAA4wIAAAAAAADlAgAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAOICAAAAAAAA4gIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					44,
+					1,
+					"left_delete",
+					null,
+					"AQAAAOQCAAAAAAAA5AIAAAAAAAABAAAACQ",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAOUCAAAAAAAA5QIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					45,
+					1,
+					"insert",
+					{
+						"characters": "\ngetter"
+					},
+					"CAAAAOQCAAAAAAAA5QIAAAAAAAAAAAAA5QIAAAAAAADmAgAAAAAAAAAAAADmAgAAAAAAAOcCAAAAAAAAAAAAAOcCAAAAAAAA6AIAAAAAAAAAAAAA6AIAAAAAAADpAgAAAAAAAAAAAADpAgAAAAAAAOoCAAAAAAAAAAAAAOoCAAAAAAAA6wIAAAAAAAAAAAAA6wIAAAAAAADsAgAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAOQCAAAAAAAA5AIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					46,
+					1,
+					"insert_completion",
+					{
+						"completion": "def get_$1(self):\n\treturn self.__$1\n",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "getter"
+					},
+					"AgAAAOYCAAAAAAAA5gIAAAAAAAAGAAAAZ2V0dGVy5gIAAAAAAAAIAwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAOwCAAAAAAAA7AIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					47,
+					1,
+					"insert",
+					{
+						"characters": "sal"
+					},
+					"BgAAAAYDAAAAAAAABwMAAAAAAAAAAAAA7gIAAAAAAADvAgAAAAAAAAAAAAAIAwAAAAAAAAkDAAAAAAAAAAAAAO8CAAAAAAAA8AIAAAAAAAAAAAAACgMAAAAAAAALAwAAAAAAAAAAAADwAgAAAAAAAPECAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAgAAAO4CAAAAAAAA7gIAAAAAAAAAAAAAAADwvwYDAAAAAAAABgMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					48,
+					3,
+					"left_delete",
+					null,
+					"BgAAAAsDAAAAAAAACwMAAAAAAAABAAAAbPACAAAAAAAA8AIAAAAAAAABAAAAbAkDAAAAAAAACQMAAAAAAAABAAAAYe8CAAAAAAAA7wIAAAAAAAABAAAAYQcDAAAAAAAABwMAAAAAAAABAAAAc+4CAAAAAAAA7gIAAAAAAAABAAAAcw",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAgAAAPECAAAAAAAA8QIAAAAAAAAAAAAAAADwvwwDAAAAAAAADAMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					49,
+					1,
+					"insert",
+					{
+						"characters": "pepperoni"
+					},
+					"EgAAAAYDAAAAAAAABwMAAAAAAAAAAAAA7gIAAAAAAADvAgAAAAAAAAAAAAAIAwAAAAAAAAkDAAAAAAAAAAAAAO8CAAAAAAAA8AIAAAAAAAAAAAAACgMAAAAAAAALAwAAAAAAAAAAAADwAgAAAAAAAPECAAAAAAAAAAAAAAwDAAAAAAAADQMAAAAAAAAAAAAA8QIAAAAAAADyAgAAAAAAAAAAAAAOAwAAAAAAAA8DAAAAAAAAAAAAAPICAAAAAAAA8wIAAAAAAAAAAAAAEAMAAAAAAAARAwAAAAAAAAAAAADzAgAAAAAAAPQCAAAAAAAAAAAAABIDAAAAAAAAEwMAAAAAAAAAAAAA9AIAAAAAAAD1AgAAAAAAAAAAAAAUAwAAAAAAABUDAAAAAAAAAAAAAPUCAAAAAAAA9gIAAAAAAAAAAAAAFgMAAAAAAAAXAwAAAAAAAAAAAAD2AgAAAAAAAPcCAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAgAAAO4CAAAAAAAA7gIAAAAAAAAAAAAAAADwvwYDAAAAAAAABgMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					51,
+					1,
+					"insert",
+					{
+						"characters": "\nsetter"
+					},
+					"CAAAABoDAAAAAAAAGwMAAAAAAAAAAAAAGwMAAAAAAAAcAwAAAAAAAAAAAAAcAwAAAAAAAB0DAAAAAAAAAAAAAB0DAAAAAAAAHgMAAAAAAAAAAAAAHgMAAAAAAAAfAwAAAAAAAAAAAAAfAwAAAAAAACADAAAAAAAAAAAAACADAAAAAAAAIQMAAAAAAAAAAAAAIQMAAAAAAAAiAwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAABoDAAAAAAAAGgMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					52,
+					1,
+					"insert_completion",
+					{
+						"completion": "def set_$1(self, $1):\n\tself.__$1 = $1\n",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "setter"
+					},
+					"AgAAABwDAAAAAAAAHAMAAAAAAAAGAAAAc2V0dGVyHAMAAAAAAAA8AwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACIDAAAAAAAAIgMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					53,
+					1,
+					"insert",
+					{
+						"characters": "pepperooni="
+					},
+					"LAAAADoDAAAAAAAAOwMAAAAAAAAAAAAANwMAAAAAAAA4AwAAAAAAAAAAAAArAwAAAAAAACwDAAAAAAAAAAAAACQDAAAAAAAAJQMAAAAAAAAAAAAAPgMAAAAAAAA/AwAAAAAAAAAAAAA6AwAAAAAAADsDAAAAAAAAAAAAAC0DAAAAAAAALgMAAAAAAAAAAAAAJQMAAAAAAAAmAwAAAAAAAAAAAABCAwAAAAAAAEMDAAAAAAAAAAAAAD0DAAAAAAAAPgMAAAAAAAAAAAAALwMAAAAAAAAwAwAAAAAAAAAAAAAmAwAAAAAAACcDAAAAAAAAAAAAAEYDAAAAAAAARwMAAAAAAAAAAAAAQAMAAAAAAABBAwAAAAAAAAAAAAAxAwAAAAAAADIDAAAAAAAAAAAAACcDAAAAAAAAKAMAAAAAAAAAAAAASgMAAAAAAABLAwAAAAAAAAAAAABDAwAAAAAAAEQDAAAAAAAAAAAAADMDAAAAAAAANAMAAAAAAAAAAAAAKAMAAAAAAAApAwAAAAAAAAAAAABOAwAAAAAAAE8DAAAAAAAAAAAAAEYDAAAAAAAARwMAAAAAAAAAAAAANQMAAAAAAAA2AwAAAAAAAAAAAAApAwAAAAAAACoDAAAAAAAAAAAAAFIDAAAAAAAAUwMAAAAAAAAAAAAASQMAAAAAAABKAwAAAAAAAAAAAAA3AwAAAAAAADgDAAAAAAAAAAAAACoDAAAAAAAAKwMAAAAAAAAAAAAAVgMAAAAAAABXAwAAAAAAAAAAAABMAwAAAAAAAE0DAAAAAAAAAAAAADkDAAAAAAAAOgMAAAAAAAAAAAAAKwMAAAAAAAAsAwAAAAAAAAAAAABaAwAAAAAAAFsDAAAAAAAAAAAAAE8DAAAAAAAAUAMAAAAAAAAAAAAAOwMAAAAAAAA8AwAAAAAAAAAAAAAsAwAAAAAAAC0DAAAAAAAAAAAAAF4DAAAAAAAAXwMAAAAAAAAAAAAAUgMAAAAAAABTAwAAAAAAAAAAAAA9AwAAAAAAAD4DAAAAAAAAAAAAAC0DAAAAAAAALgMAAAAAAAAAAAAAYgMAAAAAAABjAwAAAAAAAAAAAABVAwAAAAAAAFYDAAAAAAAAAAAAAD8DAAAAAAAAQAMAAAAAAAAAAAAALgMAAAAAAAAvAwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAABAAAACQDAAAAAAAAJAMAAAAAAAAAAAAAAADwvysDAAAAAAAAKwMAAAAAAAAAAAAAAADwvzcDAAAAAAAANwMAAAAAAAAAAAAAAADwvzoDAAAAAAAAOgMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					54,
+					4,
+					"left_delete",
+					null,
+					"EAAAAGUDAAAAAAAAZQMAAAAAAAABAAAAPVcDAAAAAAAAVwMAAAAAAAABAAAAPUADAAAAAAAAQAMAAAAAAAABAAAAPS4DAAAAAAAALgMAAAAAAAABAAAAPWEDAAAAAAAAYQMAAAAAAAABAAAAaVQDAAAAAAAAVAMAAAAAAAABAAAAaT4DAAAAAAAAPgMAAAAAAAABAAAAaS0DAAAAAAAALQMAAAAAAAABAAAAaV0DAAAAAAAAXQMAAAAAAAABAAAAblEDAAAAAAAAUQMAAAAAAAABAAAAbjwDAAAAAAAAPAMAAAAAAAABAAAAbiwDAAAAAAAALAMAAAAAAAABAAAAblkDAAAAAAAAWQMAAAAAAAABAAAAb04DAAAAAAAATgMAAAAAAAABAAAAbzoDAAAAAAAAOgMAAAAAAAABAAAAbysDAAAAAAAAKwMAAAAAAAABAAAAbw",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAABAAAAC8DAAAAAAAALwMAAAAAAAAAAAAAAADwv0EDAAAAAAAAQQMAAAAAAAAAAAAAAADwv1gDAAAAAAAAWAMAAAAAAAAAAAAAAADwv2YDAAAAAAAAZgMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					55,
+					1,
+					"insert",
+					{
+						"characters": "ni"
+					},
+					"CAAAAFYDAAAAAAAAVwMAAAAAAAAAAAAATAMAAAAAAABNAwAAAAAAAAAAAAA5AwAAAAAAADoDAAAAAAAAAAAAACsDAAAAAAAALAMAAAAAAAAAAAAAWgMAAAAAAABbAwAAAAAAAAAAAABPAwAAAAAAAFADAAAAAAAAAAAAADsDAAAAAAAAPAMAAAAAAAAAAAAALAMAAAAAAAAtAwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAABAAAACsDAAAAAAAAKwMAAAAAAAAAAAAAAADwvzkDAAAAAAAAOQMAAAAAAAAAAAAAAADwv0wDAAAAAAAATAMAAAAAAAAAAAAAAADwv1YDAAAAAAAAVgMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					63,
+					1,
+					"left_delete",
+					null,
+					"AQAAACUCAAAAAAAAJQIAAAAAAAA7AQAACgpjbGFzcyBTYWxhbWk6CglkZWYgX19pbml0X18oc2VsZiwgcGVwcGVyb25pLCBiZXJsdXNjb25pLCBtYXNzaW1vLCBkdXR0aSk6CgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJCXNlbGYuX19iZXJsdXNjb25pID0gYmVybHVzY29uaQoJCXNlbGYuX19tYXNzaW1vID0gbWFzc2ltbwoJCXNlbGYuX19kdXR0aSA9IGR1dHRpCgkKCWRlZiBnZXRfcGVwcGVyb25pKHNlbGYpOgoJCXJldHVybiBzZWxmLl9fcGVwcGVyb25pCgkKCWRlZiBzZXRfcGVwcGVyb25pKHNlbGYsIHBlcHBlcm9uaSk6CgkJc2VsZi5fX3BlcHBlcm9uaSA9IHBlcHBlcm9uaQoJ",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGADAAAAAAAAJQIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					68,
+					1,
+					"left_delete",
+					null,
+					"AQAAACYCAAAAAAAAJgIAAAAAAAABAAAACg",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACcCAAAAAAAAJwIAAAAAAAAAAAAAAADwvw"
+				]
+			]
+		},
+		{
+			"file": "service/gradeservice.py",
+			"settings":
+			{
+				"buffer_size": 5816,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "repo/graderepo.py",
+			"settings":
+			{
+				"buffer_size": 2207,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					20,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEcIAAAAAAAARwgAAAAAAAABAAAACQ",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAASAgAAAAAAABICAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "domain/dto.py",
+			"settings":
+			{
+				"buffer_size": 1270,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/Python/Python Console.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Automatic"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Run (with args)..."
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Check"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Test"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Test (with args)..."
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Bench"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Document"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Clippy"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Script"
+				],
+				[
+					"Packages/User/Python/Python Console.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/Python/Non-Stupid Python.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Python/Python Console.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/Python/Python Console.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Automatic"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Run (with args)..."
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Check"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Test"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Test (with args)..."
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Bench"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Document"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Clippy"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Script"
+				]
+			],
+			[
+				"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"arith",
+				"Arithmetic"
+			],
+			[
+				"color schee",
+				"UI: Select Color Scheme"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"sspt",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"ari",
+				"Arithmetic"
+			],
+			[
+				"ARITH",
+				"Arithmetic"
+			],
+			[
+				"temr",
+				"Terminal: Open in project folder"
+			],
+			[
+				"temrina",
+				"Terminal: Open in project folder"
+			],
+			[
+				"view",
+				"View Package File"
+			],
+			[
+				"view pa",
+				"View Package File"
+			],
+			[
+				"folder",
+				"Project: Add Folder"
+			],
+			[
+				"rust: ",
+				"Rust: Configure Cargo Build"
+			],
+			[
+				"gc",
+				"Git: Commit"
+			],
+			[
+				"git: add",
+				"Git: Add All"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"git: comm",
+				"Git: Commit"
+			],
+			[
+				"git: co",
+				"Git: Commit"
+			],
+			[
+				"git: ",
+				"Git: Status"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git comm",
+				"Git: Commit history"
+			],
+			[
+				"rust:",
+				"Rust: Configure Cargo Build"
+			],
+			[
+				"alig",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git: com",
+				"Git: Commit"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"rename",
+				"Rename File"
+			],
+			[
+				"arit",
+				"Arithmetic"
+			],
+			[
+				"trans",
+				"Transpose"
+			],
+			[
+				"tran",
+				"Transpose"
+			],
+			[
+				"lsp: disable",
+				"LSP: Disable Language Server Globally"
+			],
+			[
+				"lsp: eanble",
+				"LSP: Enable Language Server Globally"
+			],
+			[
+				"git: commit",
+				"Git: Commit"
+			],
+			[
+				"ali",
+				"AlignTab"
+			],
+			[
+				"transpo",
+				"Transpose"
+			],
+			[
+				"pro",
+				"Project: Close"
+			],
+			[
+				"view: toggle ta",
+				"View: Toggle Tabs"
+			],
+			[
+				"ssu",
+				"Sync Settings: Edit User Settings"
+			],
+			[
+				"sync settings: ",
+				"Sync Settings: Edit User Settings"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"cargo",
+				"Rust: Configure Cargo Build"
+			],
+			[
+				"carg",
+				"Rust: Configure Cargo Build"
+			],
+			[
+				"toip",
+				"Terminal: Open in project folder"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ssn",
+				"Show Scope Name"
+			],
+			[
+				"view ",
+				"View Package File"
+			],
+			[
+				"show",
+				"Show Scope Name"
+			],
+			[
+				"preferences: key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"lsp:restart",
+				"LSP: Restart Server"
+			],
+			[
+				"restat",
+				"LSP: Restart Server"
+			],
+			[
+				"gpus",
+				"Git: Push"
+			],
+			[
+				"enable pac",
+				"Package Control: Enable Package"
+			],
+			[
+				"rust: toggle",
+				"Rust: Toggle Warnings"
+			],
+			[
+				"rust: warn",
+				"Rust: Toggle Warnings"
+			],
+			[
+				"temri",
+				"Terminal: Open in project folder"
+			],
+			[
+				"temrinal",
+				"Terminal: Open in project folder"
+			],
+			[
+				"aligntab",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"align",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"remove packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"keybi",
+				"Preferences: LSP Key Bindings"
+			],
+			[
+				"buildview",
+				"Disable/Enable buildview for this window"
+			],
+			[
+				"preferences",
+				"Preferences: Settings"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"preferen",
+				"Preferences: Settings"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"enable\\",
+				"Package Control: Enable Package"
+			],
+			[
+				"rmeove package",
+				"Package Control: Remove Package"
+			],
+			[
+				"actualvim",
+				"ActualVim: Enable (File)"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"enable packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"enable packea",
+				"Package Control: Enable Package"
+			],
+			[
+				"color scheme",
+				"UI: Customize Color Scheme"
+			],
+			[
+				"select theme",
+				"UI: Select Theme"
+			],
+			[
+				"new view",
+				"File: New View into File"
+			],
+			[
+				"yeet",
+				"Snippet: yeet"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"new snippet",
+				"PackageDev: New Raw Snippet"
+			],
+			[
+				"terminal",
+				"Terminal: Open in project folder"
+			],
+			[
+				"temrin",
+				"Terminal: Open in project folder"
+			],
+			[
+				"temrinal:",
+				"Terminal: Open in project folder"
+			],
+			[
+				"termina",
+				"Terminal: Open"
+			],
+			[
+				"lsprs",
+				"LSP: Restart Servers"
+			],
+			[
+				"lsp: rest",
+				"LSP: Restart Servers"
+			],
+			[
+				"open termina",
+				"Terminal: Open in project folder"
+			],
+			[
+				"project folder",
+				"Terminal: Open in project folder"
+			],
+			[
+				"terminal: o",
+				"Terminal: Open in project folder"
+			],
+			[
+				"book",
+				"Bookmarks: Clear All"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"restart",
+				"LSP: Restart Servers"
+			],
+			[
+				"open termin",
+				"Terminal: Open in project folder"
+			],
+			[
+				"bt",
+				"Bookmarks: Toggle"
+			],
+			[
+				"terminal: op",
+				"Terminal: Open in project folder"
+			],
+			[
+				"rename ",
+				"File: Rename"
+			],
+			[
+				"lsp:rename",
+				"LSP: Rename Symbol"
+			],
+			[
+				"temrinus:",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"terminal: ",
+				"Terminal: Open in project folder"
+			],
+			[
+				"bookm",
+				"Bookmarks: Clear All"
+			],
+			[
+				"temrinal: ",
+				"Terminal: Open in project folder"
+			],
+			[
+				"clear",
+				"Bookmarks: Clear All"
+			],
+			[
+				"b ook",
+				"Bookmarks: Clear All"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"reanme",
+				"Rename File"
+			],
+			[
+				"terminus",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"lsp: rena",
+				"LSP: Rename Symbol"
+			],
+			[
+				"lsp: rename",
+				"LSP: Rename Symbol"
+			],
+			[
+				"synce",
+				"Sync Settings: Upload"
+			],
+			[
+				"bookmar",
+				"Bookmarks: Clear All"
+			],
+			[
+				"terminal:",
+				"Terminal: Open in project folder"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"set syntax sublime text key",
+				"Set Syntax: Sublime Text Keymap (JSON)"
+			],
+			[
+				"format",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"pretty json:",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"bracket",
+				"BracketHighlighter: Documentation"
+			],
+			[
+				"sync",
+				"Sync Settings: Upload"
+			],
+			[
+				"upload",
+				"Sync Settings: Upload"
+			],
+			[
+				"hexviewer",
+				"HexViewer: Toggle Hex View"
+			],
+			[
+				"close",
+				"Terminus: Close"
+			],
+			[
+				"termin",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"terminu",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"minimap",
+				"View: Toggle Minimap"
+			],
+			[
+				"bookma",
+				"Bookmarks: Clear All"
+			],
+			[
+				"renam",
+				"Rename File"
+			],
+			[
+				"remove",
+				"BracketHighlighter: Remove Brackets"
+			],
+			[
+				"boom",
+				"Bookmarks: Toggle"
+			],
+			[
+				"temrinus",
+				"Terminus: Open Default Shell in Tab (View)"
+			]
+		],
+		"width": 436.0
+	},
+	"console":
+	{
+		"height": 154.0,
+		"history":
+		[
+			"self.run",
+			"run()",
+			"view.run_command(\"side_bar_files_open_with\", {\"application\": \"C:\\\\Program Files\\\\paint.net\\\\PaintDotNet.exe\"})",
+			"view.run_command(\"side_bar_files_open_with\", {\"C:\\\\Program Files\\\\paint.net\\\\PaintDotNet.exe\"})",
+			"view.run_command(\"side_bar_files_open_with\", {\"application\": \"C:\\\\WINDOWS\\\\system32\\\\cmd.exe\"})",
+			"view.run_command(\"side_bar_files_open_with\")",
+			"view.run_command()",
+			"view",
+			"runCommand()",
+			"SideBar",
+			"side_bar",
+			"2*2",
+			"side_bar_files_open_with()",
+			"side_bar_files_open_with",
+			"file_diff_selections",
+			"file_diff_selections()",
+			"sublime.run_command(\"setup_test_environment\")",
+			"setup_test_environment",
+			"sublime.setup_test_environment()",
+			"setup_test_environment()",
+			"view.run_command(\"example\")",
+			"ExampleCommand()",
+			"ExampleCommand",
+			"ExampleCommand()",
+			"<a href=\"revert\">⟲</a>",
+			"view.window().run_command(\"new_file\", {\"name\": \"ass\"})",
+			"view.window().run_command(\"new_file\")",
+			"view.window().new_file()",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/domain",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/repo"
+	],
+	"file_history":
+	[
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/domain/dto.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/test/repo_test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/repo/disciplinerepo.py",
+		"/C/Users/Andrei/AppData/Local/Temp/Temp1_StudentGradeDTOInh.zip/StudentGradeDTO/repository/inmemory.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/test/service_test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/test/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/test/domain_test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/app.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/ui/interactive.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/coordinator.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/ui.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/ui/interactive.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/service/gradeservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/repo/graderepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/domain/validator.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/domain/entity.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/repo/test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/repo/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/service/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/service/test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/sorted grades test.txt",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/repo/studentrepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/service/studentservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/domain/__init__.py",
+		"/C/Users/Andrei/AppData/Local/Temp/Temp1_StudentGradeDTOInh.zip/StudentGradeDTO/repository/__init__.py",
+		"/C/Users/Andrei/AppData/Local/Temp/Temp1_StudentGradeDTOInh.zip/StudentGradeDTO/domain/entities.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/top 20 test.txt",
+		"/C/Users/Andrei/Desktop/scoala/fp/9_tema/user.txt",
+		"/C/Users/Andrei/Desktop/capcauneala.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_lab/ui/interactive.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_lab/app.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_lab/repo/graderepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_lab/repo/disciplinerepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_lab/service/studentservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_lab/service/gradeservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_lab/repo/studentrepo.py",
+		"/C/Users/Andrei/AppData/Local/Temp/TC4Shell/O0000/badsortare.cpp",
+		"/D/Workspace/indeletniciri curente/hard_ssc.cpp",
+		"/D/Workspace/indeletniciri curente/xor1.cpp",
+		"/D/Workspace/indeletniciri curente/radiatie_doomed.cpp",
+		"/D/Workspace/indeletniciri curente/java.cpp",
+		"/D/Workspace/indeletniciri curente/maru.cpp",
+		"/D/Workspace/indeletniciri curente/politic.cpp",
+		"/D/Workspace/indeletniciri curente/stirling.cpp",
+		"/D/Workspace/indeletniciri curente/100m.cpp",
+		"/D/Workspace/indeletniciri curente/swedishchef_int.cpp",
+		"/D/Workspace/indeletniciri curente/soundex_sr.cpp",
+		"/D/Workspace/indeletniciri curente/conexidad.cpp",
+		"/D/Workspace/indeletniciri curente/salami.cpp",
+		"/D/Workspace/indeletniciri curente/SSCRIPCAR.cpp",
+		"/D/Workspace/indeletniciri curente/NURAZI.cpp",
+		"/D/Workspace/indeletniciri curente/ojasndopasndoa.cpp",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/service/gradeservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/service/disciplineservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/service/test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/repo/test.py",
+		"/C/Users/Andrei/Desktop/tetris/config.toml",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/top 20 test.txt",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/sorted grades test.txt",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/service/studentservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/domain/validator.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/ui/interactive.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/app.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/repo/disciplinerepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/service/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/domain/entity.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/consoletest.txt",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/repo/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/user.txt",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/services/studentservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/repo/studentrepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/8_tema/repo/graderepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/repository/inmemory.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/repository/filerepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/app.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/7_lab/lab 7-9.sublime-project",
+		"/C/Users/Andrei/Desktop/scoala/fp/7_lab/service/disciplineservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/7_lab/domain/entity.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/7_lab/service/gradeservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/user.txt",
+		"/D/Workspace/sortare.c",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/gradeservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/entity.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/app.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/validator.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/disciplineservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/studentservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/lab 7-9.sublime-workspace",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/lab 7-9.sublime-project",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/tema.sublime-workspace",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/tema.sublime-project",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/grade.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/student.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/discipline.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/ui/console.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/repo/studentrepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/domain/validators.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/repository",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/repository/inmemory.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/repository/inmemory.pyc",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/domain/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/domain/apartamente.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/domain/cheltuiala.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/domain/teste.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/infrastructure/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/infrastructure/teste.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/domain/entities.py",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/Python/Snippets/setter.sublime-snippet",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/Python/Snippets/getter.sublime-snippet",
+		"/C/Users/Andrei/AppData/Local/Temp/Temp1_StudentUiServiceRepository.zip/StudentLayered/app.py",
+		"/C/Users/Andrei/Desktop/terraris/src/world/mod.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/world/light_mesh_blur.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/array2.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/block.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/main.rs",
+		"/C/Users/Andrei/Desktop/terraris.md",
+		"/C/Users/Andrei/Desktop/terraris/math/src/lib.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/world/world_mesh.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/world/light_mesh_special.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/world/light_mesh_simple.rs",
+		"/C/Users/Andrei/Desktop/glium/src/uniforms/bind.rs",
+		"/C/Users/Andrei/Desktop/glium/src/uniforms/value.rs",
+		"/C/Users/Andrei/Desktop/glium/src/uniforms/uniforms.rs",
+		"/C/Users/Andrei/Desktop/glium/src/uniforms/sampler.rs"
+	],
+	"find":
+	{
+		"height": 44.0
+	},
+	"find_in_files":
+	{
+		"height": 622.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"discipline",
+			"Discipline",
+			"disciplines",
+			"repo tests",
+			"__add_random_student",
+			"name",
+			"students_and_averages",
+			"student_id",
+			"students_and_averages",
+			"\t\t==",
+			" \\",
+			"name",
+			"grades",
+			"10",
+			"_get_len",
+			"Student",
+			"students",
+			"# ",
+			"\n\n# \t",
+			"Jim",
+			"3",
+			"student",
+			"grade",
+			"student",
+			"[",
+			"student_grade_average",
+			"\"",
+			"20",
+			"grade_service",
+			"get_top_20percent_of_students",
+			"__print_top20_percent",
+			"add_grade(1",
+			"add_grade(",
+			"student_grade_average",
+			"=",
+			"# ",
+			"student_name",
+			"input",
+			"int",
+			"type",
+			"grade",
+			"__print_sorted_grades",
+			"get_grades_sorted_by_criterion",
+			"add_grade(2",
+			"alphabetical",
+			"alphabetically",
+			"ordered",
+			"# ",
+			"Franz Josef",
+			"# ",
+			"    ",
+			"# ",
+			"student",
+			"erase",
+			"add",
+			"discipline",
+			"grade",
+			"discipline",
+			"student",
+			"update",
+			"Service",
+			"ServiceException",
+			"student",
+			"Repo",
+			"{}",
+			"repo = {}",
+			"Service",
+			"service",
+			"domain",
+			"service",
+			"from domain.entity import Student",
+			"students",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"Student",
+			"student",
+			"test_student_repo",
+			"test_",
+			"student.get_student_id()",
+			"commands",
+			"# ",
+			"^.*\\t",
+			"\t",
+			"# ",
+			"^.*\\t",
+			"# ",
+			" ",
+			"#",
+			"get_discipline_id",
+			"discipline",
+			"student",
+			"grade",
+			"erase",
+			"Invalid",
+			"discipline_id",
+			"student",
+			"add_grade",
+			"grade",
+			"discipline",
+			"ValidatorException",
+			"discipline",
+			"student_service",
+			"service",
+			"discipline_service",
+			"discipline_repo",
+			"discipline_validator",
+			"__disciplines",
+			"__students",
+			"__grades",
+			"grades",
+			"disciplines",
+			"students",
+			"list"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"get_top_20_percent_of_students",
+			"grade",
+			"Grade",
+			"Discipline",
+			"discipline",
+			""
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ui/interactive.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								564,
+								564
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1386,
+										1387
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										539,
+										540
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/9_tema/ui/interactive.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3083.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "repo/disciplinerepo.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1892,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1195,
+								1195
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/9_tema/repo/disciplinerepo.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 276.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "domain/entity.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								299,
+								299
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/9_tema/domain/entity.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "service/gradeservice.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5816,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1865,
+								1865
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/9_tema/service/gradeservice.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 759.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "service/gradeservice.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5816,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4877,
+								4877
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/9_tema/service/gradeservice.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 483.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "repo/graderepo.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2207,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1694,
+								1694
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1704,
+										1705
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"region.yellowish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1684,
+										1685
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/9_tema/repo/graderepo.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1083.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "domain/dto.py",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1270,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								387,
+								387
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/9_tema/domain/dto.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 210.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.diagnostics":
+	{
+		"height": 251.0
+	},
+	"output.exec":
+	{
+		"height": 92.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 138.0
+	},
+	"output.hex_viewer_inspector":
+	{
+		"height": 130.0
+	},
+	"output.language servers":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "lab 7-9.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ui",
+				"src\\ui.rs"
+			],
+			[
+				"",
+				"C:\\Users\\Andrei\\AppData\\Roaming\\Sublime Text 3\\Packages\\User\\darkmd.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Workspace\\tetris\\tetris.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Player",
+				"Player"
+			],
+			[
+				"",
+				"FunFactCog"
+			]
+		],
+		"width": 628.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 226.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
