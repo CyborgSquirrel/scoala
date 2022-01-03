@@ -2,4 +2,5 @@
 *.lst
 *.ilk
 *.pdb
+*.obj
 __pycache__/
