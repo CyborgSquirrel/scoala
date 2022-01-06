@@ -65,6 +65,7 @@ segment code use32 class=code
             
             mov ecx, eax
             mov esi, buffer
+            cld
             iterating_bytes:
                 lodsb
                 iterating_bits:
