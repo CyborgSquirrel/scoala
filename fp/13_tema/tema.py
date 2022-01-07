@@ -1,12 +1,17 @@
 # 7. Pentru un n dat generați toate secvențele de paranteze care se închid corect. Exemplu: n=4 două soluții: (()) și ()().
 
+# import unittest
+# class TestBacktracking(unittest.TestCase):
+# 	def test_recursive(self):
+# 		pass
+
 def _recursive(answer, left, right):
 	if left <= 0 and right <= 0:
 		print(answer)
 	else:
 		if left > 0:
 			_recursive(answer+"(", left-1, right)
-		if left >= 0 and right > left:
+		if right > left:
 			_recursive(answer+")", left, right-1)
 
 def recursive(n):
@@ -40,7 +45,7 @@ def iterative(n):
 				answer = answer[:-1]
 				if last == "(":
 					left += 1
-					if left >= 0 and right > left:
+					if right > left:
 						erasing = False
 						answer += ")"
 						right -= 1
