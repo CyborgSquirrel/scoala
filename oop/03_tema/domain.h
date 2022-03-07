@@ -59,5 +59,7 @@ int cheltuiala_eq(struct Cheltuiala *lhs, struct Cheltuiala *rhs);
 // in: cheltuiala -- pointer to struct Cheltuiala
 void cheltuiala_print(struct Cheltuiala *cheltuiala);
 
+void test_domain(void);
+
 #endif // domain_h_INCLUDED
 
