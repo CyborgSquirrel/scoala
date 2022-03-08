@@ -2,6 +2,9 @@
 #include "./vec.h"
 #include "./domain.h"
 
+const char *const ERR_CHELTUIALA_IN_REPO = "cheltuiala furnizata este deja in repo";
+const char *const ERR_CHELTUIALA_NOT_IN_REPO = "cheltuiala cu indicele furnizat nu exista in repo";
+
 struct RepoCheltuieli repo_cheltuieli_new() {
 	struct RepoCheltuieli repo_cheltuieli;
 	repo_cheltuieli.vec = vec_new();
@@ -14,6 +17,7 @@ void repo_cheltuieli_drop(struct RepoCheltuieli *repo_cheltuieli) {
 }
 
 int repo_cheltuieli_len(struct RepoCheltuieli *repo_cheltuieli) {
+	assert(repo_cheltuieli);
 	return repo_cheltuieli->vec.len;
 }
 
@@ -23,41 +27,46 @@ int __repo_cheltuieli_find(
 ) {
 	assert(repo_cheltuieli);
 	for (int i = 0; i < repo_cheltuieli->vec.len; ++i) {
-		if (vec_get(&repo_cheltuieli->vec, i).id == id) {
+		struct Cheltuiala cheltuiala;
+		assert(vec_get(&repo_cheltuieli->vec, &cheltuiala, i) == NULL);
+		if (cheltuiala.id == id) {
 			return i;
 		}
 	}
 	return -1;
 }
 
-void repo_cheltuieli_add(
+const char *const repo_cheltuieli_add(
 	struct RepoCheltuieli *repo_cheltuieli,
 	struct Cheltuiala cheltuiala
 ) {
 	assert(repo_cheltuieli);
 	int index = __repo_cheltuieli_find(repo_cheltuieli, cheltuiala.id);
-	assert(index == -1);
+	if (index != -1) return ERR_CHELTUIALA_IN_REPO;
 	vec_push(&repo_cheltuieli->vec, cheltuiala);
+	return NULL;
 }
 
-void repo_cheltuieli_erase(
+const char *const repo_cheltuieli_erase(
 	struct RepoCheltuieli *repo_cheltuieli,
 	int id
 ) {
 	assert(repo_cheltuieli);
 	int index = __repo_cheltuieli_find(repo_cheltuieli, id);
-	assert(index != -1);
-	vec_erase(&repo_cheltuieli->vec, index);
+	if (index == -1) return ERR_CHELTUIALA_NOT_IN_REPO;
+	assert(vec_erase(&repo_cheltuieli->vec, index) == NULL);
+	return NULL;
 }
 
-void repo_cheltuieli_update(
+const char *const repo_cheltuieli_update(
 	struct RepoCheltuieli *repo_cheltuieli,
 	struct Cheltuiala cheltuiala
 ) {
 	assert(repo_cheltuieli);
 	int index = __repo_cheltuieli_find(repo_cheltuieli, cheltuiala.id);
-	assert(index != -1);
-	vec_set(&repo_cheltuieli->vec, index, cheltuiala);
+	if (index == -1) return ERR_CHELTUIALA_NOT_IN_REPO;
+	assert(vec_set(&repo_cheltuieli->vec, index, cheltuiala) == NULL);
+	return NULL;
 }
 
 void test_repo_cheltuieli_len() {
@@ -66,7 +75,7 @@ void test_repo_cheltuieli_len() {
 	
 	for (int i = 0; i < 100; ++i) {
 		cheltuiala.id = i;
-		repo_cheltuieli_add(&repo_cheltuieli, cheltuiala);
+		assert(repo_cheltuieli_add(&repo_cheltuieli, cheltuiala) == NULL);
 		assert(repo_cheltuieli_len(&repo_cheltuieli) == i+1);
 	}
 	
@@ -79,7 +88,7 @@ void test_repo_cheltuieli_find() {
 	
 	for (int i = 0; i < 10; ++i) {
 		cheltuiala.id = i*3;
-		repo_cheltuieli_add(&repo_cheltuieli, cheltuiala);
+		assert(repo_cheltuieli_add(&repo_cheltuieli, cheltuiala) == NULL);
 	}
 	for (int i = 0; i < 10; ++i) {
 		assert(__repo_cheltuieli_find(&repo_cheltuieli, i*3) != -1);
@@ -96,7 +105,7 @@ void test_repo_cheltuieli_add() {
 	
 	for (int i = 0; i < 100; ++i) {
 		cheltuiala.id = i;
-		repo_cheltuieli_add(&repo_cheltuieli, cheltuiala);
+		assert(repo_cheltuieli_add(&repo_cheltuieli, cheltuiala) == NULL);
 		assert(repo_cheltuieli_len(&repo_cheltuieli) == i+1);
 	}
 	
@@ -110,15 +119,17 @@ void test_repo_cheltuieli_erase() {
 	int len = 0;
 	for (int i = 0; i < 100; ++i) {
 		cheltuiala.id = i;
-		repo_cheltuieli_add(&repo_cheltuieli, cheltuiala);
+		assert(repo_cheltuieli_add(&repo_cheltuieli, cheltuiala) == NULL);
 		len++;
 	}
 	for (int i = 0; i < 100; i += 2) {
-		repo_cheltuieli_erase(&repo_cheltuieli, i); len--;
+		assert(repo_cheltuieli_erase(&repo_cheltuieli, i) == NULL);
+		len--;
 		assert(repo_cheltuieli_len(&repo_cheltuieli) == len);
 	}
 	for (int i = 1; i < 100; i += 2) {
-		repo_cheltuieli_erase(&repo_cheltuieli, i); len--;
+		assert(repo_cheltuieli_erase(&repo_cheltuieli, i) == NULL);
+		len--;
 		assert(repo_cheltuieli_len(&repo_cheltuieli) == len);
 	}
 	
@@ -132,15 +143,15 @@ void test_repo_cheltuieli_update() {
 	
 	for (int i = 0; i < 100; ++i) {
 		cheltuiala_1.id = i;
-		repo_cheltuieli_add(&repo_cheltuieli, cheltuiala_1);
+		assert(repo_cheltuieli_add(&repo_cheltuieli, cheltuiala_1) == NULL);
 	}
 	for (int i = 0; i < 100; i += 2) {
 		cheltuiala_2.id = i;
-		repo_cheltuieli_update(&repo_cheltuieli, cheltuiala_2);
+		assert(repo_cheltuieli_update(&repo_cheltuieli, cheltuiala_2) == NULL);
 	}
 	for (int i = 1; i < 100; i += 2) {
 		cheltuiala_2.id = i;
-		repo_cheltuieli_update(&repo_cheltuieli, cheltuiala_2);
+		assert(repo_cheltuieli_update(&repo_cheltuieli, cheltuiala_2) == NULL);
 	}
 	
 	repo_cheltuieli_drop(&repo_cheltuieli);

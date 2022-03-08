@@ -1,6 +1,8 @@
 #ifndef console_ui_h_INCLUDED
 #define console_ui_h_INCLUDED
 
+#include <assert.h>
+
 #include "./domain.h"
 #include "./srv.h"
 #include "./valid.h"
@@ -21,100 +23,122 @@ void console_ui_drop(struct ConsoleUi *console_ui) {
 	srv_cheltuieli_drop(&console_ui->srv_cheltuieli);
 }
 
-struct Data read_data() {
-	struct Data data;
-	
+const char *const ERR_INVALID_CHOICE = "comanda invalida";
+const char *const ERR_INVALID_DATA = "data invalida";
+const char *const ERR_INVALID_SUMA = "suma invalida";
+const char *const ERR_INVALID_TIP = "tip invalid";
+const char *const ERR_INVALID_ID = "id invalid";
+
+char *line = NULL; long unsigned int len = 0;
+const char *const read_data(struct Data *data) {
 	printf("data (dd/mm/yyyy) = ");
-	if (scanf("%d/%d/%d", &data.zi, &data.luna, &data.an) != 3) exit(1);
-	if (!validate_data(&data)) exit(1);
-	
-	return data;
+	getline(&line, &len, stdin);
+	if (sscanf(line, "%d/%d/%d", &data->zi, &data->luna, &data->an) != 3) return ERR_INVALID_DATA;
+	if (!validate_data(data)) return ERR_INVALID_DATA;
+	return NULL;
 }
 
-float read_suma() {
-	float suma;
-	
+const char *const read_suma(float *suma) {
 	printf("suma = ");
-	if (scanf("%f", &suma) != 1) exit(1);
-	if (!validate_suma(suma)) exit(1);
-	
-	return suma;
+	getline(&line, &len, stdin);
+	if (sscanf(line, "%f", suma) != 1) return ERR_INVALID_SUMA;
+	if (!validate_suma(*suma)) return ERR_INVALID_SUMA;
+	return NULL;
 }
 
-enum Tip read_tip() {
-	enum Tip tip;
+const char *const read_tip(enum Tip *tip) {
 	char tip_str[128];
 	
 	printf("tip (mancare/transport/telefon&internet/imbracaminte/altele) = ");
-	if (scanf("%s", tip_str) != 1) exit(1);
+	getline(&line, &len, stdin);
+	if (sscanf(line, "%s", tip_str) != 1) return ERR_INVALID_TIP;
 	
 	for (char *p = tip_str; *p != '\0'; ++p) *p = tolower(*p);
 	
-	     if (strcmp(tip_str, "mancare"         ) == 0) tip = MANCARE;
-	else if (strcmp(tip_str, "transport"       ) == 0) tip = TRANSPORT;
-	else if (strcmp(tip_str, "telefon&internet") == 0) tip = TELEFON_INTERNET;
-	else if (strcmp(tip_str, "imbracaminte"    ) == 0) tip = IMBRACAMINTE;
-	else if (strcmp(tip_str, "altele"          ) == 0) tip = ALTELE;
-	else exit(1);
+	     if (strcmp(tip_str, "mancare"         ) == 0) *tip = MANCARE;
+	else if (strcmp(tip_str, "transport"       ) == 0) *tip = TRANSPORT;
+	else if (strcmp(tip_str, "telefon&internet") == 0) *tip = TELEFON_INTERNET;
+	else if (strcmp(tip_str, "imbracaminte"    ) == 0) *tip = IMBRACAMINTE;
+	else if (strcmp(tip_str, "altele"          ) == 0) *tip = ALTELE;
+	else return ERR_INVALID_TIP;
 	
-	return tip;
+	return NULL;
 }
 
-int read_id() {
-	int id;
+const char *const read_id(int *id) {
 	printf("id = ");
-	if (scanf("%d", &id) != 1) exit(1);
-	return id;
+	getline(&line, &len, stdin);
+	if (sscanf(line, "%d", id) != 1) return ERR_INVALID_ID;
+	return NULL;
 }
 
-void console_ui_print_cheltuieli(struct ConsoleUi *console_ui) {
+const char *const console_ui_print_cheltuieli(struct ConsoleUi *console_ui) {
 	struct Vec *vec = &console_ui->srv_cheltuieli.repo.vec;
 	
 	for (int i = 0; i < vec->len; ++i) {
-		struct Cheltuiala cheltuiala = vec_get(vec, i);
+		struct Cheltuiala cheltuiala;
+		assert(vec_get(vec, &cheltuiala, i) == NULL);
 		cheltuiala_print(&cheltuiala);
 		printf("\n");
 	}
+	return NULL;
 }
 
-void console_ui_add_cheltuiala(struct ConsoleUi *console_ui) {
-	struct Data data = read_data();
-	float suma = read_suma();
-	enum Tip tip = read_tip();
+const char *const console_ui_add_cheltuiala(struct ConsoleUi *console_ui) {
+	const char *err = NULL;
 	
-	srv_cheltuieli_add(
+	struct Data data;
+	float suma;
+	enum Tip tip;
+	
+	if ((err = read_data(&data)) != NULL) return err;
+	if ((err = read_suma (&suma)) != NULL) return err;
+	if ((err = read_tip(&tip)) != NULL) return err;
+	
+	return srv_cheltuieli_add(
 		&console_ui->srv_cheltuieli,
 		data, suma, tip
 	);
 }
 
-void console_ui_update_cheltuiala(struct ConsoleUi *console_ui) {
-	int id = read_id();
-	struct Data data = read_data();
-	float suma = read_suma();
-	enum Tip tip = read_tip();
+const char *const console_ui_update_cheltuiala(struct ConsoleUi *console_ui) {
+	const char *err = NULL;
 	
-	srv_cheltuieli_update(
+	int id;
+	struct Data data;
+	float suma;
+	enum Tip tip;
+	
+	if ((err = read_id(&id)) != NULL) return err;
+	if ((err = read_data(&data)) != NULL) return err;
+	if ((err = read_suma (&suma)) != NULL) return err;
+	if ((err = read_tip(&tip)) != NULL) return err;
+	
+	return srv_cheltuieli_update(
 		&console_ui->srv_cheltuieli,
 		id, data, suma, tip
 	);
 }
 
-void console_ui_erase_cheltuiala(struct ConsoleUi *console_ui) {
-	int id = read_id();
+const char *const console_ui_erase_cheltuiala(struct ConsoleUi *console_ui) {
+	const char *err = NULL;
 	
-	srv_cheltuieli_erase(
+	int id;
+	if ((err = read_id(&id)) != NULL) return err;
+	
+	return srv_cheltuieli_erase(
 		&console_ui->srv_cheltuieli,
 		id
 	);
 }
 
-void console_ui_exit(struct ConsoleUi *console_ui) {
+const char *const console_ui_exit(struct ConsoleUi *console_ui) {
 	console_ui->running = 0;
+	return NULL;
 }
 
 #define COMMANDS 5
-void (*console_ui_commands[COMMANDS]) (struct ConsoleUi*) = {
+const char *const (*console_ui_commands[COMMANDS]) (struct ConsoleUi*) = {
 	console_ui_print_cheltuieli,
 	console_ui_add_cheltuiala,
 	console_ui_update_cheltuiala,
@@ -129,20 +153,40 @@ char *console_ui_command_names[COMMANDS] = {
 	"Exit"
 };
 
+const char *const read_choice(int *choice) {
+	getline(&line, &len, stdin);
+	if (sscanf(line, "%d", choice) != 1) return ERR_INVALID_CHOICE;
+	(*choice)--;
+	if (*choice < 0 || *choice >= COMMANDS) return ERR_INVALID_CHOICE;
+	return NULL;
+}
+
+void console_ui_print_error(const char *const err) {
+	printf("\e[1;31m");
+	printf("Eroare: %s.\n", err);
+	printf("\e[0m");
+}
+
 void console_ui_run(struct ConsoleUi *console_ui) {
+	const char *err = NULL;
 	while (console_ui->running) {
 		for (int i = 0; i < COMMANDS; ++i) {
 			printf("%d. %s\n", i+1, console_ui_command_names[i]);
 		}
 		
-		int choice;
 		printf("> ");
-		scanf("%d", &choice);
-		choice--;
-		if (choice >= 0 && choice < COMMANDS) {
-			console_ui_commands[choice](console_ui);
+		int choice;
+		if ((err = read_choice(&choice)) == NULL) {
+			err = console_ui_commands[choice](console_ui);
 		}
+		
+		if (err != NULL) console_ui_print_error(err);
+		
 		printf("\n");
+	}
+	if (line != NULL) {
+		free(line);
+		line = NULL;
 	}
 }
 

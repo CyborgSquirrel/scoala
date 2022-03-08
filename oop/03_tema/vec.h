@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <assert.h>
 
+extern const char *const ERR_INVALID_INDEX;
+
 struct Vec {
 	int size, len;
 	struct Cheltuiala *buf;
@@ -13,8 +15,9 @@ struct Vec vec_new(void);
 
 void vec_drop(struct Vec *vec);
 
-struct Cheltuiala vec_get(
+const char *const vec_get(
 	struct Vec *vec,
+	struct Cheltuiala *cheltuiala,
 	int index
 );
 
@@ -23,13 +26,13 @@ void vec_push(
 	struct Cheltuiala cheltuiala
 );
 
-void vec_set(
+const char *const vec_set(
 	struct Vec *vec,
 	int index,
 	struct Cheltuiala cheltuiala
 );
 
-void vec_erase(
+const char *const vec_erase(
 	struct Vec *vec,
 	int index
 );

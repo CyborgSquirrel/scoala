@@ -22,7 +22,7 @@ void srv_cheltuieli_drop(struct SrvCheltuieli *srv_cheltuieli);
 //     struct Data
 //     float
 //     enum Tip
-void srv_cheltuieli_add(
+const char *const srv_cheltuieli_add(
 	struct SrvCheltuieli *srv_cheltuieli,
 	struct Data data, float suma, enum Tip tip
 );
@@ -33,7 +33,7 @@ void srv_cheltuieli_add(
 //     struct Data
 //     float
 //     enum Tip
-void srv_cheltuieli_update(
+const char *const srv_cheltuieli_update(
 	struct SrvCheltuieli *srv_cheltuieli,
 	int id, struct Data data, float suma, enum Tip tip
 );
@@ -41,7 +41,7 @@ void srv_cheltuieli_update(
 // Sterge cheltuiala cu id-ul furnizat din repo.
 // in: pointer to struct SrvCheltuieli
 //     int
-void srv_cheltuieli_erase(
+const char *const srv_cheltuieli_erase(
 	struct SrvCheltuieli *srv_cheltuieli,
 	int id
 );

@@ -14,7 +14,7 @@ void srv_cheltuieli_drop(struct SrvCheltuieli *srv_cheltuieli) {
 	repo_cheltuieli_drop(&srv_cheltuieli->repo);
 }
 
-void srv_cheltuieli_add(
+const char *const srv_cheltuieli_add(
 	struct SrvCheltuieli *srv_cheltuieli,
 	struct Data data, float suma, enum Tip tip
 ) {
@@ -24,10 +24,10 @@ void srv_cheltuieli_add(
 		data, suma, tip
 	);
 	srv_cheltuieli->last_id++;
-	repo_cheltuieli_add(&srv_cheltuieli->repo, cheltuiala);
+	return repo_cheltuieli_add(&srv_cheltuieli->repo, cheltuiala);
 }
 
-void srv_cheltuieli_update(
+const char *const srv_cheltuieli_update(
 	struct SrvCheltuieli *srv_cheltuieli,
 	int id, struct Data data, float suma, enum Tip tip
 ) {
@@ -35,15 +35,15 @@ void srv_cheltuieli_update(
 	struct Cheltuiala cheltuiala = cheltuiala_new(
 		id, data, suma, tip
 	);
-	repo_cheltuieli_update(&srv_cheltuieli->repo, cheltuiala);
+	return repo_cheltuieli_update(&srv_cheltuieli->repo, cheltuiala);
 }
 
-void srv_cheltuieli_erase(
+const char *const srv_cheltuieli_erase(
 	struct SrvCheltuieli *srv_cheltuieli,
 	int id
 ) {
 	assert(srv_cheltuieli);
-	repo_cheltuieli_erase(&srv_cheltuieli->repo, id);
+	return repo_cheltuieli_erase(&srv_cheltuieli->repo, id);
 }
 
 
@@ -51,7 +51,7 @@ void test_srv_cheltuieli_add() {
 	struct SrvCheltuieli srv_cheltuieli = srv_cheltuieli_new(repo_cheltuieli_new());
 	
 	for (int i = 0; i < 100; ++i) {
-		srv_cheltuieli_add(&srv_cheltuieli, data_new(12, 5, 2007), 95.32, ALTELE);
+		assert(srv_cheltuieli_add(&srv_cheltuieli, data_new(12, 5, 2007), 95.32, ALTELE) == NULL);
 	}
 	
 	srv_cheltuieli_drop(&srv_cheltuieli);
@@ -61,10 +61,10 @@ void test_srv_cheltuieli_update() {
 	struct SrvCheltuieli srv_cheltuieli = srv_cheltuieli_new(repo_cheltuieli_new());
 	
 	for (int i = 0; i < 100; ++i) {
-		srv_cheltuieli_add(&srv_cheltuieli, data_new(12, 5, 2007), 95.32, ALTELE);
+		assert(srv_cheltuieli_add(&srv_cheltuieli, data_new(12, 5, 2007), 95.32, ALTELE) == NULL);
 	}
 	for (int i = 0; i < 100; ++i) {
-		srv_cheltuieli_update(&srv_cheltuieli, i, data_new(14, 9, 2077), 1000.77, TELEFON_INTERNET);
+		assert(srv_cheltuieli_update(&srv_cheltuieli, i, data_new(14, 9, 2077), 1000.77, TELEFON_INTERNET) == NULL);
 	}
 	
 	srv_cheltuieli_drop(&srv_cheltuieli);
@@ -74,10 +74,10 @@ void test_srv_cheltuieli_erase() {
 	struct SrvCheltuieli srv_cheltuieli = srv_cheltuieli_new(repo_cheltuieli_new());
 	
 	for (int i = 0; i < 100; ++i) {
-		srv_cheltuieli_add(&srv_cheltuieli, data_new(12, 5, 2007), 95.32, ALTELE);
+		assert(srv_cheltuieli_add(&srv_cheltuieli, data_new(12, 5, 2007), 95.32, ALTELE) == NULL);
 	}
 	for (int i = 0; i < 100; ++i) {
-		srv_cheltuieli_erase(&srv_cheltuieli, i);
+		assert(srv_cheltuieli_erase(&srv_cheltuieli, i) == NULL);
 	}
 	
 	srv_cheltuieli_drop(&srv_cheltuieli);

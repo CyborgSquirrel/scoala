@@ -1,6 +1,8 @@
 #include "./vec.h"
 #include "./domain.h"
 
+const char *const ERR_INVALID_INDEX = "indicele este invalid";
+
 struct Vec vec_new(void) {
 	struct Vec vec;
 	vec.size = 4;
@@ -10,28 +12,27 @@ struct Vec vec_new(void) {
 }
 
 void vec_drop(struct Vec *vec) {
-	assert(vec);
+	assert(vec && vec->buf);
 	free(vec->buf);
 	vec->buf = NULL;
 }
 
-struct Cheltuiala vec_get(
+const char *const vec_get(
 	struct Vec *vec,
+	struct Cheltuiala *cheltuiala,
 	int index
 ) {
-	assert(vec);
-	assert(vec->buf);
-	assert(index >= 0 && index < vec->len);
-	return vec->buf[index];
+	assert(vec && vec->buf);
+	if (index < 0 || index >= vec->len) return ERR_INVALID_INDEX;
+	*cheltuiala = vec->buf[index];
+	return NULL;
 }
 
 void vec_push(
 	struct Vec *vec,
 	struct Cheltuiala cheltuiala
 ) {
-	assert(vec);
-	assert(vec->buf);
-	assert(vec->len <= vec->size);
+	assert(vec && vec->buf && vec->len <= vec->size);
 	if (vec->len == vec->size) {
 		struct Cheltuiala *old_buf = vec->buf;
 		int old_size = vec->size;
@@ -48,28 +49,28 @@ void vec_push(
 	vec->len++;
 }
 
-void vec_set(
+const char *const vec_set(
 	struct Vec *vec,
 	int index,
 	struct Cheltuiala cheltuiala
 ) {
-	assert(vec);
-	assert(vec->buf);
-	assert(index >= 0 && index < vec->len);
+	assert(vec && vec->buf);
+	if (index < 0 || index >= vec->len) return ERR_INVALID_INDEX;
 	vec->buf[index] = cheltuiala;
+	return NULL;
 }
 
-void vec_erase(
+const char *const vec_erase(
 	struct Vec *vec,
 	int index
 ) {
-	assert(vec);
-	assert(vec->buf);
-	assert(index >= 0 && index < vec->len);
+	assert(vec && vec->buf);
+	if (index < 0 || index >= vec->len) return ERR_INVALID_INDEX;
 	for (int i = index+1; i < vec->len; ++i) {
 		vec->buf[i-1] = vec->buf[i];
 	}
 	vec->len--;
+	return NULL;
 }
 
 /*
@@ -105,8 +106,13 @@ void test_vec_get(void) {
 		vec_push(&vec, cheltuiala);
 	}
 	for (int i = 0; i < 100; ++i) {
-		struct Cheltuiala get_cheltuiala = vec_get(&vec, i);
+		struct Cheltuiala get_cheltuiala;
+		assert(vec_get(&vec, &get_cheltuiala, i) == NULL);
 		assert(cheltuiala_eq(&get_cheltuiala, &cheltuiala));
+	}
+	for (int i = 0; i < 10; ++i) {
+		struct Cheltuiala get_cheltuiala;
+		assert(vec_get(&vec, &get_cheltuiala, i+100) == ERR_INVALID_INDEX);
 	}
 	
 	vec_drop(&vec);
@@ -128,9 +134,12 @@ void test_vec_set(void) {
 		);
 	
 	vec_push(&vec, cheltuiala_1);
-	vec_set(&vec, 0, cheltuiala_2);
-	struct Cheltuiala get_cheltuiala = vec_get(&vec, 0);
+	assert(vec_set(&vec, 0, cheltuiala_2) == NULL);
+	struct Cheltuiala get_cheltuiala;
+	assert(vec_get(&vec, &get_cheltuiala, 0) == NULL);
 	assert(cheltuiala_eq(&get_cheltuiala, &cheltuiala_2));
+	
+	assert(vec_set(&vec, 1, cheltuiala_2) == ERR_INVALID_INDEX);
 	
 	vec_drop(&vec);
 }
@@ -152,6 +161,7 @@ void test_vec_erase(void) {
 	vec_erase(&vec, 5);
 	vec_erase(&vec, 5);
 	vec_erase(&vec, 41);
+	assert(vec_erase(&vec, 50) == ERR_INVALID_INDEX);
 	for (int i = 0; i < 46; ++i) {
 		vec_erase(&vec, 0);
 	}
