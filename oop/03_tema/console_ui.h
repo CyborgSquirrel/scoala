@@ -47,19 +47,16 @@ const char *const read_suma(float *suma) {
 }
 
 const char *const read_tip(enum Tip *tip) {
-	char tip_str[128];
-	
 	printf("tip (mancare/transport/telefon&internet/imbracaminte/altele) = ");
 	getline(&line, &len, stdin);
-	if (sscanf(line, "%s", tip_str) != 1) return ERR_INVALID_TIP;
 	
-	for (char *p = tip_str; *p != '\0'; ++p) *p = tolower(*p);
+	for (char *p = line; *p != '\0'; ++p) *p = tolower(*p);
 	
-	     if (strcmp(tip_str, "mancare"         ) == 0) *tip = MANCARE;
-	else if (strcmp(tip_str, "transport"       ) == 0) *tip = TRANSPORT;
-	else if (strcmp(tip_str, "telefon&internet") == 0) *tip = TELEFON_INTERNET;
-	else if (strcmp(tip_str, "imbracaminte"    ) == 0) *tip = IMBRACAMINTE;
-	else if (strcmp(tip_str, "altele"          ) == 0) *tip = ALTELE;
+	     if (strncmp(line, "mancare"         , 7 ) == 0) *tip = MANCARE;
+	else if (strncmp(line, "transport"       , 9 ) == 0) *tip = TRANSPORT;
+	else if (strncmp(line, "telefon&internet", 16) == 0) *tip = TELEFON_INTERNET;
+	else if (strncmp(line, "imbracaminte"    , 12) == 0) *tip = IMBRACAMINTE;
+	else if (strncmp(line, "altele"          , 6 ) == 0) *tip = ALTELE;
 	else return ERR_INVALID_TIP;
 	
 	return NULL;
