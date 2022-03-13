@@ -18,11 +18,11 @@ void test_all() {
 int main(int argc, char **argv) {
 	test_all();
 	
-	struct RepoCheltuieli repo_cheltuieli = repo_cheltuieli_new();
-	struct SrvCheltuieli srv_cheltuieli = srv_cheltuieli_new(repo_cheltuieli);
-	struct ConsoleUi console_ui = console_ui_new(srv_cheltuieli);
-	console_ui_run(&console_ui);
-	console_ui_drop(&console_ui);
+	// struct RepoCheltuieli repo_cheltuieli = repo_cheltuieli_new();
+	// struct SrvCheltuieli srv_cheltuieli = srv_cheltuieli_new(repo_cheltuieli);
+	// struct ConsoleUi console_ui = console_ui_new(srv_cheltuieli);
+	// console_ui_run(&console_ui);
+	// console_ui_drop(&console_ui);
 	
 	return 0;
 }

@@ -8,8 +8,8 @@
 using namespace std;
 
 Colectie::Colectie() {
-	// rezervam spatiu pentru 16 elemente la inceput
-	this->size = 16;
+	// rezervam spatiu pentru 8 elemente la inceput
+	this->size = 8;
 	this->buf = new TElem[this->size];
 	for (int i = 0; i < this->size; ++i){
 		this->buf[i] = 0;
@@ -27,7 +27,8 @@ void Colectie::dbg() {
 	cout << endl;
 }
 
-
+// O(n)
+// θ(1)
 void Colectie::adauga(TElem elem) {
 	if (this->num_dim == 0) {
 		this->lo = this->hi = elem;
@@ -72,7 +73,8 @@ void Colectie::adauga(TElem elem) {
 	this->num_dim++;
 }
 
-
+// O(n)
+// θ(1)
 bool Colectie::sterge(TElem elem) {
 	if (this->num_dim == 0) return false;
 	TElem norm = elem - this->actual_lo;
@@ -103,7 +105,7 @@ bool Colectie::sterge(TElem elem) {
 	return false;
 }
 
-
+// O(1)
 bool Colectie::cauta(TElem elem) const {
 	if (this->num_dim == 0) return false;
 	TElem norm = elem - this->actual_lo;
@@ -113,6 +115,7 @@ bool Colectie::cauta(TElem elem) const {
 	return false;
 }
 
+// O(1)
 int Colectie::nrAparitii(TElem elem) const {
 	if (this->num_dim == 0) return 0;
 	TElem norm = elem - this->actual_lo;
@@ -122,12 +125,12 @@ int Colectie::nrAparitii(TElem elem) const {
 	return 0;
 }
 
-
+// O(1)
 int Colectie::dim() const {
 	return this->num_dim;
 }
 
-
+// O(1)
 bool Colectie::vida() const {
 	return this->num_dim == 0;
 }
@@ -135,7 +138,6 @@ bool Colectie::vida() const {
 IteratorColectie Colectie::iterator() const {
 	return IteratorColectie(*this);
 }
-
 
 Colectie::~Colectie() {
 	delete [] this->buf;

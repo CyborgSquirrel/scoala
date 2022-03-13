@@ -3,4 +3,7 @@
 *.ilk
 *.pdb
 *.obj
+*.gcov
+*.gcda
+*.gcno
 __pycache__/

@@ -7,12 +7,13 @@ IteratorColectie::IteratorColectie(const Colectie& c): col(c) {
 	this->freq = 0;
 }
 
+// O(1)
 void IteratorColectie::prim() {
 	this->index = this->col.lo - this->col.actual_lo;
 	this->freq = 0;
 }
 
-
+// O(1)
 void IteratorColectie::urmator() {
 	this->freq++;
 	if (this->freq >= this->col.buf[this->index]) {
@@ -24,14 +25,13 @@ void IteratorColectie::urmator() {
 	}
 }
 
-
+// O(1)
 bool IteratorColectie::valid() const {
 	if (this->col.num_dim == 0) return false;
 	return this->index <= this->col.hi - this->col.actual_lo;
 }
 
-
-
+// O(1)
 TElem IteratorColectie::element() const {
 	return this->col.actual_lo + this->index;
 }
