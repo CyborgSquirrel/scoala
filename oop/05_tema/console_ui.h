@@ -256,12 +256,22 @@ const char *const console_ui_erase_cheltuiala(struct ConsoleUi *console_ui) {
 	);
 }
 
+const char *const console_ui_undo(struct ConsoleUi *console_ui) {
+	const char *err = NULL;
+	if ((err = srv_cheltuieli_undo(&console_ui->srv_cheltuieli)) != NULL) {
+		return err;
+	}
+	
+	printf("Ultima operatie a fost refacuta.\n");
+	return NULL;
+}
+
 const char *const console_ui_exit(struct ConsoleUi *console_ui) {
 	console_ui->running = 0;
 	return NULL;
 }
 
-#define COMMANDS 7
+#define COMMANDS 8
 const char *const (*console_ui_commands[COMMANDS]) (struct ConsoleUi*) = {
 	console_ui_print_cheltuieli,
 	console_ui_print_sorted_cheltuieli,
@@ -269,6 +279,7 @@ const char *const (*console_ui_commands[COMMANDS]) (struct ConsoleUi*) = {
 	console_ui_add_cheltuiala,
 	console_ui_update_cheltuiala,
 	console_ui_erase_cheltuiala,
+	console_ui_undo,
 	console_ui_exit
 };
 char *console_ui_command_names[COMMANDS] = {
@@ -278,6 +289,7 @@ char *console_ui_command_names[COMMANDS] = {
 	"Adauga cheltuiala",
 	"Modifica cheltuiala",
 	"Sterge cheltuiala",
+	"Undo",
 	"Exit"
 };
 

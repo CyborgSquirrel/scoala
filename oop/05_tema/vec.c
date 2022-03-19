@@ -37,18 +37,18 @@ void vec_drop_generic(void *vec) {
 
 const char *const vec_get(
 	struct Vec *vec,
-	void *element,
+	void *value,
 	int index
 ) {
 	assert(vec && vec->buf);
 	if (index < 0 || index >= vec->len) return ERR_INVALID_INDEX;
-	vec->element_clone(element, vec->buf + index * vec->element_size);
+	vec->element_clone(value, vec->buf + index * vec->element_size);
 	return NULL;
 }
 
 void vec_push(
 	struct Vec *vec,
-	void *element
+	void *value
 ) {
 	assert(vec && vec->buf && vec->len <= vec->allocated_len);
 	if (vec->len == vec->allocated_len) {
@@ -56,19 +56,19 @@ void vec_push(
 		vec->buf = realloc(vec->buf, vec->allocated_len * vec->element_size);
 		assert(vec->buf);
 	}
-	vec->element_clone(vec->buf + vec->len * vec->element_size, element);
+	vec->element_clone(vec->buf + vec->len * vec->element_size, value);
 	vec->len++;
 }
 
 const char *const vec_set(
 	struct Vec *vec,
 	int index,
-	void *element
+	void *value
 ) {
 	assert(vec && vec->buf);
 	if (index < 0 || index >= vec->len) return ERR_INVALID_INDEX;
 	vec->element_drop(vec->buf + index * vec->element_size);
-	vec->element_clone(vec->buf + index * vec->element_size, element);
+	vec->element_clone(vec->buf + index * vec->element_size, value);
 	return NULL;
 }
 

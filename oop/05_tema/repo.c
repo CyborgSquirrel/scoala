@@ -20,6 +20,21 @@ void repo_cheltuieli_drop(struct RepoCheltuieli *repo_cheltuieli) {
 	vec_drop(&repo_cheltuieli->vec);
 }
 
+void repo_cheltuieli_drop_generic(void *repo_cheltuieli) {
+	repo_cheltuieli_drop((struct RepoCheltuieli *) repo_cheltuieli);
+}
+
+void repo_cheltuieli_clone(struct RepoCheltuieli *dest, struct RepoCheltuieli *src) {
+	vec_clone(&dest->vec, &src->vec);
+}
+
+void repo_cheltuieli_clone_generic(void *dest, void *src) {
+	repo_cheltuieli_clone(
+		(struct RepoCheltuieli *) dest,
+		(struct RepoCheltuieli *) src
+	);
+}
+
 int repo_cheltuieli_len(struct RepoCheltuieli *repo_cheltuieli) {
 	assert(repo_cheltuieli);
 	return repo_cheltuieli->vec.len;
