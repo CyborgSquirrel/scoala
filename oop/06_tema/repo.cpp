@@ -2,7 +2,7 @@
 
 #include "./repo.hpp"
 
-RepoCartiException::RepoCartiException(std::string msg) {
+RepoCartiException::RepoCartiException(const std::string &msg) {
 	this->msg = msg;
 }
 
@@ -55,7 +55,7 @@ void test_repo_crud() {
 	repo.add(a);
 	repo.add(b);
 	repo.add(c);
-	try { repo.add(a); } catch (RepoCartiException ex) { }
+	try { repo.add(a); } catch (const RepoCartiException &ex) { }
 	
 	// find
 	Carte fa = repo.find(0);
@@ -79,7 +79,7 @@ void test_repo_crud() {
 	assert(fc.get_gen() == c.get_gen());
 	assert(fc.get_an() == c.get_an());
 	
-	try { repo.find(100); } catch (RepoCartiException ex) { }
+	try { repo.find(100); } catch (const RepoCartiException &ex) { }
 	
 	// get_all
 	std::vector<Carte> carti = {a, b, c};
@@ -96,13 +96,13 @@ void test_repo_crud() {
 	assert(fd.get_an() == d.get_an());
 	
 	Carte e { 100, "Brave New World", "Aldous Huxley", "dystopia", 1931 };
-	try { repo.update(e); } catch (RepoCartiException ex) { }
+	try { repo.update(e); } catch (const RepoCartiException &ex) { }
 	
 	// erase
 	repo.erase(2);
 	repo.erase(0);
 	repo.erase(1);
-	try { repo.erase(100); } catch (RepoCartiException ex) { }
+	try { repo.erase(100); } catch (const RepoCartiException &ex) { }
 }
 
 void test_repo() {

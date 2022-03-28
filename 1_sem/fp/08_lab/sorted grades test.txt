@@ -1,0 +1,45 @@
+add student
+1
+Jim
+add student
+2
+Smith
+
+add discipline
+1
+Mathematics
+John
+
+assign grade
+1
+1
+1
+10
+assign grade
+2
+1
+1
+9.5
+assign grade
+3
+1
+1
+7.3
+
+assign grade
+4
+2
+1
+3.3
+assign grade
+5
+2
+1
+8.2
+
+print sorted grades
+1
+name
+print sorted grades
+1
+grade

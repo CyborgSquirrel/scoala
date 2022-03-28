@@ -1,0 +1,2199 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"erase",
+				"erase_discipline_and_all_its_grades"
+			],
+			[
+				"__",
+				"__student_repo"
+			],
+			[
+				"stu",
+				"student_id"
+			],
+			[
+				"era",
+				"erase_grade"
+			],
+			[
+				"__add",
+				"__add_grade"
+			],
+			[
+				"disc",
+				"discipline_id"
+			],
+			[
+				"add",
+				"add_discipline"
+			],
+			[
+				"discip",
+				"discipline_repo"
+			],
+			[
+				"grade",
+				"grade_validator"
+			],
+			[
+				"dis",
+				"discipline_id"
+			],
+			[
+				"get_dis",
+				"get_disciplines"
+			],
+			[
+				"Di",
+				"Discipline"
+			],
+			[
+				"get",
+				"get_student_id"
+			],
+			[
+				"stude",
+				"student_id"
+			],
+			[
+				"stud",
+				"student_id"
+			],
+			[
+				"__fi",
+				"__find_discipline_index"
+			],
+			[
+				"test_e",
+				"test_erase_discipline"
+			],
+			[
+				"test",
+				"test_add_discipline"
+			],
+			[
+				"disci",
+				"discipline_service"
+			],
+			[
+				"DI",
+				"DisciplineValidator"
+			],
+			[
+				"Dis",
+				"DisciplineService"
+			],
+			[
+				"Se",
+				"self"
+			],
+			[
+				"student",
+				"student_id"
+			],
+			[
+				"vali",
+				"validate"
+			],
+			[
+				"Student",
+				"StudentNotFoundException"
+			],
+			[
+				"discipl",
+				"discipline"
+			],
+			[
+				"Stude",
+				"StudentValidator"
+			],
+			[
+				"studen",
+				"student_id"
+			],
+			[
+				"stund",
+				"student_id"
+			],
+			[
+				"ligh",
+				"light_border"
+			],
+			[
+				"all",
+				"alllight"
+			],
+			[
+				"LAMP",
+				"LAMP_RED"
+			],
+			[
+				"sub",
+				"checked_sub"
+			],
+			[
+				"bloc",
+				"block_width"
+			],
+			[
+				"sun",
+				"sunlight_color"
+			],
+			[
+				"block",
+				"block_height"
+			],
+			[
+				"prin",
+				"println!"
+			],
+			[
+				"Beh",
+				"SamplerBehavior"
+			],
+			[
+				"div",
+				"div_euclid"
+			],
+			[
+				"light",
+				"light_index"
+			],
+			[
+				"ma",
+				"map_write"
+			],
+			[
+				"BufferT",
+				"BufferTextureType::Unsigned"
+			],
+			[
+				"unwra",
+				"unwrap_or"
+			],
+			[
+				"push",
+				"push_light"
+			],
+			[
+				"Blur",
+				"BlurLightMesh"
+			],
+			[
+				"vec",
+				"Vector2"
+			],
+			[
+				"delta",
+				"delta_abs"
+			],
+			[
+				"del",
+				"delta_abs"
+			],
+			[
+				"LAM",
+				"LAMP_RED"
+			],
+			[
+				"adj",
+				"adj_updated"
+			],
+			[
+				"Vec",
+				"Vector2"
+			],
+			[
+				"Ver",
+				"Vertex"
+			],
+			[
+				"draw",
+				"draw_light_debug_mesh"
+			],
+			[
+				"Vir",
+				"VirtualKeyCode::Key1"
+			],
+			[
+				"ro",
+				"rotate_right"
+			],
+			[
+				"unw",
+				"unwrap_or"
+			],
+			[
+				"W",
+				"World"
+			],
+			[
+				"Or",
+				"Ordering::Greater"
+			],
+			[
+				"OR",
+				"Ordering"
+			],
+			[
+				"rot",
+				"rotate_right"
+			],
+			[
+				"iter",
+				"iter_mut"
+			],
+			[
+				"event",
+				"event_loop"
+			],
+			[
+				"Clo",
+				"Clone"
+			],
+			[
+				"gen",
+				"gen_range"
+			],
+			[
+				"ge",
+				"gen_bool"
+			],
+			[
+				"worm",
+				"worm_length"
+			],
+			[
+				"g",
+				"gen_range"
+			],
+			[
+				"with",
+				"with_freq"
+			],
+			[
+				"res",
+				"resize"
+			],
+			[
+				"A",
+				"LAMP"
+			],
+			[
+				"Rgb",
+				"RgbaImage"
+			],
+			[
+				"Rg",
+				"RgbaImage"
+			],
+			[
+				"glut",
+				"glutin_time"
+			],
+			[
+				"sat",
+				"saturating_sub"
+			],
+			[
+				"from",
+				"from_millis"
+			],
+			[
+				"println",
+				"println!"
+			],
+			[
+				"ptr",
+				"as_ptr"
+			],
+			[
+				"transla",
+				"translate"
+			],
+			[
+				"texture",
+				"texture_tetris"
+			],
+			[
+				"into_rgba",
+				"into_rgba8"
+			],
+			[
+				"to_by",
+				"into_bytes"
+			],
+			[
+				"into",
+				"into_rgb8"
+			],
+			[
+				"as_",
+				"as_secs_f32"
+			],
+			[
+				"as",
+				"as_millis"
+			],
+			[
+				"Unsigned",
+				"UNSIGNED_INT"
+			],
+			[
+				"window",
+				"windowed_context"
+			],
+			[
+				"EnableVertex",
+				"EnableVertexArrayAttrib"
+			],
+			[
+				"print",
+				"print_shader_info_log"
+			],
+			[
+				"info",
+				"info_log"
+			],
+			[
+				"as_mu",
+				"as_mut_ptr"
+			],
+			[
+				"GetShaderInfoLog",
+				"GetShaderInfoLog"
+			],
+			[
+				"GetShader",
+				"GetShaderiv"
+			],
+			[
+				"VERTE",
+				"VERTEX_SHADER_SOURCE"
+			],
+			[
+				"Crae",
+				"CreateShader"
+			],
+			[
+				"Stat",
+				"STATIC_DRAW"
+			],
+			[
+				"win",
+				"windowed_context"
+			],
+			[
+				"windo",
+				"windowed_context"
+			],
+			[
+				"pr",
+				"println!"
+			],
+			[
+				"Contr",
+				"ControlFlow::Exit"
+			],
+			[
+				"pan",
+				"panic!"
+			],
+			[
+				"Start",
+				"StartCause::Poll"
+			],
+			[
+				"Wait",
+				"WaitUntil"
+			],
+			[
+				"StartC",
+				"StartCause::ResumeTimeReached"
+			],
+			[
+				"gl",
+				"glium"
+			],
+			[
+				"macro",
+				"macro"
+			],
+			[
+				"and",
+				"and_then(…)\t  pub fn and_then<U, F: FnOnce(T) -> Option<U>>(self, f: F) -> Option<U>"
+			],
+			[
+				"Fn",
+				"FnMut\t  Interface"
+			],
+			[
+				"line",
+				"line_clear_frames\t  u32"
+			],
+			[
+				"text",
+				"text_creator\t  &TextCreator"
+			],
+			[
+				"game",
+				"game_font\t  Font"
+			],
+			[
+				"blo",
+				"block_size_draw\t  u32"
+			],
+			[
+				"anima",
+				"animation_block\t  Data"
+			],
+			[
+				"anim",
+				"animation_block\t  Data"
+			],
+			[
+				"Anim",
+				"AnimGameOfLife\t  EnumMember"
+			],
+			[
+				"Line",
+				"ClearLines\t  ()"
+			],
+			[
+				"Uni",
+				"UnitEvent\t  Enum"
+			],
+			[
+				"B",
+				"BACKGROUND\t  pub const BACKGROUND: Data = Data{texture_pos:vec2i{x:0,y:0}};"
+			],
+			[
+				"Roo",
+				"Room\t  Struct"
+			],
+			[
+				"te",
+				"texture\t  Texture"
+			],
+			[
+				"ani",
+				"animate_block\t  Array2D<bool>"
+			],
+			[
+				"unit",
+				"unit_id\t  usize"
+			],
+			[
+				"Co",
+				"UnitCommandInner\t  Struct"
+			],
+			[
+				"Wa",
+				"CommandWrapper\t  Struct"
+			],
+			[
+				"Command",
+				"command\t  Module"
+			],
+			[
+				"Unit",
+				"UnitCommandKind\t  Enum"
+			],
+			[
+				"Comma",
+				"CommandWrapper\t  Struct"
+			],
+			[
+				"Comm",
+				"CommandWrapper<…>\t  Struct"
+			],
+			[
+				"count",
+				"countdown\t  Duration"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.py",
+			"settings":
+			{
+				"buffer_size": 894,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABoBAAAAAAAAGwEAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAGgEAAAAAAAAaAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"left_delete",
+					null,
+					"AQAAABoBAAAAAAAAGgEAAAAAAAABAAAAIA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAGwEAAAAAAAAbAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "\\"
+					},
+					"AQAAABoBAAAAAAAAGwEAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAGgEAAAAAAAAaAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABsBAAAAAAAAHAEAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAGwEAAAAAAAAbAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"left_delete",
+					null,
+					"AQAAABsBAAAAAAAAGwEAAAAAAAABAAAAIA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAHAEAAAAAAAAcAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAABsBAAAAAAAAHAEAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAGwEAAAAAAAAbAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					14,
+					2,
+					"left_delete",
+					null,
+					"BAAAAF4BAAAAAAAAXgEAAAAAAAAdAAAAZnJvbSBkb21haW4udmFsaWRhdG9yIGltcG9ydCAtAQAAAAAAAC0BAAAAAAAAHQAAAGZyb20gZG9tYWluLnZhbGlkYXRvciBpbXBvcnQgQAEAAAAAAABAAQAAAAAAAAEAAAAKLAEAAAAAAAAsAQAAAAAAAAEAAAAK",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAACAAAASgEAAAAAAAAtAQAAAAAAAAAAAAAAAPC/ewEAAAAAAABeAQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AgAAAD8BAAAAAAAAQAEAAAAAAAAAAAAALAEAAAAAAAAtAQAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAACAAAALAEAAAAAAAAsAQAAAAAAAAAAAAAAAPC/PwEAAAAAAAA/AQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AgAAAEEBAAAAAAAAQgEAAAAAAAAAAAAALQEAAAAAAAAuAQAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAACAAAALQEAAAAAAAAtAQAAAAAAAAAAAAAAAPC/QQEAAAAAAABBAQAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "domain/validator.py",
+			"settings":
+			{
+				"buffer_size": 7002,
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		},
+		{
+			"file": "service/gradeservice.py",
+			"settings":
+			{
+				"buffer_size": 3059,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					15,
+					1,
+					"cut",
+					null,
+					"AQAAAFcEAAAAAAAAVwQAAAAAAAD9AAAACgkJaWYgbm90IHN0dWRlbnRfaWQgaW4gc2VsZi5fX3N0dWRlbnRfcmVwbzoKCQkJcmFpc2UgU2VydmljZUV4Y2VwdGlvbigidGhlIGdpdmVuIHN0dWRlbnRfaWQgaXMgbm90IGluIHRoZSByZXBvc2l0b3J5IikKCQkKCQlpZiBub3QgZGlzY2lwbGluZV9pZCBpbiBzZWxmLl9fZGlzY2lwbGluZV9yZXBvOgoJCQlyYWlzZSBTZXJ2aWNlRXhjZXB0aW9uKCJ0aGUgZ2l2ZW4gZGlzY2lwbGluZV9pZCBpcyBub3QgaW4gdGhlIHJlcG9zaXRvcnkiKQoJCQ",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAVAUAAAAAAABXBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					18,
+					1,
+					"paste_and_indent",
+					null,
+					"AQAAAOAEAAAAAAAA3QUAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAA4AQAAAAAAADgBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"indent",
+					null,
+					"BgAAAOEEAAAAAAAA4gQAAAAAAAAAAAAADgUAAAAAAAAPBQAAAAAAAAAAAABaBQAAAAAAAFsFAAAAAAAAAAAAAF4FAAAAAAAAXwUAAAAAAAAAAAAAkQUAAAAAAACSBQAAAAAAAAAAAADgBQAAAAAAAOEFAAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAA3QUAAAAAAADiBAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AgAAAOAEAAAAAAAA4QQAAAAAAAAAAAAA4QQAAAAAAADkBAAAAAAAAAAAAAA",
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAA4AQAAAAAAADgBAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
+	],
+	"build_system": "Packages/User/Python/Python Console.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Automatic"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Run (with args)..."
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Check"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Test"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Test (with args)..."
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Bench"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Document"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Clippy"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Script"
+				],
+				[
+					"Packages/User/Python/Python Console.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/Python/Non-Stupid Python.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Python/Python Console.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/Python/Python Console.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					""
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Automatic"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Run (with args)..."
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Check"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Test"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Test (with args)..."
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Bench"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Document"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Clippy"
+				],
+				[
+					"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+					"Script"
+				]
+			],
+			[
+				"Packages/Rust Enhanced/RustEnhanced.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"temrina",
+				"Terminal: Open in project folder"
+			],
+			[
+				"view",
+				"View Package File"
+			],
+			[
+				"view pa",
+				"View Package File"
+			],
+			[
+				"folder",
+				"Project: Add Folder"
+			],
+			[
+				"rust: ",
+				"Rust: Configure Cargo Build"
+			],
+			[
+				"arith",
+				"Arithmetic"
+			],
+			[
+				"gc",
+				"Git: Commit"
+			],
+			[
+				"git: add",
+				"Git: Add All"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"git: comm",
+				"Git: Commit"
+			],
+			[
+				"git: co",
+				"Git: Commit"
+			],
+			[
+				"git: ",
+				"Git: Status"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git comm",
+				"Git: Commit history"
+			],
+			[
+				"rust:",
+				"Rust: Configure Cargo Build"
+			],
+			[
+				"alig",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git: com",
+				"Git: Commit"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"rename",
+				"Rename File"
+			],
+			[
+				"ari",
+				"Arithmetic"
+			],
+			[
+				"arit",
+				"Arithmetic"
+			],
+			[
+				"trans",
+				"Transpose"
+			],
+			[
+				"tran",
+				"Transpose"
+			],
+			[
+				"lsp: disable",
+				"LSP: Disable Language Server Globally"
+			],
+			[
+				"lsp: eanble",
+				"LSP: Enable Language Server Globally"
+			],
+			[
+				"git: commit",
+				"Git: Commit"
+			],
+			[
+				"ali",
+				"AlignTab"
+			],
+			[
+				"transpo",
+				"Transpose"
+			],
+			[
+				"pro",
+				"Project: Close"
+			],
+			[
+				"view: toggle ta",
+				"View: Toggle Tabs"
+			],
+			[
+				"ssu",
+				"Sync Settings: Edit User Settings"
+			],
+			[
+				"sync settings: ",
+				"Sync Settings: Edit User Settings"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"cargo",
+				"Rust: Configure Cargo Build"
+			],
+			[
+				"carg",
+				"Rust: Configure Cargo Build"
+			],
+			[
+				"toip",
+				"Terminal: Open in project folder"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ssn",
+				"Show Scope Name"
+			],
+			[
+				"view ",
+				"View Package File"
+			],
+			[
+				"show",
+				"Show Scope Name"
+			],
+			[
+				"preferences: key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"lsp:restart",
+				"LSP: Restart Server"
+			],
+			[
+				"restat",
+				"LSP: Restart Server"
+			],
+			[
+				"gpus",
+				"Git: Push"
+			],
+			[
+				"enable pac",
+				"Package Control: Enable Package"
+			],
+			[
+				"rust: toggle",
+				"Rust: Toggle Warnings"
+			],
+			[
+				"rust: warn",
+				"Rust: Toggle Warnings"
+			],
+			[
+				"temri",
+				"Terminal: Open in project folder"
+			],
+			[
+				"temrinal",
+				"Terminal: Open in project folder"
+			],
+			[
+				"aligntab",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"align",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"remove packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"keybi",
+				"Preferences: LSP Key Bindings"
+			],
+			[
+				"buildview",
+				"Disable/Enable buildview for this window"
+			],
+			[
+				"preferences",
+				"Preferences: Settings"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"preferen",
+				"Preferences: Settings"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"enable\\",
+				"Package Control: Enable Package"
+			],
+			[
+				"rmeove package",
+				"Package Control: Remove Package"
+			],
+			[
+				"actualvim",
+				"ActualVim: Enable (File)"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"enable packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"enable packea",
+				"Package Control: Enable Package"
+			],
+			[
+				"color scheme",
+				"UI: Customize Color Scheme"
+			],
+			[
+				"select theme",
+				"UI: Select Theme"
+			],
+			[
+				"new view",
+				"File: New View into File"
+			],
+			[
+				"yeet",
+				"Snippet: yeet"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"new snippet",
+				"PackageDev: New Raw Snippet"
+			],
+			[
+				"terminal",
+				"Terminal: Open in project folder"
+			],
+			[
+				"temrin",
+				"Terminal: Open in project folder"
+			],
+			[
+				"temrinal:",
+				"Terminal: Open in project folder"
+			],
+			[
+				"termina",
+				"Terminal: Open"
+			],
+			[
+				"lsprs",
+				"LSP: Restart Servers"
+			],
+			[
+				"lsp: rest",
+				"LSP: Restart Servers"
+			],
+			[
+				"open termina",
+				"Terminal: Open in project folder"
+			],
+			[
+				"project folder",
+				"Terminal: Open in project folder"
+			],
+			[
+				"terminal: o",
+				"Terminal: Open in project folder"
+			],
+			[
+				"book",
+				"Bookmarks: Clear All"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"restart",
+				"LSP: Restart Servers"
+			],
+			[
+				"open termin",
+				"Terminal: Open in project folder"
+			],
+			[
+				"bt",
+				"Bookmarks: Toggle"
+			],
+			[
+				"terminal: op",
+				"Terminal: Open in project folder"
+			],
+			[
+				"rename ",
+				"File: Rename"
+			],
+			[
+				"lsp:rename",
+				"LSP: Rename Symbol"
+			],
+			[
+				"temrinus:",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"terminal: ",
+				"Terminal: Open in project folder"
+			],
+			[
+				"bookm",
+				"Bookmarks: Clear All"
+			],
+			[
+				"temrinal: ",
+				"Terminal: Open in project folder"
+			],
+			[
+				"clear",
+				"Bookmarks: Clear All"
+			],
+			[
+				"b ook",
+				"Bookmarks: Clear All"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"reanme",
+				"Rename File"
+			],
+			[
+				"terminus",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"lsp: rena",
+				"LSP: Rename Symbol"
+			],
+			[
+				"lsp: rename",
+				"LSP: Rename Symbol"
+			],
+			[
+				"synce",
+				"Sync Settings: Upload"
+			],
+			[
+				"bookmar",
+				"Bookmarks: Clear All"
+			],
+			[
+				"terminal:",
+				"Terminal: Open in project folder"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"set syntax sublime text key",
+				"Set Syntax: Sublime Text Keymap (JSON)"
+			],
+			[
+				"format",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"pretty json:",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"bracket",
+				"BracketHighlighter: Documentation"
+			],
+			[
+				"sync",
+				"Sync Settings: Upload"
+			],
+			[
+				"upload",
+				"Sync Settings: Upload"
+			],
+			[
+				"hexviewer",
+				"HexViewer: Toggle Hex View"
+			],
+			[
+				"close",
+				"Terminus: Close"
+			],
+			[
+				"termin",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"terminu",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"minimap",
+				"View: Toggle Minimap"
+			],
+			[
+				"bookma",
+				"Bookmarks: Clear All"
+			],
+			[
+				"renam",
+				"Rename File"
+			],
+			[
+				"remove",
+				"BracketHighlighter: Remove Brackets"
+			],
+			[
+				"boom",
+				"Bookmarks: Toggle"
+			],
+			[
+				"temrinus",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"termi",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"bookem",
+				"Bookmarks: Toggle"
+			]
+		],
+		"width": 436.0
+	},
+	"console":
+	{
+		"height": 154.0,
+		"history":
+		[
+			"self.run",
+			"run()",
+			"view.run_command(\"side_bar_files_open_with\", {\"application\": \"C:\\\\Program Files\\\\paint.net\\\\PaintDotNet.exe\"})",
+			"view.run_command(\"side_bar_files_open_with\", {\"C:\\\\Program Files\\\\paint.net\\\\PaintDotNet.exe\"})",
+			"view.run_command(\"side_bar_files_open_with\", {\"application\": \"C:\\\\WINDOWS\\\\system32\\\\cmd.exe\"})",
+			"view.run_command(\"side_bar_files_open_with\")",
+			"view.run_command()",
+			"view",
+			"runCommand()",
+			"SideBar",
+			"side_bar",
+			"2*2",
+			"side_bar_files_open_with()",
+			"side_bar_files_open_with",
+			"file_diff_selections",
+			"file_diff_selections()",
+			"sublime.run_command(\"setup_test_environment\")",
+			"setup_test_environment",
+			"sublime.setup_test_environment()",
+			"setup_test_environment()",
+			"view.run_command(\"example\")",
+			"ExampleCommand()",
+			"ExampleCommand",
+			"ExampleCommand()",
+			"<a href=\"revert\">⟲</a>",
+			"view.window().run_command(\"new_file\", {\"name\": \"ass\"})",
+			"view.window().run_command(\"new_file\")",
+			"view.window().new_file()",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/ui"
+	],
+	"file_history":
+	[
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/ui/interactive.py",
+		"/C/Users/Andrei/Desktop/capcauneala.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/user.txt",
+		"/D/Workspace/sortare.c",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/gradeservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/entity.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/app.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/validator.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/disciplineservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/service/studentservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/test.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/lab 7-9.sublime-workspace",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/lab 7-9.sublime-project",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/tema.sublime-workspace",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/tema.sublime-project",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/grade.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/student.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/discipline.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/ui/console.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/app.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/repo/studentrepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/services/studentservice.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/domain/validators.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/repository",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/repository/inmemory.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/repository/inmemory.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/repository/filerepo.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/repository/inmemory.pyc",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/domain/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/domain/apartamente.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/domain/cheltuiala.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/domain/teste.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/infrastructure/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/5_tema/infrastructure/teste.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/6_tema/domain/__init__.py",
+		"/C/Users/Andrei/Desktop/scoala/fp/StudentLayered/domain/entities.py",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/Python/Snippets/setter.sublime-snippet",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/Python/Snippets/getter.sublime-snippet",
+		"/C/Users/Andrei/AppData/Local/Temp/Temp1_StudentUiServiceRepository.zip/StudentLayered/app.py",
+		"/C/Users/Andrei/Desktop/terraris/src/world/mod.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/world/light_mesh_blur.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/array2.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/block.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/main.rs",
+		"/C/Users/Andrei/Desktop/terraris.md",
+		"/C/Users/Andrei/Desktop/terraris/math/src/lib.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/world/world_mesh.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/world/light_mesh_special.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/world/light_mesh_simple.rs",
+		"/C/Users/Andrei/Desktop/glium/src/uniforms/bind.rs",
+		"/C/Users/Andrei/Desktop/glium/src/uniforms/value.rs",
+		"/C/Users/Andrei/Desktop/glium/src/uniforms/uniforms.rs",
+		"/C/Users/Andrei/Desktop/glium/src/uniforms/sampler.rs",
+		"/D/Steam/steamapps/common/Hearts of Iron IV/launcher-settings.json",
+		"/C/Users/Andrei/Desktop/terraris/src/atlas.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/ignoreme.rs",
+		"/C/Users/Andrei/Desktop/terraris/light.py",
+		"/C/Users/Andrei/Desktop/terraris/src/world.rs",
+		"/C/Users/Andrei/Desktop/terraris/minimap.png",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/Andrei/Desktop/Solar Queen/firstfour/00 Book.md",
+		"/C/Users/Andrei/Desktop/Solar Queen/firstfour/01 Sargasso of Space.md",
+		"/C/Users/Andrei/Desktop/Solar Queen/firstfour/02 Plague Ship.md",
+		"/C/Users/Andrei/Desktop/Solar Queen/firstfour/03 Voodoo Planet.md",
+		"/C/Users/Andrei/Desktop/Solar Queen/firstfour/04 Postmarked the Stars.md",
+		"/C/Users/Andrei/Desktop/terraris/Cargo.toml",
+		"/C/Users/Andrei/Desktop/terraris/config.toml",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/SyncSettings.sublime-settings",
+		"/C/Users/Andrei/Desktop/terraris/src/bitstring_iter.rs",
+		"/C/Users/Andrei/AppData/Roaming/Aseprite/scripts/Export PNG on Save.lua",
+		"/C/Users/Andrei/Desktop/terraris/target/debug/deps/terraris.s",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/Markdown/Markdown.sublime-syntax",
+		"/C/Users/Andrei/Desktop/terraris/terraris.sublime-project",
+		"/C/Users/Andrei/Desktop/opengl experiments/src/main.rs",
+		"/C/Users/Andrei/Desktop/opengl experiments/Cargo.toml",
+		"/C/Users/Andrei/Desktop/terraris/title.png",
+		"/C/Users/Andrei/Desktop/glutin/glutin_examples/Cargo.toml",
+		"/C/Users/Andrei/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-glm-0.13.0/src/ext/scalar_constants.rs",
+		"/C/Users/Andrei/Desktop/terraris/awesomeface.png",
+		"/C/Users/Andrei/Desktop/glutin/glutin_examples/examples/transparent.rs",
+		"/C/Users/Andrei/Desktop/terraris/src/support.rs",
+		"/D/MultiMC/instances/Roguelike Adventures and Dungeons/minecraft/saves/New World/playerdata/7d8d3d56-b547-4452-b30e-103dabc821ec.dat",
+		"/D/MultiMC/instances/Roguelike Adventures and Dungeons/minecraft/saves/New World/stats/7d8d3d56-b547-4452-b30e-103dabc821ec.json",
+		"/D/scripts/lenny.bat",
+		"/D/scripts/lenny.txt",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/WordCount.sublime-settings",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/WordCount/WordCount.sublime-settings",
+		"/C/Users/Andrei/Desktop/tetris-the-third/config.toml",
+		"/C/Users/Andrei/Desktop/tetris-the-third/src/main.rs",
+		"/C/Users/Andrei/Desktop/tetris-the-third/src/config.rs",
+		"/C/Users/Andrei/Desktop/tetris-the-third/src/room.rs",
+		"/C/Users/Andrei/Desktop/tetris-the-third/src/unit.rs",
+		"/C/Users/Andrei/Desktop/tetris-the-third/src/myevents.rs",
+		"/C/Users/Andrei/Desktop/tetris-the-third/src/ui.rs",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/yeet.sublime-snippet",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/Rust Enhanced/snippets/struct.sublime-snippet",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/Rust/../yeet.sublime-snippet",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/Rust Enhanced/snippets/static.sublime-snippet",
+		"/C/Users/Andrei/Desktop/tetris-the-third/src/text.rs",
+		"/C/Users/Andrei/Desktop/tetris-the-third/src/block.rs",
+		"/C/Users/Andrei/Desktop/yetis/config.toml",
+		"/D/Workspace/tetris-the-third/src/room.rs",
+		"/D/Workspace/tetris-the-third/src/unit.rs",
+		"/D/Workspace/tetris-the-third/theme.toml",
+		"/D/Workspace/tetris-the-third/config.toml",
+		"/D/Workspace/tetris-the-third/Cargo.toml",
+		"/D/Workspace/tetris-the-third/src/game.rs",
+		"/C/Users/Andrei/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Andrei/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/library/core/src/macros/mod.rs",
+		"/D/Workspace/tetris-the-third/src/network.rs",
+		"/D/Workspace/tetris-the-third/.cargo/config.toml",
+		"/D/Workspace/tetris-the-third/src/block.rs",
+		"/D/Workspace/tetris-the-third/src/command.rs",
+		"/D/Workspace/tetris-the-third/src/mino_controller.rs",
+		"/D/Workspace/tetris-the-third/src/ui.rs",
+		"/D/Workspace/tetris-the-third/build.rs",
+		"/D/Workspace/tetris-the-third/icon/gen.bat",
+		"/D/Workspace/tetris-the-third/icon.bat",
+		"/D/Workspace/tetris-the-third/src/config.rs",
+		"/D/Workspace/tetris-the-third/src/lenio.rs",
+		"/D/Workspace/tetris-the-third/src/main.rs",
+		"/C/Users/Andrei/Desktop/Despre_noi.html",
+		"/C/Users/Andrei/Desktop/yetis/start.bat",
+		"/D/Workspace/tetris-the-third/src/myevents.rs",
+		"/D/Workspace/tetris-the-third/thoughts/sdl2 controllers.md",
+		"/D/Workspace/tetris-the-third/src/src/main.rs"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 622.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"# ",
+			"^.*\\t",
+			"\t",
+			"# ",
+			"^.*\\t",
+			"# ",
+			" ",
+			"#",
+			"get_discipline_id",
+			"discipline",
+			"student",
+			"grade",
+			"erase",
+			"Invalid",
+			"discipline_id",
+			"student",
+			"add_grade",
+			"grade",
+			"discipline",
+			"ValidatorException",
+			"discipline",
+			"student_service",
+			"service",
+			"discipline_service",
+			"discipline_repo",
+			"discipline_validator",
+			"__disciplines",
+			"__students",
+			"__grades",
+			"grades",
+			"disciplines",
+			"students",
+			"list",
+			"student",
+			"value",
+			"student",
+			"name",
+			"student",
+			"get_all_students",
+			"add_student",
+			"Matematica",
+			"student",
+			"Student",
+			"student",
+			"thing",
+			"wrong",
+			"erorrs",
+			" ",
+			"",
+			"1",
+			"0",
+			"1",
+			"u8",
+			"T",
+			"where",
+			"wherer",
+			"col",
+			"vs_col",
+			"alllight",
+			"2",
+			"f32",
+			"col",
+			"3",
+			" + 1",
+			"block::SIZE",
+			" ",
+			"light_mesh",
+			"+ 2",
+			"vs_va1",
+			"vs_cor",
+			"mid",
+			"vs_mid",
+			" + 1",
+			"0",
+			"255",
+			"0",
+			"255",
+			"0",
+			"123",
+			"255",
+			"0",
+			"-1",
+			"1",
+			"-1",
+			"x",
+			"block",
+			"u16",
+			"IntegralTexture2d",
+			"light_mesh",
+			"r",
+			"v",
+			"float",
+			"vs_v1",
+			"vs_v2",
+			"out",
+			"r",
+			"v",
+			"get_sunlight",
+			"vs_",
+			"v",
+			"v3",
+			"\t\t\n",
+			"x",
+			"out",
+			"0",
+			"col",
+			"in",
+			".unwrap_or",
+			")).0",
+			"world.sunlight.get_cloned(",
+			": u32",
+			"v1d",
+			"test",
+			"d",
+			"val",
+			"in_val",
+			"val:",
+			"}\n",
+			"1",
+			"0",
+			",",
+			"set",
+			"2",
+			"block::SIZEI",
+			"SpecialLightMesh",
+			"0b0011",
+			"0b0110",
+			"a0"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								529,
+								529
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html, text.xml"
+								},
+								{
+									"rhs_empty": true,
+									"selector": "punctuation.accessor"
+								}
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/6_tema/app.py",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "domain/validator.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7002,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								242
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html, text.xml"
+								},
+								{
+									"rhs_empty": true,
+									"selector": "punctuation.accessor"
+								}
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/6_tema/domain/validator.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "service/gradeservice.py",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3059,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								381,
+								381
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": -1,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "python"
+							},
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html, text.xml"
+								},
+								{
+									"rhs_empty": true,
+									"selector": "punctuation.accessor"
+								}
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"lsp_uri": "file:///C:/Users/Andrei/Desktop/scoala/fp/6_tema/service/gradeservice.py",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 210.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.diagnostics":
+	{
+		"height": 251.0
+	},
+	"output.exec":
+	{
+		"height": 180.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 138.0
+	},
+	"output.language servers":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "lab 7-9.sublime-project",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ui",
+				"src\\ui.rs"
+			],
+			[
+				"",
+				"C:\\Users\\Andrei\\AppData\\Roaming\\Sublime Text 3\\Packages\\User\\darkmd.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Workspace\\tetris\\tetris.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Player",
+				"Player"
+			],
+			[
+				"",
+				"FunFactCog"
+			]
+		],
+		"width": 628.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 226.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

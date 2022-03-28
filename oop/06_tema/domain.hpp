@@ -18,9 +18,9 @@ public:
 	//     an -- anul in care a fost publicata cartea construita
 	Carte(
 		int id,
-		std::string titlu,
-		std::string autor,
-		std::string gen,
+		const std::string &titlu,
+		const std::string &autor,
+		const std::string &gen,
 		int an
 	);
 	
@@ -30,15 +30,15 @@ public:
 	
 	// Getter pentru titlul cartii.
 	// out: titlul cartii
-	std::string get_titlu() const;
+	const std::string &get_titlu() const;
 	
 	// Getter pentru autorul cartii.
 	// out: autorul cartii
-	std::string get_autor() const;
+	const std::string &get_autor() const;
 	
 	// Getter pentru genul cartii.
 	// out: genul cartii
-	std::string get_gen() const;
+	const std::string &get_gen() const;
 	
 	// Getter pentru anul cartii.
 	// out: anul cartii
@@ -46,15 +46,15 @@ public:
 	
 	// Setter pentru titlul cartii.
 	// in: titlu -- titlul nou
-	void set_titlu(std::string titlu);
+	void set_titlu(const std::string &titlu);
 	
 	// Setter pentru autorul cartii.
 	// in: autor -- autorul nou
-	void set_autor(std::string autor);
+	void set_autor(const std::string &autor);
 	
 	// Setter pentru genul cartii.
 	// in: gen -- genul nou
-	void set_gen(std::string gen);
+	void set_gen(const std::string &gen);
 	
 	// Setter pentru anul cartii.
 	// in: an -- anul nou

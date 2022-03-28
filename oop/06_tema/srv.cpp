@@ -8,9 +8,9 @@ SrvCarti::SrvCarti(RepoCarti &repo_carti) : repo(repo_carti) {
 }
 
 void SrvCarti::add_carte(
-	std::string titlu,
-	std::string autor,
-	std::string gen,
+	const std::string &titlu,
+	const std::string &autor,
+	const std::string &gen,
 	int an
 ) {
 	this->repo.add({this->last_id, titlu, autor, gen, an});
@@ -23,9 +23,9 @@ void SrvCarti::erase_carte(int id) {
 
 void SrvCarti::update_carte(
 	int id,
-	std::string titlu,
-	std::string autor,
-	std::string gen,
+	const std::string &titlu,
+	const std::string &autor,
+	const std::string &gen,
 	int an
 ) {
 	this->repo.update({id, titlu, autor, gen, an});

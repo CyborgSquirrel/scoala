@@ -190,7 +190,10 @@ void testIterator() {
 		count++;
 	}
 	assert(count == 50);
-
+	
+	while (im4.valid()) {
+		im4.elimina();
+	}
 }
 
 
@@ -230,10 +233,9 @@ void testQuantity() {//scopul e sa adaugam multe date
 
 // nu stim reprezentarea multimii, putem testa doar anumite lucruri generale, nu stim in ce ordine vor fi afisate elementele.
 void testAllExtins() {
-	testCreeaza(); std::cout << "testCreeaza()" << std::endl;
-	testAdauga(); std::cout << "testAdauga()" << std::endl;
-	testSterge(); std::cout << "testSterge()" << std::endl;
-	testIterator(); std::cout << "testIterator()" << std::endl;
-	testQuantity(); std::cout << "testQuantity()" << std::endl;
-
+	std::cout << "testCreeaza()" << std::endl; testCreeaza();
+	std::cout << "testAdauga()" << std::endl; testAdauga();
+	std::cout << "testSterge()" << std::endl; testSterge();
+	std::cout << "testIterator()" << std::endl; testIterator();
+	std::cout << "testQuantity()" << std::endl; testQuantity();
 }

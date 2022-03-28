@@ -10,6 +10,7 @@ struct Vec vec_new(void) {
 	vec.size = 4;
 	vec.len = 0;
 	vec.buf = (struct Cheltuiala*) malloc(vec.size * sizeof(struct Cheltuiala));
+	assert(vec.buf);
 	return vec;
 }
 
@@ -41,6 +42,7 @@ void vec_push(
 		
 		vec->size *= 2;
 		vec->buf = (struct Cheltuiala*) malloc(vec->size * sizeof(struct Cheltuiala));
+		assert(vec->buf);
 		for (int i = 0; i < old_size; ++i) {
 			vec->buf[i] = old_buf[i];
 		}
@@ -82,6 +84,7 @@ struct Vec vec_clone(
 	clone.size = vec->size;
 	clone.len = vec->len;
 	clone.buf = (struct Cheltuiala*) malloc(clone.size * sizeof(struct Cheltuiala));
+	assert(clone.buf);
 	memcpy(clone.buf, vec->buf, clone.len * sizeof(struct Cheltuiala));
 	return clone;
 }
@@ -114,6 +117,7 @@ void vec_sort(
 	int (*lt)(struct Cheltuiala *, struct Cheltuiala *)
 ) {
 	struct Cheltuiala *temp_buf = (struct Cheltuiala *) malloc(vec->len * sizeof(struct Cheltuiala));
+	assert(temp_buf);
 	memcpy(temp_buf, vec->buf, vec->len * sizeof(struct Cheltuiala));
 	
 	__buf_mergesort(vec->buf, temp_buf, lt, vec->len);

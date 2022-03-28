@@ -5,7 +5,7 @@
 #include "./ui.hpp"
 #include "./exception.hpp"
 
-UiException::UiException(std::string msg) {
+UiException::UiException(const std::string &msg) {
 	this->msg = msg;
 }
 
@@ -64,7 +64,7 @@ void Ui::run() {
 			} else {
 				throw UiException("comanda invalida");
 			}
-		} catch (UiException ex) {
+		} catch (const UiException &ex) {
 			std::cout << ex << std::endl;
 		}
 		std::cout << std::endl;

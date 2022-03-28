@@ -10,12 +10,12 @@ private:
 
 	//constructorul primeste o referinta catre Container
 	//iteratorul va referi primul element din container
-	IteratorMultime(const Multime& m);
+	IteratorMultime(Multime& m);
 
 	//contine o referinta catre containerul pe care il itereaza
-	const Multime& multime;
+	Multime& multime;
 	/* aici e reprezentarea  specifica a iteratorului */
-	const Multime *p;
+	Multime *p;
 
 public:
 
@@ -25,6 +25,11 @@ public:
 		//muta iteratorul in container
 		// arunca exceptie daca iteratorul nu e valid
 		void urmator();
+		
+		// elimină și returnează elementul curent referit de iterator 
+		//după efectuarea operației, elementul curent referit de iterator este următorul element din mulțime, sau, în cazul în care elementul eliminat a fost ultimul, iterator devine nevalid 
+		// aruncă excepție în cazul în care iteratorul este nevalid 
+		TElem elimina();
 
 		//verifica daca iteratorul e valid (indica un element al containerului)
 		bool valid() const;

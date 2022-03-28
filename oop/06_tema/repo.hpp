@@ -9,7 +9,7 @@ class RepoCartiException {
 private:
 	std::string msg;
 public:
-	RepoCartiException(std::string msg);
+	RepoCartiException(const std::string &msg);
 };
 
 class RepoCarti {

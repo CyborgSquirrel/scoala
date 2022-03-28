@@ -10,7 +10,7 @@ class UiException {
 private:
 	std::string msg;
 public:
-	UiException(std::string msg);
+	UiException(const std::string &msg);
 	friend std::ostream &operator<<(std::ostream &out, const UiException &ex);
 };
 std::ostream &operator<<(std::ostream &out, const UiException &ex);
@@ -38,7 +38,7 @@ private:
 		std::cout << name << " = ";
 		try {
 			read(val);
-		} catch (UiException ex) {
+		} catch (const UiException &ex) {
 			throw UiException("valoare invalida pentru " + name);
 		}
 	}

@@ -1,88 +1,16 @@
-#ifndef domain_h_INCLUDED
-#define domain_h_INCLUDED
-
-#include <stdio.h>
+#pragma once
+#ifndef DOMAIN_H_
+#define DOMAIN_H_
+#include <string.h>
 #include <stdlib.h>
-
-enum Tip { MANCARE, TRANSPORT, TELEFON_INTERNET, IMBRACAMINTE, ALTELE };
-
-// Converteste un tip in reprezentarea sa ca string.
-// in: tip -- tipul pentru care se va returna reprezentarea ca string
-// out: str -- reprezentarea ca string a tipului
-char *tip_as_str(enum Tip tip);
-
-struct Data {
-	int zi, luna, an;
-};
-
-// Creeaza o noua data, cu parametrii specificati.
-// in: zi -- ziua datii
-//     luna -- luna datii
-//     an -- anul datii
-// out: struct Data -- data creata
-struct Data data_new(int zi, int luna, int an);
-
-// Verifica daca doua dati sunt egale.
-// in: lhs -- pointer la data care va fi comparata
-//     rhs -- pointer la data care va fi comparata
-// out: int -- 1 daca datile sunt egale, 0 altfel
-int data_eq(struct Data *lhs, struct Data *rhs);
-
-// Verifica daca prima data este inaintea celei de-a doua.
-// in: lhs -- pointer la data care va fi comparata
-//     rhs -- pointer la data care va fi comparata
-// out: int -- 1 daca prima data este inaintea celei de-a doua, 0 altfel
-int data_before(struct Data *lhs, struct Data *rhs);
-
-// Verifica daca prima data este dupa celei de-a doua.
-// in: lhs -- pointer la data care va fi comparata
-//     rhs -- pointer la data care va fi comparata
-// out: int -- 1 daca prima data este dupa celei de-a doua, 0 altfel
-int data_after(struct Data *lhs, struct Data *rhs);
-
-// Afiseaza data furnizata in fluxul furnizat.
-// in: file -- fluxul in care se va afisa data (de exemplu: stdout)
-//     data -- data care va fi afisata
-void data_print(FILE *file, struct Data *data);
-
-struct Cheltuiala {
-	int id;
-	struct Data data;
-	float suma;
-	enum Tip tip;
-};
-
-// Creeaza o cheltuiala noua.
-// in: id -- id-ul cheltuielii
-//     data -- data la care s-a produs cheltuiala
-//     suma -- suma cheltuielii
-//     tip -- tipul cheltuielii
-// out: struct Cheltuiala -- cheltuiala creata
-struct Cheltuiala cheltuiala_new(
-	int id, struct Data data, float suma, enum Tip tip
-);
-
-// Verifica daca doua cheltuieli sunt egale.
-// in: lhs -- cheltuiala care va fi comparata
-//     rhs -- cheltuiala care va fi comparata
-// out: int -- 1 daca cheltuielile sunt egale, 0 altfel
-int cheltuiala_eq(struct Cheltuiala *lhs, struct Cheltuiala *rhs);
-
-// Afiseaza cheltuiala furnizata in fluxul furnizat.
-// in: file -- fluxul in care se va afisa cheltuiala (de exemplu: stdout)
-//     cheltuiala -- cheltuiala care va fi afisata
-void cheltuiala_print(FILE *file, struct Cheltuiala *cheltuiala);
-
-// Dealoca o cheltuiala (de fapt nu face nimic, pentru ca cheltuiala nu aloca memorie).
-// in: cheltuiala -- pointer la cheltuiala care va fi dealocata
-void cheltuiala_drop_generic(void *cheltuiala);
-
-// Copiaza cheltuiala sursa in cheltuiala destinatie.
-// in: dest -- pointer la cheltuiala destinatie
-//     src -- pointer la cheltuiala sursa
-void cheltuiala_clone_generic(void *src, void *dest);
-
-void test_domain(void);
-
-#endif // domain_h_INCLUDED
-
+typedef struct {
+	char* nume;
+	char* producator;
+	float cantitate;
+}Materie;
+Materie* creare_materie(char* nume, char* producator, float cantitate);
+Materie* copy_materie(Materie* m);
+void* copy_materie_generic(void* m);
+void destroy_entity(Materie* m);
+void destroy_entity_generic(void* m);
+#endif // !DOMAIN_H_

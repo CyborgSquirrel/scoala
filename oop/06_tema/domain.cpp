@@ -4,9 +4,9 @@
 
 Carte::Carte(
 	int id,
-	std::string titlu,
-	std::string autor,
-	std::string gen,
+	const std::string &titlu,
+	const std::string &autor,
+	const std::string &gen,
 	int an
 ) {
 	this->id = id;
@@ -17,14 +17,14 @@ Carte::Carte(
 }
 
 int Carte::get_id() const { return this->id; }
-std::string Carte::get_titlu() const { return this->titlu; }
-std::string Carte::get_autor() const { return this->autor; }
-std::string Carte::get_gen() const { return this->gen; }
+const std::string &Carte::get_titlu() const { return this->titlu; }
+const std::string &Carte::get_autor() const { return this->autor; }
+const std::string &Carte::get_gen() const { return this->gen; }
 int Carte::get_an() const { return this->an; }
 
-void Carte::set_titlu(std::string titlu) { this->titlu = titlu; }
-void Carte::set_autor(std::string autor) { this->autor = autor; }
-void Carte::set_gen(std::string gen) { this->gen = gen; }
+void Carte::set_titlu(const std::string &titlu) { this->titlu = titlu; }
+void Carte::set_autor(const std::string &autor) { this->autor = autor; }
+void Carte::set_gen(const std::string &gen) { this->gen = gen; }
 void Carte::set_an(int an) { this->an = an; }
 
 bool operator==(const Carte &lhs, const Carte &rhs) {

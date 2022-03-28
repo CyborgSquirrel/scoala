@@ -1,0 +1,200 @@
+        -:    0:Source:repository.c
+        -:    1:#include "repository.h"
+        -:    2:#include "vec.h"
+       12:    3:Lista* create_empty()
+        -:    4:{
+       12:    5:	Lista* rez = (Lista*)malloc(sizeof(Lista));
+       12:    6:	if (rez != NULL)
+        -:    7:	{
+       12:    8:		rez->elems = create_vec(sizeof(Materie*), copy_materie_generic, destroy_entity_generic);
+        -:    9:	}
+       12:   10:	return rez;
+        -:   11:}
+       30:   12:void destroy_list(Lista* l)
+        -:   13:{
+        -:   14:	/*
+        -:   15:	* Metoda care elibereaza zona de memorie ocupata de lista de entitati.
+        -:   16:	* input : lista l
+        -:   17:	* output: - 
+        -:   18:	*/
+        -:   19:	// for (int i = 0;i < l->lg;i++)
+        -:   20:	// {
+        -:   21:	// 	ElemType temp = l->elems[i];
+        -:   22:	// 	destroy_entity(temp);
+        -:   23:	// }
+       30:   24:	destroy_vec(l->elems);
+        -:   25:	// free(l->elems);
+       30:   26:	free(l);
+       30:   27:}
+        -:   28:
+       32:   29:void addRepo(Lista* l, ElemType m)
+        -:   30:{
+       32:   31:	int i, existent = 0;
+      103:   32:	for (i = 0;i < l->elems->lg;i++)
+        -:   33:	{
+       72:   34:		Materie* temp = get(l, i);
+       72:   35:		if (strcmp(m->nume, temp->nume) == 0)
+        -:   36:		{
+        1:   37:			strcpy(temp->nume, m->nume);
+        1:   38:			strcpy(temp->producator, m->producator);
+        1:   39:			temp->cantitate +=m->cantitate;
+        1:   40:			existent = 1;
+        1:   41:			break;
+        -:   42:		}
+        -:   43:	}
+       32:   44:	if (!existent)
+        -:   45:	{
+        -:   46:		// ensureCapacity(l);
+        -:   47:		// l->elems[l->lg] = m;
+        -:   48:		// l->lg += 1;
+       31:   49:		vec_push(l->elems, (void*) &m);
+        -:   50:	}
+       32:   51:}
+        -:   52:
+       89:   53:ElemType get(Lista* l, int poz)
+        -:   54:{
+       89:   55:	return *((Materie**) (l->elems->buf + sizeof(Materie*)*poz));
+        -:   56:}
+        -:   57:/*
+        -:   58:int ensureCapacity(Lista* l)
+        -:   59:{
+        -:   60:	if (l->lg < l->cp) {
+        -:   61:		return l->cp; //we have room
+        -:   62:	}
+        -:   63:	//alocate more memory
+        -:   64:	int newCapacity = l->cp* 2;
+        -:   65:	int size = sizeof(ElemType) * newCapacity;
+        -:   66:	if (size == 0)
+        -:   67:		exit(1);
+        -:   68:	ElemType* nElems = malloc(size);
+        -:   69:	if (nElems != NULL)
+        -:   70:	{
+        -:   71:		//copy elems
+        -:   72:		for (int i = 0; i < l->lg; i++) {
+        -:   73:			nElems[i] = l->elems[i];
+        -:   74:		}
+        -:   75:		//dealocate old vector
+        -:   76:		free(l->elems);
+        -:   77:		l->elems = nElems;
+        -:   78:		l->cp = newCapacity;
+        -:   79:	}
+        -:   80:	
+        -:   81:	return l->cp;
+        -:   82:}*/
+        -:   83:
+       10:   84:int findbyname(Lista* l, char* nume)
+        -:   85:{
+       15:   86:	for (int i = 0;i < l->elems->lg;i++)
+        -:   87:	{
+       10:   88:		Materie* temp = get(l, i);
+       10:   89:		if (strcmp(temp->nume, nume) == 0)
+        5:   90:			return i;
+        -:   91:	}
+        5:   92:	return -1;
+        -:   93:		
+        -:   94:}
+        4:   95:int modifyRepo(Lista* l, ElemType m)
+        -:   96:{
+        4:   97:	int poz = findbyname(l, m->nume);
+        4:   98:	if (poz == -1)
+        2:   99:		return -1;
+        2:  100:	Materie* m2 = get(l, poz);
+        2:  101:	strcpy(m2->nume, m->nume);
+        2:  102:	strcpy(m2->producator, m->producator);
+        2:  103:	m2->cantitate = m->cantitate;
+        2:  104:	return 0;
+        -:  105:}
+        -:  106:
+        4:  107:int deleteRepo(Lista* l, char* nume)
+        -:  108:{
+        4:  109:	int poz = findbyname(l, nume);
+        4:  110:	if (poz == -1)
+        2:  111:		return -1;
+        2:  112:	return vec_erase(l->elems, poz);
+        -:  113:	// for (int i = poz;i < l->elems->lg;i++)
+        -:  114:	// {
+        -:  115:		// Materie* destroy = l->elems[i];
+        -:  116:		// l->elems[i] = l->elems[i + 1];
+        -:  117:		// destroy_entity(destroy);
+        -:  118:	// }
+        -:  119:	// l->lg -= 1;
+        -:  120:}
+        1:  121:Lista* get_filtered(Lista* l,float cantitate)
+        -:  122:{
+        1:  123:	Lista* rez = create_empty();
+        5:  124:	for (int i = 0;i < l->elems->lg;i++)
+        -:  125:	{
+        4:  126:		Materie* temp = get(l, i);
+        4:  127:		if (temp->cantitate < cantitate) {
+        3:  128:			Materie* temp2 = creare_materie(temp->nume, temp->producator, temp->cantitate);
+        3:  129:			addRepo(rez, temp2);
+        3:  130:			destroy_entity(temp2);
+        -:  131:		}
+        -:  132:	}
+        1:  133:	return rez;
+        -:  134:}
+    #####:  135:Lista* get_filtered_above(Lista* l,float cantitate)
+        -:  136:{
+    #####:  137:	Lista* rez = create_empty();
+    #####:  138:	for (int i = 0;i < l->elems->lg;i++)
+        -:  139:	{
+    #####:  140:		Materie* temp = get(l, i);
+    #####:  141:		if (temp->cantitate > cantitate) {
+    #####:  142:			Materie* temp2 = creare_materie(temp->nume, temp->producator, temp->cantitate);
+    #####:  143:			addRepo(rez, temp2);
+    #####:  144:			destroy_entity(temp2);
+        -:  145:		}
+        -:  146:	}
+    #####:  147:	return rez;
+        -:  148:}
+        2:  149:Vec* get_all(Lista* l)
+        -:  150:{
+        -:  151:	Vec* rez;
+        2:  152:	vec_clone(&rez, &l->elems);
+        -:  153:	// for (int i = 0;i < l->elems->lg;i++)
+        -:  154:	// {
+        -:  155:	// 	Materie* temp = get(l, i);
+        -:  156:	// 	addRepo(rez, creare_materie(temp->nume, temp->producator, temp->cantitate));
+        -:  157:
+        -:  158:	// }
+        2:  159:	return rez;
+        -:  160:}
+        4:  161:int get_len(Lista* l)
+        -:  162:{
+        -:  163:	/*
+        -:  164:	 * Metoda care returneaza lungimea repo-ului l.
+        -:  165:	 * input : l - repo-ul al carui lungime va fi returnata
+        -:  166:	 * output: lungimea repo-ului
+        -:  167:	 */
+        4:  168:	return l->elems->lg;
+        -:  169:}
+       18:  170:void copy_list(Lista** dest, Lista** src)
+        -:  171:{
+        -:  172:	/*
+        -:  173:	 * Metoda care copiaza valoarea listei de la adresa src, la adresa dest.
+        -:  174:	 * input : dest - pointer la lista destinatie
+        -:  175:	 *         src - pointer la lista sursa
+        -:  176:	 * output: -
+        -:  177:	 */
+       18:  178:	*dest = malloc(sizeof(Lista));
+       18:  179:	vec_clone(&(*dest)->elems, &(*src)->elems);
+       18:  180:}
+       14:  181:void copy_list_generic(void* dest, void* src)
+        -:  182:{
+        -:  183:	/*
+        -:  184:	 * Metoda care copiaza valoarea listei de la adresa src, la adresa dest.
+        -:  185:	 * input : dest - pointer la lista destinatie
+        -:  186:	 *         src - pointer la lista sursa
+        -:  187:	 * output: -
+        -:  188:	 */
+       14:  189:	copy_list((Lista**) dest, (Lista**) src);
+       14:  190:}
+       14:  191:void destroy_list_generic(void* l)
+        -:  192:{
+        -:  193:	/*
+        -:  194:	 * Metoda care dealoca lista de la adresa l.
+        -:  195:	 * input : l - pointer la lista care va fi dealocata
+        -:  196:	 * output: -
+        -:  197:	 */
+       14:  198:	destroy_list(*((Lista**) l));
+       14:  199:}

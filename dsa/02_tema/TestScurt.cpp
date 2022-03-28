@@ -1,5 +1,7 @@
 #include "TestScurt.h"
 #include <assert.h>
+#include <iostream>
+using namespace std;
 #include "Multime.h"
 #include "IteratorMultime.h"
 
@@ -30,5 +32,18 @@ void testAll() { //apelam fiecare functie sa vedem daca exista
 		im.urmator();
 	}
 	assert(s == 19);
-
+	
+	im.prim();
+	assert(im.elimina() == 5);
+	assert(m.dim() == 3);
+	im.urmator();
+	im.urmator();
+	assert(im.elimina() == -3);
+	assert(m.dim() == 2);
+	
+	im.prim();
+	while (im.valid()) {
+		im.elimina();
+	}
+	assert(m.dim() == 0);
 }

@@ -3,13 +3,14 @@
 
 #include <iostream>
 
+// θ(1)
 Multime::Multime() {
 	this->next = nullptr;
 	this->elem = NULL_TELEM;
 	this->head_and_empty = true;
- }
+}
  
- void Multime::dbg() {
+void Multime::dbg() {
 	std::cout << "[ ";
 	if (!this->head_and_empty) {
 		Multime *p = this;
@@ -20,9 +21,9 @@ Multime::Multime() {
 		std::cout << p->elem << " ";
 	}
 	std::cout << "]" << std::endl;
- }
+}
 
-// O(n)
+// θ(n)
 bool Multime::adauga(TElem elem) {
 	if (this->head_and_empty) {
 		this->elem = elem;
@@ -44,6 +45,7 @@ bool Multime::adauga(TElem elem) {
 }
 
 // O(n)
+// Ω(1)
 bool Multime::sterge(TElem elem) {
 	if (this->head_and_empty) return false;
 	
@@ -67,7 +69,7 @@ bool Multime::sterge(TElem elem) {
 			p->next = next->next;
 			/// VERY IMPORTANT
 			// next->next must be nullptr, because otherwise, when it is
-			// deleted, it will call its destructor, and yeet the whole
+			// deleted, it will call its destructor, and delete the whole
 			// list
 			next->next = nullptr;
 			delete next;
@@ -79,6 +81,7 @@ bool Multime::sterge(TElem elem) {
 }
 
 // O(n)
+// Ω(1)
 bool Multime::cauta(TElem elem) const {
 	if (this->head_and_empty) return false;
 	const Multime *p = this;
@@ -89,7 +92,7 @@ bool Multime::cauta(TElem elem) const {
 	return elem == p->elem;
 }
 
-// O(n)
+// θ(n)
 int Multime::dim() const {
 	if (this->head_and_empty) return 0;
 	int dim = 1;
@@ -101,12 +104,12 @@ int Multime::dim() const {
 	return dim;
 }
 
-// O(1)
+// θ(1)
 bool Multime::vida() const {
 	return this->head_and_empty;
 }
 
-// O(n)
+// θ(n)
 Multime::~Multime() {
 	Multime *p = this;
 	while (p->next != nullptr) {

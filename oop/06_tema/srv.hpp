@@ -21,9 +21,9 @@ public:
 	//     gen -- genul cartii care va fi adaugata
 	//     an -- anul in care a fost publicata cartea care va fi adaugata
 	void add_carte(
-		std::string titlu,
-		std::string autor,
-		std::string gen,
+		const std::string &titlu,
+		const std::string &autor,
+		const std::string &gen,
 		int an
 	);
 	
@@ -39,9 +39,9 @@ public:
 	//     an -- anul nou
 	void update_carte(
 		int id,
-		std::string titlu,
-		std::string autor,
-		std::string gen,
+		const std::string &titlu,
+		const std::string &autor,
+		const std::string &gen,
 		int an
 	);
 	
