@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <string>
+#include <cstring>
 #include <array>
 #include <initializer_list>
 
@@ -139,11 +140,28 @@ public:
 	// Constructor pentru vector generic.
 	Vec() : a(), len(0), dim(10), buf(this->a.allocate(this->dim)) { }
 	
+	// Destructor pentru vector generic.
 	~Vec() {
 		for (int i = 0; i < this->len; ++i) {
 			std::allocator_traits<std::allocator<T>>::destroy(this->a, this->buf + i);
 		}
 		this->a.deallocate(this->buf, this->dim);
+	}
+	
+	Vec<T> &operator=(const Vec<T> &vec) {
+		for (int i = 0; i < this->len; ++i) {
+			std::allocator_traits<std::allocator<T>>::destroy(this->a, this->buf + i);
+		}
+		this->len = vec.len;
+		if (this->dim < vec.dim) {
+			this->a.deallocate(this->buf, this->dim);
+			this->dim = vec.dim;
+			this->buf = this->a.allocate(this->dim);
+		}
+		for (int i = 0; i < this->len; ++i) {
+			new (this->buf + i) T(vec.buf[i]);
+		}
+		return (*this);
 	}
 	
 	// Constructor de copiere pentru vector generic.
@@ -154,7 +172,7 @@ public:
 		}
 	}
 	
-	Vec(std::initializer_list<T> list) : dim(10) {
+	Vec(std::initializer_list<T> list) : len(list.size()), dim(10) {
 		this->len = list.size();
 		while (this->dim < this->len) { this->dim *= 2; }
 		
@@ -179,8 +197,9 @@ public:
 			this->dim *= 2;
 			auto old_buf = this->buf;
 			this->buf = this->a.allocate(this->dim);
+			// std::memcpy(this->buf, old_buf, sizeof(T) * this->len);
 			for (int i = 0; i < this->len; ++i) {
-				this->buf[i] = old_buf[i];
+				new (this->buf + i) T(old_buf[i]);
 			}
 			this->a.deallocate(old_buf, old_dim);
 		}
@@ -212,6 +231,20 @@ public:
 	// Acces cu modificare.
 	// in: index -- indicele
 	T &operator[](size_t index) {
+		if (index >= this->len) {
+			throw VecException("indice invalid");
+		}
+		return this->buf[index];
+	}
+	
+	const T &get(size_t index) const {
+		if (index >= this->len) {
+			throw VecException("indice invalid");
+		}
+		return this->buf[index];
+	}
+	
+	T &get(size_t index) {
 		if (index >= this->len) {
 			throw VecException("indice invalid");
 		}
