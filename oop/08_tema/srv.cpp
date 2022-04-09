@@ -1,10 +1,11 @@
-#include <iostream>
-
 #include <algorithm>
+#include <chrono>
 #include <gsl/gsl_assert>
+#include <random>
 
 #include "./srv.hpp"
 
+// SRV CARTI
 SrvCarti::SrvCarti(RepoCarti &repo_carti) : last_id(0), repo(repo_carti) { }
 
 void SrvCarti::add_carte(
@@ -35,30 +36,32 @@ const Carte &SrvCarti::find_carte(size_t id) const {
 	return this->repo.find(id);
 }
 
-const Vec<Carte> &SrvCarti::get_carti() const {
+const std::vector<Carte> &SrvCarti::get_carti() const {
 	return this->repo.get_all();
 }
 
-Vec<Carte> SrvCarti::filter_by_titlu(const std::string &filter) const {
+std::vector<Carte> SrvCarti::filter_by_titlu(const std::string &filter) const {
 	auto carti = this->repo.get_all();
-	Vec<Carte> filtered {};
-	for (const auto &carte : carti) {
-		if (carte.get_titlu().find(filter) != std::string::npos) {
-			filtered.push_back(carte);
-		}
-	}
+	std::vector<Carte> filtered;
+	std::copy_if(
+		carti.begin(), carti.end(),
+		std::back_inserter(filtered),
+		[&](const Carte &carte) { return carte.get_titlu().find(filter) != std::string::npos; }
+	);
 	return filtered;
 }
-Vec<Carte> SrvCarti::filter_by_an(int an) const {
+std::vector<Carte> SrvCarti::filter_by_an(int an) const {
 	auto carti = this->repo.get_all();
-	Vec<Carte> filtered {};
-	for (auto &carte : carti) {
-		if (carte.get_an() == an) filtered.push_back(carte);
-	}
+	std::vector<Carte> filtered;
+	std::copy_if(
+		carti.begin(), carti.end(),
+		std::back_inserter(filtered),
+		[an](const Carte &carte) { return carte.get_an() == an; }
+	);
 	return filtered;
 }
 
-Vec<Carte> SrvCarti::sort_by_titlu() const {
+std::vector<Carte> SrvCarti::sort_by_titlu() const {
 	auto carti = this->repo.get_all();
 	std::sort(
 		carti.begin(), carti.end(),
@@ -66,7 +69,7 @@ Vec<Carte> SrvCarti::sort_by_titlu() const {
 	);
 	return carti;
 }
-Vec<Carte> SrvCarti::sort_by_autor() const {
+std::vector<Carte> SrvCarti::sort_by_autor() const {
 	auto carti = this->repo.get_all();
 	std::sort(
 		carti.begin(), carti.end(),
@@ -74,7 +77,7 @@ Vec<Carte> SrvCarti::sort_by_autor() const {
 	);
 	return carti;
 }
-Vec<Carte> SrvCarti::sort_by_an_gen() const {
+std::vector<Carte> SrvCarti::sort_by_an_gen() const {
 	auto carti = this->repo.get_all();
 	std::sort(
 		carti.begin(), carti.end(),
@@ -83,9 +86,67 @@ Vec<Carte> SrvCarti::sort_by_an_gen() const {
 	return carti;
 }
 
-void test_srv_crud() {
-	RepoCarti repo {};
-	SrvCarti srv {repo};
+// SRV INCHIRIERI CARTE
+SrvInchirieriCarteException::SrvInchirieriCarteException(const std::string &msg)
+	: AppException(msg) { }
+
+std::string SrvInchirieriCarteException::get_type() const {
+	return "SrvInchirieriCarteException";
+}
+
+SrvInchirieriCarte::SrvInchirieriCarte(
+	const RepoCarti &repo_carti,
+	RepoInchirieriCarte &repo_inchirieri_carte
+) : repo_carti(repo_carti), repo_inchirieri_carte(repo_inchirieri_carte) { }
+
+void SrvInchirieriCarte::add_inchiriere(
+	const std::string &titlu
+) {
+	const auto &carti = this->repo_carti.get_all();
+	auto it = std::find_if(
+		carti.begin(), carti.end(),
+		[&](const Carte &carte){ return carte.get_titlu() == titlu; }
+	);
+	if (it == carti.end()) {
+		throw SrvInchirieriCarteException("nu exista carte cu titlul furnizat");
+	} else {
+		this->repo_inchirieri_carte.add({ it->get_id() });
+	}
+}
+
+void SrvInchirieriCarte::genereaza_inchirieri(int amount) {
+	auto carti = this->repo_carti.get_all();
+	
+	auto seed = std::chrono::system_clock::now().time_since_epoch().count(); 
+	std::shuffle(carti.begin(), carti.end(), std::default_random_engine(seed));
+	
+	for (int i = 0; i < carti.size() && amount > 0; ++i) {
+		try {
+			this->repo_inchirieri_carte.add(InchiriereCarte { carti[i].get_id() });
+			amount--;
+		} catch (const RepoInchirieriCarteException &ex) { }
+	}
+}
+
+void SrvInchirieriCarte::empty_inchirieri() {
+	auto inchirieri_carte = this->repo_inchirieri_carte.get_all();
+	for (const auto &inchiriere_carte : inchirieri_carte) {
+		this->repo_inchirieri_carte.erase(inchiriere_carte.get_carte_id());
+	}
+}
+
+std::vector<Carte> SrvInchirieriCarte::get_carti() const {
+	const auto &inchirieri_carte = this->repo_inchirieri_carte.get_all();
+	std::vector<Carte> carti;
+	for (const auto &inchiriere_carte : inchirieri_carte) {
+		carti.push_back(this->repo_carti.find(inchiriere_carte.get_carte_id()));
+	}
+	return carti;
+}
+
+void test_srv_carti_crud() {
+	RepoCarti repo;
+	SrvCarti srv { repo };
 	
 	std::string a_titlu = "The Picture of Dorian Grey";
 	std::string a_autor = "Oscar Wilde";
@@ -127,7 +188,7 @@ void test_srv_crud() {
 	Ensures(c.get_an() == c_an);
 	
 	// get_carti
-	Vec<Carte> carti = {a, b, c};
+	std::vector<Carte> carti = {a, b, c};
 	Ensures(srv.get_carti() == carti);
 	
 	// update_carte
@@ -149,9 +210,9 @@ void test_srv_crud() {
 	srv.erase_carte(1);
 }
 
-void test_srv_filter_and_sort() {
-	RepoCarti repo {};
-	SrvCarti srv {repo};
+void test_srv_carti_filter_and_sort() {
+	RepoCarti repo;
+	SrvCarti srv { repo };
 	
 	std::string a_titlu = "The Picture of Dorian Grey";
 	std::string a_autor = "Oscar Wilde";
@@ -184,36 +245,94 @@ void test_srv_filter_and_sort() {
 	Carte d = srv.find_carte(3);
 	
 	auto filter_titlu = srv.filter_by_titlu("Har");
-	Vec<Carte> filter_titlu_res = { c };
+	std::vector<Carte> filter_titlu_res = { c };
 	Ensures(filter_titlu == filter_titlu_res);
 	
 	const int filter_an_val = 1948;
 	auto filter_an = srv.filter_by_an(filter_an_val);
-	Vec<Carte> filter_an_res = { b };
+	std::vector<Carte> filter_an_res = { b };
 	Ensures(filter_an == filter_an_res);
 	
 	auto sort_titlu = srv.sort_by_titlu();
-	Vec<Carte> sort_titlu_res = { b, d, c, a };
-	for (const auto &e : sort_titlu) {
-		std::cout << e << std::endl;
-	}
-	std::cout << "wast" << std::endl;
-	for (const auto &e : sort_titlu_res) {
-		std::cout << e << std::endl;
-	}
+	std::vector<Carte> sort_titlu_res = { b, d, c, a };
 	Ensures(sort_titlu == sort_titlu_res);
 	
 	auto sort_autor = srv.sort_by_autor();
-	Vec<Carte> sort_autor_res = { d, b, c, a };
+	std::vector<Carte> sort_autor_res = { d, b, c, a };
 	Ensures(sort_autor == sort_autor_res);
 	
 	auto sort_an_gen = srv.sort_by_an_gen();
-	Vec<Carte> sort_an_gen_res = { a, d, b, c };
+	std::vector<Carte> sort_an_gen_res = { a, d, b, c };
 	Ensures(sort_an_gen == sort_an_gen_res);
 }
 
+void test_srv_inchirieri_carte() {
+	RepoCarti repo_carti;
+	RepoInchirieriCarte repo_inchirieri_carte;
+	SrvCarti srv_carti { repo_carti };
+	SrvInchirieriCarte srv_inchirieri_carte { repo_carti, repo_inchirieri_carte };
+	
+	std::string a_titlu = "The Picture of Dorian Grey";
+	std::string a_autor = "Oscar Wilde";
+	std::string a_gen = "classic";
+	const int a_an = 1850;
+	
+	std::string b_titlu = "1984";
+	std::string b_autor = "George Orwell";
+	std::string b_gen = "dystopia";
+	const int b_an = 1948;
+	
+	std::string c_titlu = "Harry Potter";
+	std::string c_autor = "J.K. Rowling";
+	std::string c_gen = "fiction";
+	const int c_an = 1990;
+	
+	srv_carti.add_carte(a_titlu, a_autor, a_gen, a_an);
+	srv_carti.add_carte(b_titlu, b_autor, b_gen, b_an);
+	srv_carti.add_carte(c_titlu, c_autor, c_gen, c_an);
+	
+	// add_inchiriere
+	try { srv_inchirieri_carte.add_inchiriere("Getting Things Done"); }
+	catch (const SrvInchirieriCarteException &ex) {
+		Ensures(ex.as_string() == "SrvInchirieriCarteException: nu exista carte cu titlul furnizat");
+	}
+	
+	srv_inchirieri_carte.add_inchiriere(b_titlu);
+	srv_inchirieri_carte.add_inchiriere(a_titlu);
+	srv_inchirieri_carte.add_inchiriere(c_titlu);
+	
+	// empty_inchirieri
+	srv_inchirieri_carte.empty_inchirieri();
+	srv_inchirieri_carte.empty_inchirieri();
+	srv_inchirieri_carte.empty_inchirieri();
+	
+	// get_carti
+	srv_inchirieri_carte.add_inchiriere(b_titlu);
+	srv_inchirieri_carte.add_inchiriere(c_titlu);
+	auto carti = srv_inchirieri_carte.get_carti();
+	
+	Ensures(carti.size() == 2);
+	
+	Ensures(carti[0].get_titlu() == b_titlu);
+	Ensures(carti[0].get_autor() == b_autor);
+	Ensures(carti[0].get_gen() == b_gen);
+	Ensures(carti[0].get_an() == b_an);
+	
+	Ensures(carti[1].get_titlu() == c_titlu);
+	Ensures(carti[1].get_autor() == c_autor);
+	Ensures(carti[1].get_gen() == c_gen);
+	Ensures(carti[1].get_an() == c_an);
+	
+	// genereaza_inchirieri
+	srv_inchirieri_carte.genereaza_inchirieri(2);
+	srv_inchirieri_carte.genereaza_inchirieri(15);
+	srv_inchirieri_carte.empty_inchirieri();
+	srv_inchirieri_carte.genereaza_inchirieri(1000);
+}
+
 void test_srv() {
-	test_srv_crud();
-	test_srv_filter_and_sort();
+	test_srv_carti_crud();
+	test_srv_carti_filter_and_sort();
+	test_srv_inchirieri_carte();
 }
 

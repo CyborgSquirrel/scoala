@@ -5,21 +5,20 @@
 	#include "./ui.hpp"
 #endif
 
-#include "./vec.hpp"
 #include "./exception.hpp"
 #include "./srv.hpp"
 
 int main() {
 #ifdef ONLY_RUN_TESTS
-	test_vec();
-	test_exception();
 	test_domain();
 	test_repo();
 	test_srv();
 #else
-	RepoCarti repo {};
-	SrvCarti srv {repo};
-	Ui ui {srv};
+	RepoCarti repo_carti;
+	RepoInchirieriCarte repo_inchirieri_carte;
+	SrvCarti srv_carti { repo_carti };
+	SrvInchirieriCarte srv_inchirieri_carte { repo_carti, repo_inchirieri_carte };
+	Ui ui { srv_carti, srv_inchirieri_carte };
 	ui.run();
 #endif
 	return 0;

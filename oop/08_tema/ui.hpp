@@ -6,19 +6,18 @@
 
 #include "./srv.hpp"
 
-class UiException {
+class UiException : public AppException {
 private:
-	std::string msg;
+	std::string get_type() const override;
 public:
 	UiException(const std::string &msg);
-	friend std::ostream &operator<<(std::ostream &out, const UiException &ex);
 };
-std::ostream &operator<<(std::ostream &out, const UiException &ex);
 
 class Ui {
 private:
 	bool running;
-	SrvCarti &srv;
+	SrvCarti &srv_carti;
+	SrvInchirieriCarte &srv_inchirieri_carte;
 	
 	template <typename T>
 	void read(T &val) const {
@@ -29,7 +28,7 @@ private:
 		sstream >> val;
 		if (sstream.fail()) throw UiException("valoare invalida");
 		
-		char c;
+		char c = 0;
 		sstream >> c;
 		if (!sstream.fail()) throw UiException("valoare invalida");
 	}
@@ -47,10 +46,10 @@ private:
 		}
 	}
 	
-	void print_carti(const Vec<Carte> &carti) const;
+	void print_carti(const std::vector<Carte> &carti) const;
 	
 public:
-	Ui(SrvCarti &srv);
+	Ui(SrvCarti &srv_carti, SrvInchirieriCarte &srv_inchirieri_carte);
 	
 	void run();
 	
@@ -66,6 +65,12 @@ public:
 	void sorteaza_dupa_titlu();
 	void sorteaza_dupa_autor();
 	void sorteaza_dupa_an_gen();
+	
+	void afiseaza_numar_carti_cos();
+	void afiseaza_cos();
+	void adauga_in_cos();
+	void goleste_cos();
+	void genereaza_cos();
 	
 	void exit();
 };

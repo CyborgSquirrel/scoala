@@ -7,8 +7,8 @@ APPFLAGS=-Wall -g -o app
 .PHONY: all test clean
 
 # all: test uitest
-all: test
-# all: app
+# all: test
+all: app
 
 uitest: app
 	@echo
@@ -22,7 +22,6 @@ test: clean *.cpp *.hpp
 	valgrind --leak-check=full ./app-test
 	@echo
 	@echo ===COVERAGE===
-	# gcov -r $$(fd -I --extension gcda . | grep -v './app-test-ui.gcda' | tr '\n' ' ')
 	llvm-cov gcov -r *.cpp
 	@echo
 	@echo ===LINTER===

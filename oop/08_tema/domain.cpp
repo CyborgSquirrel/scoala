@@ -35,8 +35,23 @@ std::ostream &operator<<(std::ostream &out, const Carte &carte) {
 	return out;
 }
 
+InchiriereCarte::InchiriereCarte(int carte_id) : carte_id(carte_id) { }
+int InchiriereCarte::get_carte_id() const { return this->carte_id; }
+bool operator==(const InchiriereCarte &lhs, const InchiriereCarte &rhs) {
+	return lhs.carte_id == rhs.carte_id;
+}
+
 #include <sstream>
-void test_domain() {
+void test_inchiriere_carte() {
+	// constructor
+	const int carte_id = 0;
+	InchiriereCarte a { carte_id };
+	
+	// get
+	Ensures(a.get_carte_id() == carte_id);
+}
+
+void test_carte() {
 	// constructor
 	const int a_id = 0;
 	const int a_an = 1850;
@@ -72,4 +87,9 @@ void test_domain() {
 	std::stringstream sstream;
 	sstream << a;
 	Ensures(sstream.str() == "[0][anul 2077](The Picture of Gorian Drey-Wscar Oilde){bussin}");
+}
+
+void test_domain() {
+	test_inchiriere_carte();
+	test_carte();
 }

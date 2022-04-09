@@ -4,13 +4,16 @@
 #include <string>
 #include <ostream>
 
-std::ostream &exception_write_msg(
-	std::ostream &out,
-	const std::string &name,
-	const std::string &msg
-);
-
-void test_exception();
+class AppException {
+private:
+	std::string msg;
+	virtual std::string get_type() const = 0;
+public:
+	AppException(const std::string &msg);
+	friend std::ostream &operator<<(std::ostream &out, const AppException &ex);
+	std::string as_string() const;
+};
+std::ostream &operator<<(std::ostream &out, const AppException &ex);
 
 #endif // exception_hpp_INCLUDED
 

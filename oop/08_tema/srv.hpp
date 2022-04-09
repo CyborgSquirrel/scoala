@@ -1,6 +1,9 @@
 #ifndef srv_hpp_INCLUDED
 #define srv_hpp_INCLUDED
 
+#include <vector>
+
+#include "./exception.hpp"
 #include "./repo.hpp"
 
 class SrvCarti {
@@ -13,7 +16,7 @@ public:
 	SrvCarti(RepoCarti &repo_carti);
 	
 	// Nu permitem sa se copieze un srv de carti.
-	SrvCarti(const SrvCarti &srv_carti) = delete;
+	SrvCarti(SrvCarti &srv_carti) = delete;
 	
 	// Adauga cartea cu titlul, autorul, genul, si anul furnizate in srv.
 	// in: titlu -- titlul cartii care va fi adaugata
@@ -45,34 +48,74 @@ public:
 		int an
 	);
 	
-	// Cauta cu id-ul furnizat.
+	// Cauta cartea cu id-ul furnizat.
 	// in: id -- id-ul cartii care va fi cautata
 	const Carte &find_carte(size_t id) const;
 	
 	// Returneaza toate cartile.
-	const Vec<Carte> &get_carti() const;
+	const std::vector<Carte> &get_carti() const;
 	
 	// Returneaza toate cartile filtrate dupa titlu.
 	// in: filter -- vor fi returnate doar cartile care contin acest string in titlu
 	// out: vector cu cartile filtrate
-	Vec<Carte> filter_by_titlu(const std::string &filter) const;
+	std::vector<Carte> filter_by_titlu(const std::string &filter) const;
 	
 	// Returneaza toate cartile filtrate dupa an.
 	// in: an -- vor fi returnate doar cartile care au fost publicate in acest an
 	// out: vector cu cartile filtrate
-	Vec<Carte> filter_by_an(int an) const;
+	std::vector<Carte> filter_by_an(int an) const;
 	
 	// Returneaza toate cartile sortate dupa titlu.
 	// out: vector cu cartile sortate
-	Vec<Carte> sort_by_titlu() const;
+	std::vector<Carte> sort_by_titlu() const;
 	
 	// Returneaza toate cartile sortate dupa autor.
 	// out: vector cu cartile sortate
-	Vec<Carte> sort_by_autor() const;
+	std::vector<Carte> sort_by_autor() const;
 	
 	// Returneaza toate cartile sortate dupa an si gen.
 	// out: vector cu cartile sortate
-	Vec<Carte> sort_by_an_gen() const;
+	std::vector<Carte> sort_by_an_gen() const;
+};
+
+class SrvInchirieriCarteException : public AppException {
+private:
+	std::string get_type() const override;
+public:
+	SrvInchirieriCarteException(const std::string &msg);
+};
+
+class SrvInchirieriCarte {
+private:
+	const RepoCarti &repo_carti;
+	RepoInchirieriCarte &repo_inchirieri_carte;
+public:
+	// Creeaza un nou srv de inchirieri de carti, cu repo-ul furnizat.
+	// in: repo_carti -- repo-ul de carti furnizat
+	SrvInchirieriCarte(
+		const RepoCarti &repo_carti,
+		RepoInchirieriCarte &repo_inchirieri_carte
+	);
+	
+	// Nu permitem sa se copieze un srv de inchirieri de carti.
+	SrvInchirieriCarte(const SrvInchirieriCarte &srv_carti) = delete;
+	
+	// Adauga o inchiriere a cartii cu titlul furnizat.
+	// in: titlu -- titlul cartii care va fi adaugata
+	// throw: SrvInchirieriCarteException, daca nu exista o carte cu titlul furnizat
+	void add_inchiriere(
+		const std::string &titlu
+	);
+	
+	// Genereaza amount inchirieri, si le adauga.
+	// in: amount -- numarul de inchirieri care vor fi generate si adaugate
+	void genereaza_inchirieri(int amount);
+	
+	// Sterge toate inchirierile.
+	void empty_inchirieri();
+	
+	// Returneaza toate cartile care sunt inchiriate.
+	std::vector<Carte> get_carti() const;
 };
 
 void test_srv();

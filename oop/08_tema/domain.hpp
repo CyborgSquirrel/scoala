@@ -72,6 +72,18 @@ public:
 bool operator==(const Carte &lhs, const Carte &rhs);
 std::ostream &operator<<(std::ostream &out, const Carte &carte);
 
+class InchiriereCarte {
+private:
+	int carte_id;
+public:
+	InchiriereCarte(int carte_id);
+	
+	int get_carte_id() const;
+	
+	friend bool operator==(const InchiriereCarte &lhs, const InchiriereCarte &rhs);
+};
+bool operator==(const InchiriereCarte &lhs, const InchiriereCarte &rhs);
+
 void test_domain();
 
 #endif // domain_hpp_INCLUDED
