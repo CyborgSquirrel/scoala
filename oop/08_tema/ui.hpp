@@ -72,6 +72,8 @@ public:
 	void goleste_cos();
 	void genereaza_cos();
 	
+	void export_cos();
+	
 	void exit();
 };
 

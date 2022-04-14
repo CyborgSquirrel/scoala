@@ -14,9 +14,13 @@ public:
 	// Creeaza un nou srv de carti, cu repo-ul furnizat.
 	// in: repo_carti -- repo-ul de carti furnizat
 	SrvCarti(RepoCarti &repo_carti);
+	SrvCarti(SrvCarti &&srv_carti) = default;
+	SrvCarti &operator=(SrvCarti &&srv_carti) = delete;
+	~SrvCarti() = default;
 	
 	// Nu permitem sa se copieze un srv de carti.
-	SrvCarti(SrvCarti &srv_carti) = delete;
+	SrvCarti(const SrvCarti &srv_carti) = delete;
+	SrvCarti &operator=(const SrvCarti &srv_carti) = delete;
 	
 	// Adauga cartea cu titlul, autorul, genul, si anul furnizate in srv.
 	// in: titlu -- titlul cartii care va fi adaugata
@@ -96,9 +100,13 @@ public:
 		const RepoCarti &repo_carti,
 		RepoInchirieriCarte &repo_inchirieri_carte
 	);
+	SrvInchirieriCarte(SrvInchirieriCarte &&srv_inchirieri_carte) = default;
+	SrvInchirieriCarte &operator=(SrvInchirieriCarte &&srv_inchirieri_carte) = delete;
+	~SrvInchirieriCarte() = default;
 	
 	// Nu permitem sa se copieze un srv de inchirieri de carti.
-	SrvInchirieriCarte(const SrvInchirieriCarte &srv_carti) = delete;
+	SrvInchirieriCarte(const SrvInchirieriCarte &srv_inchirieri_carte) = delete;
+	SrvInchirieriCarte &operator=(const SrvInchirieriCarte &srv_inchirieri_carte) = delete;
 	
 	// Adauga o inchiriere a cartii cu titlul furnizat.
 	// in: titlu -- titlul cartii care va fi adaugata
@@ -116,6 +124,10 @@ public:
 	
 	// Returneaza toate cartile care sunt inchiriate.
 	std::vector<Carte> get_carti() const;
+	
+	// Exporta cartile din cos in fisierul dat prin file_path.
+	// in: file_path -- fisierul in care vor fi salvate cartile
+	void csv_export(const std::string &file_path) const;
 };
 
 void test_srv();

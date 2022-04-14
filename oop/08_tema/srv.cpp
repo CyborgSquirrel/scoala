@@ -1,7 +1,9 @@
 #include <algorithm>
 #include <chrono>
+#include <fstream>
 #include <gsl/gsl_assert>
 #include <random>
+#include <sstream>
 
 #include "./srv.hpp"
 
@@ -142,6 +144,15 @@ std::vector<Carte> SrvInchirieriCarte::get_carti() const {
 		carti.push_back(this->repo_carti.find(inchiriere_carte.get_carte_id()));
 	}
 	return carti;
+}
+
+void SrvInchirieriCarte::csv_export(const std::string &file_path) const {
+	std::ofstream fout(file_path);
+	const auto &inchirieri_carte = this->repo_inchirieri_carte.get_all();
+	for (const auto &inchiriere_carte : inchirieri_carte) {
+		auto carte = this->repo_carti.find(inchiriere_carte.get_carte_id());
+		fout << carte.get_titlu() << "," << carte.get_autor() << "," << carte.get_gen() << "," << carte.get_an() << "\n";
+	}
 }
 
 void test_srv_carti_crud() {
@@ -324,10 +335,32 @@ void test_srv_inchirieri_carte() {
 	Ensures(carti[1].get_an() == c_an);
 	
 	// genereaza_inchirieri
-	srv_inchirieri_carte.genereaza_inchirieri(2);
-	srv_inchirieri_carte.genereaza_inchirieri(15);
+	const int two = 2;
+	const int fifteen = 15;
+	const int one_thousand = 1000;
+	srv_inchirieri_carte.genereaza_inchirieri(two);
+	srv_inchirieri_carte.genereaza_inchirieri(fifteen);
 	srv_inchirieri_carte.empty_inchirieri();
-	srv_inchirieri_carte.genereaza_inchirieri(1000);
+	srv_inchirieri_carte.genereaza_inchirieri(one_thousand);
+	
+	// export
+	srv_inchirieri_carte.empty_inchirieri();
+	srv_inchirieri_carte.add_inchiriere(b_titlu);
+	srv_inchirieri_carte.add_inchiriere(a_titlu);
+	srv_inchirieri_carte.add_inchiriere(c_titlu);
+	srv_inchirieri_carte.csv_export("./test/export.csv");
+	
+	std::ifstream fin("./test/export.csv");
+	std::stringstream ss;
+	ss << fin.rdbuf();
+	
+	std::string exported {
+		"1984,George Orwell,dystopia,1948\n"
+		"The Picture of Dorian Grey,Oscar Wilde,classic,1850\n"
+		"Harry Potter,J.K. Rowling,fiction,1990\n"
+	};
+	
+	Ensures(ss.str() == exported);
 }
 
 void test_srv() {

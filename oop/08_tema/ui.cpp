@@ -13,7 +13,7 @@ std::string UiException::get_type() const {
 	return "UiException";
 }
 
-const std::array<UiAction, 15> ui_actions {{
+const std::array<UiAction, 16> ui_actions {{
 	{"afiseaza carti", &Ui::afiseaza_carti},
 	{"adauga carte", &Ui::adauga_carte},
 	{"sterge carte", &Ui::sterge_carte},
@@ -28,6 +28,7 @@ const std::array<UiAction, 15> ui_actions {{
 	{"adauga in cos", &Ui::adauga_in_cos},
 	{"goleste cos", &Ui::goleste_cos},
 	{"genereaza cos", &Ui::genereaza_cos},
+	{"export cos", &Ui::export_cos},
 	{"exit", &Ui::exit},
 }};
 
@@ -151,7 +152,7 @@ void Ui::sorteaza_dupa_an_gen() {
 
 // COS
 void Ui::afiseaza_numar_carti_cos() {
-	int carti = this->srv_inchirieri_carte.get_carti().size();
+	size_t carti = this->srv_inchirieri_carte.get_carti().size();
 	std::cout << "Numarul cartilor din cos: " << carti << std::endl;
 }
 void Ui::afiseaza_cos() {
@@ -173,6 +174,11 @@ void Ui::genereaza_cos() {
 	this->read_prompt("carti", carti);
 	this->srv_inchirieri_carte.genereaza_inchirieri(carti);
 	this->afiseaza_numar_carti_cos();
+}
+void Ui::export_cos() {
+	std::string file_path;
+	this->read_prompt("file_path", file_path);
+	this->srv_inchirieri_carte.csv_export(file_path);
 }
 
 void Ui::exit() { this->running = false; }

@@ -24,9 +24,13 @@ private:
 public:
 	// Creeaza un nou repo de carti.
 	RepoCarti() = default;
+	RepoCarti(RepoCarti &&repo_carti) = default;
+	RepoCarti &operator=(RepoCarti &&repo_carti) = default;
+	~RepoCarti() = default;
 	
 	// Nu permitem sa se copieze un repo de carti.
 	RepoCarti(const RepoCarti &repo_carti) = delete;
+	RepoCarti &operator=(const RepoCarti &repo_carti) = delete;
 	
 	// Adauga o carte in repo.
 	// in: carte -- cartea care va fi adaugata
@@ -71,9 +75,13 @@ private:
 public:
 	// Creeaza un nou repo de inchirieri.
 	RepoInchirieriCarte() = default;
+	RepoInchirieriCarte(RepoInchirieriCarte &&repo_inchirieri_carte) = default;
+	RepoInchirieriCarte &operator=(RepoInchirieriCarte &&repo_inchirieri_carte) = default;
+	~RepoInchirieriCarte() = default;
 	
 	// Nu permitem sa se copieze un repo de inchirieri.
 	RepoInchirieriCarte(const RepoInchirieriCarte &repo_inchirieri_carte) = delete;
+	RepoInchirieriCarte &operator=(const RepoInchirieriCarte &repo_inchirieri_carte) = delete;
 	
 	// Adauga o inchiriere in repo.
 	// in: inchiriere_carte -- inchirierea care va fi adaugata

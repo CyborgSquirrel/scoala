@@ -7,8 +7,8 @@ APPFLAGS=-Wall -g -o app
 .PHONY: all test clean
 
 # all: test uitest
-# all: test
-all: app
+all: test
+# all: app
 
 uitest: app
 	@echo
