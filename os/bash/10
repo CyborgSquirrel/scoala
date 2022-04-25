@@ -1,0 +1,10 @@
+#!/bin/bash
+
+(
+	IFS=$'\n'
+	for file in "$@"; do
+		if [ -f "$file" ]; then
+			printf "$( stat --printf='%s' $file) $file\n"
+		fi
+	done | sort --reverse -n
+)

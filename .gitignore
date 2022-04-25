@@ -3,6 +3,7 @@
 *.ilk
 *.pdb
 *.obj
+*.o
 *.gcov
 *.gcda
 *.gcno

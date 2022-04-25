@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<title>
+    OS Bash Problems
+</title>
+<body>
+
+(L5) 1. Write a bash script that counts all the C files from a given directory and all of its subdirectories.<br>
+Scrieti un script bash care numara toate fisierele C dintr-un director dat si toate subdirectoarele sale. <br> 
+
+<pre>
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+    echo "Insufficient arguments"
+    exit 1
+fi
+
+find $1 -type f | grep -E -c "\.c$"
+</pre>
+<br>
+
+(S2) 1a. Write a bash script that counts all the lines of code in the C files from the directory given as command-line argument, excluding lines that are empty or contain only spaces. <br>
+Scrieti un script bash care numara toate liniile de cod din fisierele C continute de un director dat ca argument la linia de comanda, excluzand liniile goale sau care contin doar spatii. <br>
+<pre>
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "No parameters given"
+    exit 1
+fi
+if [ ! -d "$1" ]; then
+    echo "Parameter is not a folder"
+    exit 1
+fi
+total=0
+for f in $(ls "$1" | grep -E "\.c$"); do
+  if test -f "$1/$f"; then
+    nr_lines=$(grep -E -c -v "^[ \t]*$" "$1/$f")
+    echo "$f: $nr_lines"
+    total=$((total+nr_lines))
+  fi
+done
+echo "Total lines: $total"
+
+</pre>
+<br>
+
+(S2) 1b. Write a bash script that counts all the lines of code in the C files from the directory given as command-line argument and all its subdirectories, excluding lines that are empty or contain only spaces. <br>
+Scrieti un script bash care numara toate liniile de cod din fisierele C continute de un director dat ca argument la linia de comanda si toate subdirectoarele acestuia, excluzand liniile goale sau care contin doar spatii. <br>
+<pre>
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "No parameters given"
+    exit 1
+fi
+if [ ! -d "$1" ]; then
+    echo "Parameter is not a folder"
+    exit 1
+fi
+total=0
+for f in $(find "$1" -type f | grep -E "\.c$"); do
+  nr_lines=$(grep -E -c -v "^[ \t]*$" $f)
+  echo "$f - $nr_lines"
+  total=$((total+nr_lines))
+done
+echo "Total lines: $total"
+
+</pre>
+<br>
+
+(L5,S2) 2. Write a bash script that receives any number of command line arguments and prints on the screen, for each argument, if it is a file, a directory, a number or something else.<br>
+Scrieti un script bash care primeste oricate argumente la linia de comanda si afiseaza pe ecran, pentru fiecare argument, daca este un fisier, un director, un numar sau altceva.<br>
+<pre>
+#!/bin/bash
+while [ ! $# -eq 0 ]; do
+  arg=$1
+  if test -f $arg; then
+    echo "$arg is a regular file"
+  elif [ -d $arg ]; then
+    echo "$arg is a directory"
+  elif echo $arg | grep -E -q "^[0-9]+$"; then
+    # the regular expression here can be adapted to match any type of number, as needed
+    echo "$arg is an integer number"
+  else
+    echo "$arg is something else"
+  fi
+  shift
+done
+
+</pre>
+<br>
+
+(S2) 3. Write a bash script that keeps reading strings from the keyboard until the name of a readable regular file is given. <br>
+Scrieti un script bash care continua sa citeasca siruri de caractere de la tastatura pana cand se introduce numele unui fisier regular. <br>
+<pre>
+#!/bin/bash
+fname=""
+while [ ! -f "$fname" ]; do
+  read -p "Enter a string: " fname
+done
+
+</pre>
+<br>
+
+(L5,S2) 4. Write a bash script that sorts the file given as command line arguments in ascending order according to their file size in bytes. <br>
+Scrieti un script bash care sorteaza fisierele date ca argumente la linia de comanda in ordinea crescatoare a dimensiunii lor in octeti. <br>
+<pre>
+#!/bin/bash
+for f in $@; do
+  if test -f $f; then
+    du -b $f
+  fi
+done | sort -n
+</pre>
+<br>
+
+5. Write a bash script that calculates the sum of the sizes (in bytes) of all regular files in a folder given as a parameter.(use test to check if the folder exists and if a given file is a regular file) <br>
+Scrieti un script bash care calculeaza suma in octeti a tuturor fisierelor regulare dintr-un director dat ca argument.(folositi test ca sa verificati daca directorul dat exista si daca un fisier este fisier regular)<br>
+<pre>
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Please provide one directory"
+    exit 1
+fi
+
+if [ ! -d $1 ]; then
+    echo "The argument given is not a directory"
+    exit 1
+fi
+
+sum=0
+for f in $(ls $1); do
+  if [ -f "$1/$f" ]; then
+    size=$(du -b "$1/$f" | awk '{print $1}')
+    echo "File: $f - Size: $size"
+    sum=$((sum+size))
+  fi
+done
+echo "Total size of regular files from folder $1 is $sum"
+</pre>
+<br>
+
+6. Write a script that reads filenames until the word "stop" is entered. For each filename, check if it is a text file and if it is, print the number of words on the first line.(Hint: test command to check if regular file; file command to check if text file)<br>
+Scrieti un script bash care citeste nume de fisiere pana cand se introduce cuvantul "stop". Pentru fiecare nume de fisier, verificati daca este un fisier text, daca da, afisati numarul de cuvinte de pe prima linie. (Folositi test ca sa verificati daca un string este un nume de fisier si comanda file ca sa verificati daca fisierul este text)<br>
+<pre>
+#!/bin/bash
+
+while true; do
+  read -p "Enter filename or stop: " file
+  if [ "$file" = "stop" ]; then
+    echo "Done"
+    exit 0
+  elif [ -f "$file" ]; then
+    if file $file | grep -E -q "text"; then
+      echo "File: $file - Words on first line: $(head -1 $file | wc -w)"
+    fi
+  fi
+done
+</pre>
+<br>
+
+(L5) 7. Write a script that receives as command line arguments pairs consisting of a filename and a word. For each pair, check if the given word appears at least 3 times in the file and print a corresponding message.<br>
+Scrieti un script bash care primeste ca argumente la linia de comanda perechi de nume de fisier si cuvant. Pentru fiecare pereche, afisati un mesaj daca in fisier cuvantul dat apare de cel putin 3 ori. <br>
+<pre>
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+    echo "Please provide at least 2 arguments"
+    exit 1
+fi
+
+if [ $(($# % 2)) -eq 1 ]; then
+    echo "You must provide an even number of arguments"
+    exit 1
+fi
+
+while [ $# -gt 1 ]; do
+    file=$1
+    word=$2
+
+    if [ ! -f "$file" ]; then
+        echo "Name $file is not a file"
+    else
+        count=$(grep -E -o "\<$word\>" "$file" | wc -l)
+        if [ $count -ge 3 ]; then
+            echo "Word $word appears $count times in file $file"
+        fi
+    fi
+    shift 2
+done
+
+if [ $# -eq 1 ]; then
+    echo "Warning: final pair is incomplete"
+fi
+</pre>
+<br>
+
+8. Write a bash script that sorts all files given as command line arguments descending by size.(first check if an argument is a file)<br>
+Scrieti un script bash care sorteaza descrescator dupa dimensiune toate fisierele date ca argumente la linia de comanda.(intai verificati daca un argument e fisier)<br><br>
+
+9. Write a script that extracts from all the C source files given as command line arguments the included libraries and saves them in a file.(use the file command to check if a file is a C source file)<br>
+Scrieti un script care extrage bibliotecile incluse din toate fisierele sursa C date ca argumente la linia de comanda si le salveaza intr-un alt fisier. (verificati cu comanda file daca un fisier este sursa C)<br><br>
+
+10. Write a script that monitors the state of a given folder and prints a message when something changed.<br>
+Scrieti un script care monitorizeaza starea unui director dat ca argument si afiseaza un mesaj daca apar modificari in directorul dat. <br><br>
+
+11. Find recursively in a given directory all the symbolic links, and report those that point to files/directories that no longer exist. Use option -L to test if a path is a symbolic link, and option -e to test if it exists (will return false if the target to which the link points does not exist) <br>
+Gasiti recursiv intr-un director dat toate legaturile simbolice si raportati care din ele sunt legate de fisiere/directoare care nu exista. Folositi optiunea -L de la test pentru a verifica daca un string este link symbolic si optiunea -e casa verificati daca este valid (test va returna false daca fisierul/directorul referit de legatura simbolica nu exista)<br>
+<pre>
+#!/bin/bash
+
+for link in $(find "$1" -type l); do
+    if [ ! -e "$link" ]; then
+        echo "Link $link is not valid"
+    fi
+done
+</pre>
+<br>
+
+12. Write a bash script that receives a folder name as argument. Find recursively in the folder the number of times each file name is repeated. <br>
+Scrieti un script bash care primeste un nume de director ca parametru. Cautati recursiv in director si numarati aparitiile fiecarui nume de fisier. <br>
+<pre>
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Please provide one argument"
+    exit 1
+fi
+
+if [ ! -d "$1" ]; then
+    echo "Argument must be a directory"
+    exit 1
+fi
+
+find "$1" -type f | awk -F/ '{print $NF}' | sort | uniq -c
+</pre>
+<br>
+
+13. Calculate the average of all process ids in the system per user. <br>
+Calculati media id-urilor proceselor din sistem pentru fiecare utilizator. <br>
+<pre>
+#!/bin/bash
+# Solution w/o arrays
+
+prev_user=""
+count=0
+sum=0
+for user_pid in $(ps -ef | awk 'NR > 1{print $1","$2}' | sort); do
+    curr_user=$(echo "$user_pid" | cut -d, -f1)
+    pid=$(echo "$user_pid" | cut -d, -f2)
+    if [ "$curr_user" != "$prev_user" ]; then
+        if [ $count -gt 0 ]; then
+            echo "Avg for $prev_user is "$((sum/count))
+        fi
+        prev_user=$curr_user
+        sum=0
+        count=0
+    fi
+    sum=$((sum+pid))
+    count=$((count+1))
+done
+</pre>
+<br>
+
+14. Write a script that receives program/process names as command line arguments. The script will monitor all the processes in the system, and whenever a program with one of those names is run, the script will kill it and display a message. (see commands ps, kill, killall). Alternativ, comenzile pkill/pgrep pot fi folosite.<br>
+Scrieti un script care primeste ca argumente nume de procese. Scriptul va monitoriza toate procesele din sistem si, cand apare un proces cu unul din numele specificate, scriptul il va intrerupe si va afisa un mesaj. (Folositi comenzile ps, kill, killall). Alternatively, use pgrep/pkill<br>
+<pre>
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Provide at least one name"
+    exit 1
+fi
+
+while true; do
+    for process in $@; do
+        PIDs=""
+        PIDs=$(ps -ef | awk '{print $8" "$2}' | grep -E "\<$process " | awk '{print $2}')
+        if [ -n "$PIDs" ]; then
+            kill -9 $PIDs
+        fi
+    done
+    sleep 3
+done
+</pre>
+<br>
+
+15. Write a script that receives a directory as a command line argument. The script will delete all the C source files from the directory and will display all other text files sorted alphabetically.<br>
+Scrieti un script care primeste un director ca parametru la linia de comanda. Scriptul va sterge toate fisierele sursa C din director si va afisa celelalte fisiere text sortate alfabetic.<br><br>
+
+16. Write a script that finds recursively in the current folder and displays all the regular files that have write permisions for everybody (owner, group, other). Then the script removes the write permissions from everybody. Hint: use chmod's symbolic permissions mode (see the manual).<br>
+Scrieti un script care gaseste recursiv in directorul curent si afiseaza toate fisierele regulare care au drepturi de scriere pentru toata lumea (proprietar, grup, altii). Apoi scriptul va sterge dreptul de scriere de la toata lumea. Folositi chmod in varianta simbolica.<br><br>
+
+17. Consider a file containing a username on each line. Generate a comma-separated string with email addresses of the users that exist. The email address will be obtained by appending "@scs.ubbcluj.ro" at the end of each username. Make sure the generated string does NOT end in a comma.<br>
+Fie un fisier care contine mai multe nume de utilizator, fiecare pe linie separata. Generati un string de email-uri separate de virgula. Adresele de email se vor obtine concatenand "@scs.ubbcluj.ro" la numele de utilizator. Stringul final generat trebuie sa nu se termine cu caracterul virgula.<br>
+<pre>
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "Please provide one input file"
+    exit 1
+fi
+
+if [ ! -f "$1" ]; then
+    echo "The given argument is not a file"
+    exit 1
+fi
+
+result=""
+for u in $(cat "$1"); do
+    result="$u@scs.ubbcluj.ro,$result"
+done
+
+result=$(echo $result | sed -E "s/,$//")
+
+echo $result
+</pre>
+<br>
+
+18. Write a shell script that recieves any number of words as command line arguments, and continuously reads from the keyboard one file name at a time. The program ends when all words received as parameters have been found at least once across the given files.<br>
+Scrieti un script shell care primeste oricate cuvinte ca argumente la linia de comanda si citeste nume de fisiere de la tastatura. Programul tot citeste nume de fisiere pana cand toate cuvintele date ca argumente sunt gasite cel putin o data in reuniunea continuturilor fisierelor citite.<br>
+<pre>
+Example:
+
+Assume that
+file1.txt contains word1 and word2
+file2.txt does not contain any of the 3 words
+file3.txt contains word2 and word 3
+
+./script.sh word1 word2 word3
+We input the following:
+file1.txt
+file2.txt
+file3.txt
+
+The program stops after reading file3.txt because
+word1 has been found in file1.txt
+word2 has been found in file1.txt and file3.txt
+word3 has been found in file3.txt
+
+
+Solution 1:
+
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Please provide at least one argument"
+    exit 1
+fi
+
+declare -A words
+
+for word in $@; do
+    words[$word]=0
+done
+
+found_all=false
+while ! ${found_all}; do
+    to_find=""
+    for word in ${!words[@]}; do
+        if [ ${words[$word]} -eq 0 ]; then
+            to_find="$to_find $word"
+        fi
+    done
+    echo "Left to find:$to_find"
+    read -p "Please input a filename: " file
+    if [ -z "$file" ]; then
+        echo "Please input a non empty string"
+    elif [ ! -f "$file" ]; then
+        echo "$file is not a file"
+    else
+        found_all=true
+        for word in $@; do
+            if grep -E -q "\<$word\>" "$file"; then
+                echo "Found $word in $file"
+                words[$word]=1
+            fi
+            if [ ${words[$word]} -eq 0 ]; then
+                found_all=false
+            fi
+        done
+    fi
+done
+
+echo "All done"
+
+----------------------------------------------------------
+Solution 2:
+
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Please provide at least one argument"
+    exit 1
+fi
+
+found_all=false
+all_files=""
+while ! ${found_all}; do
+    read -p "Please input a filename: " file
+    if [ -z "$file" ]; then
+        echo "Please input a non empty string"
+    elif [ ! -f "$file" ]; then
+        echo "$file is not a file"
+    else
+        all_files="$all_files $file"
+        found_all=true
+        for word in $@; do
+            if grep -E -q "\<$word\>" $all_files; then
+                echo "Found word $word"
+            else
+                found_all=false
+            fi
+        done
+    fi
+done
+
+echo "All done"
+</pre>
+<br>
+
+19. Write a shell script that, for all the users in /etc/passwd, creates a file with the same name as the username and writes in it all the ip addresses from which that user has logged in. (hint: use the last command to find the ip addresses)<br>
+Scrieti un script shell care, pentru toti utilizatorii din /etc/passwd, creeaza un fisier cu acelasi nume ca al utilizatorului in care salveaza toate adresele ip de la care s-a logat acel utilizator. (folositi comanda last ca sa obtineti adresele ip de la care s-a logat un user)<br>
+<pre>
+#!/bin/bash
+
+destination="./results"
+if [ ! -d $destination ]; then
+  if [ ! -e $destination ]; then
+    mkdir $destination
+  else
+    echo "The file $destination already exists and it is not a directory. Exiting."
+    exit 1
+  fi
+fi
+
+users=$(awk -F: '{print $1}' /etc/passwd)
+
+for user in $users; do
+  ips=$(last $user | head -n -2 | awk '{print $3}' | sort | uniq)
+  if test -n "$ips"; then
+    echo "$ips" > $destination/$user
+  fi
+done
+</pre>
+<br>
+
+20. Create a bash script that displays every second the process count per user sorted descending by process count for all users specified as command line arguments. If no arguments are given, the script will display the process count per user for all users. <br>
+Scrieti un script bash care afiseaza o data pe secunda numarul de procese per user sortat descrescator dupa numarul de procese, pentru toti utilizatorii dati ca argumente la linia de comanda. Daca nici un utilizator nu e specificat la linia de comanda, scriptul va afisa informatiile pentru toti utilizatorii din sistem. <br>
+<pre>
+#!/bin/bash
+
+users="-e"
+if [ $# -gt 0 ]; then
+    users=""
+    for user in $@; do
+        users="$users -u $user"
+    done
+fi
+
+while true; do
+    clear
+    ps -f $users | awk 'NR > 1{print $1}' | sort | uniq -c | sort -n -r -k1,1
+    sleep 1
+done
+</pre>
+<br>
+
+21. Create a bash script that finds all the text files in a specified folder (the current folder if there is no specified folder). For all such files, the script will report the filesize, permissions and number of unique lines. <br>
+Scrieti un script bash care afiseaza toate fisierele text dintr-un director specificat (daca nu se specifica niciun director, se va folosi directorul curent). Pentru toate fisierele gasite, scriptul va raporta dimensiunea fiecaruia, permisiunile si numarul de linii unice. <br>
+
+<pre>
+#!/bin/bash
+
+dir=${1:-"."}
+
+if [ -d "$dir" ]; then
+    for f in $(find "$dir" -type f); do
+        if file $f | grep -E -q "text"; then
+            size=$(du -b $f | cut -f1)
+            perm=$(ls -l $f | cut -d' ' -f1)
+            lines=$(sort $f | uniq | wc -l)
+            echo "Filename: $f - size: $size - permissions: $perm - unique lines: $lines"
+        fi
+    done
+fi
+</pre>
+</body>
+</html>

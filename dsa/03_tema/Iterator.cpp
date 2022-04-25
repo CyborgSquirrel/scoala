@@ -12,15 +12,15 @@ void Iterator::prim(){
 }
 
 void Iterator::urmator(){
-	this->p = this->p->urmator();
+	this->p = this->dict.buf[p].urmator();
 }
 
 bool Iterator::valid() const{
-	return this->p != nullptr;
+	return this->p >= 0;
 }
 
 TElem Iterator::element() const{
-	return this->p->element();
+	return this->dict.buf[p].element();
 }
 
 

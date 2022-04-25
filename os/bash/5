@@ -1,0 +1,6 @@
+#!/bin/bash
+
+a=''
+while [ ! -f "$a" ]; do
+	read -p 'Enter file pls... ' a
+done

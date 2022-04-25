@@ -1,0 +1,12 @@
+#!/bin/bash
+
+p=$( ps --no-headers -eo '%U %p' )
+u=$( echo "$p" | awk '{print $1}' | sort | uniq )
+
+(
+	IFS=$'\n'
+	for user in $( echo "$u"); do
+		echo -n "$user "
+		echo "$p" | awk 'BEGIN{sum=0;pro=0;} $1 ~ /^'"$user"'$/ {sum+=$2;pro+=1;} END{print sum/pro}'
+	done
+)

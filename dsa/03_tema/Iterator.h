@@ -13,20 +13,24 @@ private:
 	const DO& dict;
 
 	/* aici e reprezentarea specifica a iteratorului */
-	Nod *p;
+	int p;
 
 public:
 
+		// O(1)
 		//reseteaza pozitia iteratorului la inceputul containerului
 		void prim();
 
+		// O(1)
 		//muta iteratorul in container
 		// arunca exceptie daca iteratorul nu e valid
 		void urmator();
 
+		// O(1)
 		//verifica daca iteratorul e valid (indica un element al containerului)
 		bool valid() const;
 
+		// O(1)
 		//returneaza valoarea elementului din container referit de iterator
 		//arunca exceptie daca iteratorul nu e valid
 		TElem element() const;

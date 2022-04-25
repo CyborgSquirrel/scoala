@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ ! -d "$1" ]; then
+	echo 'Primul argument trebuie sa fie director.'
+	exit 1
+fi
+
+(
+	IFS=$'\n'
+	for link in $( find "$1" -type l ); do
+		if [ ! -e "$link" ]; then
+			echo "$link nu este valid"
+		fi
+	done
+)
