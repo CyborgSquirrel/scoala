@@ -8,13 +8,17 @@
 #include <QDebug>
 #include <QDialog>
 #include <QDir>
+#include <QErrorMessage>
 #include <QFile>
+#include <QFormLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMessageBox>
 #include <QPushButton>
+#include <QSpinBox>
 #include <QString>
 #include <QTableView>
 #include <QTabWidget>
@@ -50,15 +54,37 @@ public:
 	QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 };
 
-QLineEdit *addField(QLayout *layout, const QString &name);
-QGroupBox *boxCrud(SrvCartiModel *model);
-QGroupBox *boxReports(SrvCartiModel *model);
+// QLineEdit *addField(QLayout *layout, const QString &name);
+template <class T>
+T *addField(QFormLayout *layout, const QString &name) {
+	QLabel *label = new QLabel(name);
+	T *edit = new T;
+	label->setBuddy(edit);
+	layout->addRow(label, edit);
+	return edit;
+}
+
+class ReportsGen {
+private:
+	QVBoxLayout *layout;
+	std::vector<QPushButton*> buttons;
+public:
+	ReportsGen() = default;
+	ReportsGen(QGroupBox *box);
+	void update(SrvCarti &srv_carti);
+};
 
 class GraphicalUi {
 private:
 	QApplication app;
 	SrvCarti &srv_carti;
 	SrvInchirieriCarte &srv_inchirieri_carte;
+	
+	ReportsGen reportsGen;
+	
+	QGroupBox *boxCrud(SrvCartiModel *model);
+	QGroupBox *boxReports(SrvCartiModel *model);
+	void showReportsGen();
 public:
 	GraphicalUi(
 		int argc, char **argv,

@@ -134,6 +134,10 @@ public:
 	// Returneaza un map, in care cheia reprezinta anul, iar valoarea numarul de carti publicate in acel an.
 	// out: map in care cheia reprezinta anul, iar valoarea numarul de carti publicate in acel an
 	std::map<int, int> generate_report_carti_by_an() const;
+	
+	// Returneaza un map, in care cheia reprezinta genul, iar valoarea numarul de carti cu acel gen.
+	// out: map in care cheia reprezinta genul, iar valoarea numarul de carti cu acel gen
+	std::map<std::string, int> generate_report_gen_amount() const;
 };
 
 class SrvInchirieriCarteException : public AppException {

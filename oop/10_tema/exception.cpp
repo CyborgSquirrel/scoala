@@ -10,6 +10,10 @@ std::ostream &operator<<(std::ostream &out, const AppException &ex) {
 	return out;
 }
 
+const std::string &AppException::get_msg() const {
+	return this->msg;
+}
+
 std::string AppException::as_string() const {
 	std::stringstream sstream;
 	sstream << (*this);

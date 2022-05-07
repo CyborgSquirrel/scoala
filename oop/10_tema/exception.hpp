@@ -7,10 +7,11 @@
 class AppException {
 private:
 	std::string msg;
-	virtual std::string get_type() const = 0;
 public:
 	AppException(const std::string &msg);
 	friend std::ostream &operator<<(std::ostream &out, const AppException &ex);
+	virtual std::string get_type() const = 0;
+	const std::string &get_msg() const;
 	std::string as_string() const;
 };
 std::ostream &operator<<(std::ostream &out, const AppException &ex);

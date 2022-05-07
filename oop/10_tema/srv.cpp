@@ -133,16 +133,29 @@ std::vector<Carte> SrvCarti::sort_by_an_gen() const {
 }
 
 std::map<int, int> SrvCarti::generate_report_carti_by_an() const {
-	std::map<int, int> raport;
+	std::map<int, int> report;
 	auto carti = this->repo.get_all();
 	for (const auto &carte : carti) {
-		if (raport.count(carte.get_an()) == 0) {
-			raport[carte.get_an()] = 0;
+		if (report.count(carte.get_an()) == 0) {
+			report[carte.get_an()] = 0;
 		}
-		raport[carte.get_an()]++;
+		report[carte.get_an()]++;
 	}
-	return raport;
+	return report;
 }
+
+std::map<std::string, int> SrvCarti::generate_report_gen_amount() const {
+	std::map<std::string, int> report;
+	auto carti = this->repo.get_all();
+	for (const auto &carte : carti) {
+		if (report.count(carte.get_gen()) == 0) {
+			report[carte.get_gen()] = 0;
+		}
+		report[carte.get_gen()]++;
+	}
+	return report;
+}
+
 
 // SRV INCHIRIERI CARTE
 SrvInchirieriCarteException::SrvInchirieriCarteException(const std::string &msg)
@@ -384,12 +397,19 @@ void test_srv_carti_filter_and_sort() {
 	srv.add_carte(b_titlu, b_autor, b_gen, b_an);
 	srv.add_carte(b_titlu, b_autor, b_gen, b_an);
 	
-	auto report = srv.generate_report_carti_by_an();
-	Ensures(report.size() == 4);
-	Ensures(report[1850] == 4);
-	Ensures(report[1931] == 1);
-	Ensures(report[1948] == 3);
-	Ensures(report[1990] == 1);
+	auto report_an = srv.generate_report_carti_by_an();
+	Ensures(report_an.size() == 4);
+	Ensures(report_an[1850] == 4);
+	Ensures(report_an[1931] == 1);
+	Ensures(report_an[1948] == 3);
+	Ensures(report_an[1990] == 1);
+	
+	auto report_gen = srv.generate_report_gen_amount();
+	Ensures(report_gen.size() == 3);
+	
+	Ensures(report_gen["classic"] == 4);
+	Ensures(report_gen["dystopia"] == 4);
+	Ensures(report_gen["fiction"] == 1);
 }
 
 void test_srv_inchirieri_carte() {

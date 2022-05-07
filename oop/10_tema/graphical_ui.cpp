@@ -1,5 +1,7 @@
 #include "./graphical_ui.hpp"
 
+const size_t ID_MAX = 1000000000;
+
 SrvCartiModel::SrvCartiModel(SrvCarti &srv_carti, QObject *parent) : QAbstractTableModel(parent), srv_carti(srv_carti) { }
 
 void SrvCartiModel::addCarte(
@@ -82,14 +84,22 @@ QVariant SrvCartiModel::headerData(int section, Qt::Orientation orientation, int
 	}
 }
 
-QLineEdit *addField(QLayout *layout, const QString &name) {
-	QLabel *label = new QLabel(name);       layout->addWidget(label);
-	QLineEdit *line_edit = new QLineEdit;   layout->addWidget(line_edit);
-	label->setBuddy(line_edit);
-	return line_edit;
+void handleAppException(std::function<void()> f) {
+	try {
+		f();
+	} catch(const AppException &ex) {
+		QErrorMessage *error_message = new QErrorMessage;
+		error_message->showMessage(
+			QString::fromStdString(ex.get_msg()),
+			QString::fromStdString(ex.get_type())
+		);
+	}
 }
 
-QGroupBox *boxCrud(SrvCartiModel *model) {
+QGroupBox *GraphicalUi::boxCrud(SrvCartiModel *model) {
+	SrvCarti &srv_carti = this->srv_carti;
+	ReportsGen &reportsGen = this->reportsGen;
+	
 	QVBoxLayout *layout_crud = new QVBoxLayout;
 	QGroupBox *box_crud = new QGroupBox("Edit");
 	box_crud->setLayout(layout_crud);
@@ -98,28 +108,30 @@ QGroupBox *boxCrud(SrvCartiModel *model) {
 	QPushButton *button_adauga_carte = new QPushButton("&adauga carte");
 	QObject::connect(
 		button_adauga_carte, &QPushButton::clicked,
-		[model]() {
+		[model, &srv_carti, &reportsGen]() {
 			QDialog *window_adauga_carte = new QDialog;
 			window_adauga_carte->setWindowModality(Qt::WindowModal);
-			QVBoxLayout *layout = new QVBoxLayout(window_adauga_carte);
+			QFormLayout *layout = new QFormLayout;
+			window_adauga_carte->setLayout(layout);
 			
-			QLineEdit *line_edit_titlu = addField(layout, "&Titlu");
-			QLineEdit *line_edit_autor = addField(layout, "A&utor");
-			QLineEdit *line_edit_gen = addField(layout, "&Gen");
-			QLineEdit *line_edit_an = addField(layout, "A&n");
+			QLineEdit *line_edit_titlu = addField<QLineEdit>(layout, "&Titlu");
+			QLineEdit *line_edit_autor = addField<QLineEdit>(layout, "A&utor");
+			QLineEdit *line_edit_gen = addField<QLineEdit>(layout, "&Gen");
+			QLineEdit *line_edit_an = addField<QLineEdit>(layout, "A&n");
 			
 			QPushButton *button_adauga = new QPushButton("adauga");
 			layout->addWidget(button_adauga);
 			
 			QObject::connect(
 				button_adauga, &QPushButton::clicked,
-				[model, line_edit_titlu, line_edit_autor, line_edit_gen, line_edit_an, window_adauga_carte]() {
+				[model, &srv_carti, &reportsGen, line_edit_titlu, line_edit_autor, line_edit_gen, line_edit_an, window_adauga_carte]() {
 					model->addCarte(
 						line_edit_titlu->text().toStdString(),
 						line_edit_autor->text().toStdString(),
 						line_edit_gen->text().toStdString(),
 						line_edit_an->text().toInt()
 					);
+					reportsGen.update(srv_carti);
 					window_adauga_carte->close();
 				}
 			);
@@ -133,22 +145,27 @@ QGroupBox *boxCrud(SrvCartiModel *model) {
 	QPushButton *button_sterge_carte = new QPushButton("&sterge carte");
 	QObject::connect(
 		button_sterge_carte, &QPushButton::clicked,
-		[model]() {
+		[model, &srv_carti, &reportsGen]() {
 			QDialog *window_sterge_carte = new QDialog;
 			window_sterge_carte->setWindowModality(Qt::WindowModal);
-			QVBoxLayout *layout = new QVBoxLayout(window_sterge_carte);
+			QFormLayout *layout = new QFormLayout();
+			window_sterge_carte->setLayout(layout);
 			
-			QLineEdit *line_edit_id = addField(layout, "&Id");
+			QSpinBox *line_edit_id = addField<QSpinBox>(layout, "&Id");
+			line_edit_id->setMaximum(ID_MAX);
 			
 			QPushButton *button_sterge = new QPushButton("sterge");
 			layout->addWidget(button_sterge);
 			
 			QObject::connect(
 				button_sterge, &QPushButton::clicked,
-				[model, line_edit_id, window_sterge_carte]() {
-					model->eraseCarte(
-						line_edit_id->text().toInt()
-					);
+				[model, &srv_carti, &reportsGen, line_edit_id, window_sterge_carte]() {
+					handleAppException([model, line_edit_id]() {
+						model->eraseCarte(
+							line_edit_id->text().toInt()
+						);
+					});
+					reportsGen.update(srv_carti);
 					window_sterge_carte->close();
 				}
 			);
@@ -162,30 +179,35 @@ QGroupBox *boxCrud(SrvCartiModel *model) {
 	QPushButton *button_modifica_carte = new QPushButton("&modifica carte");
 	QObject::connect(
 		button_modifica_carte, &QPushButton::clicked,
-		[model]() {
+		[model, &srv_carti, &reportsGen]() {
 			QDialog *window_modifica_carte = new QDialog;
 			window_modifica_carte->setWindowModality(Qt::WindowModal);
-			QVBoxLayout *layout = new QVBoxLayout(window_modifica_carte);
+			QFormLayout *layout = new QFormLayout();
+			window_modifica_carte->setLayout(layout);
 			
-			QLineEdit *line_edit_id = addField(layout, "&Id");
-			QLineEdit *line_edit_titlu = addField(layout, "&Titlu");
-			QLineEdit *line_edit_autor = addField(layout, "A&utor");
-			QLineEdit *line_edit_gen = addField(layout, "&Gen");
-			QLineEdit *line_edit_an = addField(layout, "A&n");
+			QSpinBox *line_edit_id = addField<QSpinBox>(layout, "&Id");
+			line_edit_id->setMaximum(ID_MAX);
+			QLineEdit *line_edit_titlu = addField<QLineEdit>(layout, "&Titlu");
+			QLineEdit *line_edit_autor = addField<QLineEdit>(layout, "A&utor");
+			QLineEdit *line_edit_gen = addField<QLineEdit>(layout, "&Gen");
+			QLineEdit *line_edit_an = addField<QLineEdit>(layout, "A&n");
 			
 			QPushButton *button_modifica = new QPushButton("modifica");
 			layout->addWidget(button_modifica);
 			
 			QObject::connect(
 				button_modifica, &QPushButton::clicked,
-				[model, line_edit_id, line_edit_titlu, line_edit_autor, line_edit_gen, line_edit_an, window_modifica_carte]() {
-					model->updateCarte(
-						line_edit_id->text().toUInt(),
-						line_edit_titlu->text().toStdString(),
-						line_edit_autor->text().toStdString(),
-						line_edit_gen->text().toStdString(),
-						line_edit_an->text().toInt()
-					);
+				[model, &srv_carti, &reportsGen, line_edit_id, line_edit_titlu, line_edit_autor, line_edit_gen, line_edit_an, window_modifica_carte]() {
+					handleAppException([model, line_edit_id, line_edit_titlu, line_edit_autor, line_edit_gen, line_edit_an]() {
+						model->updateCarte(
+							line_edit_id->text().toUInt(),
+							line_edit_titlu->text().toStdString(),
+							line_edit_autor->text().toStdString(),
+							line_edit_gen->text().toStdString(),
+							line_edit_an->text().toInt()
+						);
+					});
+					reportsGen.update(srv_carti);
 					window_modifica_carte->close();
 				}
 			);
@@ -202,7 +224,7 @@ QGroupBox *boxCrud(SrvCartiModel *model) {
 	return box_crud;
 }
 
-QGroupBox *boxReports(SrvCartiModel *model) {
+QGroupBox *GraphicalUi::boxReports(SrvCartiModel *model) {
 	QVBoxLayout *layout_reports = new QVBoxLayout;
 	QGroupBox *box_reports = new QGroupBox("Rapoarte");
 	box_reports->setLayout(layout_reports);
@@ -221,6 +243,35 @@ QGroupBox *boxReports(SrvCartiModel *model) {
 	layout_reports->addWidget(button_generate_report_carti_by_an);
 	
 	return box_reports;
+}
+
+ReportsGen::ReportsGen(QGroupBox *box) {
+	this->layout = new QVBoxLayout;
+	box->setLayout(this->layout);
+}
+
+void ReportsGen::update(SrvCarti &srv_carti) {
+	while (!this->buttons.empty()) {
+		this->layout->removeWidget(this->buttons.back());
+		delete this->buttons.back();
+		this->buttons.pop_back();
+	}
+	
+	auto report = srv_carti.generate_report_gen_amount();
+	for (auto gen_amount : report) {
+		QPushButton *button = new QPushButton(QString::fromStdString(gen_amount.first));
+		int amount = gen_amount.second;
+		QObject::connect(
+			button, &QPushButton::clicked,
+			[amount]() {
+				QMessageBox *message_box = new QMessageBox;
+				message_box->setText(QString::number(amount));
+				message_box->show();
+			}
+		);
+		this->layout->addWidget(button);
+		this->buttons.push_back(button);
+	}
 }
 
 GraphicalUi::GraphicalUi(
@@ -249,12 +300,18 @@ GraphicalUi::GraphicalUi(
 	table->horizontalHeader()->setSectionResizeMode(4, QHeaderView::Stretch);
 	admin_hbox->addWidget(table);
 	
-	// BUTTONS
+	// ACTIONS
 	QVBoxLayout *layout_actions = new QVBoxLayout;
 	admin_hbox->addLayout(layout_actions);
 	
-	layout_actions->addWidget(boxCrud(model));
-	layout_actions->addWidget(boxReports(model));
+	layout_actions->addWidget(this->boxCrud(model));
+	
+	layout_actions->addWidget(this->boxReports(model));
+	
+	QGroupBox *box_reports_gen = new QGroupBox("Rapoarte gen");
+	this->reportsGen = ReportsGen(box_reports_gen);
+	this->reportsGen.update(this->srv_carti);
+	layout_actions->addWidget(box_reports_gen);
 	
 	layout_actions->addStretch();
 }
