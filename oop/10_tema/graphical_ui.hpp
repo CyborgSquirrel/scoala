@@ -69,8 +69,8 @@ private:
 	QVBoxLayout *layout;
 	std::vector<QPushButton*> buttons;
 public:
-	ReportsGen() = default;
-	ReportsGen(QGroupBox *box);
+	ReportsGen();
+	void show();
 	void update(SrvCarti &srv_carti);
 };
 
@@ -83,7 +83,7 @@ private:
 	ReportsGen reportsGen;
 	
 	QGroupBox *boxCrud(SrvCartiModel *model);
-	QGroupBox *boxReports(SrvCartiModel *model);
+	QGroupBox *boxReports();
 	void showReportsGen();
 public:
 	GraphicalUi(

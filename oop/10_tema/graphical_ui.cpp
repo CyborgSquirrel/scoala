@@ -224,10 +224,21 @@ QGroupBox *GraphicalUi::boxCrud(SrvCartiModel *model) {
 	return box_crud;
 }
 
-QGroupBox *GraphicalUi::boxReports(SrvCartiModel *model) {
+QGroupBox *GraphicalUi::boxReports() {
 	QVBoxLayout *layout_reports = new QVBoxLayout;
 	QGroupBox *box_reports = new QGroupBox("Rapoarte");
 	box_reports->setLayout(layout_reports);
+	
+	this->reportsGen = ReportsGen();
+	this->reportsGen.update(this->srv_carti);
+	QPushButton *numar_carti_cu_gen = new QPushButton("numar carti cu gen");
+	QObject::connect(
+		numar_carti_cu_gen, &QPushButton::clicked,
+		[this]() {
+			this->reportsGen.show();
+		}
+	);
+	layout_reports->addWidget(numar_carti_cu_gen);
 	
 	QPushButton *button_filter_by_titlu = new QPushButton("filtrat dupa titlu");
 	layout_reports->addWidget(button_filter_by_titlu);
@@ -245,9 +256,14 @@ QGroupBox *GraphicalUi::boxReports(SrvCartiModel *model) {
 	return box_reports;
 }
 
-ReportsGen::ReportsGen(QGroupBox *box) {
+ReportsGen::ReportsGen() {
 	this->layout = new QVBoxLayout;
-	box->setLayout(this->layout);
+}
+
+void ReportsGen::show() {
+	QWidget *dialog = new QWidget;
+	dialog->setLayout(this->layout);
+	dialog->show();
 }
 
 void ReportsGen::update(SrvCarti &srv_carti) {
@@ -305,13 +321,7 @@ GraphicalUi::GraphicalUi(
 	admin_hbox->addLayout(layout_actions);
 	
 	layout_actions->addWidget(this->boxCrud(model));
-	
-	layout_actions->addWidget(this->boxReports(model));
-	
-	QGroupBox *box_reports_gen = new QGroupBox("Rapoarte gen");
-	this->reportsGen = ReportsGen(box_reports_gen);
-	this->reportsGen.update(this->srv_carti);
-	layout_actions->addWidget(box_reports_gen);
+	layout_actions->addWidget(this->boxReports());
 	
 	layout_actions->addStretch();
 }
