@@ -11,6 +11,7 @@ private:
 	std::string get_type() const override;
 public:
 	UiException(const std::string &msg);
+	~UiException() override = default;
 };
 
 class Ui {

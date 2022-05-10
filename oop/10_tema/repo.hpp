@@ -11,6 +11,7 @@ private:
 	std::string get_type() const override;
 public:
 	RepoCartiException(const std::string &msg);
+	~RepoCartiException() override = default;
 };
 
 class RepoCarti {
@@ -62,6 +63,7 @@ private:
 	std::string get_type() const override;
 public:
 	RepoInchirieriCarteException(const std::string &msg);
+	~RepoInchirieriCarteException() override = default;
 };
 
 class RepoInchirieriCarte {

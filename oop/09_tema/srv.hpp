@@ -22,6 +22,7 @@ private:
 	std::string get_type() const override;
 public:
 	SrvCartiException(const std::string &msg);
+	~SrvCartiException() override = default;
 };
 
 class SrvCartiUndoAdd : public SrvCartiUndo {
@@ -29,6 +30,7 @@ private:
 	int id;
 public:
 	SrvCartiUndoAdd(int id);
+	~SrvCartiUndoAdd() override = default;
 	void undo(SrvCarti &srv_carti) override;
 };
 
@@ -37,6 +39,7 @@ private:
 	Carte carte;
 public:
 	SrvCartiUndoErase(const Carte &carte);
+	~SrvCartiUndoErase() override = default;
 	void undo(SrvCarti &srv_carti) override;
 };
 
@@ -45,6 +48,7 @@ private:
 	Carte carte;
 public:
 	SrvCartiUndoUpdate(const Carte &carte);
+	~SrvCartiUndoUpdate() override = default;
 	void undo(SrvCarti &srv_carti) override;
 };
 
@@ -141,6 +145,7 @@ private:
 	std::string get_type() const override;
 public:
 	SrvInchirieriCarteException(const std::string &msg);
+	~SrvInchirieriCarteException() override = default;
 };
 
 class SrvInchirieriCarte {

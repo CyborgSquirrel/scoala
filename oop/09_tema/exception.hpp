@@ -10,6 +10,7 @@ private:
 	virtual std::string get_type() const = 0;
 public:
 	AppException(const std::string &msg);
+	virtual ~AppException() = default;
 	friend std::ostream &operator<<(std::ostream &out, const AppException &ex);
 	std::string as_string() const;
 };
