@@ -13,10 +13,12 @@ extern const TCheie ERASED;
 typedef std::pair<TCheie, TValoare> TElem;
 
 class IteratorMD;
+class IteratorValori;
 
 class MD
 {
 	friend class IteratorMD;
+	friend class IteratorValori;
 
 private:
 	/* aici e reprezentarea */
@@ -60,14 +62,15 @@ public:
 	bool vid() const;
 
 	// se returneaza iterator pe MD
-	// O(1)
+	// O(n)
 	IteratorMD iterator() const;
 
 	// destructorul MultiDictionarului
 	// O(1)
 	~MD();
 
-
-
+	// creeaza un iterator peste valorile asociate cheii k. În cazul în care k nu este în multidicționar, iteratorul va fi nevalid imediate dupa creare. În caz contrar, elementul curent este prima valoare asociată cheii.
+	// O(n)
+	IteratorValori iterator(TCheie k);
 };
 

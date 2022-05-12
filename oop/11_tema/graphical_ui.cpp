@@ -76,6 +76,12 @@ void SrvCartiModel::updateCarte(
 	emit dataChanged(this->index(index, 0), this->index(index, 4));
 }
 
+void SrvCartiModel::undo() {
+	this->beginResetModel();
+	this->srv_carti.undo();
+	this->endResetModel();
+}
+
 // QAbstractTableModel
 int SrvCartiModel::columnCount(const QModelIndex &parent) const {
 	Q_UNUSED(parent);
@@ -162,6 +168,48 @@ QVariant CartiPeAnModel::headerData(int section, Qt::Orientation orientation, in
 	}
 }
 
+// SRV INCHIRIERI CARTE MODEL
+SrvInchirieriCarteModel::SrvInchirieriCarteModel(SrvInchirieriCarte &srv_inchirieri_carte, QObject *parent)
+	: srv_inchirieri_carte(srv_inchirieri_carte) {
+	Q_UNUSED(parent);
+}
+
+void SrvInchirieriCarteModel::addInchiriere(const std::string &titlu) {
+	this->beginResetModel();
+	this->srv_inchirieri_carte.add_inchiriere(titlu);
+	this->carti = this->srv_inchirieri_carte.get_carti();
+	this->endResetModel();
+}
+void SrvInchirieriCarteModel::genereazaInchirieri(int amount) {
+	this->beginResetModel();
+	this->srv_inchirieri_carte.genereaza_inchirieri(amount);
+	this->carti = this->srv_inchirieri_carte.get_carti();
+	this->endResetModel();
+}
+void SrvInchirieriCarteModel::emptyInchirieri() {
+	this->beginResetModel();
+	this->srv_inchirieri_carte.empty_inchirieri();
+	this->carti = this->srv_inchirieri_carte.get_carti();
+	this->endResetModel();
+}
+
+// QAbstractTableModel
+int SrvInchirieriCarteModel::columnCount(const QModelIndex &parent) const {
+	Q_UNUSED(parent);
+	return 5;
+}
+int SrvInchirieriCarteModel::rowCount(const QModelIndex &parent) const {
+	Q_UNUSED(parent);
+	return this->carti.size();
+}
+QVariant SrvInchirieriCarteModel::data(const QModelIndex &index, int role) const {
+	Carte carte = this->carti[index.row()];
+	return cartiData(index, role, carte);
+}
+QVariant SrvInchirieriCarteModel::headerData(int section, Qt::Orientation orientation, int role) const {
+	return cartiHeaderData(section, orientation, role);
+}
+
 void handleAppException(std::function<void()> f) {
 	try {
 		f();
@@ -174,13 +222,13 @@ void handleAppException(std::function<void()> f) {
 	}
 }
 
-QGroupBox *GraphicalUi::boxCrud(SrvCartiModel *model) {
+QGroupBox *GraphicalUi::boxSrvCartiCrud(SrvCartiModel *model) {
 	SrvCarti &srv_carti = this->srv_carti;
 	ReportsGen &reportsGen = this->reportsGen;
 	
 	QVBoxLayout *layout_crud = new QVBoxLayout;
-	QGroupBox *box_crud = new QGroupBox("Edit");
-	box_crud->setLayout(layout_crud);
+	QGroupBox *box = new QGroupBox("Edit");
+	box->setLayout(layout_crud);
 	
 	// ADAUGA CARTE
 	QPushButton *button_adauga_carte = new QPushButton("&adauga carte");
@@ -295,11 +343,119 @@ QGroupBox *GraphicalUi::boxCrud(SrvCartiModel *model) {
 	);
 	layout_crud->addWidget(button_modifica_carte);
 	
-	// MODIFICA CARTE
+	// UNDO
 	QPushButton *button_undo = new QPushButton("&undo");
+	QObject::connect(
+		button_undo, &QPushButton::clicked,
+		[model, &srv_carti, &reportsGen]() {
+			handleAppException([model]() {
+				model->undo();
+			});
+			reportsGen.update(srv_carti);
+		}
+	);
 	layout_crud->addWidget(button_undo);
 	
-	return box_crud;
+	return box;
+}
+
+QGroupBox *GraphicalUi::boxSrvInchirieriCarte(SrvInchirieriCarteModel *model) {
+	auto box = new QGroupBox("Actiuni");
+	auto layout = new QVBoxLayout;
+	box->setLayout(layout);
+	
+	auto buttonAddInchiriere = new QPushButton("&adauga inchiriere");
+	QObject::connect(
+		buttonAddInchiriere, &QPushButton::clicked,
+		[model]() {
+			auto *windowAddInchiriere = new QDialog;
+			windowAddInchiriere->setWindowModality(Qt::WindowModal);
+			auto *layout = new QFormLayout();
+			windowAddInchiriere->setLayout(layout);
+			
+			auto *lineEditTitlu = addField<QLineEdit>(layout, "&Titlu");
+			
+			auto *buttonAdauga = new QPushButton("adauga");
+			QObject::connect(
+				buttonAdauga, &QPushButton::clicked,
+				[model, windowAddInchiriere, lineEditTitlu]() {
+					handleAppException([model, lineEditTitlu]() {
+						model->addInchiriere(lineEditTitlu->text().toStdString());
+					});
+					windowAddInchiriere->close();
+				}
+			);
+			layout->addWidget(buttonAdauga);
+			
+			windowAddInchiriere->exec();
+		}
+	);
+	layout->addWidget(buttonAddInchiriere);
+	
+	auto buttonGenereazaInchirieri = new QPushButton("g&enereaza inchirieri");
+	QObject::connect(
+		buttonGenereazaInchirieri, &QPushButton::clicked,
+		[model]() {
+			auto *windowGenereazaInchirieri = new QDialog;
+			windowGenereazaInchirieri->setWindowModality(Qt::WindowModal);
+			auto *layout = new QFormLayout();
+			windowGenereazaInchirieri->setLayout(layout);
+			
+			auto *lineEditAmount = addField<QSpinBox>(layout, "&Numar inchirieri");
+			lineEditAmount->setMaximum(1000000000);
+			
+			auto *buttonGenereaza = new QPushButton("genereaza");
+			QObject::connect(
+				buttonGenereaza, &QPushButton::clicked,
+				[model, windowGenereazaInchirieri, lineEditAmount]() {
+					model->genereazaInchirieri(lineEditAmount->text().toInt());
+					windowGenereazaInchirieri->close();
+				}
+			);
+			layout->addWidget(buttonGenereaza);
+			
+			windowGenereazaInchirieri->exec();
+		}
+	);
+	layout->addWidget(buttonGenereazaInchirieri);
+	
+	auto buttonEmptyInchirieri = new QPushButton("&goleste inchirieri");
+	QObject::connect(
+		buttonEmptyInchirieri, &QPushButton::clicked,
+		[model]() {
+			model->emptyInchirieri();
+		}
+	);
+	layout->addWidget(buttonEmptyInchirieri);
+	
+	auto &srvInchirieriCarte = this->srv_inchirieri_carte;
+	auto buttonCsvExport = new QPushButton("&csv export");
+	QObject::connect(
+		buttonCsvExport, &QPushButton::clicked,
+		[&srvInchirieriCarte]() {
+			auto *windowCsvExport = new QDialog;
+			windowCsvExport->setWindowModality(Qt::WindowModal);
+			auto *layout = new QFormLayout();
+			windowCsvExport->setLayout(layout);
+			
+			auto *lineEditFilePath = addField<QLineEdit>(layout, "Fisier");
+			
+			auto *buttonExport = new QPushButton("export");
+			QObject::connect(
+				buttonExport, &QPushButton::clicked,
+				[&srvInchirieriCarte, windowCsvExport, lineEditFilePath]() {
+					srvInchirieriCarte.csv_export(lineEditFilePath->text().toStdString());
+					windowCsvExport->close();
+				}
+			);
+			layout->addWidget(buttonExport);
+			
+			windowCsvExport->exec();
+		}
+	);
+	layout->addWidget(buttonCsvExport);
+	
+	return box;
 }
 
 void configureCartiHeader(QHeaderView *horizontalHeader) {
@@ -332,35 +488,6 @@ QDialog *makeDialogReport(QAbstractTableModel *model, std::function<void(QHeader
 	layout->addWidget(button_inchide);
 	
 	return dialog;
-}
-
-void showDialogReportVectorCarti(const std::vector<Carte> &carti) {
-	auto dialog = new QDialog;
-	dialog->setModal(true);
-	
-	auto layout = new QVBoxLayout;
-	dialog->setLayout(layout);
-	
-	auto table = new QTableView;
-	auto model = new VectorCartiModel(carti);
-	table->setModel(model);
-	table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
-	table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
-	table->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
-	table->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
-	table->horizontalHeader()->setSectionResizeMode(4, QHeaderView::Stretch);
-	layout->addWidget(table);
-	
-	auto button_inchide = new QPushButton("inchide");
-	QObject::connect(
-		button_inchide, &QPushButton::clicked,
-		[dialog]() {
-			dialog->close();
-		}
-	);
-	layout->addWidget(button_inchide);
-	
-	dialog->exec();
 }
 
 QGroupBox *GraphicalUi::boxReports() {
@@ -545,30 +672,45 @@ GraphicalUi::GraphicalUi(
 	
 	QTabWidget *tab_widget = new QTabWidget;
 	tab_widget->addTab(page_admin, "admin");
+	
+	// PAGE ADMIN
+		QHBoxLayout *hbox_admin = new QHBoxLayout(page_admin);
+		
+		// TABLE SRV CARTI
+		QTableView *table_srv_carti = new QTableView();
+		SrvCartiModel *model_srv_carti = new SrvCartiModel(this->srv_carti);
+		table_srv_carti->setModel(model_srv_carti);
+		configureCartiHeader(table_srv_carti->horizontalHeader());
+		hbox_admin->addWidget(table_srv_carti);
+		
+		// ACTIONS
+		QVBoxLayout *layout_actions = new QVBoxLayout;
+		hbox_admin->addLayout(layout_actions);
+		
+		layout_actions->addWidget(this->boxSrvCartiCrud(model_srv_carti));
+		layout_actions->addWidget(this->boxReports());
+		
+		layout_actions->addStretch();
+	
 	tab_widget->addTab(page_cart, "cart");
+	// PAGE CART
+		QHBoxLayout *layout_cart = new QHBoxLayout(page_cart);
+		
+		// TABLE SRV INCHIRIERI CARTE
+		QTableView *table_srv_inchirieri_carte = new QTableView;
+		SrvInchirieriCarteModel *model_srv_inchirieri_carte = new SrvInchirieriCarteModel(this->srv_inchirieri_carte);
+		table_srv_inchirieri_carte->setModel(model_srv_inchirieri_carte);
+		configureCartiHeader(table_srv_inchirieri_carte->horizontalHeader());
+		layout_cart->addWidget(table_srv_inchirieri_carte);
+		
+		QVBoxLayout *layout_actions_srv_inchirieri_carte = new QVBoxLayout;
+		layout_cart->addLayout(layout_actions_srv_inchirieri_carte);
+		
+		layout_actions_srv_inchirieri_carte->addWidget(this->boxSrvInchirieriCarte(model_srv_inchirieri_carte));
+		
+		layout_actions_srv_inchirieri_carte->addStretch();
+	
 	tab_widget->show();
-	
-	QHBoxLayout *admin_hbox = new QHBoxLayout(page_admin);
-	
-	// SRV CARTI TABLE
-	QTableView *table = new QTableView();
-	SrvCartiModel *model = new SrvCartiModel(srv_carti);
-	table->setModel(model);
-	table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
-	table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
-	table->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
-	table->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
-	table->horizontalHeader()->setSectionResizeMode(4, QHeaderView::Stretch);
-	admin_hbox->addWidget(table);
-	
-	// ACTIONS
-	QVBoxLayout *layout_actions = new QVBoxLayout;
-	admin_hbox->addLayout(layout_actions);
-	
-	layout_actions->addWidget(this->boxCrud(model));
-	layout_actions->addWidget(this->boxReports());
-	
-	layout_actions->addStretch();
 }
 
 int GraphicalUi::run() {

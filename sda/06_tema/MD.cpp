@@ -146,3 +146,6 @@ MD::~MD() {
 	delete[] this->buf;
 }
 
+IteratorValori MD::iterator(TCheie k) {
+	return IteratorValori(*this, k);
+}

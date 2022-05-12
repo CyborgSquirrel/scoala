@@ -39,4 +39,31 @@ void testAll() {
 	assert(im.valid() == false);
 	im.prim();
 	assert(im.valid() == true);
+	
+	MD m2;
+	m2.adauga(1, 100);
+	m2.adauga(1, 200);
+	m2.adauga(2, 300);
+	m2.adauga(7, 100);
+	m2.adauga(1, 999);
+	m2.adauga(1, 200);
+	m2.adauga(7, 10);
+	m2.adauga(1, 23);
+	
+	IteratorValori iv = m2.iterator(1);
+	assert(iv.valid());
+	assert(iv.element() == 100); iv.urmator();
+	assert(iv.element() == 200); iv.urmator();
+	assert(iv.element() == 999); iv.urmator();
+	assert(iv.element() == 200); iv.urmator();
+	assert(iv.element() == 23); iv.urmator();
+	assert(!iv.valid());
+	
+	IteratorValori iv2 = m2.iterator(6);
+	assert(!iv2.valid());
+	
+	IteratorValori iv3 = m2.iterator(7);
+	assert(iv3.element() == 100); iv3.urmator();
+	assert(iv3.element() == 10); iv3.urmator();
+	assert(!iv3.valid());
 }

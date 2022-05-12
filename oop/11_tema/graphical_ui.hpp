@@ -49,6 +49,7 @@ public:
 		const std::string &gen,
 		int an
 	);
+	void undo();
 	
 	// QAbstractTableModel
 	int columnCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -85,6 +86,25 @@ public:
 	QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 };
 
+class SrvInchirieriCarteModel : public QAbstractTableModel {
+private:
+	SrvInchirieriCarte &srv_inchirieri_carte;
+	std::vector<Carte> carti;
+public:
+	SrvInchirieriCarteModel() = delete;
+	SrvInchirieriCarteModel(SrvInchirieriCarte &srv_inchirieri_carte, QObject *parent=nullptr);
+	
+	void addInchiriere(const std::string &titlu);
+	void genereazaInchirieri(int amount);
+	void emptyInchirieri();
+	
+	// QAbstractTableModel
+	int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+	int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+	QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+};
+
 template <class T>
 T *addField(QFormLayout *layout, const QString &name) {
 	QLabel *label = new QLabel(name);
@@ -112,7 +132,8 @@ private:
 	
 	ReportsGen reportsGen;
 	
-	QGroupBox *boxCrud(SrvCartiModel *model);
+	QGroupBox *boxSrvCartiCrud(SrvCartiModel *model);
+	QGroupBox *boxSrvInchirieriCarte(SrvInchirieriCarteModel *model);
 	QGroupBox *boxReports();
 	void showReportsGen();
 public:
