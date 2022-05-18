@@ -56,9 +56,9 @@ QVariant SrvCartiModel::data(const QModelIndex &index, int role) const {
 		const Carte &carte = this->srv_carti.get_carti()[index.row()];
 		int column = index.column();
 		     if (column == 0) return QVariant((int) carte.get_id());
-		else if (column == 1) return QVariant(QString(carte.get_titlu().c_str()));
-		else if (column == 2) return QVariant(QString(carte.get_autor().c_str()));
-		else if (column == 3) return QVariant(QString(carte.get_gen().c_str()));
+		else if (column == 1) return QVariant(QString::fromStdString(carte.get_titlu()));
+		else if (column == 2) return QVariant(QString::fromStdString(carte.get_autor()));
+		else if (column == 3) return QVariant(QString::fromStdString(carte.get_gen()));
 		else if (column == 4) return QVariant(carte.get_an());
 		else return QVariant();
 	} else {
