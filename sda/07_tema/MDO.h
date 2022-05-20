@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 typedef int TCheie;
 typedef int TValoare;
@@ -21,7 +22,7 @@ private:
 	Nod *m_lt, *m_rt;
 	TElem m_elem;
 	// O(h)
-	static Nod *sterge_minim(Nod **nod);
+	static Nod **minim(Nod **nod);
 public:
 	// O(1)
 	Nod(Relatie r);
@@ -34,7 +35,7 @@ public:
 	// O(n)
 	~Nod();
 	
-	static void dbg(Nod *nod);
+	static void dbg(Nod *nod, std::string indent="", std::string prefix="r");
 };
 
 class MDO {

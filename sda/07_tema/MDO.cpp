@@ -38,31 +38,36 @@ void Nod::cauta(Nod *nod, TCheie c, vector<TValoare> &v) {
 		}
 	}
 }
-Nod *Nod::sterge_minim(Nod **nod) {
+Nod **Nod::minim(Nod **nod) {
 	if ((*nod)->m_lt == nullptr) {
-		Nod *temp = *nod;
-		*nod = nullptr;
-		return temp;
+		return nod;
 	} else {
-		return Nod::sterge_minim(&(*nod)->m_lt);
+		return Nod::minim(&(*nod)->m_lt);
 	}
 }
 bool Nod::sterge(Nod **nod, TCheie c, TValoare v) {
 	if (*nod != nullptr) {
 		if (c == (*nod)->m_elem.first && v == (*nod)->m_elem.second) {
-			Nod *temp = *nod;
-			if ((*nod)->m_lt == nullptr) {
-				*nod = (*nod)->m_rt;
-			} else if ((*nod)->m_rt == nullptr) {
-				*nod = (*nod)->m_lt;
+			bool has_lt = (*nod)->m_lt != nullptr;
+			bool has_rt = (*nod)->m_rt != nullptr;
+			
+			if (has_lt && has_rt) {
+				Nod **minim = Nod::minim(&(*nod)->m_rt);
+				(*nod)->m_elem = (*minim)->m_elem;
+				Nod::sterge(minim, (*minim)->m_elem.first, (*minim)->m_elem.second);
 			} else {
-				Nod *minim = Nod::sterge_minim(&(*nod)->m_lt);
-				minim->m_lt = (*nod)->m_lt;
-				minim->m_rt = (*nod)->m_rt;
-				*nod = minim;
+				Nod *temp = *nod;
+				if (!has_lt && !has_rt) {
+					*nod = nullptr;
+				} else if (has_lt && !has_rt) {
+					*nod = (*nod)->m_lt;
+				} else if (!has_lt && has_rt) {
+					*nod = (*nod)->m_rt;
+				}
+				temp->m_lt = temp->m_rt = nullptr;
+				delete temp;
 			}
-			temp->m_lt = temp->m_rt = nullptr;
-			delete temp;
+			
 			return true;
 		} else {
 			if ((*nod)->m_r(c, (*nod)->m_elem.first)) {
@@ -82,13 +87,11 @@ Nod::~Nod() {
 		delete m_rt;
 	}
 }
-void Nod::dbg(Nod *nod) {
+void Nod::dbg(Nod *nod, std::string indent, std::string prefix) {
 	if (nod != nullptr) {
-		cout << nod->m_elem.first << ":" << nod->m_elem.second;
-		cout << "{";
-		Nod::dbg(nod->m_lt);
-		Nod::dbg(nod->m_rt);
-		cout << "}";
+		cout << indent << prefix << ": " << nod->m_elem.first << ":" << nod->m_elem.second << endl;
+		Nod::dbg(nod->m_lt, indent+"   ", "lt");
+		Nod::dbg(nod->m_rt, indent+"   ", "rt");
 	}
 }
 
