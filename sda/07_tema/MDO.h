@@ -26,12 +26,19 @@ private:
 public:
 	// O(1)
 	Nod(Relatie r);
+	
 	// O(h)
 	static void adauga(Nod **nod, TCheie c, TValoare v, Relatie r);
+	
 	// O(h)
 	static void cauta(Nod *nod, TCheie c, vector<TValoare> &v);
+	
 	// O(h)
 	static bool sterge(Nod **nod, TCheie c, TValoare v);
+	
+	// O(n)
+	static void valori(Nod *nod, vector<TValoare> &v);
+	
 	// O(n)
 	~Nod();
 	
@@ -83,4 +90,6 @@ public:
 	// O(n)
 	~MDO();
 
+	// O(n)
+	vector<TValoare> colectiaValorilor() const;
 };

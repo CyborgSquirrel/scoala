@@ -4,7 +4,7 @@ CXXFLAGS = -g -Wall
 .PHONY: test
 
 test: app
-	valgrind ./app
+	./app
 
 app: *.cpp *.h
 	$(CXX) $(CXXFLAGS) *.cpp -o app

@@ -79,6 +79,13 @@ bool Nod::sterge(Nod **nod, TCheie c, TValoare v) {
 	}
 	return false;
 }
+void Nod::valori(Nod *nod, vector<TValoare> &v) {
+	if (nod != nullptr) {
+		Nod::valori(nod->m_lt, v);
+		v.push_back(nod->m_elem.second);
+		Nod::valori(nod->m_rt, v);
+	}
+}
 Nod::~Nod() {
 	if (m_lt != nullptr) {
 		delete m_lt;
@@ -142,4 +149,10 @@ MDO::~MDO() {
 	if (m_rad != nullptr) {
 		delete m_rad;
 	}
+}
+
+vector<TValoare> MDO::colectiaValorilor() const {
+	std::vector<TValoare> v;
+	Nod::valori(m_rad, v);
+	return v;
 }

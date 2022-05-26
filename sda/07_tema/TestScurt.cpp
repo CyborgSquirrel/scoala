@@ -39,5 +39,23 @@ void testAll(){
     assert(dictOrd.sterge(1, 3) == true);
     assert(dictOrd.sterge(2, 1) == false);
     assert(dictOrd.vid());
+    
+    MDO dict = MDO(relatie1);
+	dict.adauga(4, 4);
+	dict.adauga(5, 5);
+	dict.adauga(3, 3);
+	dict.adauga(1, 1);
+	dict.adauga(9, 9);
+	dict.adauga(10, 10);
+	dict.adauga(5, 5);
+	dict.adauga(6, 6);
+	dict.adauga(2, 2);
+	dict.adauga(5, 5);
+	dict.adauga(8, 8);
+	dict.adauga(7, 7);
+	
+	vector<TValoare> c = dict.colectiaValorilor();
+	vector<TValoare> cc = { 1, 2, 3, 4, 5, 5, 5, 6, 7, 8, 9, 10 };
+	assert(c == cc);
 }
 
