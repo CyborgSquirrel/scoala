@@ -89,13 +89,13 @@ public:
 
 class SrvInchirieriCarteModel : public QAbstractTableModel {
 private:
-	SrvInchirieriCarte &srv_inchirieri_carte;
-	std::vector<Carte> carti;
+	SrvInchirieriCarte &m_srvInchirieriCarte;
+	std::vector<Carte> m_carti;
 	size_t m_signalAddedInchiriereId;
 	size_t m_signalEmptiedInchirieriId;
 public:
 	SrvInchirieriCarteModel() = delete;
-	SrvInchirieriCarteModel(SrvInchirieriCarte &srv_inchirieri_carte, QObject *parent=nullptr);
+	SrvInchirieriCarteModel(SrvInchirieriCarte &srvInchirieriCarte, QObject *parent=nullptr);
 	~SrvInchirieriCarteModel();
 	
 	// QAbstractTableModel

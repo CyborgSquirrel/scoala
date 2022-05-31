@@ -171,27 +171,27 @@ QVariant CartiPeAnModel::headerData(int section, Qt::Orientation orientation, in
 }
 
 // SRV INCHIRIERI CARTE MODEL
-SrvInchirieriCarteModel::SrvInchirieriCarteModel(SrvInchirieriCarte &srv_inchirieri_carte, QObject *parent)
-: srv_inchirieri_carte(srv_inchirieri_carte) {
+SrvInchirieriCarteModel::SrvInchirieriCarteModel(SrvInchirieriCarte &srvInchirieriCarte, QObject *parent)
+: m_srvInchirieriCarte(srvInchirieriCarte) {
 	Q_UNUSED(parent);
-	m_signalAddedInchiriereId = srv_inchirieri_carte.connectAddedInchiriere(
+	m_signalAddedInchiriereId = srvInchirieriCarte.connectAddedInchiriere(
 		[this]() {
 			this->beginResetModel();
-			this->carti = this->srv_inchirieri_carte.getCarti();
+			this->m_carti = this->m_srvInchirieriCarte.getCarti();
 			this->endResetModel();
 		}
 	);
-	m_signalEmptiedInchirieriId = srv_inchirieri_carte.connectEmptiedInchirieri(
+	m_signalEmptiedInchirieriId = srvInchirieriCarte.connectEmptiedInchirieri(
 		[this]() {
 			this->beginResetModel();
-			this->carti = this->srv_inchirieri_carte.getCarti();
+			this->m_carti = this->m_srvInchirieriCarte.getCarti();
 			this->endResetModel();
 		}
 	);
 }
 SrvInchirieriCarteModel::~SrvInchirieriCarteModel() {
-	this->srv_inchirieri_carte.disconnectAddedInchiriere(m_signalAddedInchiriereId);
-	this->srv_inchirieri_carte.disconnectEmptiedInchirieri(m_signalEmptiedInchirieriId);
+	m_srvInchirieriCarte.disconnectAddedInchiriere(m_signalAddedInchiriereId);
+	m_srvInchirieriCarte.disconnectEmptiedInchirieri(m_signalEmptiedInchirieriId);
 }
 
 // QAbstractTableModel
@@ -201,10 +201,10 @@ int SrvInchirieriCarteModel::columnCount(const QModelIndex &parent) const {
 }
 int SrvInchirieriCarteModel::rowCount(const QModelIndex &parent) const {
 	Q_UNUSED(parent);
-	return this->carti.size();
+	return m_carti.size();
 }
 QVariant SrvInchirieriCarteModel::data(const QModelIndex &index, int role) const {
-	Carte carte = this->carti[index.row()];
+	Carte carte = m_carti[index.row()];
 	return cartiData(index, role, carte);
 }
 QVariant SrvInchirieriCarteModel::headerData(int section, Qt::Orientation orientation, int role) const {
