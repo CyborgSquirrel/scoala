@@ -57,6 +57,7 @@ SOURCES       = console_ui.cpp \
 		exception.cpp \
 		graphical_ui.cpp \
 		main.cpp \
+		moc_graphical_ui.cpp \
 		repo.cpp \
 		srv.cpp moc_graphical_ui.cpp
 OBJECTS       = console_ui.o \
@@ -64,6 +65,7 @@ OBJECTS       = console_ui.o \
 		exception.o \
 		graphical_ui.o \
 		main.o \
+		moc_graphical_ui.o \
 		repo.o \
 		srv.o \
 		moc_graphical_ui.o
@@ -216,6 +218,7 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		exception.cpp \
 		graphical_ui.cpp \
 		main.cpp \
+		moc_graphical_ui.cpp \
 		repo.cpp \
 		srv.cpp
 QMAKE_TARGET  = app
@@ -526,7 +529,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents console_ui.hpp domain.hpp exception.hpp graphical_ui.hpp repo.hpp srv.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents console_ui.cpp domain.cpp exception.cpp graphical_ui.cpp main.cpp repo.cpp srv.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents console_ui.cpp domain.cpp exception.cpp graphical_ui.cpp main.cpp moc_graphical_ui.cpp repo.cpp srv.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -614,6 +617,13 @@ main.o: main.cpp console_ui.hpp \
 		graphical_ui.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
+moc_graphical_ui.o: moc_graphical_ui.cpp graphical_ui.hpp \
+		srv.hpp \
+		exception.hpp \
+		repo.hpp \
+		domain.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_graphical_ui.o moc_graphical_ui.cpp
+
 repo.o: repo.cpp repo.hpp \
 		domain.hpp \
 		exception.hpp
@@ -625,7 +635,11 @@ srv.o: srv.cpp srv.hpp \
 		domain.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o srv.o srv.cpp
 
-moc_graphical_ui.o: moc_graphical_ui.cpp 
+moc_graphical_ui.o: moc_graphical_ui.cpp graphical_ui.hpp \
+		srv.hpp \
+		exception.hpp \
+		repo.hpp \
+		domain.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_graphical_ui.o moc_graphical_ui.cpp
 
 ####### Install

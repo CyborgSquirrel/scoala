@@ -1,12 +1,10 @@
 # Procese
 
+program = caracter static
+proces = program în execuție, caracter dinamic
+
 ## Fazele unui proces
-- prezentare
-- HOLD
-- READY
-- RUN
-- FINISH
-- eliberare resurse
+![](fazele-unui-proces.png)
 
 ## Deadlock
 ```
@@ -51,78 +49,77 @@ Prin blocarea resurselor in aceeasi ordine.
 - plasare
 
 ## Alocare
-- alocare reala
+- alocare reală
 	- sisteme single-tasking   (1)
 	- sisteme multi-tasking
-		- partitii fixe
+		- partiții fixe
 			- absolute         (2)
 			- relocabile       (3)
-		- partitii variabile   (4)
-- alocare virtuala
-	- paginata                 (5)
-	- segmentata               (6)
-	- paginat-segementata      (7)
+		- partiții variabile   (4)
+- alocare virtuală
+	- paginată                 (5)
+	- segmentată               (6)
+	- paginat-segementată      (7)
 
-### Calcul de adresa
-a.c -> a.o ->
-b.c -> b.o -> bin.exe -> proces
-c.c -> c.o ->
+### Calcul de adresă
+![](calcul-de-adresa.png)
 
-### (3) -> alocare reala -> sisteme multi-tasking -> partitii fixe -> relocabile
-La compilare nu stim partitia in care va rula programul.
-=> la executare trebuie facut un calcul de adresa
+### (3) -> alocare reală -> sisteme multi-tasking -> partiții fixe -> relocabile
+La compilare nu știm partiția în care va rula programul.
+=> la executare trebuie făcut un calcul de adresă
 
 AE (adresa din executabil) => offset in executabil
-AF (adresa fizica) => inceput partitie + AE
+AF (adresa fizică) => început partiție + AE
 
-### (4) -> alocare reala -> sisteme multi-tasking -> partitii fixe -> partitii variabile
-- creeaza fragmentare
+### (4) -> alocare reala -> sisteme multi-tasking -> partitii variabile
+- creează fragmentare
 
-### (5) -> alocare virtuala -> paginata
-- memoria RAM se imparte in bucati (pagini)
-- programul se imparte in pagini virtuale
-- fragmentarea e rezolvata, dar calculul de adresa e mai complex
-- calculul de adresa
-	- tabela de pagini
-	- AE -> adresa virtuala
-		- PV (pagina virtuala)
+### (5) -> alocare virtuala -> paginată
+- memoria RAM se împarte în bucăți (pagini)
+- programul se împarte în pagini virtuale
+- fragmentarea e rezolvată, dar calculul de adresă e mai complex
+- memoria se folosește mai eficient, paginile de cod ale unui program pot fi încărcate odată, și folosite de mai multe procese
+- calculul de adresă
+	- tabelă de pagini
+	- AE -> adresă virtuala
+		- PV (pagină virtuala)
 		- offset
 
-### (6) -> alocare virtuala -> segmentata
-- nu adreseaza fragmentarea
-- grupeaza codul si datele in segmente cu protectie la acces
-- calculul de adresa
-	- tabela de segmente
-	- AE -> adresa virtuala
+### (6) -> alocare virtuala -> segmentată
+- nu adresează fragmentarea
+- grupeaza codul si datele în segmente cu protecție la acces
+- calculul de adresă
+	- tabelă de segmente
+	- AE -> adresa virtuală
 		- segment
 		- offset
 
-### (7) -> alocare virtuala -> paginat-segementata
-- calculul de adresa
-	- tabela de pagini
-	- tabela de segmente
-	- AE -> adresa virtuala
+### (7) -> alocare virtuala -> paginat-segementată
+- calculul de adresă
+	- tabelă de pagini
+	- tabelă de segmente
+	- AE -> adresă virtuala
 		- segment
 		- PV
 		- offset
 
 ## Politici de incarcare
-- ce si cand incarcam in RAM la pornirea unui proces?
+- ce și când încărcăm în RAM la pornirea unui proces?
 - ce = pagini
-- cand =
-	1. incarcam toate paginile de la inceput
-		- pornire lenta
-		- memorie ocupata de pagini care nu vor fi folosite
-		+ odata incarcat, merge repede
-	2. incarcam fiecare pagina cand devine necesar
-		- rulare mai lenta
-		+ pornire rapida
-		+ paginile nefolosite nu ajung in memorie
-	3. **principiul vecinatatii** (daca un proces refera o pagina, e probabil sa refere curand paginile invecinate)
-		=> cand incarcam o pagina referita, aducem si cateva pagini de langa ea
+- când =
+	1. încărcăm toate paginile de la inceput
+		- pornire lentă
+		- memorie ocupată de pagini care nu vor fi folosite
+		+ odată încărcat, merge repede
+	2. încărcăm fiecare pagină când devine necesar
+		- rulare mai lentă
+		+ pornire rapidă
+		+ paginile nefolosite nu ajung în memorie
+	3. **principiul vecinătății** (dacă un proces referă o pagină, e probabil să refere curând paginile învecinate)
+		=> când incărcăm o pagină referită, aducem și câteva pagini de lângă ea
 
-## Politici de inlocuire
-- cum alegem o pagina, pentru a fi mutata in swap, cand memoria e plina?
+## Politici de înlocuire
+- cum alegem o pagină, pentru a fi mutată în swap, când memoria e plină?
 	1. FIFO
 	2. NRU (Not Recently Used)
 		- fiecare pagina fizica are 2 biti, care periodic sunt resetati la 00

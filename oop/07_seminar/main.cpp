@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QTimer>
 
 int main(int argc, char **argv) {
 	QApplication app(argc, argv);
@@ -24,6 +25,14 @@ int main(int argc, char **argv) {
 		}
 	);
 	layout->addWidget(button);
+	QTimer timer;
+	QObject::connect(
+		&timer, &QTimer::timeout,
+		[&srv]() {
+			srv.simulate_one_step(600, 400);
+		}
+	);
+	timer.start(1000/10);
 	
 	window->show();
 	

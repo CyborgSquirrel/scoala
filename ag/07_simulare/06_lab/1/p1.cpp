@@ -23,6 +23,9 @@ int main(int argc, char **argv) {
 	ifstream fin(argv[1]);
 	ofstream fout(argv[2]);
 	
+	// ifstream fin("maxflow.in");
+	// ofstream fout("maxflow.out");
+	
 	fin >> v >> e;
 	s = 0; t = v-1;
 	for (int i = 0; i < e; ++i) {
@@ -36,11 +39,12 @@ int main(int argc, char **argv) {
 		}
 	}
 	
-	auto find_path = []() {
+	auto find_paths = []() {
 		gen++;
 		queue<int> q;
 		vi[s] = gen;
 		q.push(s);
+		bool found = false;
 		while (!q.empty()) {
 			int a = q.front(); q.pop();
 			for (auto b : adi[a]) {
@@ -48,26 +52,31 @@ int main(int argc, char **argv) {
 					dp[b] = min(dp[a], cap[a][b] - res[a][b]);
 					if (dp[b] > 0) {
 						vi[b] = gen;
-						pr[b] = a;
 						if (b == t) {
-							return true;
+							found = true;
 						}
+						pr[b] = a;
 						q.push(b);
 					}
 				}
 			}
 		}
-		return false;
+		return found;
 	};
 	
 	int max_flow = 0;
-	while (find_path()) {
-		max_flow += dp[t];
-		int a = t;
-		while (a != s) {
-			res[pr[a]][a] += dp[t];
-			res[a][pr[a]] -= dp[t];
-			a = pr[a];
+	while (find_paths()) {
+		for (auto a : adi[t]) {
+			int dp_t = min(dp[a], cap[a][t] - res[a][t]);
+			if (dp_t > 0) {
+				max_flow += dp_t;
+				int b = t;
+				while (b != s) {
+					res[pr[b]][b] += dp_t;
+					res[b][pr[b]] -= dp_t;
+					b = pr[b];
+				}
+			}
 		}
 	}
 	
