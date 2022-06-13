@@ -209,4 +209,4 @@ i-node: punct de intrare in fisier
 	- depinde de:
 		- dimensiune adresa A
 		- cate adrese incap intr-un block N
-	- $10\cdot N\cdot A+N\cdot N\cdot A+N^2\cdot N\cdot A+N^3\cdot N\cdot A$
+	- $(10+N+N^2+N^3)\cdot N\cdot A$

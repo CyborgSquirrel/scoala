@@ -82,4 +82,15 @@ It happens when the process tries to execute an io operation, or to lock a mutex
 If the os' scheduler decides that the process has executed for a sufficient amount of time, it sets its state to READY.
 
 ### 17
+$(S+A+A^2+A^3)*B$
 
+### 18
+The link count in the file's inode is decremented. As long as the link count is >= 1, the data will be accessible.
+
+### 19
+One method for preventing deadlocks, is to always lock mutexes in the same order.
+
+### 20
+A binary semaphore, is a semaphore s for which v0(s)=1.
+
+The effect of its P method is the same as that of locking a mutex. First v(s) is decremented; then if v(s)>=0 the thread keeps running, otherwise it waits until v(s)>=0.
