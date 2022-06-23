@@ -5,14 +5,15 @@ all: run
 # all: app
 
 run: build
-	./app
+	./target/app
 
-build: Qmakefile
-	bear -- make -f Qmakefile
+build: target/Qmakefile
+	cd ./target/ ; \
+	bear --output ../compile_commands.json -- make -f Qmakefile
 
 clean:
-	make -f Qmakefile clean
-	rm Qmakefile
+	cd ./target; make -f Qmakefile clean
+	rm target/Qmakefile
 
-Qmakefile: app.pro *.cpp *.hpp
-	qmake -o Qmakefile
+target/Qmakefile: app.pro *.cpp *.hpp
+	qmake -o target/Qmakefile

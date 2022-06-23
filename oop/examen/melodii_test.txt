@@ -1,0 +1,4 @@
+0,melodie frumoasa,nicu,pop
+1,melodie urata,inamicu,rock
+2,5bani 100bani,gicu,folk
+4,stairway to idk,roacher,rock

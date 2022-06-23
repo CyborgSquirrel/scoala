@@ -1,0 +1,7 @@
+0 3 XOOXOXXOO O TERMINAT
+1 4 XXXX-O-XO--O-O-- O IN_DERULARE
+2 5 ------------------------- X NEINCEPUT
+3 5 X------X---OO------------ X IN_DERULARE
+4 3 --------- X NEINCEPUT
+5 3 --------- X NEINCEPUT
+6 3 --------- O NEINCEPUT

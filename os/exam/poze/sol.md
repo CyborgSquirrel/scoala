@@ -36,7 +36,7 @@ D/3/8
 C/4/13
 
 ### 7
-Este un tuplu format din segment, pagina, si adresa. Tabelele de segmente, si de pagini, sunt implicate in calcularea adresei fizice.
+Este un tuplu format din segment, pagina, si deplasamentul in cadrul paginii. Tabelele de segmente, si de pagini, sunt implicate in calcularea adresei fizice.
 
 ### 8
 Principiul vecinatatii in privinta incarcarii paginilor unui proces este ca, atunci cand se cere spre a fi incarcata o pagina, sunt incarcate si paginile apropiate de aceasta din memorie (pentru ca se considera ca exista o sansa ridicata sa fie nevoie de aceste pagini).

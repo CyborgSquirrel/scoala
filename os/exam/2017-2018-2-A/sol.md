@@ -1,25 +1,25 @@
 ### 1
-```
+```sh
 grep '\b[A-Z][A-Za-z]*\b' a.txt
 ```
 
 ### 2
-```
+```sh
 sed -E 's/([0-9])([0-9])/\2\1/g' a.txt
 ```
 
 ### 3
-```
+```sh
 awk '{ print $1+$2 }' a.txt
 ```
 
 ### 4
-```
+```sh
 cat a.txt | sort | uniq -u
 ```
 
 ### 5
-```
+```sh
 ls | grep '\.txt$' | while read file; do
 	if grep -q '\bcat\b' "$file"; then
 		echo "$file"

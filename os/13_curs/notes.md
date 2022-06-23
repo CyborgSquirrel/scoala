@@ -1,6 +1,6 @@
 # Procese
 
-program = caracter static
+program = caracter static \
 proces = program în execuție, caracter dinamic
 
 ## Fazele unui proces
@@ -171,6 +171,7 @@ AF (adresa fizică) => început partiție + AE
 
 # Sisteme de fisiere
 UNIX:
+
 - ext2
 - ext3
 - ext4
@@ -181,6 +182,7 @@ UNIX:
 - btrfs
 
 Windows:
+
 - FAT
 - NTFS
 
