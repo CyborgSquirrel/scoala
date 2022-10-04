@@ -1,1 +1,0 @@
-awk -F: 'length($3) == 3 && $3 ~ /^23/ { print $5 }' passwd.fake

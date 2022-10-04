@@ -1,1 +1,0 @@
-head -n -1 last.fake | awk '$7 ~ /23:[0-9][0-9]/ { print $1 }' | sort | uniq

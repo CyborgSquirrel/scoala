@@ -1,1 +1,0 @@
-Colectia se reprezinta sub forma unui vector dinamic continand toate elementele din colectie  

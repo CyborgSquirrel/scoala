@@ -1,3 +1,0 @@
-0,Jim,BABY,0.5,3,2
-1,Joe,GROWNUP,7,1.2,11
-2,Jones,KNIGHT,3.5,14,17

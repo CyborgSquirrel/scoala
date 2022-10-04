@@ -1,1 +1,0 @@
-Colectia se reprezinta sub forma unei TD (in care se memoreaza toate elementele din colectie) cu adresare deschisa si verificare liniara   

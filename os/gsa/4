@@ -1,1 +1,0 @@
-tail -n +2 ps.fake | awk '$1 == "root" { print $6 }' | sort | uniq

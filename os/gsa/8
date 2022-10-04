@@ -1,1 +1,0 @@
-tail -n +2 ps.fake | awk '$1 ~ /^r/ { print $1 }' | sort | uniq | sed -E 's/([aeiouAEIOU])/\1\1/g'

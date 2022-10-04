@@ -1,4 +1,0 @@
-#!/bin/sh
-{ for f in "$@"; do
-	stat -c '%s %n' "$f"
-done } | sort -n

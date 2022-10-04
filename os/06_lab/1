@@ -1,9 +1,0 @@
-#!/bin/sh
-folder="$1"
-{
-	for f in $( ls "$folder" ); do
-		if [ -f "$folder/$f" ]; then
-			du --bytes "$folder/$f"
-		fi
-	done
-} | awk 'BEGIN{s=0}{s += $1}END{print s}'

@@ -1,5 +1,0 @@
-#!/bin/sh
-for a in "$@"; do
-	echo -n "$a is a "
-	stat -c '%F' "$a"
-done

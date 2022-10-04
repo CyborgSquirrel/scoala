@@ -1,5 +1,0 @@
-#!/bin/sh
-printf "Numarul de fisiere .c: "
-find "$1" -maxdepth 1 -type f -name '*.c' | wc -l
-printf "Numarul de subdirectorii: "
-find "$1" -mindepth 1 -maxdepth 1 -type d | wc -l
