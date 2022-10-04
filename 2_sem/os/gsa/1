@@ -1,0 +1,1 @@
+head -n -1 last.fake | awk '$3 == "economica.ubbclu" && $4 == "Sun" { print $1 }' | sort | uniq

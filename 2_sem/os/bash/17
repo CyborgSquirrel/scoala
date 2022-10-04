@@ -1,0 +1,9 @@
+#!/bin/bash
+
+(
+	IFS=$'\n'
+	for file in $( find . -perm /+w ); do
+		echo "$file"
+		# chmod
+	done
+)

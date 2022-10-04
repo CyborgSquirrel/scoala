@@ -1,0 +1,10 @@
+0,phone,iphone,2009,RED,399
+1,phone,iphone 13,2099,BLUE,399
+2,phone,iphone mini,2009,BLACK,39
+3,phone,iphone mega,2009,BLUE,399
+4,phone,galaxy 1337,2009,YELLOW,100
+5,phone,samsung 7,2009,RED,399
+6,dishwasher,whirpool++,2020,RED,399
+7,dishwasher,bosch thing,1999,BLACK,399
+8,dishwasher,general electric,1980,RED,399
+9,powertool,bormasina,2020,RED,399

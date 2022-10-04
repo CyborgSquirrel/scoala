@@ -1,0 +1,1 @@
+tail -n +2 ps.fake | awk 'BEGIN{sum=0;n=0}{sum+=$2;n+=1}END{print sum/n}'

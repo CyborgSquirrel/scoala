@@ -1,0 +1,5 @@
+0,melodie frumoasa,nicu,pop
+1,melodie urata,inamicu,rock
+3,meloada,stefan,folk
+4,stairway to idk,roacher,rock
+10,melodie,idk,folk

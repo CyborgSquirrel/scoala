@@ -1,0 +1,30 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-g",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-D_REENTRANT",
+      "-fPIC",
+      "-DQT_WIDGETS_LIB",
+      "-DQT_GUI_LIB",
+      "-DQT_CORE_LIB",
+      "-I.",
+      "-I/usr/include/qt",
+      "-I/usr/include/qt/QtWidgets",
+      "-I/usr/include/qt/QtGui",
+      "-I/usr/include/qt/QtCore",
+      "-I.",
+      "-I/usr/lib/qt/mkspecs/linux-g++",
+      "-o",
+      "graphical_ui.o",
+      "graphical_ui.cpp"
+    ],
+    "directory": "/home/andrei/scoala/oop/10_tema",
+    "file": "/home/andrei/scoala/oop/10_tema/graphical_ui.cpp",
+    "output": "/home/andrei/scoala/oop/10_tema/graphical_ui.o"
+  }
+]

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+folder="$1"
+if [ ! -d "$folder" ]; then
+	echo 'Primul argument trebuie sa fie director.'
+	exit 1
+fi
+
+find . -type f | awk -F'/' '{ print $NF }' | sort | uniq -c | sort -n

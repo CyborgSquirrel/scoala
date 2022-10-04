@@ -1,0 +1,4 @@
+0 3 X-OXO-XOO X TERMINAT
+1 4 -X-X---XO--O-O-- X IN_DERULARE
+2 5 ------------------------- X NEINCEPUT
+3 3 X-------- X IN_DERULARE

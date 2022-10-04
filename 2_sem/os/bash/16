@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$1" -lt 0 ]; then
+	echo 'Minim un nume de proces plsss'
+	exit 1
+fi
+
+while true; do
+	sleep 1
+	
+	(
+		IFS=$'\n'
+		for name in "$@"; do
+			if pkill -x "$name"; then
+				echo "Pa pa $name"
+			fi
+		done
+	)
+done

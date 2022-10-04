@@ -1,0 +1,8 @@
+#!/bin/bash
+
+(
+	IFS=$'\n'
+	for a in "$@"; do
+		stat "$a" --format='%s %n'
+	done
+) | sort -n

@@ -1,0 +1,1 @@
+head -n -2 last.fake | awk '$1 ~ /^t/ && $2 == "pts/9" { print $1 }'

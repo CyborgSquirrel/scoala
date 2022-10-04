@@ -1,0 +1,18 @@
+#!/bin/bash
+declare -a words
+for word in "$@"; do
+	words="$word"
+done
+echo "$words"
+while true; do
+	read f
+	nwords=''
+	for word in "$words"; do
+		printf "word is $word\n"
+		if [ ! $( grep -q "$word" "$f" ) ]; then
+			nwords="$nwords $word"
+		fi
+	done
+	words="$nwords"
+	echo "$words"
+done
