@@ -42,7 +42,7 @@
 - nume
 
 ## CarteGen
-* carte_id (-> Carte.id)
+* carte_date_id (-> CarteDate.id)
 * gen_id (-> Gen.id)
 
 ## Raft
