@@ -8,50 +8,50 @@
 - Gen
 
 ## CarteDate
-* id
+* **id**
 - autor_id (-> Autor.id)
 - editura_id (-> Editura.id)
 - titlu
 - data publicare
 
 ## Carte
-* id
+* **id**
 - carte_date_id (-> CarteDate.id)
 
 ## Autor
-* id
+* **id**
 - nume
 
 ## Editura
-* id
+* **id**
 - nume
 
 ## Abonament
-* id
+* **id**
 - detinator_nume
 
 ## Imprumut
-* id
+* **id**
 - carte_id (-> Carte.id)
 - abonament_id (-> Abonament.id)
 - data inceput
 - data sfarsit
 
 ## Gen
-* id
+* **id**
 - nume
 
 ## CarteDateGen
-* carte_date_id (-> CarteDate.id)
-* gen_id (-> Gen.id)
+* **carte_date_id** (-> CarteDate.id)
+* **gen_id** (-> Gen.id)
 
 ## Raft
-* id
+* **id**
 - latime
 - inaltime
 
 ## LocRaft
-* raft_id (-> Raft.id)
-* linie
-* coloana
+* **raft_id** (-> Raft.id)
+* **linie**
+* **coloana**
 - carte_id (-> Carte.id)
