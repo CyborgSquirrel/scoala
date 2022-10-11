@@ -41,7 +41,7 @@
 * id
 - nume
 
-## CarteGen
+## CarteDateGen
 * carte_date_id (-> CarteDate.id)
 * gen_id (-> Gen.id)
 
