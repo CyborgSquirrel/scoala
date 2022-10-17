@@ -3,6 +3,11 @@ package model.sorter;
 import java.util.ArrayList;
 
 public class MergeSorter extends AbstractSorter {
+
+    /**
+     * Sorts the provided list using merge sort.
+     * @param list the list which will be sorted
+     */
     @Override
     public void sort(ArrayList<Integer> list) {
         mergeSort(list, 0, list.size()-1);
@@ -15,7 +20,7 @@ public class MergeSorter extends AbstractSorter {
             mergeSort(list, lt, mid);
             mergeSort(list, mid+1, rt);
 
-            ArrayList<Integer> tmp = new ArrayList<Integer>(rt-lt+1);
+            ArrayList<Integer> tmp = new ArrayList<>(rt-lt+1);
             {
                 int i = lt;
                 int j = mid + 1;

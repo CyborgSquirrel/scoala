@@ -4,19 +4,21 @@ import model.Task;
 
 public interface TaskRunner {
     /**
-     * executa un task din colecţia de task-uri de executat
-      */
+     * Executes one task.
+     */
     void executeOneTask();
     /**
-     * executǎ toate task-urile din colecţia de task-uri.
+     * Executes all the tasks.
      */
     void executeAll();
     /**
-     * adaugǎ un task în colecţia de task-uri de executat
+     * Adds a task.
+     * @param t
      */
     void addTask(Task t);
     /**
-     * verifica daca mai sunt task-ri de executat
+     * Checks whether there are any tasks left.
+     * @return
      */
     boolean hasTask();
 }

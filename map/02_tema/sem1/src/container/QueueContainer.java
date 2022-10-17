@@ -5,10 +5,17 @@ import utils.Constants;
 
 public class QueueContainer extends SizedContainer {
 
+    /**
+     * Construct a {@link QueueContainer}.
+     */
     public QueueContainer() {
         super();
     }
 
+    /**
+     * Remove a task from the {@link QueueContainer}.
+     * @return the task which was removed
+     */
     @Override
     public Task remove() {
         if (!this.isEmpty()) {
@@ -22,6 +29,10 @@ public class QueueContainer extends SizedContainer {
         return null;
     }
 
+    /**
+     * Add a task to the {@link QueueContainer}.
+     * @param task the task which will be added
+     */
     @Override
     public void add(Task task) {
         if (this.size >= this.tasks.length) {

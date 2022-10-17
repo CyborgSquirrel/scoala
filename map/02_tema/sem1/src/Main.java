@@ -21,25 +21,25 @@ public class Main {
         tasks.add(new MessageTask(
                 "tema oop",
                 "tema interesanta",
-                "cv",
-                "Gicu",
+                "timpul sa faci tema",
+                "Profesor",
                 "Andrei",
                 LocalDateTime.now()
         ));
         tasks.add(new MessageTask(
-                "rezervare dorsia",
-                "hai",
-                "sa mergem",
+                "rezervare Dorsia",
+                "rezervare la local",
+                "hai sa mergem",
                 "Paul Allen",
                 "Patrick Bateman",
                 LocalDateTime.now()
         ));
         tasks.add(new MessageTask(
                 "Zilele Clujului",
-                "evenimentes",
+                "eveniment in Cluj",
                 "interesant",
                 "Ion",
-                "Antiion",
+                "Ana",
                 LocalDateTime.now()
         ));
         tasks.add(new SortingTask(
@@ -64,24 +64,45 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Task> tasks = createTasks();
 
+        if (args.length >= 1) {
+            ContainerStrategy containerStrategy = null;
+            /*  */ if (args[0].equals("queue")) {
+                containerStrategy = ContainerStrategy.QUEUE;
+            } else if (args[0].equals("stack")) {
+                containerStrategy = ContainerStrategy.STACK;
+            }
+            if (containerStrategy != null) {
+                System.out.println("==========");
+                StrategyTaskRunner strategyTaskRunner = new StrategyTaskRunner(containerStrategy);
+                for (Task task : tasks) {
+                    strategyTaskRunner.addTask(task);
+                }
+                strategyTaskRunner.executeAll();
+            }
+        }
+
+        System.out.println("==========");
         StrategyTaskRunner stackTaskRunner = new StrategyTaskRunner(ContainerStrategy.QUEUE);
         for (Task task : tasks) {
             stackTaskRunner.addTask(task);
         }
         stackTaskRunner.executeAll();
 
+        System.out.println("==========");
         StrategyTaskRunner queueTaskRunner = new StrategyTaskRunner(ContainerStrategy.QUEUE);
         for (Task task : tasks) {
             queueTaskRunner.addTask(task);
         }
         queueTaskRunner.executeAll();
 
+        System.out.println("==========");
         DelayTaskRunner delayTaskRunner = new DelayTaskRunner(new StrategyTaskRunner(ContainerStrategy.QUEUE));
         for (Task task : tasks) {
             delayTaskRunner.addTask(task);
         }
         delayTaskRunner.executeAll();
 
+        System.out.println("==========");
         PrinterTaskRunner printerTaskRunner = new PrinterTaskRunner(new StrategyTaskRunner(ContainerStrategy.QUEUE));
         for (Task task : tasks) {
             printerTaskRunner.addTask(task);

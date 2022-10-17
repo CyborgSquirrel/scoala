@@ -5,10 +5,17 @@ import utils.Constants;
 
 public class StackContainer extends SizedContainer {
 
+    /**
+     * Construct a {@link StackContainer}.
+     */
     public StackContainer() {
         super();
     }
 
+    /**
+     * Remove a task from the {@link StackContainer}.
+     * @return the task which was removed
+     */
     public Task remove() {
         if (!isEmpty()) {
             size--;
@@ -17,6 +24,10 @@ public class StackContainer extends SizedContainer {
         return null;
     }
 
+    /**
+     * Add a task to the {@link StackContainer}.
+     * @param task the task which will be added
+     */
     public void add(Task task) {
         if (tasks.length <= size) {
             Task newTasks[] = new Task[tasks.length * 2];
