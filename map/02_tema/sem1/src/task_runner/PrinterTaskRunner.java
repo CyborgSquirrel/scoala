@@ -18,35 +18,7 @@ public class PrinterTaskRunner extends AbstractTaskRunner {
      */
     @Override
     public void executeOneTask() {
-        this.taskRunner.executeOneTask();
+        super.executeOneTask();
         System.out.println("Task has been executed at hour: " + LocalDateTime.now().getHour());
-    }
-
-    /**
-     * Executes all the tasks.
-     */
-    @Override
-    public void executeAll() {
-        while (hasTask()) {
-            executeOneTask();
-        }
-    }
-
-    /**
-     * Adds a task.
-     * @param t
-     */
-    @Override
-    public void addTask(Task t) {
-        this.taskRunner.addTask(t);
-    }
-
-    /**
-     * Checks whether there are any tasks left.
-     * @return
-     */
-    @Override
-    public boolean hasTask() {
-        return this.taskRunner.hasTask();
     }
 }
