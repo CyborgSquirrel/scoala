@@ -19,15 +19,28 @@ public class Friendship {
         return Objects.hash(firstUserId, secondUserId);
     }
 
+    /**
+     * Creates a new {@link Friendship}.
+     * @param firstUserId the id of the first user taking part in the friendship
+     * @param secondUserId the id of the second user taking part in the friendship
+     */
     public Friendship(int firstUserId, int secondUserId) {
         this.firstUserId = firstUserId;
         this.secondUserId = secondUserId;
     }
 
+    /**
+     * Gets the first user's id.
+     * @return the first user's id
+     */
     public int getFirstUserId() {
         return firstUserId;
     }
 
+    /**
+     * Gets the second user's id.
+     * @return the second user's id
+     */
     public int getSecondUserId() {
         return secondUserId;
     }

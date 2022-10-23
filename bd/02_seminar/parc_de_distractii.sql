@@ -1,0 +1,33 @@
+CREATE DATABASE ParcDeDistractii;
+
+GO
+
+USE ParcDeDistractii
+
+CREATE TABLE Sectiuni(
+  cod_s INTEGER IDENTITY PRIMARY KEY
+, nume VARCHAR(100)
+, descriere VARCHAR(100))
+
+CREATE TABLE Atractii(
+  cod_a INTEGER IDENTITY PRIMARY KEY
+, nume VARCHAR(100)
+, descriere VARCHAR(100)
+, varsta_min INTEGER
+, cod_s INTEGER FOREIGN KEY REFERENCES Sectiuni(cod_s))
+
+CREATE TABLE Categorii(
+  cod_c INTEGER IDENTITY PRIMARY KEY
+, nume VARCHAR(100))
+
+CREATE TABLE Vizitatori(
+  cod_v INTEGER IDENTITY PRIMARY KEY
+, nume VARCHAR(100)
+, email VARCHAR(100)
+, cod_c INTEGER FOREIGN KEY REFERENCES Categorii(cod_c))
+
+CREATE TABLE Note(
+  cod_a INTEGER FOREIGN KEY REFERENCES Atractii(cod_a)
+, cod_v INTEGER FOREIGN KEY REFERENCES Vizitatori(cod_v)
+, nota INTEGER
+, PRIMARY KEY (cod_a, cod_v));
