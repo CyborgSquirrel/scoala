@@ -14,6 +14,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // TODO:
+        // - guid
+        // - don't explicitly ask for id
+        // - better name validation
+        //   - '   '
+        // - show users, friendships
+
         NameValidator nameValidator = new NameValidator();
 
         // REPO

@@ -4,37 +4,61 @@
 % toate elementele care se repeta
 % (ex: l=[1,2,1,4,1,3,4] => l=[2,3])
 
-remove_count(_, [], RetCount, RetList) :- 
-	RetCount=0,
-	RetList=[].
+% remove(i, i, o)
 
-remove_count(A, [B | List], RetCount, RetList) :-
-	A =:= B,
-	remove_count(A, List, RetCount2, RetList),
+remove(_, [], []).
+
+remove(A, [A | List], RetList) :-
+	!, remove(A, List, RetList).
+
+remove(A, [H | List], [H | RetList]) :-
+	remove(A, List, RetList).
+
+% count(i, i, o)
+
+count(_, [], 0).
+
+count(A, [A | List], RetCount) :-
+	!,
+	count(A, List, RetCount2),
 	RetCount is RetCount2+1.
 
-remove_count(A, [B | List], RetCount, RetList) :-
-	A =\= B,
-	remove_count(A, List, RetCount, RetList2),
-	append([B], RetList2, RetList).
+count(A, [_ | List], RetCount) :-
+	count(A, List, RetCount).
 
-remove_repeating([], RetList) :- RetList=[].
+% remove_repeating(i, o)
 
-remove_repeating([A | List], RetList) :-
-	remove_count(A, List, RemoveCount, RemoveList),
-	RemoveCount is 0,
-	remove_repeating(RemoveList, RemoveRepeatingList),
-	append([A], RemoveRepeatingList, RetList).
+remove_repeating([], []).
+
+remove_repeating([A | List], [A | RetList]) :-
+	count(A, List, 0),
+	remove_repeating(List, RetList).
 
 remove_repeating([A | List], RetList) :-
-	remove_count(A, List, RemoveCount, RemoveList),
-	RemoveCount > 0,
+	count(A, List, Count),
+	Count > 0,
+	remove(A, List, RemoveList),
 	remove_repeating(RemoveList, RetList).
+
+% tests
+
+remove_repeating_1(RetList) :-
+	remove_repeating([1,1,1,1,1,1,1], RetList).
+remove_repeating_2(RetList) :-
+	remove_repeating([], RetList).
+remove_repeating_3(RetList) :-
+	remove_repeating([13,67,76,86,43,57], RetList).
+remove_repeating_4(RetList) :-
+	remove_repeating([a,b,a,b,c], RetList).
+remove_repeating_5(RetList) :-
+	remove_repeating([3,4,3,3,2,5,3,3,4,5,5,3], RetList).
 
 % b. Sa se elimine toate aparitiile elementului maxim
 % dintr-o lista de numere intregi.
 
-find_max([A], A) :- !.
+% find_max(i, o)
+
+find_max([A], A).
 
 find_max([A | List], RetMax) :-
 	find_max(List, NewMax),
@@ -46,17 +70,21 @@ find_max([A | List], RetMax) :-
 	A < NewMax,
 	RetMax is NewMax.
 
-remove_element(_, [], []) :- !.
-
-remove_element(Elem, [A | List], RetList) :-
-	A =:= Elem,
-	remove_element(Elem, List, RetList).
-
-remove_element(Elem, [A | List], RetList) :-
-	A =\= Elem,
-	remove_element(Elem, List, RetList2),
-	append([A], RetList2, RetList).
+% remove_max(i, o)
 
 remove_max(List, RetList) :-
 	find_max(List, Max),
-	remove_element(Max, List, RetList).
+	remove(Max, List, RetList).
+
+% tests
+
+remove_max_1(RetList) :-
+	remove_max([1,2,1,4,1,3,4], RetList).
+remove_max_2(RetList) :-
+	remove_max([3,4,3,3,2,5,3,3,4,5,5,3], RetList).
+remove_max_3(RetList) :-
+	remove_max([6,9,4,6,1], RetList).
+remove_max_4(RetList) :-
+	remove_max([], RetList).
+remove_max_5(RetList) :-
+	remove_max([1, 1, 1, 1, 1, 1], RetList).

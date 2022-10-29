@@ -1,8 +1,11 @@
 package domain;
 
+import model.Entity;
+import repo.HasId;
+
 import java.util.Objects;
 
-public class Student {
+public class Student extends Entity<Long> implements Comparable<Student> {
     private String name;
     private float average;
 
@@ -53,5 +56,10 @@ public class Student {
 
         // Compara campurile celor doua obiecte.
         return Float.compare(student.average, average) == 0 && Objects.equals(name, student.name);
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return name.compareTo(o.name);
     }
 }
