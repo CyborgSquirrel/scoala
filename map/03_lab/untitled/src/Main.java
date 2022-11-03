@@ -1,26 +1,23 @@
+import domain.Friendship;
 import domain.User;
+import repo.exception.ItemDoesntExistException;
+import service.exception.DependencyDetectedException;
+import tui.TUI;
 import repo.RepoFriendship;
 import repo.RepoUser;
 import repo.exception.ItemAlreadyExistsException;
-import repo.exception.ItemDoesntExistException;
 import service.ServiceFriendship;
 import service.ServiceUser;
-import service.exception.DependencyDetectedException;
 import util.valid.NameValidator;
 import util.valid.exception.InvalidNameException;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO:
-        // - guid
-        // - don't explicitly ask for id
-        // - better name validation
-        //   - '   '
-        // - show users, friendships
-
         NameValidator nameValidator = new NameValidator();
 
         // REPO
@@ -34,7 +31,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             // MENU
-            String[] actions = {"user add", "user remove", "friendship add", "friendship remove", "community count", "community mostsociable"};
+            String[] actions = {"user add", "user remove", "user list", "friendship add", "friendship remove", "friendship list", "community count", "community mostsociable"};
             System.out.println("Actions: ");
             for (String action : actions) {
                 System.out.println("- " + action);
@@ -47,20 +44,41 @@ public class Main {
 
             try {
                 /*--*/ if (action.equals("user add")) {
-                    System.out.print("id = "); int id = Integer.parseInt(scanner.nextLine());
-                    System.out.print("name = "); String name = scanner.nextLine(); nameValidator.validate(name);
-                    serviceUser.addUser(id, name);
+                    String name = TUI.textPrompt(scanner, "name", line -> line, nameValidator);
+                    serviceUser.addUser(name);
                 } else if (action.equals("user remove")) {
-                    System.out.print("id = "); int id = Integer.parseInt(scanner.nextLine());
-                    serviceUser.removeUser(id);
+                    Optional<User> user = TUI.userByNamePrompt(serviceUser, scanner);
+                    if (user.isPresent()) {
+                        serviceUser.removeUser(user.get().getId());
+                    }
+                } else if (action.equals("user list")) {
+                    User[] users = serviceUser.getUsers();
+                    for (User user : users) {
+                        System.out.println(user);
+                    }
                 } else if (action.equals("friendship add")) {
-                    System.out.print("id1 = "); int id1 = Integer.parseInt(scanner.nextLine());
-                    System.out.print("id2 = "); int id2 = Integer.parseInt(scanner.nextLine());
-                    serviceFriendship.addFriendship(id1, id2);
+                    Optional<User> user1 = TUI.userByNamePrompt(serviceUser, scanner);
+                    if (user1.isPresent()) {
+                        Optional<User> user2 = TUI.userByNamePrompt(serviceUser, scanner);
+                        if (user2.isPresent()) {
+                            serviceFriendship.addFriendship(user1.get().getId(), user2.get().getId());
+                        }
+                    }
                 } else if (action.equals("friendship remove")) {
-                    System.out.print("id1 = "); int id1 = Integer.parseInt(scanner.nextLine());
-                    System.out.print("id2 = "); int id2 = Integer.parseInt(scanner.nextLine());
-                    serviceFriendship.removeFriendship(id1, id2);
+                    Optional<User> user1 = TUI.userByNamePrompt(serviceUser, scanner);
+                    if (user1.isPresent()) {
+                        Optional<User> user2 = TUI.userByNamePrompt(serviceUser, scanner);
+                        if (user2.isPresent()) {
+                            serviceFriendship.removeFriendship(user1.get().getId(), user2.get().getId());
+                        }
+                    }
+                } else if (action.equals("friendship list")) {
+                    Friendship[] friendships = serviceFriendship.getFriendships();
+                    for (Friendship friendship : friendships) {
+                        User user1 = serviceUser.findById(friendship.getFirstUserId());
+                        User user2 = serviceUser.findById(friendship.getSecondUserId());
+                        System.out.println(user1.getName() + " -> " + user2.getName());
+                    }
                 } else if (action.equals("community count")) {
                     int count = serviceFriendship.getCommunitiesCount();
                     System.out.println(count);

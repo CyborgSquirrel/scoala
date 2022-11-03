@@ -5,9 +5,10 @@ import repo.exception.ItemAlreadyExistsException;
 import repo.exception.ItemDoesntExistException;
 
 import java.util.HashMap;
+import java.util.UUID;
 
-public class RepoUser implements Repo<User, Integer> {
-    private HashMap<Integer, User> users;
+public class RepoUser implements Repo<User, UUID> {
+    private HashMap<UUID, User> users;
 
     public RepoUser() {
         this.users = new HashMap<>();
@@ -30,7 +31,7 @@ public class RepoUser implements Repo<User, Integer> {
     }
 
     @Override
-    public void erase(Integer id) throws ItemDoesntExistException {
+    public void erase(UUID id) throws ItemDoesntExistException {
         if (!users.containsKey(id)) {
             throw new ItemDoesntExistException();
         }
@@ -38,7 +39,7 @@ public class RepoUser implements Repo<User, Integer> {
     }
 
     @Override
-    public User find(Integer id) throws ItemDoesntExistException {
+    public User find(UUID id) throws ItemDoesntExistException {
         if (!users.containsKey(id)) {
             throw new ItemDoesntExistException();
         }
