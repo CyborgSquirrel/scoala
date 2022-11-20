@@ -1,7 +1,8 @@
 package p4;
 
-import java.util.Arrays;
-import java.util.List;
+import javafx.util.Pair;
+
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -30,6 +31,10 @@ public class Test {
         );
 
         report1(notas);
+        report3(notas, temas.get(2));
+        report3(notas, temas.get(3));
+        report4(notas);
+        report5(notas);
     }
     // 1. toate notele acordate de un anumit profesor, la o anumita grupa
     private static void report1(List<Nota> notas) {
@@ -39,20 +44,52 @@ public class Test {
         notas.stream().filter(filter).forEach(a -> System.out.println(a));
     }
     // 2. media notelor pt fiecare student (Collectors.groupingBy)
-    private static void report2(List<Nota> notas) {
-        notas.stream()
-                .collect(Collectors.groupingBy(a -> a.getStudent()))
-                .entrySet()
-                .stream().map(a -> {
-                    int size = a.getValue().size();
-                    return a.getValue().stream()
-                            .reduce(0, (b,c) -> b.getValue()+c.getValue()) / (float) size;
-                });
-    }
+//    private static void report2(List<Nota> notas) {
+//        notas.stream()
+//                .collect(Collectors.groupingBy(a -> a.getStudent()))
+//                .entrySet()
+//                .stream().mapToDouble(a -> {
+//                    int size = a.getValue().size();
+//                    return a.getValue().stream()
+//                            .reduce(0, (b,c) -> b.getValue()+c.getValue()) / (float) size;
+//                });
+//    }
     // 3. media notelor la o anumita tema
-    private static void report3(List<Nota> notas) {
-
+    private static void report3(List<Nota> notas, Tema tema) {
+        OptionalDouble average = notas.stream()
+                .filter(a -> a.getTema() == tema)
+                .mapToDouble(a -> a.getValue())
+                .average();
+        System.out.println(average.getAsDouble());
     }
     // 4. tema cu cea mai mare medie
+    private static void report4(List<Nota> notas) {
+        Pair<Tema, Double> max = notas.stream()
+                .collect(Collectors.groupingBy(a -> a.getTema()))
+                .entrySet()
+                .stream().map(a -> {
+                    double average = a.getValue().stream()
+                            .mapToDouble(b -> b.getValue())
+                            .average().getAsDouble();
+                    return new Pair<>(a.getKey(), average);
+                })
+                .max(Comparator.comparingDouble(a -> a.getValue()))
+                .get();
+        System.out.println(max);
+    }
     // 5. tema cea mai grea (media notelor cea mai mica)
+    private static void report5(List<Nota> notas) {
+        Pair<Tema, Double> min = notas.stream()
+                .collect(Collectors.groupingBy(a -> a.getTema()))
+                .entrySet()
+                .stream().map(a -> {
+                    double average = a.getValue().stream()
+                            .mapToDouble(b -> b.getValue())
+                            .average().getAsDouble();
+                    return new Pair<>(a.getKey(), average);
+                })
+                .min(Comparator.comparingDouble(a -> a.getValue()))
+                .get();
+        System.out.println(min);
+    }
 }

@@ -1,0 +1,65 @@
+user add
+Andrei
+
+user add
+Sam
+
+user add
+Paul
+
+user add
+Alex
+
+user add
+Costin
+
+user add
+Stefan
+
+user add
+Jim
+
+user add
+Patrick
+
+friendship add
+Andrei
+1
+Sam
+1
+
+friendship add
+Andrei
+1
+Paul
+1
+
+friendship add
+Andrei
+1
+Alex
+1
+
+friendship add
+Sam
+1
+Alex
+1
+
+friendship add
+Stefan
+1
+Jim
+1
+
+friendship add
+Jim
+1
+Patrick
+1
+
+user list
+friendship list
+
+community count
+community mostsocial

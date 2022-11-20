@@ -13,8 +13,8 @@ import service.ServiceUser;
 import util.valid.NameValidator;
 import util.valid.exception.InvalidNameException;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -77,9 +77,10 @@ public class Main {
                 } else if (action.equals("friendship list")) {
                     Friendship[] friendships = serviceFriendship.getFriendships();
                     for (Friendship friendship : friendships) {
-                        User user1 = serviceUser.findById(friendship.getFirstUserId());
-                        User user2 = serviceUser.findById(friendship.getSecondUserId());
-                        System.out.println(user1.getName() + " -> " + user2.getName());
+                        User user1 = serviceUser.findById(friendship.getId().getFirstUserId());
+                        User user2 = serviceUser.findById(friendship.getId().getSecondUserId());
+                        LocalDateTime friendsSince = friendship.getFriendsSince();
+                        System.out.println(user1.getName() + " -> " + user2.getName() + " (" + friendsSince.format(Friendship.DATE_TIME_FORMATTER) + ")");
                     }
                 } else if (action.equals("community count")) {
                     int count = serviceFriendship.getCommunitiesCount();

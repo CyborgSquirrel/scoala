@@ -77,7 +77,7 @@ sum_test :-
 % sum_sub(List: list, Sum: list)
 % modele de flux: (i, o), (i, i)
 % List - lista de intrare
-% Sum - suma numerelor reprezentate prin subliste din List
+% Sum - suma numerelor reprezentate prin subliste din list
 
 sum_sub([], []).
 

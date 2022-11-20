@@ -1,55 +1,56 @@
 package repo;
 
 import domain.Friendship;
+import domain.FriendshipId;
 import domain.User;
 import repo.exception.ItemAlreadyExistsException;
 import repo.exception.ItemDoesntExistException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
-public class RepoFriendship implements Repo<Friendship, Friendship> {
-    protected HashSet<Friendship> friendships;
+
+
+public class RepoFriendship implements Repo<Friendship, FriendshipId> {
+    protected HashMap<FriendshipId, Friendship> friendships;
 
     public RepoFriendship() {
-        this.friendships = new HashSet<>();
+        this.friendships = new HashMap<>();
     }
 
     @Override
     public void store(Friendship friendship) throws ItemAlreadyExistsException {
-        if (friendships.contains(friendship)) {
+        if (friendships.containsKey(friendship.getId())) {
             throw new ItemAlreadyExistsException();
         }
-        friendships.add(friendship);
+        friendships.put(friendship.getId(), friendship);
     }
 
     @Override
     public void update(Friendship friendship) throws ItemDoesntExistException {
-        if (!friendships.contains(friendship)) {
+        if (!friendships.containsKey(friendship.getId())) {
             throw new ItemDoesntExistException();
         }
-        friendships.add(friendship);
+        friendships.put(friendship.getId(), friendship);
     }
 
     @Override
-    public void erase(Friendship friendship) throws ItemDoesntExistException {
-        if (!friendships.contains(friendship)) {
+    public void erase(FriendshipId friendshipId) throws ItemDoesntExistException {
+        if (!friendships.containsKey(friendshipId)) {
             throw new ItemDoesntExistException();
         }
-        friendships.remove(friendship);
+        friendships.remove(friendshipId);
     }
 
     @Override
-    public Friendship find(Friendship friendship) throws ItemDoesntExistException {
-        if (!friendships.contains(friendship)) {
+    public Friendship find(FriendshipId friendshipId) throws ItemDoesntExistException {
+        if (!friendships.containsKey(friendshipId)) {
             throw new ItemDoesntExistException();
         }
-        return friendship;
+        return friendships.get(friendshipId);
     }
 
     @Override
     public Friendship[] getAll() {
-        return this.friendships.toArray(new Friendship[0]);
+        return this.friendships.values().toArray(new Friendship[0]);
     }
 }

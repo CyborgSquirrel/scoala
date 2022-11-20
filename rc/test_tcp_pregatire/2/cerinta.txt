@@ -1,0 +1,20 @@
+Jocul GHICI LITERA se poate juca doar in pereche, adica
+doar daca la server se conecteaza cate doi clienti (numiti
+in continuare Client 1 si Client 2).
+
+Serverul trimite clientilor dintr-un joc un numar intreg n,
+reprezentand id-ul jocului (de exemplu primul si al doilea
+client 1, al treilea si al patrulea client 2, etc.). Apoi,
+serverul genereaza aleator o litera si o trimite clientului
+1.  Clientul 1 trimite un cuvant care contine litera
+primita de la server si o noua litera. Serverul trimite
+cuvantul si litera noua Clientului 2.  Clientul 2 trimite
+un nou cuvant serverului, care contine litera primita de
+la server si o noua litera.  Serverul verifica daca e
+respectata conditia GHICI LITERA si trimite clientilor
+mesajul "Jocul continua!", in caz afirmativ si apoi,
+serverul trimite Clientului 1 cuvantul si litera trimise
+de clientul 2, repetandu-se pasii de mai sus. In caz
+negativ, cand conditia GHICI LITERA nu este indeplinita,
+serverul trimite un mesaj de castig respectiv de pierdere
+clientilor.
