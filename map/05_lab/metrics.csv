@@ -1,0 +1,87 @@
+Metrics,Mon, 21 Nov 2022 12:13:06 EET
+Method,CogC,v(G)
+Main.main(String[]),50,25
+"domain.Friendship.Friendship(FriendshipId, LocalDateTime)",0,1
+domain.Friendship.getFriendsSince(),0,1
+domain.Friendship.getId(),0,1
+"domain.FriendshipId.FriendshipId(UUID, UUID)",0,1
+domain.FriendshipId.equals(Object),4,5
+domain.FriendshipId.getFirstUserId(),0,1
+domain.FriendshipId.getSecondUserId(),0,1
+domain.FriendshipId.hashCode(),0,1
+"domain.User.User(UUID, String)",0,1
+domain.User.equals(Object),3,4
+domain.User.getId(),0,1
+domain.User.getName(),0,1
+domain.User.hashCode(),0,1
+domain.User.toString(),0,1
+repo.RepoFriendship.RepoFriendship(),0,1
+repo.RepoFriendship.erase(FriendshipId),1,2
+repo.RepoFriendship.find(FriendshipId),1,2
+repo.RepoFriendship.getAll(),0,1
+repo.RepoFriendship.store(Friendship),1,2
+repo.RepoFriendship.update(Friendship),1,2
+repo.RepoFriendshipTextFile.RepoFriendshipTextFile(String),0,1
+repo.RepoFriendshipTextFile.erase(FriendshipId),0,1
+repo.RepoFriendshipTextFile.readAllFromFile(),8,6
+repo.RepoFriendshipTextFile.store(Friendship),0,1
+repo.RepoFriendshipTextFile.update(Friendship),0,1
+repo.RepoFriendshipTextFile.writeAllToFile(),2,3
+repo.RepoUser.RepoUser(),0,1
+repo.RepoUser.erase(UUID),1,2
+repo.RepoUser.find(UUID),1,2
+repo.RepoUser.getAll(),0,1
+repo.RepoUser.store(User),1,2
+repo.RepoUser.update(User),1,2
+repo.RepoUserTextFile.RepoUserTextFile(String),0,1
+repo.RepoUserTextFile.erase(UUID),0,1
+repo.RepoUserTextFile.readAllFromFile(),8,6
+repo.RepoUserTextFile.store(User),0,1
+repo.RepoUserTextFile.update(User),0,1
+repo.RepoUserTextFile.writeAllToFile(),2,3
+"service.ServiceFriendship.ServiceFriendship(RepoUser, RepoFriendship)",0,1
+"service.ServiceFriendship.addFriendship(UUID, UUID)",0,1
+service.ServiceFriendship.getCommunities(),4,4
+service.ServiceFriendship.getCommunitiesCount(),0,1
+service.ServiceFriendship.getCommunitiesDisjointSet(),2,3
+service.ServiceFriendship.getFriendships(),0,1
+"service.ServiceFriendship.getLongestPath(UUID, HashSet<UUID>, HashMap<UUID, ArrayList<UUID>>)",11,5
+service.ServiceFriendship.getMostSociableCommunity(),13,9
+"service.ServiceFriendship.removeFriendship(UUID, UUID)",0,1
+"service.ServiceUser.ServiceUser(RepoUser, RepoFriendship)",0,1
+service.ServiceUser.addUser(String),3,3
+service.ServiceUser.findById(UUID),0,1
+service.ServiceUser.findUsersByName(String),3,3
+service.ServiceUser.getUsers(),0,1
+service.ServiceUser.removeUser(UUID),4,4
+"tui.TUI.optionsPrompt(Scanner, List<String>)",7,5
+"tui.TUI.textPrompt(Scanner, String, ParsingStrategy<T>, ValidationStrategy)",0,1
+"tui.TUI.userByNamePrompt(ServiceUser, Scanner)",2,2
+util.DisjointSet.DisjointSet(),0,1
+"util.DisjointSet.connected(T, T)",0,1
+util.DisjointSet.find(T),3,3
+util.DisjointSet.getSets(),0,1
+util.DisjointSet.getSetsWithCanonicalElement(),3,3
+"util.DisjointSet.union(T, T)",0,1
+util.valid.NameValidator.validate(String),4,4
+
+Class,WMC
+Main,21
+domain.Friendship,3
+domain.FriendshipId,7
+domain.User,8
+repo.RepoFriendship,10
+repo.RepoFriendshipTextFile,8
+repo.RepoUser,10
+repo.RepoUserTextFile,9
+repo.exception.ItemAlreadyExistsException,0
+repo.exception.ItemDoesntExistException,0
+service.ServiceFriendship,26
+service.ServiceUser,11
+service.exception.DependencyDetectedException,0
+tui.TUI,7
+util.DisjointSet,10
+util.valid.NameValidator,4
+util.valid.exception.InvalidNameException,0
+util.valid.exception.ValidatorException,0
+

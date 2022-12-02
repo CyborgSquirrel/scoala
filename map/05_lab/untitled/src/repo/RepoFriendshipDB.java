@@ -15,7 +15,6 @@ public class RepoFriendshipDB extends RepoFriendship {
     private String userName;
     private String password;
 
-    // TODO: take care of these exceptions.
     private Friendship readItem(ResultSet resultSet) {
         UUID firstUserId;
         try {
@@ -57,9 +56,11 @@ public class RepoFriendshipDB extends RepoFriendship {
             statement.setString(2, friendship.getId().getSecondUserId().toString());
             statement.setTimestamp(3, Timestamp.valueOf(friendship.getFriendsSince()));
 
-            // TODO: careful about exception here
             statement.execute();
         } catch (SQLException e) {
+            if (e.getSQLState().startsWith("23")) {
+                throw new ItemAlreadyExistsException();
+            }
             throw new RuntimeException(e);
         }
     }

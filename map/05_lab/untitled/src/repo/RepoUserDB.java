@@ -48,9 +48,11 @@ public class RepoUserDB extends RepoUser {
             statement.setString(1, user.getId().toString());
             statement.setString(2, user.getName());
 
-            // TODO: careful about exception here
             statement.execute();
         } catch (SQLException e) {
+            if (e.getSQLState().startsWith("23")) {
+                throw new ItemAlreadyExistsException();
+            }
             throw new RuntimeException(e);
         }
     }
