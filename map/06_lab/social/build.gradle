@@ -24,8 +24,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'com.example.social'
-    mainClass = 'com.example.social.HelloApplication'
+    mainModule = 'gui'
+    mainClass = 'gui.LoginApplication'
 }
 
 javafx {

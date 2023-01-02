@@ -31,14 +31,8 @@ public class ServiceUser {
      * @throws ItemAlreadyExistsException if a user with the provided id already exists
      */
     public void addUser(String name) throws ItemAlreadyExistsException {
-        boolean success = false;
-        while (!success) {
-            try {
-                User user = new User(UUID.randomUUID(), name);
-                this.repoUser.store(user);
-                success = true;
-            } catch (ItemAlreadyExistsException e) { }
-        }
+        User user = new User(UUID.randomUUID(), name);
+        this.repoUser.store(user);
     }
 
     /**
@@ -86,5 +80,15 @@ public class ServiceUser {
      */
     public User findById(UUID id) throws ItemDoesntExistException {
         return repoUser.find(id);
+    }
+
+    public User findByName(String name) throws ItemDoesntExistException {
+        User[] users = repoUser.getAll();
+        for (User user : users) {
+            if (user.getName().equals(name)) {
+                return user;
+            }
+        }
+        throw new ItemDoesntExistException();
     }
 }

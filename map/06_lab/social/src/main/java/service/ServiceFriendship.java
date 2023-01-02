@@ -1,9 +1,8 @@
 package service;
 
-import domain.Friendship;
-import domain.FriendshipId;
-import domain.User;
+import domain.*;
 import repo.friendship.RepoFriendship;
+import repo.friendship_request.RepoFriendshipRequest;
 import repo.user.RepoUser;
 import repo.exception.ItemAlreadyExistsException;
 import repo.exception.ItemDoesntExistException;
@@ -15,15 +14,17 @@ import java.util.*;
 public class ServiceFriendship {
     private RepoUser repoUser;
     private RepoFriendship repoFriendship;
+    private RepoFriendshipRequest repoFriendshipRequest;
 
     /**
      * Creates a new friendship service.
      * @param repoUser user repo
      * @param repoFriendship friendship repo
      */
-    public ServiceFriendship(RepoUser repoUser, RepoFriendship repoFriendship) {
+    public ServiceFriendship(RepoUser repoUser, RepoFriendship repoFriendship, RepoFriendshipRequest repoFriendshipRequest) {
         this.repoUser = repoUser;
         this.repoFriendship = repoFriendship;
+        this.repoFriendshipRequest = repoFriendshipRequest;
     }
 
     /**
@@ -51,6 +52,32 @@ public class ServiceFriendship {
         FriendshipId friendshipId2 = new FriendshipId(secondUserId, firstUserId);
         this.repoFriendship.erase(friendshipId1);
         this.repoFriendship.erase(friendshipId2);
+    }
+
+    public void makeFriendshipRequest(UUID sourceUserId, UUID destinationUserId) throws ItemAlreadyExistsException {
+        // TODO: make sure they aren't friends already
+        FriendshipRequestId friendshipRequestId = new FriendshipRequestId(sourceUserId, destinationUserId);
+        FriendshipRequest friendshipRequest = new FriendshipRequest(friendshipRequestId, LocalDateTime.now());
+        this.repoFriendshipRequest.store(friendshipRequest);
+    }
+
+    public void acceptFriendshipRequest(UUID sourceUserId, UUID destinationUserId) throws ItemDoesntExistException, ItemAlreadyExistsException {
+        FriendshipRequestId friendshipRequestId = new FriendshipRequestId(sourceUserId, destinationUserId);
+        repoFriendshipRequest.erase(friendshipRequestId);
+
+        FriendshipRequestId friendshipRequestIdInverse = new FriendshipRequestId(destinationUserId, sourceUserId);
+        try {
+            repoFriendshipRequest.erase(friendshipRequestIdInverse);
+        } catch (ItemDoesntExistException e) {
+            // NOTE: Do nothing if inverse request doesn't exist.
+        }
+
+        addFriendship(sourceUserId, destinationUserId);
+    }
+
+    public void removeFriendshipRequest(UUID sourceUserId, UUID destinationUserId) throws ItemDoesntExistException {
+        FriendshipRequestId friendshipRequestId = new FriendshipRequestId(sourceUserId, destinationUserId);
+        repoFriendshipRequest.erase(friendshipRequestId);
     }
 
     /**
@@ -186,5 +213,18 @@ public class ServiceFriendship {
         longestPath.add(currentUserId);
         currentUserIds.remove(currentUserId);
         return longestPath;
+    }
+
+    public boolean areFriends(UUID firstUserId, UUID secondUserId) {
+        try {
+            repoFriendship.find(new FriendshipId(firstUserId, secondUserId));
+            return true;
+        } catch (ItemDoesntExistException e) {
+            return false;
+        }
+    }
+
+    public FriendshipRequest getFriendshipRequest(UUID sourceUserId, UUID destinationUserId) throws ItemDoesntExistException {
+        return repoFriendshipRequest.find(new FriendshipRequestId(sourceUserId, destinationUserId));
     }
 }

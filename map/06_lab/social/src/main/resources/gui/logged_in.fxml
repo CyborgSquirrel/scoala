@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<TabPane xmlns="http://javafx.com/javafx/11.0.3-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoggedInController">
+   <tabs>
+      <Tab fx:id="tabLoggedIn" closable="false" text="Main" onSelectionChanged="#onLoggedInSelectionChanged">
+         <content>
+            <HBox alignment="CENTER" spacing="20.0">
+                <ListView fx:id="listView"/>
+                <VBox alignment="CENTER" spacing="20.0">
+                    <Label fx:id="labelUserName" />
+                    <Button onAction="#onLogOutButtonClicked" text="log out" />
+                    <Button onAction="#onEraseFriendButtonClicked" text="sterge prieten" />
+                </VBox>
+            </HBox>
+         </content>
+      </Tab>
+      <Tab fx:id="tabMakeRequest" closable="false" text="Make Request" onSelectionChanged="#onMakeRequestSelectionChanged">
+        <content>
+            <fx:include fx:id="makeFriendRequest" source="make_friend_request.fxml" />
+        </content>
+      </Tab>
+        <Tab fx:id="tabAcceptRequest" closable="false" text="Accept Request" onSelectionChanged="#onAcceptRequestSelectionChanged">
+           <content>
+               <fx:include fx:id="acceptFriendRequest" source="accept_friend_request.fxml" />
+           </content>
+        </Tab>
+        <Tab fx:id="tabEraseRequest" closable="false" text="Erase Request" onSelectionChanged="#onEraseRequestSelectionChanged">
+           <content>
+               <fx:include fx:id="eraseFriendRequest" source="erase_friend_request.fxml" />
+           </content>
+        </Tab>
+       <Tab fx:id="tabChatList" closable="false" text="Chat" onSelectionChanged="#onChatListSelectionChangead">
+           <content>
+               <fx:include fx:id="chatList" source="chat_list.fxml" />
+           </content>
+       </Tab>
+   </tabs>
+</TabPane>
