@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.11-internal" fx:controller="gui.RegisterController">
+    <GridPane alignment="CENTER">
+        <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="textFieldName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    </GridPane>
+    <Button onAction="#onButtonRegisterClicked" text="Register" />
+    <VBox alignment="CENTER">
+        <Label text="already have an account?"/>
+        <Hyperlink onAction="#onLinkLogInClicked" text="log in" />
+    </VBox>
+</VBox>

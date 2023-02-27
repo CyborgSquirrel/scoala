@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ComboBox?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="gui.ClientController">
+    <TableView fx:id="tableViewSpecialOffers">
+        <columns>
+            <TableColumn fx:id="tableColumnSpecialOffersHotel" text="hotel" sortable="false" prefWidth="200"/>
+            <TableColumn fx:id="tableColumnSpecialOffersLocation" text="location" sortable="false" prefWidth="400"/>
+            <TableColumn fx:id="tableColumnSpecialOffersStartDate" text="start date" sortable="false" prefWidth="200"/>
+            <TableColumn fx:id="tableColumnSpecialOffersEndDate" text="end date" sortable="false" prefWidth="200"/>
+        </columns>
+    </TableView>
+</VBox>

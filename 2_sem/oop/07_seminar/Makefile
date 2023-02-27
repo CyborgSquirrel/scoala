@@ -8,7 +8,7 @@ run: build
 	./app
 
 build: Qmakefile
-	bear -- make -f Qmakefile
+	make -f Qmakefile
 
 clean:
 	make -f Qmakefile clean

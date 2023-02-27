@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.DatePicker?>
+<TabPane xmlns:fx="http://javafx.com/fxml"
+         fx:controller="gui.LoggedInController"
+         fx:id="tabPaneMain">
+    <tabs>
+        <Tab fx:id="tabWannaHelp" closable="false" text="Doresc sa ajut!">
+            <VBox>
+                <Label fx:id="labelPersoanaUsername"/>
+                <Label fx:id="labelPersoanaId"/>
+                <Label fx:id="labelPersoanaOras"/>
+                <Label text="nevoi"/>
+                <TableView fx:id="tableView1">
+                    <columns>
+                        <TableColumn fx:id="tableColumn1Titlu" text="titlu"/>
+                        <TableColumn fx:id="tableColumn1Descriere" text="descriere"/>
+                        <TableColumn fx:id="tableColumn1Deadline" text="deadline"/>
+                        <TableColumn fx:id="tableColumn1OmInNevoie" prefWidth="40" text="omInNevoieId"/>
+                        <TableColumn fx:id="tableColumn1OmInNevoieUsername" text="omInNevoie"/>
+                        <TableColumn fx:id="tableColumn1OmSalvator" prefWidth="40" text="omSalvatorId"/>
+                        <TableColumn fx:id="tableColumn1OmSalvatorUsername" text="omSalvator"/>
+                        <TableColumn fx:id="tableColumn1Status" text="status"/>
+                    </columns>
+                </TableView>
+                <Button text="alege nevoie" onAction="#onButtonHelpAlegeNevoieAction"/>
+
+                <Label text="fapte bune"/>
+                <TableView fx:id="tableView2">
+                    <columns>
+                        <TableColumn fx:id="tableColumn2Titlu" text="titlu"/>
+                        <TableColumn fx:id="tableColumn2Descriere" text="descriere"/>
+                        <TableColumn fx:id="tableColumn2Deadline" text="deadline"/>
+                        <TableColumn fx:id="tableColumn2OmInNevoie" prefWidth="40" text="omInNevoieId"/>
+                        <TableColumn fx:id="tableColumn2OmInNevoieUsername" text="omInNevoie"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+        <Tab fx:id="tabWannaGetHelp" closable="false" text="Doresc sa fiu ajutat!">
+            <VBox spacing="20.0">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <HBox>
+                    <Label prefWidth="80" text="titlu"/>
+                    <TextField fx:id="textFieldGetHelpTitlu"/>
+                </HBox>
+                <HBox>
+                    <Label prefWidth="80" text="descriere"/>
+                    <TextField fx:id="textFieldGetHelpDescriere"/>
+                </HBox>
+                <HBox>
+                    <Label prefWidth="80" text="deadline"/>
+                    <DatePicker fx:id="datePickerGetHelpDeadline"/>
+                </HBox>
+                <Button text="adauga" onAction="#onButtonGetHelpAdaugaAction"/>
+            </VBox>
+        </Tab>
+    </tabs>
+</TabPane>

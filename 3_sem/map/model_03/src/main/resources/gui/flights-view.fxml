@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.HBox?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="gui.FlightsController">
+    <Label fx:id="labelUsername"/>
+    <ComboBox fx:id="comboBoxFrom" onAction="#onComboBoxFromAction" />
+    <ComboBox fx:id="comboBoxTo" onAction="#onComboBoxToAction"/>
+    <DatePicker fx:id="datePickerDepartureDate" onAction="#onDatePickerDepartureDateAction" />
+    <TableView fx:id="tableViewFlight">
+        <columns>
+            <TableColumn fx:id="tableColumnFlightDepartureTime" text="departure time"/>
+            <TableColumn fx:id="tableColumnFlightLandingTime" text="landing time"/>
+            <TableColumn fx:id="tableColumnFlightSeats" text="seats"/>
+        </columns>
+    </TableView>
+    <Label fx:id="labelPage"/>
+    <HBox>
+        <Button text="Previous" onAction="#onButtonPreviousAction"/>
+        <Button text="Next" onAction="#onButtonNextAction"/>
+    </HBox>
+    <Button text="Buy" onAction="#onButtonBuyAction"/>
+</VBox>
