@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ro">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Unsussy Burgir</title>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th colspan="2" rowspan="1">Comanda</th>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr>
+							<td><b>Carne</b></td>
+							<td>
+								<input type="radio" name="carne"
+									id="carne-black-angus" value="black-angus">
+								<label for="carne-black-angus">black angus</label><br>
+								<input type="radio" name="carne"
+									id="carne-pui-crispy" value="pui-crispy">
+								<label for="carne-pui-crispy">pui crispy</label><br>
+								<input type="radio" name="carne"
+									id="carne-vegan" value="vegan">
+								<label for="carne-vegan">vegan</label><br>
+							</td>
+							<td>
+								<label for="sare-himalaya"><b><a title="click aici!" href="https://en.wikipedia.org/wiki/Himalayan_salt" target="_blank">Sare Himalaya</a></b></label>
+							</td>
+							<td><input id="sare-himalaya" type="checkbox"></td>
+							<td><b>Ingrediente</b></td>
+							<td>
+								<select name="ingrediente" multiple>
+									<option>salată</option>
+									<option>roșii</option>
+									<option>murături</option>
+									<option selected>ceapă caramelizată</option>
+									<option>cașcaval cheddar</option>
+									<option>brânză cu mucegai</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Sosuri</b></td>
+							<td>
+								<select name="sosuri" multiple>
+									<option>ketchup</option>
+									<option>ketchup picant</option>
+									<option>maioneză</option>
+									<option>sos de usturoi</option>
+								</select>
+							</td>
+							<td><b>Garnitură</b></td>
+							<td>
+								<input type="radio" name="garnitura"
+									id="garnitura-cartofi-prajiti" value="cartofi-prajiti">
+								<label for="garnitura-cartofi-prajiti">cartofi prăjiți</label><br>
+								<input type="radio" name="garnitura"
+									id="garnitura-cartofi-wedges" value="cartofi-wedges">
+								<label for="garnitura-cartofi-wedges">cartofi wedges</label><br>
+								<input type="radio" name="garnitura"
+									id="garnitura-salata" value="salata">
+								<label for="garnitura-salata">salată</label><br>
+							</td>
+							<td><label for="cantitate"><b>Cantitate</b></label></td>
+							<td>
+								<input name="cantitate" id="cantitate" type="number" value="1" min="1" max="10" step="1">
+							</td>
+						</tr>
+						<tr>
+							<td><label for="preparare-comentarii"><b>Comentarii</b></label></td>
+							<td colspan="5" rowspan="1"><textarea id="preparare-comentarii" cols="70" rows="4" readonly>să nu fie prea dulce</textarea></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<b>Idei de comandă</b>
+					<ol start="1">
+						<li>
+							<b>King's Burger</b>
+							<ul>
+								<li>carne black angus</li>
+								<li>cașcaval cheddar</li>
+								<li>brânză cu mucegai</li>
+								<li>ceapă caramelizată</li>
+								<li>salată</li>
+							</ul>
+						</li>
+						<li>
+							<b>Queen's Burger</b>
+							<ul>
+								<li>carne pui crispy</li>
+								<li>cașcaval cheddar</li>
+								<li>ceapă caramelizată</li>
+								<li>roșii</li>
+								<li>murături</li>
+								<li>salată</li>
+							</ul>
+						</li>
+					</ol>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" rowspan="1">
+					<div>
+						<b>bucătarul șef</b><br>
+						vă urează<br>
+						<b>poftă bună</b>
+					</div>
+					<img alt="mascota sus" src="./mascot.png" width="200" height="200">
+				</td>
+			</tr>
+			<tr>
+				<th colspan="2" rowspan="1">Livrare</th>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr>
+							<td><label for="livrare-oras"><b>Oraș</b></label></td>
+							<td colspan="2" rowspan="1"><input id="livrare-oras" type="text" name="oras"></td>
+							<td><b>Județ</b></td>
+							<td>
+								<select name="judet">
+									<option value="AB">AB</option>
+									<option value="AR">AR</option>
+									<option value="AG">AG</option>
+									<option value="BC">BC</option>
+									<option value="BH">BH</option>
+									<option value="BN">BN</option>
+									<option value="BT">BT</option>
+									<option value="BV">BV</option>
+									<option value="BR">BR</option>
+									<option value="B" >B </option>
+									<option value="BZ">BZ</option>
+									<option value="CS">CS</option>
+									<option value="CL">CL</option>
+									<option value="CJ">CJ</option>
+									<option value="CT">CT</option>
+									<option value="CV">CV</option>
+									<option value="DB">DB</option>
+									<option value="DJ">DJ</option>
+									<option value="GL">GL</option>
+									<option value="GR">GR</option>
+									<option value="GJ">GJ</option>
+									<option value="HR">HR</option>
+									<option value="HD">HD</option>
+									<option value="IL">IL</option>
+									<option value="IS">IS</option>
+									<option value="IF">IF</option>
+									<option value="MM">MM</option>
+									<option value="MH">MH</option>
+									<option value="MS">MS</option>
+									<option value="NT">NT</option>
+									<option value="OT">OT</option>
+									<option value="PH">PH</option>
+									<option value="SM">SM</option>
+									<option value="SJ">SJ</option>
+									<option value="SB">SB</option>
+									<option value="SV">SV</option>
+									<option value="TR">TR</option>
+									<option value="TM">TM</option>
+									<option value="TL">TL</option>
+									<option value="VS">VS</option>
+									<option value="VL">VL</option>
+									<option value="VN">VN</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="livrare-adresa"><b>Adresa</b></label></td>
+							<td colspan="4" rowspan="1"><input id="livrare-adresa" type="text" name="adresa" size="50"></td>
+						</tr>
+						<tr>
+							<td><label for="livrare-telefon"><b>Telefon</b></label></td>
+							<td colspan="4" rowspan="1"><input id="livrare-telefon" type="text" name="telefon" size="50" maxlength="25"></td>
+						</tr>
+						<tr>
+							<td><label for="livrare-comentarii"><b>Comentarii</b></label></td>
+							<td colspan="3" rowspan="1">
+								<textarea id="livrare-comentarii" cols="50" rows="5"></textarea>
+							</td>
+							<td colspan="1" rowspan="2">
+								<input type="submit" value="Trimite Comanda">
+							</td>
+						</tr>
+						<tr>
+							<td><b>Plată</b></td>
+							<td>
+								<input type="radio" name="plata"
+									id="plata-cash" value="cash">
+								<label for="plata-cash">cash</label><br>
+								<input type="radio" name="plata"
+									id="plata-card" value="card">
+								<label for="plata-card">card</label><br>
+								<input type="radio" name="plata"
+									id="plata-bitcoin" value="bitcoin"
+									disabled>
+								<label for="plata-bitcoin">bitcoin</label><br>
+							</td>
+							<td><b>Livrare</b></td>
+							<td>
+								<input type="radio" name="livrare"
+									id="livrare-curier" value="curier">
+								<label for="livrare-curier">curier</label><br>
+								<input type="radio" name="livrare"
+									id="livrare-drona" value="drona" checked>
+								<label for="livrare-drona">dronă</label><br>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<p><b>Taxă livrare</b> (se aplica prima valabilă)</p>
+					<ol type="I">
+						<li>5 lei Marăsti</li>
+						<li>10 lei Cluj</li>
+						<li>25 lei România</li>
+						<li>
+							250 lei oriunde altundeva, in afara de:
+							<ul>
+								<li>Siberia</li>
+								<li>Coreea de Nord</li>
+							</ul>
+						</li>
+					</ol>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

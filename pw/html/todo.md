@@ -1,0 +1,51 @@
+atribute (toate):
+[x] href
+[x] name
+[x] target
+[x] border
+[x] colspan
+[x] align
+[x] valign
+[x] width
+[x] height
+[x] bgcolor
+[x] type
+[x] start
+[x] checked
+[x] disabled
+[x] maxlength
+[x] readonly
+[x] size
+[x] value
+[x] multiple
+[x] selected
+[x] cols
+[x] rows
+[x] alt
+[x] max
+[x] step
+[x] src
+[x] title
+
+tag-uri:
+[] a
+[] table (tr, th, td)
+[] div
+[] strong
+[] ul
+[] ol
+[] li
+[] form
+[] input
+[] select
+[] option
+[] b
+[] textarea
+[] h1 (… h6)
+[] img
+[] center
+[] fieldset
+[] legend
+[] p
+[] br
+[] span
