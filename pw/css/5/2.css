@@ -1,0 +1,27 @@
+#domnitori {
+  background-color: yellow;
+  display: grid;
+  grid-template-columns: 350px;
+  grid-template-rows: 130px 130px 130px 130px;
+  row-gap: 10px; 
+  border: 1px solid black;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+}
+
+#domnitori > div > div {
+  display: flex;
+  flex-flow: row;
+}
+
+#domnitori > div > div > img {
+  display: block;
+  height: 130px;
+  width: 100px;
+}
+
+#domnitori > div > div > div {
+  padding-top: 50px;
+  padding-left: 10px;
+}

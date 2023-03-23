@@ -1,0 +1,36 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  height: fit-content;
+  margin: 0;
+}
+
+#parent {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 200px 200px;
+  border: 1px solid black;
+  width: fit-content;
+
+  margin: auto;
+}
+
+#child-1 {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#child-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#child-2 > img {
+  max-width: 200px;
+  display: block;
+}

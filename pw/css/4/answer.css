@@ -1,0 +1,56 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  height: fit-content;
+  margin: 0;
+}
+
+#icon-container {
+  display: flex;
+
+  flex-direction: column;
+  height: fit-content;
+
+  /*flex-direction: row;
+  width: fit-content;*/
+}
+#icon-container > * {
+  flex: 0 1 auto;
+}
+
+/* 924 x 168 */
+/* 11 x 2 */
+
+  #icon-1  , #icon-2  , #icon-3
+, #icon-4  , #icon-5  , #icon-6
+, #icon-7  , #icon-8  , #icon-9
+, #icon-10 , #icon-11
+{
+  background-image: url('./spritesheet.png');
+  background-repeat: no-repeat;
+  width: calc(924px / 11);
+  height: calc(168px / 2);
+  background-position-y: calc((168px / 2) * -1);
+}
+
+  #icon-1:hover  , #icon-2:hover  , #icon-3:hover
+, #icon-4:hover  , #icon-5:hover  , #icon-6:hover
+, #icon-7:hover  , #icon-8:hover  , #icon-9:hover
+, #icon-10:hover , #icon-11:hover
+{
+  background-position-y: calc((168px / 2) * 0);
+}
+
+#icon-1  { background-position-x: calc((924px / 11) * -0 ); }
+#icon-2  { background-position-x: calc((924px / 11) * -1 ); }
+#icon-3  { background-position-x: calc((924px / 11) * -2 ); }
+#icon-4  { background-position-x: calc((924px / 11) * -3 ); }
+#icon-5  { background-position-x: calc((924px / 11) * -4 ); }
+#icon-6  { background-position-x: calc((924px / 11) * -5 ); }
+#icon-7  { background-position-x: calc((924px / 11) * -6 ); }
+#icon-8  { background-position-x: calc((924px / 11) * -7 ); }
+#icon-9  { background-position-x: calc((924px / 11) * -8 ); }
+#icon-10 { background-position-x: calc((924px / 11) * -9 ); }
+#icon-11 { background-position-x: calc((924px / 11) * -10); }

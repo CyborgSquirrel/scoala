@@ -1,0 +1,51 @@
+body {
+  display: grid;
+  grid-template-columns: 10ch 200px;
+  grid-template-rows: 25px 25px 25px;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+body > label {
+  text-align: right;
+  font-size: 20px;
+}
+
+body > input[type="text"] {
+  font-family: "Courier New", monospace;
+  border: 0;
+  padding: 0;
+  font-size: 20px;
+
+  letter-spacing: 1ch;
+  background-size: 100%, 2ch 2ch;
+  background-repeat: no-repeat, repeat;
+  height: 2ch;
+  padding-left: 0.5ch;
+}
+
+body > input[type="text"]:focus {
+  outline: none;
+}
+
+body > input[type="text"][maxlength="13"] {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0) 26.1ch,
+      white 26.1ch),
+    url("./box.svg");
+  width: 26ch;
+}
+
+body > input[type="text"][maxlength="20"] {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0) 40.1ch,
+      white 40.1ch),
+    url("./box.svg");
+  width: 40ch;
+}

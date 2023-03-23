@@ -1,0 +1,33 @@
+header { background-color: red; }
+#menu { background-color: yellow; }
+#main { background-color: green; }
+footer { background-color: pink; }
+
+html,body {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+}
+header { flex: 2; }
+main { flex: 4; }
+footer { flex: 1; }
+
+main {
+  display: flex;
+  flex-flow: column;
+}
+#menu { flex: 1; }
+#main { flex: 9; }
+
+#menu {
+  display: flex;
+  flex-flow: row;
+}
+#menu > div {
+  flex: 1;
+  border: 1px solid black;
+}

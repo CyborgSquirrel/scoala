@@ -1,0 +1,34 @@
+#domnitori {
+  display: grid;
+  grid-template-columns: 170px 170px;
+  grid-template-rows: 200px 200px;
+  border: 1px solid black;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+}
+
+#domnitori > div {
+  margin: 10px;
+  background-color: cyan;
+}
+
+#domnitori > div > div {
+  height: fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+#domnitori > div > div > img {
+  display: block;
+  height: 130px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#domnitori > div > div > div {
+  text-align: center;
+}

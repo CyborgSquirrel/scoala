@@ -1,0 +1,56 @@
+/* TODO: SPRITEEEEEEEEEEEEEEEEEEEEEEEE */
+
+.dialog > li.alice::before {
+  content: "";
+
+  background-image: url("./amogus.png");
+  width: 125px;
+  height: 125px;
+  background-position-x: calc((250px / 2) * 0);
+  background-position-y: 0px;
+
+  position: absolute;
+  left: -85px;
+  top: -45px;
+}
+
+.dialog > li.bob::before {
+  content: "";
+
+  background-image: url("./amogus.png");
+  width: 125px;
+  height: 125px;
+  background-position-x: calc((250px / 2) * -1);
+  background-position-y: 0px;
+
+  position: absolute;
+  left: -90px;
+  top: -45px;
+}
+
+.dialog > li {
+  position: relative;
+  list-style-type: none;
+  text-align: center;
+
+  min-width: 20px;
+  min-height: 30px;
+  
+  --border-top: 91;
+  --border-left: 66;
+  --border-right: calc(140 - var(--border-left));
+  --border-bottom: calc(136 - var(--border-top));
+  
+  border-image-source: url("./speech-bubble.png");
+  border-image-slice:
+    var(--border-top)
+    var(--border-right)
+    var(--border-bottom)
+    var(--border-left);
+  border-image-width: 30px;
+
+  padding-left: 25px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}

@@ -1,0 +1,31 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  height: fit-content;
+  margin: 0;
+}
+
+header { background-color: red;    }
+#menu  { background-color: yellow; }
+footer { background-color: pink;   }
+main   { background-color: green;  }
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header { flex: 0 1 100px; }
+#menu  { flex: 0 1 25px;  }
+main   { flex: 1;         }
+footer { flex: 0 1 60px;  }
+
+#menu {
+  display: flex;
+  flex-direction: row;
+}
+#menu > div {
+  flex: 1;
+}

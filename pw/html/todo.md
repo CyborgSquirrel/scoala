@@ -28,24 +28,24 @@ atribute (toate):
 [x] title
 
 tag-uri:
-[] a
-[] table (tr, th, td)
-[] div
-[] strong
-[] ul
-[] ol
-[] li
-[] form
-[] input
-[] select
-[] option
-[] b
-[] textarea
-[] h1 (… h6)
-[] img
-[] center
-[] fieldset
-[] legend
-[] p
-[] br
-[] span
+[x] a
+[x] table (tr, th, td)
+[x] div
+[x] strong
+[x] ul
+[x] ol
+[x] li
+[x] form
+[x] input
+[x] select
+[x] option
+[x] b
+[x] textarea
+[x] h1 (… h6)
+[x] img
+[x] center
+[x] fieldset
+[x] legend
+[x] p
+[x] br
+[x] span
