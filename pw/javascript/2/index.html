@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style>
+			.invalid {
+				border: red solid 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<label for="nume">Nume</label>
+			<input id="input-nume" type="text" name="nume">
+			<br>
+			<label for="data-nasterii">Data Nasterii</label>
+			<input id="input-data-nasterii" type="date" name="data-nasterii">
+			<br>
+			<label for="varsta">Varsta</label>
+			<input id="input-varsta" type="number" name="varsta">
+			<br>
+			<label for="email">Email</label>
+			<input id="input-email" type="email" name="email">
+			<br>
+			<input onclick="validate()" type="button" value="Trimite">
+		</form>
+	</body>
+	<script>
+		function validate() {
+			let inputNume         = document.getElementById("input-nume"			   );
+			let inputDataNasterii = document.getElementById("input-data-nasterii");
+			let inputVarsta       = document.getElementById("input-varsta"       );
+			let inputEmail        = document.getElementById("input-email"        );
+
+			let fields = [
+				inputNume,
+				inputDataNasterii,
+				inputVarsta,
+				inputEmail,
+			];
+
+			fields.forEach(field => {
+				field.classList.remove("invalid");
+			});
+
+			let incorrectFields = [];
+
+			// Nume
+			// - nu poate fi gol
+			// - format din litere, prima mare, restul mici
+
+			{
+				if (inputNume.value.match(/^[A-Z][a-z]*$/) === null) {
+					incorrectFields.push(inputNume);
+				}
+			}
+
+			// Data nasterii
+			// Varsta
+			// - data nasterii inainte de azi
+			// - trebuie sa corespunda
+
+			{
+				let today = new Date();
+				let birthday = new Date(inputDataNasterii.value);
+
+				if (birthday > today) {
+					incorrectFields.push(inputDataNasterii);
+					incorrectFields.push(inputVarsta);
+				} else {
+					let age = parseInt(inputVarsta.value);
+					let computedAge = today.getFullYear() - birthday.getFullYear();
+
+					let subtract = (
+						    birthday.getMonth() < today.getMonth()
+						|| (birthday.getMonth() == today.getMonth()
+						    && birthday.getDay() < today.getDay())
+					);
+
+					if (subtract) {
+						computedAge -= 1;
+					}
+
+					if (age !== computedAge) {
+						incorrectFields.push(inputDataNasterii);
+						incorrectFields.push(inputVarsta);
+					}
+				}
+			}
+
+			// Email
+			{
+				let emailRegex = /^[A-Za-z0-9!#$%&'*+-/=?^_`{|}~.]{1,64}@[a-z]{1,64}.[a-z]{1,16}$/;
+				if (inputEmail.value.match(emailRegex) === null) {
+					incorrectFields.push(inputEmail);
+				}
+			}
+
+			incorrectFields.forEach(field => {
+				field.classList.add("invalid");
+			});
+
+			let message = null;
+			if (incorrectFields.length === 0) {
+				message = "Datele sunt completate corect";
+			} else {
+				message = "";
+				message += "Campurile ";
+				let addComma = false;
+				incorrectFields.forEach(field => {
+					if (!addComma) {
+						addComma = true;
+					} else {
+						message += ", ";
+					}
+					message += field.name;
+				});
+				message += " nu sunt completate corect";
+			}
+			alert(message);
+		}
+	</script>
+</html>

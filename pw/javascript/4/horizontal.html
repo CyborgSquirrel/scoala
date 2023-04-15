@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<table class="full" style="width: 180px; margin-top: 1em;">
+			<tbody>
+				<tr>
+					<th onclick="sortByColumn(this)">Fructe</th>
+					<th onclick="sortByColumn(this)">Pret</th>
+					<th onclick="sortByColumn(this)">Cantitate</th>
+				</tr>
+				<tr>
+					<td>Mere</td>
+					<td>3</td>
+					<td>8</td>
+				</tr>
+				<tr>
+					<td>Pere</td>
+					<td>4</td>
+					<td>6</td>
+				</tr>
+				<tr>
+					<td>Caise</td>
+					<td>7</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>Capsuni</td>
+					<td>2</td>
+					<td>9</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script>
+		function sortByColumn(columnHeading) {
+			let columnIndex =
+				Array.prototype.slice.call(columnHeading.parentElement.children)
+					.findIndex(element => element === columnHeading);
+
+			let columnElements = [];
+			let order = [];
+
+			let table = columnHeading.parentElement.parentElement;
+			for (let i = 1; i < table.children.length; ++i) {
+				columnElements.push(table.children[i].children[columnIndex]);
+				order.push(i-1);
+			}
+			
+			order.sort((a, b) => columnElements[a].textContent < columnElements[b].textContent);
+
+			let rows = [];
+			for (let i = 1; i < table.children.length; ++i) {
+				rows.push(table.children[i]);
+			}
+
+			rows.forEach(row => {
+				table.removeChild(row);
+			});
+
+			order.forEach(index => {
+				table.appendChild(rows[index]);
+			});
+		}
+	</script>
+</html>

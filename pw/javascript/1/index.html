@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<select id="crewmate" name="crewmate" size="6">
+			<option ondblclick="move(this)" value="red">Red</option>
+			<option ondblclick="move(this)" value="green">Green</option>
+			<option ondblclick="move(this)" value="pink">Pink</option>
+		</select>
+		<select id="impostor" name="impostor" size="6">
+			<option ondblclick="move(this)" value="white">White</option>
+			<option ondblclick="move(this)" value="yellow">Yellow</option>
+			<option ondblclick="move(this)" value="blue">Blue</option>
+		</select>
+	</body>
+	<script>
+		function move(element) {
+			let parent = element.parentElement;
+			let newParentId = null;
+			if (parent.id === "crewmate") {
+				newParentId = "impostor";
+			} else if (parent.id === "impostor") {
+				newParentId = "crewmate";
+			} else {
+				console.assert(false);
+			}
+			let newParent = document.getElementById(newParentId);
+			parent.removeChild(element);
+			newParent.appendChild(element);
+		}
+	</script>
+</html>

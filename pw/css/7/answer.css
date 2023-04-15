@@ -1,5 +1,3 @@
-/* TODO: SPRITEEEEEEEEEEEEEEEEEEEEEEEE */
-
 .dialog > li.alice::before {
   content: "";
 
@@ -40,6 +38,8 @@
   --border-left: 66;
   --border-right: calc(140 - var(--border-left));
   --border-bottom: calc(136 - var(--border-top));
+
+  border-style: solid;
   
   border-image-source: url("./speech-bubble.png");
   border-image-slice:

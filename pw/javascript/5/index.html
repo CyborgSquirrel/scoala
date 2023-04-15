@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style>
+			ol#carousel {
+				position: relative;
+				padding: 0;
+				margin-left: 20px;
+			}
+			ol#carousel > li {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transition: opacity 1s;
+				z-index: -1000;
+			}
+			ol#carousel > li.visible {
+				position: static;
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<ol id="carousel">
+			<li class="visible">
+				<img src="gfx/among-us-brown-toilet-paper-hat-png-01.png">
+				<a href="https://www.youtube.com/watch?v=N_D-GW_3xvE">sussus amogus</a>
+			</li>
+			<li>
+				<img src="gfx/among-us-green-dead-body-png-01.png">
+				<a href="https://www.youtube.com/watch?v=3qT9gzaUTq0">imposterus magnificus</a>
+			</li>
+			<li>
+				<img src="gfx/among-us-orange-egg-hat-png-01.png">
+				<a href="https://www.youtube.com/watch?v=JPivVipz_P0">hocus pocus</a>
+			</li>
+			<li>
+				<img src="gfx/among-us-red-png-01.png">
+				<a href="https://www.youtube.com/watch?v=85aVEtikOGA">ventus obscurus</a>
+			</li>
+		</ol>
+		<input type="button" value="Previous" onclick="carouselAddButton(-1)">
+		<input type="button" value="Next" onclick="carouselAddButton(1)">
+	</body>
+	<script>
+		function carouselAdd(amount) {
+			let carousel = document.getElementById("carousel");
+			let visible = carousel.querySelector("li.visible");
+
+			let visibleIndex =
+				Array.prototype.slice.call(carousel.children)
+					.findIndex(element => element === visible);
+
+			visibleIndex = (((visibleIndex+amount) % carousel.children.length) + carousel.children.length) % carousel.children.length;
+			visible.classList.remove("visible");
+			carousel.children[visibleIndex].classList.add("visible");
+		}
+
+		var cancelCarouselLoop = null;
+
+		function carouselAddButton(amount) {
+			if (cancelCarouselLoop !== null) {
+				cancelCarouselLoop();
+			}
+
+			carouselAdd(amount);
+		}
+
+		async function loopCarousel() {
+			while (true) {
+				let cancel = false;
+				
+				await Promise.race([
+					(new Promise(r => setTimeout(r, 5000)))
+						.then(() => {
+							if (!cancel) {
+								carouselAdd(1);
+							}
+						}),
+					new Promise((resolve, reject) => {
+						cancelCarouselLoop = () => {
+							resolve();
+							cancel = true;
+						};
+					})
+				]);
+			}
+		}
+
+		loopCarousel();
+	</script>
+</html>

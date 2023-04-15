@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<table class="full" style="width: 180px; margin-top: 1em;">
+			<tbody>
+				<tr>
+					<th onclick="sortByRow(this)">Fructe</th>
+					<td>Mere</td>
+					<td>Pere</td>
+					<td>Caise</td>
+					<td>Capsuni</td>
+				</tr>
+				<tr>
+					<th onclick="sortByRow(this)">Pret</th>
+					<td>3</td>
+					<td>4</td>
+					<td>7</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<th onclick="sortByRow(this)">Cantitate</th>
+					<td>8</td>
+					<td>6</td>
+					<td>2</td>
+					<td>9</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script>
+		function sortByRow(rowHeading) {
+			let rowElements = rowHeading.parentElement.children;
+			let order = [];
+			for (let i = 1; i < rowElements.length; ++i) {
+				order.push(i-1);
+			}
+
+			order.sort((a, b) => rowElements[a+1].textContent < rowElements[b+1].textContent);
+
+			let rows = rowHeading.parentElement.parentElement.children;
+			Array.prototype.slice.call(rows).forEach(row => {
+				let children = [];
+				for (let i = 1; i < row.children.length; ++i) {
+					children.push(row.children[i]);
+				}
+
+				children.forEach(child => {
+					row.removeChild(child);
+				})
+
+				order.forEach(i => {
+					row.appendChild(children[i]);
+				})
+			});
+		}
+	</script>
+</html>

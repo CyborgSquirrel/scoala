@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<table id="game">
+			<tbody></tbody>
+		</table>
+	</body>
+	<script>
+		var n = 4;
+
+		// create table
+		let tableBody = document.querySelector("table#game > tbody");
+		let index = 0;
+		for (let i = 0; i < n; ++i) {
+			let tableRow = document.createElement("tr");
+			for (let j = 0; j < n; ++j) {
+				let tableData = document.createElement("td");
+				if (index != n*n-1) {
+					tableData.innerText = (index+1).toString();
+				} else {
+					tableData.id = "empty";
+				}
+				tableRow.appendChild(tableData);
+
+				index += 1;
+			}
+			tableBody.appendChild(tableRow);
+		}
+
+		// shuffle table
+		for (let i = 0; i < n*n*4; ++i) {
+			let direction = Math.floor(Math.random() * 4);
+			switch (direction) {
+				case 0: shift("up");    break;
+				case 1: shift("down");  break;
+				case 2: shift("left");  break;
+				case 3: shift("right"); break;
+			}
+		}
+
+		function tableDataFromPosition(position) {
+			let tableBody = document.querySelector("table#game > tbody");
+			return tableBody.children[position[1]].children[position[0]];
+		}
+
+		function getTableDataPosition(tableData) {
+			let tableRow = tableData.parentElement;
+			let tableBody = tableRow.parentElement;
+
+			let x = Array.prototype.slice.call(tableRow.children)
+				.indexOf(tableData);
+			let y = Array.prototype.slice.call(tableBody.children)
+				.indexOf(tableRow);
+
+			return [x, y];
+		}
+
+		function shift(direction) {
+			let tableDataEmpty = document.getElementById("empty");
+			let position = getTableDataPosition(tableDataEmpty);
+
+			let positionDelta = null;
+			switch (direction) {
+				case "up"   : positionDelta = [ 0 ,  1]; break;
+				case "down" : positionDelta = [ 0 , -1]; break;
+				case "left" : positionDelta = [ 1 ,  0]; break;
+				case "right": positionDelta = [-1 ,  0]; break;
+			}
+
+			let newPosition = [
+				position[0] + positionDelta[0],
+				position[1] + positionDelta[1]
+			];
+
+			if (newPosition[0] < 0 || newPosition[0] >= n || newPosition[1] < 0 || newPosition[1] >= n) {
+				return;
+			}
+
+			let tableDataNew = tableDataFromPosition(newPosition);
+
+			let aux = document.createElement("div");
+			tableDataEmpty.replaceWith(aux);
+			tableDataNew.replaceWith(tableDataEmpty);
+			aux.replaceWith(tableDataNew);
+		}
+
+		document.addEventListener(
+			"keydown",
+			(event) => {
+				switch (event.key) {
+					case "ArrowUp"   : shift("up");    break;
+					case "ArrowDown" : shift("down");  break;
+					case "ArrowLeft" : shift("left");  break;
+					case "ArrowRight": shift("right"); break;
+				}
+			}
+		)
+	</script>
+</html>
