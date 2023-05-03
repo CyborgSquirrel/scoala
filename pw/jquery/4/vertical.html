@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	</head>
+	<body>
+		<table class="full" style="width: 180px; margin-top: 1em;">
+			<tbody>
+				<tr>
+					<th>Fructe</th>
+					<td>Mere</td>
+					<td>Pere</td>
+					<td>Caise</td>
+					<td>Capsuni</td>
+				</tr>
+				<tr>
+					<th>Pret</th>
+					<td>3</td>
+					<td>4</td>
+					<td>7</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<th>Cantitate</th>
+					<td>8</td>
+					<td>6</td>
+					<td>2</td>
+					<td>9</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script>
+		$("tbody > tr > th").click(event => {
+			sortByRow(event.currentTarget);
+		})
+		
+		function sortByRow(rowHeading) {
+			let rowElements = $(rowHeading).parent().children().toArray().slice(1);
+
+			let order = [];
+			for (let i = 0; i < rowElements.length; ++i) {
+				order.push(i);
+			}
+
+			order.sort((a, b) => rowElements[a].textContent < rowElements[b].textContent);
+
+			let rows = $(rowHeading).parent().parent().children().toArray();
+			rows.forEach(row => {
+				let children = $(row).children().slice(1).toArray();
+				$(children).remove();
+				children = order.map(index => children[index]);
+				$(row).append($(children))
+			});
+		}
+	</script>
+</html>

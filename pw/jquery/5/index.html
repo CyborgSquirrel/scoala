@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 		<style>
 			ol#carousel {
 				position: relative;
@@ -39,21 +40,26 @@
 				<a href="https://www.youtube.com/watch?v=85aVEtikOGA">ventus obscurus</a>
 			</li>
 		</ol>
-		<input type="button" value="Previous" onclick="carouselAddButton(-1)">
-		<input type="button" value="Next" onclick="carouselAddButton(1)">
+		<input type="button" value="Previous">
+		<input type="button" value="Next">
 	</body>
 	<script>
+		$("input[value=\"Previous\"]").click((event) => {
+			carouselAddButton(-1);
+		});
+		$("input[value=\"Next\"]").click((event) => {
+			carouselAddButton(1);
+		});
+		
 		function carouselAdd(amount) {
-			let carousel = document.getElementById("carousel");
-			let visible = carousel.querySelector("li.visible");
+			let carousel = $("#carousel");
+			let visible = $("li.visible");
 
-			let visibleIndex =
-				Array.prototype.slice.call(carousel.children)
-					.findIndex(element => element === visible);
+			let visibleIndex = carousel.children().index(visible);
 
-			visibleIndex = (((visibleIndex+amount) % carousel.children.length) + carousel.children.length) % carousel.children.length;
-			visible.classList.remove("visible");
-			carousel.children[visibleIndex].classList.add("visible");
+			visibleIndex = (((visibleIndex+amount) % carousel.children().length) + carousel.children().length) % carousel.children().length;
+			visible.removeClass("visible");
+			$(carousel.children()[visibleIndex]).addClass("visible");
 		}
 
 		var cancelCarouselLoop = null;

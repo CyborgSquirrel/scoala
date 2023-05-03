@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	</head>
+	<body>
+		<select id="crewmate" name="crewmate" size="6">
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="pink">Pink</option>
+		</select>
+		<select id="impostor" name="impostor" size="6">
+			<option value="white">White</option>
+			<option value="yellow">Yellow</option>
+			<option value="blue">Blue</option>
+		</select>
+	</body>
+	<script>
+		$("body > select > option").dblclick((event) => {
+			let element = event.currentTarget;
+			let parent = element.parentElement;
+			let newParentId = null;
+			if (parent.id === "crewmate") {
+				newParentId = "impostor";
+			} else if (parent.id === "impostor") {
+				newParentId = "crewmate";
+			} else {
+				console.assert(false);
+			}
+			let newParent = $(`#${newParentId}`)[0];
+			parent.removeChild(element);
+			newParent.appendChild(element);
+		})
+	</script>
+</html>

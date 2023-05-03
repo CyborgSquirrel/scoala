@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	</head>
+	<body>
+		<table id="game">
+			<tbody></tbody>
+		</table>
+		<label for="game-n">n</label>
+		<input type="number" id="game-n" value="4">
+		<br>
+		<input type="button" value="create table">
+	</body>
+	<script>
+		$("input[value=\"create table\"]").click(
+			(event) => {
+				let nElement = $("#game-n")[0];
+
+				n = parseInt(nElement.value);
+
+				game.createTable(n);
+			}
+		);
+
+		class Game {
+			constructor() {
+				this.__n = null;
+			}
+
+			createTable(n) {
+				this.__n = n;
+				
+				let tableBody = $("table#game > tbody");
+				tableBody.empty();
+
+				// create
+				let index = 0;
+				for (let i = 0; i < this.__n; ++i) {
+					let tableRow = document.createElement("tr");
+					for (let j = 0; j < this.__n; ++j) {
+						let tableData = document.createElement("td");
+						if (index != this.__n*this.__n-1) {
+							tableData.innerText = (index+1).toString();
+						} else {
+							tableData.id = "empty";
+						}
+						tableRow.appendChild(tableData);
+
+						index += 1;
+					}
+					tableBody.append(tableRow);
+				}
+
+				// shuffle
+				for (let i = 0; i < this.__n*this.__n*4; ++i) {
+					let direction = Math.floor(Math.random() * 4);
+					switch (direction) {
+						case 0: this.shift("up");    break;
+						case 1: this.shift("down");  break;
+						case 2: this.shift("left");  break;
+						case 3: this.shift("right"); break;
+					}
+				}
+			};
+
+			shift(direction) {
+				let tableDataEmpty = $("#empty")[0];
+				let position = getTableDataPosition($(tableDataEmpty));
+
+				let positionDelta = null;
+				switch (direction) {
+					case "up"   : positionDelta = [ 0 ,  1]; break;
+					case "down" : positionDelta = [ 0 , -1]; break;
+					case "left" : positionDelta = [ 1 ,  0]; break;
+					case "right": positionDelta = [-1 ,  0]; break;
+				}
+
+				let newPosition = [
+					position[0] + positionDelta[0],
+					position[1] + positionDelta[1]
+				];
+
+				if (newPosition[0] < 0 || newPosition[0] >= this.__n || newPosition[1] < 0 || newPosition[1] >= this.__n) {
+					return;
+				}
+
+				let tableDataNew = tableDataFromPosition(newPosition);
+
+				let aux = document.createElement("div");
+				tableDataEmpty.replaceWith(aux);
+				tableDataNew.replaceWith(tableDataEmpty);
+				aux.replaceWith(tableDataNew);
+			}
+		}
+
+		var game = new Game();
+		
+		function tableDataFromPosition(position) {
+			let tableBody = $("table#game > tbody");
+			return $(tableBody.children()[position[1]]).children()[position[0]];
+		}
+
+		function getTableDataPosition(tableData) {
+			let tableRow = tableData.parent();
+			let tableBody = tableRow.parent();
+
+			let x = tableRow.children().index(tableData);
+			let y = tableBody.children().index(tableRow);
+
+			return [x, y];
+		}
+
+		$(document).keydown(
+			(event) => {
+				switch (event.key) {
+					case "ArrowUp"   : game.shift("up");    break;
+					case "ArrowDown" : game.shift("down");  break;
+					case "ArrowLeft" : game.shift("left");  break;
+					case "ArrowRight": game.shift("right"); break;
+				}
+			}
+		)
+	</script>
+</html>

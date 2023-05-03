@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			#game {
+				--cell-width: 50px;
+				--cell-height: 50px;
+				display: grid;
+				width: fit-content;
+				grid-template-rows:
+					var(--cell-height)
+					var(--cell-height)
+					var(--cell-height)
+					var(--cell-height);
+				grid-template-columns:
+					var(--cell-width)
+					var(--cell-width)
+					var(--cell-width)
+					var(--cell-width);
+				grid-gap: 1px;
+				background-color: black;
+				border: 1px solid black;
+			}
+
+			#game > div {
+				background-color: white;
+				align-items: center;
+				justify-content: center;
+			}
+
+			#game > div > div {
+				width: 100%;
+				height: 100%;
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+				
+				opacity: 0;
+				transition: opacity 2s;
+			}
+
+			#game > div.show > div {
+				opacity: 1;
+			}
+
+			#game > div > div[data-value="1"] {
+				background-image: url("gfx/among-us-black-pumpkin-hat-png-01.png");
+			}
+			#game > div > div[data-value="2"] {
+				background-image: url("gfx/among-us-brown-toilet-paper-hat-png-01.png");
+			}
+			#game > div > div[data-value="3"] {
+				background-image: url("gfx/among-us-cyan-png-01.png");
+			}
+			#game > div > div[data-value="4"] {
+				background-image: url("gfx/among-us-green-dead-body-png-01.png");
+			}
+			#game > div > div[data-value="5"] {
+				background-image: url("gfx/among-us-lime-witch-hat-png-01.png");
+			}
+			#game > div > div[data-value="6"] {
+				background-image: url("gfx/among-us-orange-egg-hat-png-01.png");
+			}
+			#game > div > div[data-value="7"] {
+				background-image: url("gfx/among-us-purple-leaf-hat-png-01.png");
+			}
+			#game > div > div[data-value="8"] {
+				background-image: url("gfx/among-us-red-png-01.png");
+			}
+		</style>
+	</head>
+	<body>
+		<div id="game">
+			<div><div data-value="8"></div></div>
+			<div><div data-value="7"></div></div>
+			<div><div data-value="4"></div></div>
+			<div><div data-value="6"></div></div>
+			<div><div data-value="5"></div></div>
+			<div><div data-value="2"></div></div>
+			<div><div data-value="6"></div></div>
+			<div><div data-value="1"></div></div>
+			<div><div data-value="3"></div></div>
+			<div><div data-value="7"></div></div>
+			<div><div data-value="3"></div></div>
+			<div><div data-value="5"></div></div>
+			<div><div data-value="2"></div></div>
+			<div><div data-value="1"></div></div>
+			<div><div data-value="4"></div></div>
+			<div><div data-value="8"></div></div>
+		</div>
+	</body>
+	<script>
+		var solvedTiles = new Set();
+		var selectedTiles = [];
+
+		var canSelect = true;
+
+		$("#game > div").click(async (event) => {
+			if (!canSelect) {
+				return;
+			}
+
+			let tile = event.currentTarget;
+		
+			if (solvedTiles.has(tile)) {
+				return;
+			}
+
+			if (selectedTiles.length === 0) {
+				selectedTiles.push(tile);
+				tile.classList.add("show");
+
+				return;
+			}
+
+			if (selectedTiles.length === 1) {
+				if (selectedTiles[0] === tile) {
+					return;
+				}
+
+				selectedTiles.push(tile);
+				$(tile).addClass("show");
+
+				if (selectedTiles[0].innerHTML === selectedTiles[1].innerHTML) {
+					solvedTiles.add(selectedTiles[0])
+					solvedTiles.add(selectedTiles[1])
+					selectedTiles.length = 0;
+
+					return;
+				} else {
+					canSelect = false;
+
+					// Wait for fade-in
+					{
+						let transitionedTiles = new Set();
+
+						let transitionResolve;
+						let transitionReject;
+						let transition = new Promise(function(resolve, reject) {
+							transitionResolve = resolve;
+							transitionReject = reject;
+						});
+
+						$(selectedTiles).one(
+							"transitionend",
+							event => {
+								transitionedTiles.add(event.target);
+								if (transitionedTiles.size === 2) {
+									transitionResolve();
+								}
+							},
+						);
+						await transition;
+					}
+
+					// Wait for fade-out
+					{
+						let transitionedTiles = new Set();
+
+						let transitionResolve;
+						let transitionReject;
+						let transition = new Promise(function(resolve, reject) {
+							transitionResolve = resolve;
+							transitionReject = reject;
+						});
+					
+						$(selectedTiles)
+							.removeClass("show")
+							.one(
+								"transitionend",
+								event => {
+									transitionedTiles.add(event.target);
+									if (transitionedTiles.size === 2) {
+										transitionResolve();
+									}
+								},
+							);
+
+						selectedTiles.length = 0;
+
+						await transition;
+					}
+
+					canSelect = true;
+
+					return;
+				}
+			}
+		});
+	</script>
+</html>
