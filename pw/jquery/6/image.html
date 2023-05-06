@@ -160,11 +160,7 @@
 
 		function toggleShowCellNumbers() {
 			let game = $("#game");
-			if (game.hasClass("show-cell-numbers")) {
-				game.removeClass("show-cell-numbers");
-			} else {
-				game.addClass("show-cell-numbers");
-			}
+			game.toggleClass("show-cell-numbers");
 		}
 	</script>
 </html>

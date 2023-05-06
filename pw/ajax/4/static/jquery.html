@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			#game {
+				font-size: 30px;
+				text-align: center;
+			}
+			#game > tbody > tr > td {
+				border: 1px solid;
+				width: 2.2ch;
+				height: 2.2ch;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="game">
+			<tbody>
+			</tbody>
+		</table>
+		<p id="winner-message"></p>
+
+		<script>
+			$(document).ready(async () => {
+				$("#winner-message").hide();
+
+				await restartGame();
+				loadGame();
+			});
+		
+			function restartGame() {
+				let httpRequestBody = {
+					"Restart": null
+				};
+
+				let promiseResolve = null;
+				let promiseReject = null;
+				let promise = new Promise((resolve, reject) => {
+					promiseResolve = resolve;
+					promiseReject = reject;
+				});
+			
+				$.ajax({
+					url: "/request",
+					method: "POST",
+	        contentType: "application/json",
+					data: JSON.stringify(httpRequestBody),
+				}).done((response) => {
+					promiseResolve();
+				});
+
+				return promise;
+			}
+
+			function loadGame() {
+				let httpRequestBody = {
+					"GetGame": null
+				};
+
+				$.ajax({
+					url: "/request",
+					method: "POST",
+	        contentType: "application/json",
+					data: JSON.stringify(httpRequestBody),
+				}).done((response) => {
+					// game table
+					let table = $("#game > tbody");
+					table.empty();
+					let rowIndex = 0;
+					response.cells.forEach((row) => {
+						let tableRow = $(document.createElement("tr"));
+						let colIndex = 0;
+						row.forEach((rowCol) => {
+							let tableRowCol = $(document.createElement("td"));
+							if (rowCol === null) {
+								rowCol = " ";
+
+								if (response.winner === null) {
+									tableRowCol
+										.data("row-index", rowIndex)
+										.data("col-index", colIndex)
+										.click((event) => {
+											let element = $(event.currentTarget);
+											makeMove(
+												element.data("row-index"),
+												element.data("col-index"),
+											);
+											loadGame();
+										});
+								}
+							}
+							tableRowCol.text(rowCol);
+							tableRow.append(tableRowCol);
+
+							colIndex += 1;
+						});
+						table.append(tableRow);
+
+						// winner message
+						if (response.winner !== null) {
+							$("#winner-message")
+								.text(`${response.winner} wins!`)
+								.show();
+						}
+
+						rowIndex += 1;
+					});
+				});
+			}
+
+			function makeMove(rowIndex, colIndex) {
+				let httpRequestBody = {
+					"MakeMove": {
+						"row": rowIndex,
+						"col": colIndex,
+					}
+				};
+
+				$.ajax({
+					url: "/request",
+					method: "POST",
+	        contentType: "application/json",
+					data: JSON.stringify(httpRequestBody),
+				}).done((response) => {
+				});
+			}
+		</script>
+	</body>
+</html>

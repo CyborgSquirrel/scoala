@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			#container {
+				display: flex;
+				flex-direction: row;
+			}
+			#laptop {
+				flex: 10 1 0;
+			}
+			#filters {
+				flex: 1 1 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<table id="laptops">
+				<tbody>
+					<tr>
+						<th>nume</th>
+						<th>producator</th>
+						<th>procesor</th>
+						<th>memorie</th>
+						<th>capacitate</th>
+						<th>tip disc</th>
+						<th>placa video</th>
+					</tr>
+				</tbody>
+			</table>
+			<div id="filters">
+				<label for="select-producer">producator</label>
+				<select id="select-producer"></select>
+				<br>
+				<label for="select-processor">procesor</label>
+				<select id="select-processor"></select>
+				<br>
+				<label for="select-memory">memorie</label>
+				<select id="select-memory"></select>
+				<br>
+				<label for="select-storage-capacity">capacitate</label>
+				<select id="select-storage-capacity"></select>
+				<br>
+				<label for="select-storage-type">tip disc</label>
+				<select id="select-storage-type"></select>
+				<br>
+				<label for="select-video-card">placa video</label>
+				<select id="select-video-card"></select>
+				<br>
+				<input type="button" value="Filter">
+			</div>
+		</div>
+		
+		<script>
+			$(document).ready(() => {
+				loadFilters();
+				loadLaptops();
+			});
+
+			$("input[value=\"Filter\"]").click((event) => {
+				loadLaptops();
+			});
+
+			function loadFilters() {
+				const httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = async () => {
+					if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+						return;
+					}
+					if (httpRequest.status !== 200) {
+						return;
+					}
+
+					let response = httpRequest.responseText;
+					response = JSON.parse(response);
+
+					responseNameToElement = {
+						"producer": $("#select-producer"),
+						"processor": $("#select-processor"),
+						"memory": $("#select-memory"),
+						"storageCapacity": $("#select-storage-capacity"),
+						"storageType": $("#select-storage-type"),
+						"videoCard": $("#select-video-card"),
+					};
+
+					Object.entries(response).forEach((entry) => {
+						console.log(entry);
+						let element = responseNameToElement[entry[0]];
+						element.empty();
+
+						let option = $(document.createElement("option"));
+						element.append(option);
+						entry[1].forEach((filter) => {
+							let option = $(document.createElement("option"));
+							option.text(filter);
+							element.append(option);
+						})
+					});
+				};
+
+				httpRequest.open("POST", "/request");
+				let httpRequestBody = {
+					"GetFilters": null
+				};
+				httpRequest.send(JSON.stringify(httpRequestBody));
+			}
+
+			function loadLaptops() {
+				const httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = async () => {
+					if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+						return;
+					}
+					if (httpRequest.status !== 200) {
+						return;
+					}
+
+					let response = httpRequest.responseText;
+					response = JSON.parse(response);
+
+					let table = $("#laptops > tbody");
+					table.children().slice(1).remove();
+
+					responseNames = [
+						"name",
+						"producer",
+						"processor",
+						"memory",
+						"storageCapacity",
+						"storageType",
+						"videoCard",
+					];
+
+					response.forEach((laptop) => {
+						let tr = $(document.createElement("tr"));
+						responseNames.forEach((fieldName) => {
+							let td = $(document.createElement("td"));
+							td.text(laptop[fieldName]);
+							tr.append(td);
+						})
+						table.append(tr);
+					});
+				};
+
+				httpRequest.open("POST", "/request");
+				let httpRequestBody = {
+					"GetLaptops": {}
+				};
+
+				filterNameToElement = {
+					"producer": $("#select-producer"),
+					"processor": $("#select-processor"),
+					"memory": $("#select-memory"),
+					"storageCapacity": $("#select-storage-capacity"),
+					"storageType": $("#select-storage-type"),
+					"videoCard": $("#select-video-card"),
+				};
+				Object.entries(filterNameToElement).forEach((entry) => {
+					let filterValue = null;
+					if (entry[1].val() != "") {
+						filterValue = entry[1].val();
+					}
+					httpRequestBody["GetLaptops"][entry[0]] = filterValue;
+				});
+
+				httpRequest.send(JSON.stringify(httpRequestBody));
+			}
+		</script>
+	</body>
+</html>

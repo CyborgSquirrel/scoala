@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			#container {
+				display: flex;
+				flex-direction: row;
+				height: 20ch;
+			}
+
+			#container > div {
+				flex: 0 0 auto;
+			}
+
+			#id-select {
+				display: flex;
+				flex-direction: column;
+			}
+			#id-select > b {
+				flex: 0 0 auto;
+				display: block;
+			}
+			#id-select > div {
+				flex: 1;
+				text-align: center;
+				overflow-y: scroll;
+			}
+			#id-select > div > div {
+				margin: 0 1ch;
+			}
+
+			#form > div {
+				display: grid;
+				grid-template-columns: auto auto;
+				grid-template-rows: auto auto auto auto auto;
+			}
+			#form > div > * {
+				margin: 2px;
+			}
+			#form > div > input[type="button"] {
+				grid-column: 1 / 3;
+			}
+
+			#dialog-confirm-save {
+				width: 30ch;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="id-select">
+				<b>Id</b>
+				<div></div>
+			</div>
+			<div id="form">
+				<b>Form</b>
+				<div>
+					<label for="input-name">Id</label>
+					<input type="text" autocomplete="off" id="input-id" disabled>
+					<label for="input-name">Nume</label>
+					<input type="text" autocomplete="off" id="input-name">
+					<label for="input-surname">Prenume</label>
+					<input type="text" autocomplete="off" id="input-surname">
+					<label for="input-phone">Telefon</label>
+					<input type="text" autocomplete="off" id="input-phone">
+					<label for="input-email">E-mail</label>
+					<input type="text" autocomplete="off" id="input-email">
+					<input disabled type="button" value="Submit">
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<dialog id="dialog-confirm-save">
+		<p>Datele au fost modificate fara sa fie salvate. Ati vrea sa salvati datele?</p>
+		<form method="dialog">
+			<button value="yes">Da</button>
+			<button value="no">Nu</button>
+		</form>
+	</dialog>
+
+	<script>
+		const submitButton = "#form > div > input[value=\"Submit\"]";
+
+		// global state
+		var inputModified = null;
+		var userId = null;
+
+		$(document).ready(() => {
+			loadIds();
+		});
+
+		$("#dialog-confirm-save button[value=\"yes\"]").click((event) => {
+			submitForm();
+		});
+
+		$(submitButton).click((event) => {
+			submitForm();
+		});
+		
+		$("#form > div > input:not([type=\"button\"])").on("input", (event) => {
+			inputModified = true;
+			$(submitButton).prop("disabled", false);
+		});
+
+		function submitForm() {
+			const httpRequest = new XMLHttpRequest();
+			httpRequest.onreadystatechange = () => {
+				if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+					return;
+				}
+				if (httpRequest.status !== 200) {
+					return;
+				}
+
+				let response = httpRequest.responseText;
+				response = JSON.parse(response);
+
+				$(submitButton).prop("disabled", true);
+				inputModified = null;
+			};
+
+			httpRequest.open("POST", "/request");
+
+			let httpRequestBody = {
+				"UpdateUser": { }
+			};
+			
+			let userKeyToInput = {
+        "name"   : $("#input-name")   ,
+        "surname": $("#input-surname"),
+        "phone"  : $("#input-phone")  ,
+        "email"  : $("#input-email")  ,
+			};
+
+			httpRequestBody["UpdateUser"]["id"] = userId;
+			Object.entries(userKeyToInput).forEach((entry) => {
+				httpRequestBody["UpdateUser"][entry[0]] = entry[1].val();
+			});
+
+			httpRequest.send(JSON.stringify(httpRequestBody));
+		}
+		
+		function loadForm(id) {
+			const httpRequest = new XMLHttpRequest();
+			httpRequest.onreadystatechange = async () => {
+				if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+					return;
+				}
+				if (httpRequest.status !== 200) {
+					return;
+				}
+
+				if (inputModified === true) {
+					let promise = new Promise((resolve, reject) => {
+						$("#dialog-confirm-save").one("close", (event) => {
+							resolve();
+						});
+					});
+					
+					$("#dialog-confirm-save")[0].showModal();
+
+					await promise;
+				}
+
+				userId = id;
+
+				let userKeyToInput = {
+          "name"   : $("#input-name")   ,
+          "surname": $("#input-surname"),
+          "phone"  : $("#input-phone")  ,
+          "email"  : $("#input-email")  ,
+				};
+				
+				let response = httpRequest.responseText;
+				response = JSON.parse(response);
+
+				$(submitButton).prop("disabled", true);
+				inputModified = false;
+
+				Object.entries(response).forEach((entry) => {
+					userKeyToInput[entry[0]].val(entry[1]);
+				});
+				$("#input-id").val(userId.toString());
+			};
+
+			httpRequest.open("POST", "/request");
+			let httpRequestBody = {
+				"GetUser": {
+					"id": id
+				}
+			};
+			httpRequest.send(JSON.stringify(httpRequestBody));
+		}
+	
+		function loadIds() {
+			const httpRequest = new XMLHttpRequest();
+			httpRequest.onreadystatechange = () => {
+				if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+					return;
+				}
+				if (httpRequest.status !== 200) {
+					return;
+				}
+
+				let idSelect = $("#id-select > div");
+				idSelect.empty();
+
+				let response = httpRequest.responseText;
+				response = JSON.parse(response);
+
+				response.ids.forEach(id => {
+					let div = $(document.createElement("div"));
+					div.text(id.toString());
+					div.click((event) => {
+						let id = parseInt(event.currentTarget.innerText);
+						loadForm(id);
+					});
+					idSelect.append(div);
+				});
+			};
+
+			httpRequest.open("POST", "/request");
+			let httpRequestBody = {
+				"GetIds": null
+			};
+			httpRequest.send(JSON.stringify(httpRequestBody));
+		}
+	</script>
+</html>

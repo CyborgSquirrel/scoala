@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			#container {
+				display: flex;
+				flex-direction: row;
+				height: 20ch;
+				width: 100%;
+			}
+
+			#container > div {
+				flex: 1;
+
+				display: flex;
+				flex-direction: column;
+			}
+
+			#container > div > b {
+				flex: 0 0 auto;
+			}
+
+			#container > div > div {
+				overflow-y: scroll;
+				flex: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div>
+				<b>Sources</b>
+				<div id="sources"></div>
+			</div>
+			<div>
+				<b>Destinations</b>
+				<div id="destinations"></div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function loadDestinationsFromSource(source) {
+			let httpRequestBody = {
+				"GetDestinationsFromSource": {
+					"source": source
+				},
+			};
+
+			$.ajax({
+				url: "/request",
+				method: "POST",
+        contentType: "application/json",
+				data: JSON.stringify(httpRequestBody),
+			}).done((response) => {
+				let destinations = $("#destinations");
+				destinations.empty();
+
+				response.forEach(city => {
+					let element = $(document.createElement("div"));
+					element.text(city);
+					destinations.append(element);
+				});
+			});
+		}
+	
+		function loadSources() {
+			let httpRequestBody = {
+				"GetSources": {},
+			};
+
+			$.ajax({
+				url: "/request",
+				method: "POST",
+        contentType: "application/json",
+				data: JSON.stringify(httpRequestBody),
+			}).done((response) => {
+				let sources = $("#sources");
+				sources.empty();
+
+				response.forEach(city => {
+					let element = $(document.createElement("div"));
+					element.text(city);
+					element.click((event) => {
+						loadDestinationsFromSource(event.currentTarget.innerText);
+					});
+					sources.append(element);
+				});
+			});
+		}
+
+		loadSources();
+	</script>
+</html>

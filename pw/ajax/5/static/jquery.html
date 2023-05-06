@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			li.directory {
+				color: blue;
+			}
+			li.file {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>/</li>
+		</ul>
+		
+		<script>
+			$(document).ready(() => {
+				$("li")
+					.data("path", "/")
+					.addClass("directory")
+					.one("click", (event) => loadDirectory(event.currentTarget));
+			});
+
+			function loadDirectory(element) {
+				element = $(element);
+
+				let httpRequestBody = {
+					"GetDirectory": {
+						"path": element.data("path")
+					}
+				};
+
+				$.ajax({
+					url: "/request",
+					method: "POST",
+	        contentType: "application/json",
+					data: JSON.stringify(httpRequestBody),
+				}).done(async (response) => {
+					let children = $(document.createElement("ul"));
+					element.append(children);
+
+					response.forEach((direntry) => {
+						let child = $(document.createElement("li"));
+						let path = element.data("path") + "/" + direntry.name;
+						if (direntry.isDir) {
+							child
+								.data("path", path)
+								.addClass("directory")
+								.one("click", (event) => loadDirectory(event.currentTarget));
+						} else {
+							child
+								.data("path", path)
+								.addClass("file")
+								.one("click", (event) => loadFile(event.currentTarget));
+						}
+						child.text(direntry.name);
+						children.append(child);
+					});
+				});
+			}
+
+			function loadFile(element) {
+				element = $(element);
+
+				let httpRequestBody = {
+					"GetFile": {
+						"path": element.data("path")
+					}
+				};
+
+				$.ajax({
+					url: "/request",
+					method: "POST",
+	        contentType: "application/json",
+					data: JSON.stringify(httpRequestBody),
+				}).done(async (response) => {
+					let contents = $(document.createElement("div"));
+					contents.text(response["contents"]);
+					element.append(contents);
+				});
+			}
+		</script>
+	</body>
+</html>

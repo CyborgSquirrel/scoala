@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			#container {
+				display: flex;
+				flex-direction: row;
+				height: 20ch;
+				width: 100%;
+			}
+
+			#container > div {
+				flex: 1;
+
+				display: flex;
+				flex-direction: column;
+			}
+
+			#container > div > b {
+				flex: 0 0 auto;
+			}
+
+			#container > div > div {
+				overflow-y: scroll;
+				flex: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div>
+				<b>Sources</b>
+				<div id="sources"></div>
+			</div>
+			<div>
+				<b>Destinations</b>
+				<div id="destinations"></div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function loadDestinationsFromSource(source) {
+			const httpRequest = new XMLHttpRequest();
+			httpRequest.onreadystatechange = () => {
+				if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+					return;
+				}
+				if (httpRequest.status !== 200) {
+					return;
+				}
+
+				let destinations = $("#destinations");
+				destinations.empty();
+
+				let response = httpRequest.responseText;
+				response = JSON.parse(response);
+				response.forEach(city => {
+					let element = $(document.createElement("div"));
+					element.text(city);
+					destinations.append(element);
+				});
+			};
+			httpRequest.open("POST", "/request");
+			let httpRequestBody = {
+				"GetDestinationsFromSource": {
+					"source": source
+				},
+			};
+			httpRequest.send(JSON.stringify(httpRequestBody));
+		}
+	
+		function loadSources() {
+			const httpRequest = new XMLHttpRequest();
+			httpRequest.onreadystatechange = () => {
+				if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+					return;
+				}
+				if (httpRequest.status !== 200) {
+					return;
+				}
+
+				let sources = $("#sources");
+				sources.empty();
+
+				let response = httpRequest.responseText;
+				response = JSON.parse(response);
+				response.forEach(city => {
+					let element = $(document.createElement("div"));
+					element.text(city);
+					element.click((event) => {
+						loadDestinationsFromSource(event.currentTarget.innerText);
+					});
+					sources.append(element);
+				});
+			};
+			httpRequest.open("POST", "/request");
+			let httpRequestBody = {
+				"GetSources": null,
+			};
+			httpRequest.send(JSON.stringify(httpRequestBody));
+		}
+
+		loadSources();
+	</script>
+</html>

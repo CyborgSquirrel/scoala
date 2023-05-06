@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			li.directory {
+				color: blue;
+			}
+			li.file {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>/</li>
+		</ul>
+		
+		<script>
+			$(document).ready(() => {
+				$("li")
+					.data("path", "/")
+					.addClass("directory")
+					.one("click", (event) => loadDirectory(event.currentTarget));
+			});
+
+			function loadDirectory(element) {
+				element = $(element);
+
+				const httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = async () => {
+					if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+						return;
+					}
+					if (httpRequest.status !== 200) {
+						return;
+					}
+
+					let response = httpRequest.responseText;
+					response = JSON.parse(response);
+
+					let children = $(document.createElement("ul"));
+					element.append(children);
+
+					response.forEach((direntry) => {
+						let child = $(document.createElement("li"));
+						let path = element.data("path") + "/" + direntry.name;
+						if (direntry.isDir) {
+							child
+								.data("path", path)
+								.addClass("directory")
+								.one("click", (event) => loadDirectory(event.currentTarget));
+						} else {
+							child
+								.data("path", path)
+								.addClass("file")
+								.one("click", (event) => loadFile(event.currentTarget));
+						}
+						child.text(direntry.name);
+						children.append(child);
+					});
+				};
+
+				httpRequest.open("POST", "/request");
+				let httpRequestBody = {
+					"GetDirectory": {
+						"path": element.data("path")
+					}
+				};
+				httpRequest.send(JSON.stringify(httpRequestBody));
+			}
+
+			function loadFile(element) {
+				element = $(element);
+
+				const httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = async () => {
+					if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+						return;
+					}
+					if (httpRequest.status !== 200) {
+						return;
+					}
+
+					let response = httpRequest.responseText;
+					response = JSON.parse(response);
+
+					let contents = $(document.createElement("div"));
+					contents.text(response["contents"]);
+					element.append(contents);
+				};
+
+				httpRequest.open("POST", "/request");
+				let httpRequestBody = {
+					"GetFile": {
+						"path": element.data("path")
+					}
+				};
+				httpRequest.send(JSON.stringify(httpRequestBody));
+			}
+		</script>
+	</body>
+</html>

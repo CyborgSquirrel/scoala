@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<style>
+			#game {
+				font-size: 30px;
+				text-align: center;
+			}
+			#game > tbody > tr > td {
+				border: 1px solid;
+				width: 2.2ch;
+				height: 2.2ch;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="game">
+			<tbody>
+			</tbody>
+		</table>
+		<p id="winner-message"></p>
+
+		<script>
+			$(document).ready(async () => {
+				$("#winner-message").hide();
+
+				await restartGame();
+				loadGame();
+			});
+		
+			function restartGame() {
+				let promiseResolve = null;
+				let promiseReject = null;
+				let promise = new Promise((resolve, reject) => {
+					promiseResolve = resolve;
+					promiseReject = reject;
+				});
+			
+				const httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = async () => {
+					if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+						return;
+					}
+					if (httpRequest.status !== 200) {
+						promiseReject();
+						return;
+					}
+
+					let response = httpRequest.responseText;
+					response = JSON.parse(response);
+
+					promiseResolve();
+				};
+
+				httpRequest.open("POST", "/request");
+				let httpRequestBody = {
+					"Restart": null
+				};
+				httpRequest.send(JSON.stringify(httpRequestBody));
+
+				return promise;
+			}
+
+			function loadGame() {
+				const httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = async () => {
+					if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+						return;
+					}
+					if (httpRequest.status !== 200) {
+						return;
+					}
+
+					let response = httpRequest.responseText;
+					response = JSON.parse(response);
+
+					// game table
+					let table = $("#game > tbody");
+					table.empty();
+					let rowIndex = 0;
+					response.cells.forEach((row) => {
+						let tableRow = $(document.createElement("tr"));
+						let colIndex = 0;
+						row.forEach((rowCol) => {
+							let tableRowCol = $(document.createElement("td"));
+							if (rowCol === null) {
+								rowCol = " ";
+
+								if (response.winner === null) {
+									tableRowCol
+										.data("row-index", rowIndex)
+										.data("col-index", colIndex)
+										.click((event) => {
+											let element = $(event.currentTarget);
+											makeMove(
+												element.data("row-index"),
+												element.data("col-index"),
+											);
+											loadGame();
+										});
+								}
+							}
+							tableRowCol.text(rowCol);
+							tableRow.append(tableRowCol);
+
+							colIndex += 1;
+						});
+						table.append(tableRow);
+
+						// winner message
+						if (response.winner !== null) {
+							$("#winner-message")
+								.text(`${response.winner} wins!`)
+								.show();
+						}
+
+						rowIndex += 1;
+					});
+				};
+
+				httpRequest.open("POST", "/request");
+				let httpRequestBody = {
+					"GetGame": null
+				};
+				httpRequest.send(JSON.stringify(httpRequestBody));
+			}
+
+			function makeMove(rowIndex, colIndex) {
+				const httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = async () => {
+					if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+						return;
+					}
+					if (httpRequest.status !== 200) {
+						return;
+					}
+
+					let response = httpRequest.responseText;
+					response = JSON.parse(response);
+				};
+
+				httpRequest.open("POST", "/request");
+				let httpRequestBody = {
+					"MakeMove": {
+						"row": rowIndex,
+						"col": colIndex,
+					}
+				};
+				httpRequest.send(JSON.stringify(httpRequestBody));
+			}
+		</script>
+	</body>
+</html>

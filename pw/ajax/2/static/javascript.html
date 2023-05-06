@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<input type="button" value="Previous">
+		<input type="button" value="Next">
+		<table id="users">
+			<tbody>
+				<tr>
+					<th>Nume</th>
+					<th>Prenume</th>
+					<th>Telefon</th>
+					<th>E-mail</th>
+					</tr>
+				</tbody>
+			</table>
+	</body>
+
+	<script>
+		var pageIndex = 0;
+
+		$("input[value=\"Previous\"]").click((event) => {
+			pageIndex = Math.max(0, pageIndex-1);
+			loadPage(pageIndex);
+		});
+		$("input[value=\"Next\"]").click((event) => {
+			pageIndex = pageIndex + 1;
+			loadPage(pageIndex);
+		});
+	
+		function loadPage(index) {
+			const httpRequest = new XMLHttpRequest();
+			httpRequest.onreadystatechange = () => {
+				if (httpRequest.readyState !== XMLHttpRequest.DONE) {
+					return;
+				}
+				if (httpRequest.status !== 200) {
+					return;
+				}
+
+				let usersTable = $("#users > tbody");
+				usersTable.children().slice(1).remove();
+
+				let response = httpRequest.responseText;
+				response = JSON.parse(response);
+
+				$("input[value=\"Previous\"]").prop("disabled", index <= 0);
+				$("input[value=\"Next\"]").prop("disabled", response["isLast"]);
+				
+				tableFieldKeys = [ "name", "surname", "phone", "email" ];
+				response.users.forEach(user => {
+					let tr = $(document.createElement("tr"));
+					tableFieldKeys.forEach(fieldKey => {
+						let td = $(document.createElement("td"));
+						td.text(user[fieldKey]);
+						tr.append(td);
+					});
+					usersTable.append(tr);
+				});
+			};
+
+			httpRequest.open("POST", "/request");
+			let httpRequestBody = {
+				"GetPage": {
+					"index": index,
+				}
+			};
+			httpRequest.send(JSON.stringify(httpRequestBody));
+		}
+
+		loadPage(pageIndex);
+	</script>
+</html>
