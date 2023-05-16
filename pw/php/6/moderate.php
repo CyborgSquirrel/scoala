@@ -4,6 +4,7 @@ session_start();
 $db = new SQLite3("data.db");
 
 if (
+	// logged in
 	   !array_key_exists("logged_in", $_SESSION)
 	|| !$_SESSION["logged_in"]
 ) {
@@ -29,6 +30,7 @@ if (
 <h1>its moderatin' time</h1>
 
 <form method="POST" action="log_out.php">
+	<input type="hidden" name="csrf_token" value="<?php echo $_SESSION["csrf_token"] ?>">
 	<input type="submit" value="Log Out">
 </form>
 
@@ -46,11 +48,13 @@ $result = $statement->execute();
 		<form method="POST" action="approve_comment.php">
 			<input type="hidden" name="id" value="<?php echo $row["id"] ?>">
 			<input type="hidden" name="back" value="<?php echo $_SERVER["REQUEST_URI"] ?>">
+			<input type="hidden" name="csrf_token" value="<?php echo $_SESSION["csrf_token"] ?>">
 			<input type="submit" value="Approve">
 		</form>
 		<form method="POST" action="reject_comment.php">
 			<input type="hidden" name="id" value="<?php echo $row["id"] ?>">
 			<input type="hidden" name="back" value="<?php echo $_SERVER["REQUEST_URI"] ?>">
+			<input type="hidden" name="csrf_token" value="<?php echo $_SESSION["csrf_token"] ?>">
 			<input type="submit" value="Incinerate 🔥">
 		</form>
 	</div>

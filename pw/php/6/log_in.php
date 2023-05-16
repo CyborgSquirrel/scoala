@@ -12,6 +12,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 				&& $_POST["password"] === "admin"
 			) {
 				$_SESSION["logged_in"] = true;
+				$_SESSION["csrf_token"] = uniqid("", true);
+				$_POST["csrf_token"] = $_SESSION["unique_token"];
 				header("Location: /6/moderate.php", true, 303);
 			} else {
 				echo "authentication error";

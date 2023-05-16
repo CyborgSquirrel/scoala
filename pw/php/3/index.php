@@ -23,6 +23,7 @@ if (array_key_exists("request", $_POST)) {
 		if ($row !== false) {
 			if ($row["password"] === $post_password) {
 				$_SESSION["logged_in"] = true;
+				$_SESSION["csrf_token"] = uniqid("", true);
 			} else {
 				echo "wrong password";
 			}
@@ -30,22 +31,29 @@ if (array_key_exists("request", $_POST)) {
 			echo "wrong name";
 		}
 	} else if (
-		$_POST["request"] === "log_out"
+		   $_POST["request"] === "log_out"
+		// logged in
+		&& array_key_exists("logged_in", $_SESSION)
+		&& $_SESSION["logged_in"]
+		// csrf token
+		&& array_key_exists("csrf_token", $_SESSION)
+		&& array_key_exists("csrf_token", $_POST)
+		&& $_SESSION["csrf_token"] === $_POST["csrf_token"]
 	) {
 		session_unset();
 		session_destroy();
 	} else if (
-		$_POST["request"] === "submit_grade"
-		&&
-		array_key_exists("logged_in", $_SESSION)
-		&&
-		$_SESSION["logged_in"]
-		&&
-		array_key_exists("student_id", $_POST)
-		&&
-		array_key_exists("subject_id", $_POST)
-		&&
-		array_key_exists("grade", $_POST)
+		   $_POST["request"] === "submit_grade"
+		// logged in
+		&& array_key_exists("logged_in", $_SESSION)
+		&& $_SESSION["logged_in"]
+		// csrf token
+		&& array_key_exists("csrf_token", $_SESSION)
+		&& array_key_exists("csrf_token", $_POST)
+		&& $_SESSION["csrf_token"] === $_POST["csrf_token"]
+		&& array_key_exists("student_id", $_POST)
+		&& array_key_exists("subject_id", $_POST)
+		&& array_key_exists("grade", $_POST)
 	) {
 		$post_student_id = (int) $_POST["student_id"];
 		$post_subject_id = (int) $_POST["subject_id"];
@@ -78,6 +86,7 @@ if (
 <h1>loged in</h1>
 <form method="POST">
 	<input type="hidden" name="request" value="log_out">
+	<input type="hidden" name="csrf_token" value="<?php echo $_SESSION["csrf_token"] ?>">
 	<input type="submit" value="Log Out">
 </form>
 
@@ -85,6 +94,7 @@ if (
 
 <form method="POST">
 	<input type="hidden" name="request" value="submit_grade">
+	<input type="hidden" name="csrf_token" value="<?php echo $_SESSION["csrf_token"] ?>">
 	<label for="subject_id">Subject</label>
 	<select id="subject_id" name="subject_id">
 		<?php

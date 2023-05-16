@@ -7,11 +7,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 	case "POST": {
 		if (array_key_exists("request", $_POST)) {
 			if (
-				$_POST["request"] === "log_in"
-				&&
-				array_key_exists("name", $_POST)
-				&&
-				array_key_exists("password", $_POST)
+				   $_POST["request"] === "log_in"
+				&& array_key_exists("name", $_POST)
+				&& array_key_exists("password", $_POST)
 			) {
 				$post_name = $_POST["name"];
 				$post_password = $_POST["password"];
@@ -26,6 +24,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 					if ($row["password"] === $post_password) {
 						$_SESSION["logged_in"] = true;
 						$_SESSION["user_id"] = (int) $row["id"];
+						$_SESSION["csrf_token"] = uniqid("", true);
 					} else {
 						echo "wrong password";
 					}
@@ -36,15 +35,27 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 				header("Location: {$_SERVER['REQUEST_URI']}", true, 303);
 			} else if (
 				$_POST["request"] === "log_out"
+				// logged in
+				&& array_key_exists("logged_in", $_SESSION)
+				&& $_SESSION["logged_in"]
+				// csrf token
+				&& array_key_exists("csrf_token", $_SESSION)
+				&& array_key_exists("csrf_token", $_POST)
+				&& $_SESSION["csrf_token"] === $_POST["csrf_token"]
 			) {
 				session_unset();
 				session_destroy();
 
 				header("Location: {$_SERVER['REQUEST_URI']}", true, 303);
 			} else if (
-				$_POST["request"] === "save_image"
-				&&
-				$_SESSION["logged_in"]
+				   $_POST["request"] === "save_image"
+				// logged in
+				&& array_key_exists("logged_in", $_SESSION)
+				&& $_SESSION["logged_in"]
+				// csrf token
+				&& array_key_exists("csrf_token", $_SESSION)
+				&& array_key_exists("csrf_token", $_POST)
+				&& $_SESSION["csrf_token"] === $_POST["csrf_token"]
 			) {
 				$user_directory = "user_images/" . $_SESSION["user_id"];
 				if (!is_dir($user_directory)) {
@@ -58,11 +69,14 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 
 				header("Location: {$_SERVER['REQUEST_URI']}", true, 303);
 			} else if (
-				$_POST["request"] === "delete_image"
-				&&
-				array_key_exists("logged_in", $_SESSION)
-				&&
-				$_SESSION["logged_in"]
+				   $_POST["request"] === "delete_image"
+				// logged in
+				&& array_key_exists("logged_in", $_SESSION)
+				&& $_SESSION["logged_in"]
+				// csrf token
+				&& array_key_exists("csrf_token", $_SESSION)
+				&& array_key_exists("csrf_token", $_POST)
+				&& $_SESSION["csrf_token"] === $_POST["csrf_token"]
 			) {
 				$user_directory = "user_images/" . $_SESSION["user_id"];
 
@@ -77,9 +91,10 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 	}
 	case "GET": {
 		if (
-			array_key_exists("logged_in", $_SESSION)
-			&&
-			$_SESSION["logged_in"]
+			   array_key_exists("logged_in", $_SESSION)
+				// logged in
+				&& array_key_exists("logged_in", $_SESSION)
+				&& $_SESSION["logged_in"]
 		) {
 			if (array_key_exists("user_id", $_GET)) {
 				$user_id = (int) $_GET["user_id"];
@@ -95,9 +110,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 ?>
 
 <?php if (
-	array_key_exists("logged_in", $_SESSION)
-	&&
-	$_SESSION["logged_in"]
+	   array_key_exists("logged_in", $_SESSION)
+	&& $_SESSION["logged_in"]
 ) { ?>
 
 <!DOCTYPE html>
@@ -133,6 +147,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 
 <form method="POST">
 	<input type="hidden" name="request" value="log_out">
+	<input type="hidden" name="csrf_token" value="<?php echo $_SESSION["csrf_token"] ?>">
 	<input type="submit" value="Log Out">
 </form>
 
@@ -147,13 +162,13 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 ?>
 <p>this is <?php echo htmlentities($user_name); ?>'s page</p>
 
-
 <?php if ($user_id === (int) $_SESSION["user_id"]) { ?>
 
 <h1>submit a fiel!!</h1>
 
 <form method="POST" enctype="multipart/form-data">
 	<input type="hidden" name="request" value="save_image">
+	<input type="hidden" name="csrf_token" value="<?php echo $_SESSION["csrf_token"] ?>">
 	<input type="file" name="image">
 	<br>
 	<input type="submit" value="Save">
@@ -183,6 +198,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 			<?php if ($user_id === (int) $_SESSION["user_id"]) { ?>
 				<form method="POST">
 					<input type="hidden" name="request" value="delete_image">
+					<input type="hidden" name="csrf_token" value="<?php echo $_SESSION["csrf_token"] ?>">
 					<input type="hidden" name="image_name" value="<?php echo $file ?>">
 					<input type="submit" value="Deletus">
 				</form>
