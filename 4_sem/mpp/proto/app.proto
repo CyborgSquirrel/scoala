@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package application;
+import "google/protobuf/empty.proto";
+
+option java_package = "srv.application.protobuf";
+option java_outer_classname = "Protobuf";
+
+// Domain
+message Utilizator {
+  int32 id = 1;
+  string nume = 2;
+  string parola = 3;
+}
+
+message Echipa {
+  int32 id = 1;
+  string nume = 2;
+}
+
+enum MeciTip {
+  Simplu = 0;
+  Semifinala1 = 1;
+  Semifinala2 = 2;
+  Finala = 3;
+}
+
+message MeciDto {
+  int32 meciId = 1;
+  Echipa echipa1 = 2;
+  Echipa echipa2 = 3;
+  MeciTip tip = 4;
+  int32 locuriDisponibile = 5;
+  float pretBilet = 6;
+}
+
+// LogIn
+message LogInRequest {
+  string nume = 1;
+  string parola = 2;
+}
+
+message LogInResponse {
+  message OkResponse {
+    Utilizator utilizator = 1;
+  }
+  message ErrorResponse {
+    bool credentialeNevalide = 1;
+  }
+  oneof response {
+    OkResponse ok = 1;
+    ErrorResponse error = 2;
+  }
+}
+
+// LogOut
+message LogOutRequest {
+  int32 utilizatorId = 1;
+}
+
+message LogOutResponse {}
+
+// AdaugaVanzare
+message AdaugaVanzareRequest {
+  int32 meciId = 1;
+  string numeClient = 2;
+  int32 numarLocuri = 3;
+}
+
+message AdaugaVanzareResponse {
+  message ErrorResponse {
+    bool preaPutineLocuri = 1;
+  }
+  oneof response {
+    google.protobuf.Empty ok = 1;
+    ErrorResponse error = 2;
+  }
+}
+
+// GetMeciuri
+message GetMeciuriRequest {}
+message GetMeciuriDupaLocuriDisponibileRequest {}
+
+message MeciuriResponse {
+  repeated MeciDto meciuri = 1;
+}
+
+// VanzareUpdate
+message VanzareUpdateResponse {}
+
+// Service
+service Application {
+  rpc LogIn(LogInRequest) returns (LogInResponse) {}
+  rpc LogOut(LogOutRequest) returns (LogOutResponse) {}
+  rpc AdaugaVanzare(AdaugaVanzareRequest) returns (AdaugaVanzareResponse) {}
+  rpc GetMeciuri(GetMeciuriRequest) returns (MeciuriResponse) {}
+  rpc GetMeciuriDupaLocuriDisponibile(GetMeciuriDupaLocuriDisponibileRequest) returns (MeciuriResponse) {}
+}

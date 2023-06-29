@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        fx:id="root"
+        alignment="CENTER"
+        spacing="20.0"
+        xmlns:fx="http://javafx.com/fxml/1"
+        xmlns="http://javafx.com/javafx/11.0.11-internal"
+        fx:controller="gui.GuiJucatorJoaca">
+    <Label text="hehehe ha" />
+
+    <VBox fx:id="node_final" visible="false">
+        <Label fx:id="label_punctaj"/>
+        <Label fx:id="label_gropi"/>
+        <Label fx:id="label_pozitieClasament"/>
+    </VBox>
+
+    <TableView fx:id="tableView">
+        <columns>
+            <TableColumn text="alias" fx:id="tableColumn_alias"/>
+            <TableColumn text="punctaj" fx:id="tableColumn_punctaj"/>
+            <TableColumn text="durata" fx:id="tableColumn_durataSecunde"/>
+        </columns>
+    </TableView>
+
+<!--  mat[linie][coloana]  -->
+
+    <VBox>
+        <HBox>
+            <Button onAction="#button00"/>
+            <Button onAction="#button01"/>
+            <Button onAction="#button02"/>
+            <Button onAction="#button03"/>
+        </HBox>
+        <HBox>
+            <Button onAction="#button10"/>
+            <Button onAction="#button11"/>
+            <Button onAction="#button12"/>
+            <Button onAction="#button13"/>
+        </HBox>
+        <HBox>
+            <Button onAction="#button20"/>
+            <Button onAction="#button21"/>
+            <Button onAction="#button22"/>
+            <Button onAction="#button23"/>
+        </HBox>
+        <HBox>
+            <Button onAction="#button30"/>
+            <Button onAction="#button31"/>
+            <Button onAction="#button32"/>
+            <Button onAction="#button33"/>
+        </HBox>
+    </VBox>
+</VBox>

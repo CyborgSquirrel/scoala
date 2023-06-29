@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<VBox
+        fx:id="root"
+        alignment="CENTER"
+        spacing="20.0"
+        xmlns:fx="http://javafx.com/fxml/1"
+        xmlns="http://javafx.com/javafx/11.0.11-internal"
+        fx:controller="gui.GuiJucatorJoaca">
+    <fx:define>
+        <ToggleGroup fx:id="radioGroup"/>
+    </fx:define>
+
+    <Label text="go go go joc" />
+
+    <Button text="logout??" onAction="#onButtonLogOutAction"/>
+
+    <GridPane alignment="CENTER" hgap="10" vgap="10">
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="label_jucator0Nume"/>
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="2" fx:id="label_jucator0Punctaj"/>
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="3" fx:id="label_jucator0Cuvant"/>
+
+        <RadioButton GridPane.rowIndex="1" GridPane.columnIndex="0" toggleGroup="$radioGroup" fx:id="radioButton_jucator1Ghici"/>
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="label_jucator1Nume"/>
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="label_jucator1Punctaj"/>
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="3" fx:id="label_jucator1Cuvant"/>
+
+        <RadioButton GridPane.rowIndex="2" GridPane.columnIndex="0" toggleGroup="$radioGroup" fx:id="radioButton_jucator2Ghici"/>
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="label_jucator2Nume"/>
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="2" fx:id="label_jucator2Punctaj"/>
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="3" fx:id="label_jucator2Cuvant"/>
+    </GridPane>
+
+    <ComboBox fx:id="comboBox_litera">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="a"/>
+                <String fx:value="b"/>
+                <String fx:value="c"/>
+                <String fx:value="d"/>
+                <String fx:value="e"/>
+                <String fx:value="f"/>
+                <String fx:value="g"/>
+                <String fx:value="h"/>
+                <String fx:value="i"/>
+                <String fx:value="j"/>
+                <String fx:value="k"/>
+                <String fx:value="l"/>
+                <String fx:value="m"/>
+                <String fx:value="n"/>
+                <String fx:value="o"/>
+                <String fx:value="p"/>
+                <String fx:value="q"/>
+                <String fx:value="r"/>
+                <String fx:value="s"/>
+                <String fx:value="t"/>
+                <String fx:value="u"/>
+                <String fx:value="v"/>
+                <String fx:value="w"/>
+                <String fx:value="x"/>
+                <String fx:value="y"/>
+                <String fx:value="z"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button text="ghici" onAction="#onButtonGhiciAction" fx:id="button_ghici"/>
+</VBox>

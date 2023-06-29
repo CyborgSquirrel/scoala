@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        alignment="CENTER"
+        spacing="20.0"
+        xmlns:fx="http://javafx.com/fxml/1"
+        xmlns="http://javafx.com/javafx/11.0.11-internal"
+        fx:controller="gui.GuiJucatorAsteapta"
+        fx:id="root">
+    <Button text="logout??" onAction="#onButtonLogOutAction"/>
+
+    <Label text="Asteptam alti jucatori......." />
+</VBox>

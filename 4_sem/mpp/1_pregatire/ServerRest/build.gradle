@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'Main'
+}
+
+dependencies {
+    implementation project (':Core')
+
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.1'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    implementation 'org.hibernate:hibernate-core:5.2.10.Final'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
+    implementation 'org.javassist:javassist:3.29.2-GA'
+
+    testImplementation 'com.jayway.jsonpath:json-path'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
