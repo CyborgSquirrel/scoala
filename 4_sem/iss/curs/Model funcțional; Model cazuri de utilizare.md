@@ -1,0 +1,1 @@
+Descriere a sistemului în termeni de actori și cazuri de utilizare. Reprezentat în UML folosind [[Diagramă cazuri de utilizare]].

@@ -1,0 +1,1 @@
+Nu trebuie să existe niciodată mai mult de un motiv pentru care să se schimbe o clasă.

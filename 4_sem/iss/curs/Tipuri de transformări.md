@@ -1,0 +1,4 @@
+- Transformări la nivelul modelului: model -> model
+- Refactorizări: cod -> cod
+- Inginerie directă: model -> cod
+- Inginerie inversă: cod -> model

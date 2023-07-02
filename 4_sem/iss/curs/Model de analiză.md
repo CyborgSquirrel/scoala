@@ -1,0 +1,1 @@
+Constă în [[Model dinamic]] și [[Model obiectual de analiză; Model conceptual]].

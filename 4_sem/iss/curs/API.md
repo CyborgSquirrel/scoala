@@ -1,0 +1,1 @@
+Implementare a unei [[Interfață|interfețe]] într-un limbaj de programare.

@@ -1,0 +1,1 @@
+Responsabil pentru datele persistente din model.

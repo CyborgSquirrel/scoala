@@ -1,0 +1,1 @@
+Responsabil pentru interacțiunea dintre actor (utilizator) și sistem.

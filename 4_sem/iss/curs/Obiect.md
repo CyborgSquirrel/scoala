@@ -1,0 +1,1 @@
+Instanță a unei [[Clasă|clase]]

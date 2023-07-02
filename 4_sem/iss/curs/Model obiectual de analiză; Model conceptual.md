@@ -1,0 +1,1 @@
+Doar concepte din domeniul problemei.

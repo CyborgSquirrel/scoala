@@ -1,0 +1,1 @@
+Clasele trebuie să fie deschise pentru extindere, dar închise pentru modificare.

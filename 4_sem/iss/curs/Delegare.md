@@ -1,0 +1,1 @@
+În loc să moștenești direct dintr-o clasă, implementezi aceeași interfață pe care o implementează clasa din care vrei să moștenești, ții o instanță a acelei clase în clasa nouă, și transmiți apelurile către ea (și în rest faci schimbările dorite).

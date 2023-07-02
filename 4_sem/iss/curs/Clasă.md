@@ -1,0 +1,1 @@
+Li se pot atașa [[Atribut|atribute]] și [[Operație|operații]].

@@ -1,0 +1,3 @@
+![[Cerință funcțională]]
+
+![[Cerință nefuncțională]]

@@ -1,0 +1,1 @@
+Conexiune între două [[Obiect|obiecte]].

@@ -1,0 +1,1 @@
+Diferența este că în ingineria programării apar mereu schimbări la nivelul cerințelor și a soluției.

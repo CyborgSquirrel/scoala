@@ -1,0 +1,1 @@
+Derivate din [[Cerință nefuncțională|cerințe nefuncționale]].

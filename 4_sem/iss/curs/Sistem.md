@@ -1,0 +1,1 @@
+Ansamblu de părți interconectate.

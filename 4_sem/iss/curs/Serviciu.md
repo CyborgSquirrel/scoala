@@ -1,0 +1,1 @@
+Mulțime de [[Operație|operații]] înrudite.

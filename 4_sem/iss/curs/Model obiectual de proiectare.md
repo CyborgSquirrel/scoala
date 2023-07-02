@@ -1,0 +1,1 @@
+Pornește de la [[Model obiectual corespunzător proiectării de sistem]] și adaugă descrierea detaliată a obiectelor din domeniul soluției.

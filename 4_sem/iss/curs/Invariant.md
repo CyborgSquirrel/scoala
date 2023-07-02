@@ -1,0 +1,1 @@
+Aserțiune care trebuie să fie îndeplinită, pentru ca o [[Clasă]] să fie validă.

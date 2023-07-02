@@ -1,0 +1,1 @@
+Responsabil pentru realizarea cazurilor de utilizare.
