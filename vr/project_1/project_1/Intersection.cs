@@ -18,13 +18,49 @@
             Position = null;
         }
 
-        public Intersection(bool valid, bool visible, Geometry geometry, Line line, double t) {
+        public Intersection(double minT, double maxT, Geometry geometry, Line line, double t) {
             Geometry = geometry;
             Line = line;
-            Valid = valid;
-            Visible = visible;
+            Valid = true;
             T = t;
+            Visible = T >= minT && T <= maxT;
             Position = Line.CoordinateToPosition(t);
+        }
+
+        public bool IsUseable()
+        {
+            return Valid && Visible;
+        }
+
+        public Intersection GetBest(Intersection other)
+        {
+            Intersection a = this;
+            Intersection b = other;
+
+            if (a.IsUseable() && b.IsUseable())
+            {
+                if (a.T < b.T)
+                {
+                    return a;
+                }
+                else
+                {
+                    return b;
+                }
+            }
+            else if (a.IsUseable())
+            {
+                return a;
+            }
+            else if (b.IsUseable())
+            {
+                return b;
+            }
+            else
+            {
+                // NOTE: Ideally maybe shouldn't return anything here, but what can u do :L .
+                return a;
+            }
         }
     }
 }

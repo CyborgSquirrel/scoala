@@ -1,4 +1,5 @@
 ﻿using System;
+using SkiaSharp;
 
 namespace rt
 {
@@ -33,14 +34,14 @@ namespace rt
             Alpha = c.Alpha;
         }
 
-        public System.Drawing.Color ToSystemColor()
+        public SKColor ToSystemColor()
         {
-            var r = Math.Min((int)Math.Ceiling(Red * 255), 255);
-            var g = Math.Min((int)Math.Ceiling(Green * 255), 255);
-            var b = Math.Min((int)Math.Ceiling(Blue * 255), 255);
-            var a = Math.Min((int)Math.Ceiling(Alpha * 255), 255);
+            var r = Convert.ToByte(Math.Min((int)Math.Ceiling(Red * 255), 255));
+            var g = Convert.ToByte(Math.Min((int)Math.Ceiling(Green * 255), 255));
+            var b = Convert.ToByte(Math.Min((int)Math.Ceiling(Blue * 255), 255));
+            var a = Convert.ToByte(Math.Min((int)Math.Ceiling(Alpha * 255), 255));
 
-            return System.Drawing.Color.FromArgb(a, r, g, b);
+            return new SKColor(r, g, b, a);
         }
 
         public static Color operator +(Color a, Color b)
@@ -71,6 +72,11 @@ namespace rt
         public static Color operator /(Color c, double k)
         {
             return new Color(c.Red / k, c.Green / k, c.Blue / k, c.Alpha / k);
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(Red)}: {Red}, {nameof(Green)}: {Green}, {nameof(Blue)}: {Blue}, {nameof(Alpha)}: {Alpha}";
         }
     }
 }

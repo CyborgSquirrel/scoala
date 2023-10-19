@@ -31,5 +31,10 @@
             Up.Normalize();
             Up = (Direction ^ Up) ^ Direction;
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(Position)}: {Position}, {nameof(Direction)}: {Direction}, {nameof(Up)}: {Up}, {nameof(ViewPlaneDistance)}: {ViewPlaneDistance}, {nameof(ViewPlaneWidth)}: {ViewPlaneWidth}, {nameof(ViewPlaneHeight)}: {ViewPlaneHeight}, {nameof(FrontPlaneDistance)}: {FrontPlaneDistance}, {nameof(BackPlaneDistance)}: {BackPlaneDistance}";
+        }
     }
 }

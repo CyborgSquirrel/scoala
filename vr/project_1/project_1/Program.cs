@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using SkiaSharp;
 
 namespace rt
 {
@@ -144,6 +145,7 @@ namespace rt
             var up = new Vector(-Math.Sqrt(0.125), -Math.Sqrt(0.75), Math.Sqrt(0.125)).Normalize();
             var first = (middle ^ up).Normalize();
             const double dist = 150.0;
+            // const int n = 1;
             const int n = 90;
             const double step = 360.0 / n;
 
@@ -167,12 +169,14 @@ namespace rt
                         65.0,
                         160.0,
                         120.0,
-                        0.0,
+                        1.0,
                         1000.0
                     );
+                    Console.WriteLine(camera);
 
                     var filename = frames+"/" + $"{k + 1:000}" + ".png";
 
+                    Console.WriteLine($"Frame {k+1}/{n} started");
                     rt.Render(camera, width, height, filename);
                     Console.WriteLine($"Frame {k+1}/{n} completed");
                 });

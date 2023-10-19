@@ -39,21 +39,39 @@ namespace rt
             return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
         }
 
+        /// <summary>
+        /// Dot product
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public static double operator *(Vector v, Vector b)
         {
             return v.X * b.X + v.Y * b.Y + v.Z * b.Z;
         }
 
+        /// <summary>
+        /// Cross product
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         public static Vector operator ^(Vector a, Vector b)
         {
             return new Vector(a.Y * b.Z - a.Z * b.Y, a.Z * b.X - a.X * b.Z, a.X * b.Y - a.Y * b.X);
         }
-
+        
         public static Vector operator *(Vector v, double k)
         {
             return new Vector(v.X * k, v.Y * k, v.Z * k);
         }
 
+        /// <summary>
+        /// Piecewise division
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
         public static Vector operator /(Vector v, double k)
         {
             return new Vector(v.X / k, v.Y / k, v.Z / k);
@@ -79,6 +97,11 @@ namespace rt
                 Z /= norm;
             }
             return this;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(X)}: {X}, {nameof(Y)}: {Y}, {nameof(Z)}: {Z}";
         }
     }
 }

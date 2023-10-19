@@ -10,7 +10,7 @@
             Color = color;
         }
 
-        public abstract Intersection GetIntersection(Line line, double minDist, double maxDist);
+        public abstract Intersection GetIntersection(Line line, double minT, double maxT);
 
         public abstract Vector Normal(Vector v);
     }
