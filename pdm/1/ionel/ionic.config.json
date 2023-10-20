@@ -1,0 +1,7 @@
+{
+  "name": "ionel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
