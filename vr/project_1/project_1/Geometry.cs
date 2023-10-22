@@ -10,8 +10,11 @@
             Color = color;
         }
 
-        public abstract Intersection GetIntersection(Line line, double minT, double maxT);
+        public Geometry(Color color) {
+            Material = new Material(color*0.1, color*0.3, color*0.5, 100);
+            Color = color;
+        }
 
-        public abstract Vector Normal(Vector v);
+        public abstract Intersection GetIntersection(Line line, double minT, double maxT);
     }
 }

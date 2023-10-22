@@ -77,45 +77,57 @@ namespace rt
 
                     var intersection = FindFirstIntersection(ray, minT, maxT);
 
-                    var color = new Color();
+                    var color = new Color(0, 0, 0, 1);
                     if (intersection.IsUseable())
                     {
                         var material = intersection.Geometry.Material;
 
                         var toCamera = (camera.Position - intersection.Position).Normalize();
-                        var surfaceNormal = intersection.Geometry.Normal(intersection.Position);
-                        
-                        // TODO: Fix this.
-                        // This is almost certainly not the right way to combine multiple lights xD.
-                        foreach (var light in lights)
+                        var surfaceNormal = intersection.Normal;
+
+                        // color = intersection.Geometry.Color;
+
+                        if (true)
                         {
-                            var toLight = (light.Position - intersection.Position).Normalize();
-                            var toLightReflected = surfaceNormal * (surfaceNormal * toLight) * 2 - toLight;
-
-                            var lightColor = new Color();
-                            lightColor = material.Ambient * light.Ambient;
-
-                            var diffuseCoef = surfaceNormal * toLight;
-                            if (diffuseCoef > 0)
+                            foreach (var light in lights)
                             {
-                                lightColor += material.Diffuse * light.Diffuse * diffuseCoef;
+                                var rayToLight = new Line(intersection.Position, light.Position);
+                                // TODO: Ideally maxT should be infinite or something.
+                                var lightIntersection = FindFirstIntersection(rayToLight, 0.01, 10000);
+                                if (lightIntersection.IsUseable())
+                                {
+                                    continue;
+                                }
+                                
+                                var toLight = (light.Position - intersection.Position).Normalize();
+                                var toLightReflected = surfaceNormal * (surfaceNormal * toLight) * 2 - toLight;
+
+                                var lightColor = new Color();
+                                lightColor = material.Ambient * light.Ambient;
+
+                                var diffuseCoef = surfaceNormal * toLight;
+                                if (diffuseCoef > 0)
+                                {
+                                    lightColor += material.Diffuse * light.Diffuse * diffuseCoef;
+                                }
+
+                                var specularCoef = toCamera * toLightReflected;
+                                if (specularCoef > 0)
+                                {
+                                    lightColor += material.Specular * light.Specular *
+                                                  Math.Pow(specularCoef, material.Shininess);
+                                }
+
+                                lightColor *= light.Intensity;
+
+                                color = new Color(
+                                    Double.Max(color.Red, lightColor.Red),
+                                    Double.Max(color.Green, lightColor.Green),
+                                    Double.Max(color.Blue, lightColor.Blue),
+                                    Double.Max(color.Alpha, lightColor.Alpha)
+                                );
                             }
-
-                            var specularCoef = toCamera * toLightReflected;
-                            if (specularCoef > 0)
-                            {
-                                lightColor += material.Specular * light.Specular * Math.Pow(specularCoef, material.Shininess);
-                            }
-
-                            lightColor *= light.Intensity;
-
-                            color = new Color(
-                                Double.Max(color.Red, lightColor.Red),
-                                Double.Max(color.Green, lightColor.Green),
-                                Double.Max(color.Blue, lightColor.Blue),
-                                Double.Max(color.Alpha, lightColor.Alpha)
-                            );
-                        } 
+                        }
                     }
                     
                     image.SetPixel(x, y, color);
