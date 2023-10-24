@@ -1,14 +1,16 @@
+#include <cassert>
+#include <fstream>
 #include <functional>
 #include <iostream>
-#include <fstream>
-#include <thread>
 #include <string>
-#include <cassert>
+#include <thread>
 
 using namespace std;
 
 // #define isStatic
 // #define isDynamic
+
+// #define withPrint
 
 const int matBufLimit = 1000 * 1000;
 const int convBufLimit = 5 * 5;
@@ -59,12 +61,7 @@ struct Matrix {
       for (int cCol = 0; cCol < conv.colNo; ++cCol) {
         int tRow = row + cRow;
         int tCol = col + cCol;
-
-        double tValue = 0;
-        if (this->isValidPosition(tRow, tCol)) {
-          tValue = this->at(tRow, tCol);
-        }
-        result += tValue * conv.at(cRow, cCol);
+        result += this->extendPaddedAt(tRow, tCol) * conv.at(cRow, cCol);
       }
     }
     return result;
@@ -72,6 +69,26 @@ struct Matrix {
 
   double at(int row, int col) {
     return this->buf[row * this->colNo + col];
+  }
+
+  double extendPaddedAt(int row, int col) {
+    if (row < 0) row = 0;
+    if (row >= this->rowNo) row = this->rowNo - 1;
+
+    if (col < 0) col = 0;
+    if (col >= this->colNo) col = this->colNo - 1;
+
+    return this->at(row, col);
+  }
+
+  double zeroPaddedAt(int row, int col) {
+    if (row < 0) return 0;
+    if (row >= this->rowNo) return 0;
+
+    if (col < 0) return 0;
+    if (col >= this->colNo) return 0;
+
+    return this->at(row, col);
   }
 
   void set(int row, int col, double value) {
@@ -185,12 +202,14 @@ int main(int argc, char **argv) {
     delete[] threads;
   }
 
-  // {
-  //   int size = matRowNo * matColNo;
-  //   for (int i = 0; i < size; ++i) {
-  //     cout << dst.buf[i] << " ";
-  //   }
-  // }
+  #ifdef withPrint
+  {
+    int size = matRowNo * matColNo;
+    for (int i = 0; i < size; ++i) {
+      cout << dst.buf[i] << " ";
+    }
+  }
+  #endif
   
   return 0;
 }

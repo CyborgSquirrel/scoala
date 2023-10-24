@@ -48,12 +48,7 @@ class Main {
         for (int cCol = 0; cCol < conv.colNo; ++cCol) {
           int tRow = row + cRow;
           int tCol = col + cCol;
-
-          double tValue = 0;
-          if (this.isValidPosition(tRow, tCol)) {
-            tValue = this.at(tRow, tCol);
-          }
-          result += tValue * conv.at(cRow, cCol);
+          result += this.extendPaddedAt(tRow, tCol) * conv.at(cRow, cCol);
         }
       }
       return result;
@@ -61,6 +56,26 @@ class Main {
 
     public double at(int row, int col) {
       return this.buf[row * this.colNo + col];
+    }
+
+    public double extendPaddedAt(int row, int col) {
+      if (row < 0) row = 0;
+      if (row >= this.rowNo) row = this.rowNo - 1;
+
+      if (col < 0) col = 0;
+      if (col >= this.colNo) col = this.colNo - 1;
+
+      return this.at(row, col);
+    }
+
+    public double zeroPaddedAt(int row, int col) {
+      if (row < 0) return 0;
+      if (row >= this.rowNo) return 0;
+
+      if (col < 0) return 0;
+      if (col >= this.colNo) return 0;
+
+      return this.at(row, col);
     }
 
     public void set(int row, int col, double value) {
