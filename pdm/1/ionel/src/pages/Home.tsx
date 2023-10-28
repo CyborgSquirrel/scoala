@@ -1,20 +1,20 @@
-import { IonButton, IonButtons, IonCheckbox, IonContent, IonFab, IonFabButton, IonFooter, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonModal, IonPage, IonSpinner, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCheckbox, IonContent, IonFab, IonFabButton, IonFooter, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonSearchbar, IonSpinner, IonTitle, IonToolbar } from '@ionic/react';
 import BookList from '../components/BookList';
 import './Home.css';
 import { useEffect, useState } from 'react';
 import { add, settings } from 'ionicons/icons';
-import { Book, ServerBook, bookFromServer, bookToServer } from '../components/BookItem';
+import BookItem, { Book, ServerBook, bookFromServer, bookToServer } from '../components/BookItem';
 import { io, Socket } from "socket.io-client";
 import Settings from '../components/Settings';
+import SharedToolbar from '../components/SharedToolbar';
+import { makeBooksToPost, makeIsConnected, makeJwt, makeJwtHeaders, makeServerHost, postBook } from '../common';
+
+const BOOKS_REQUEST_SIZE = 10;
 
 const Home: React.FC = () => {
-  const getServerHost = (): string => {
-    let serverHost = window.localStorage.getItem("serverHost");
-    if (serverHost === null) {
-      serverHost = "";
-    }
-    return serverHost;
-  };
+  const [serverHost, setServerHost] = makeServerHost();
+  const [jwt, setJwt] = makeJwt();
+  const isConnected = makeIsConnected();
 
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [books, setBooks] = useState<{[key: number]: Book}>({});
@@ -25,27 +25,25 @@ const Home: React.FC = () => {
   const [bookRating, setBookRating]: [number|undefined, any] = useState();
   const [bookRead, setBookRead] = useState(false);
 
-  // const HOST = "http://localhost:5000";
+  const [socket, setSocket] = useState(() => {
+    return io(serverHost, { transports: ["websocket"] });
+  });
+  const [isSockConnected, setIsSockConnected] = useState(false);
 
-  const [serverHost, setServerHost] = useState("");
+  const [offset, setOffset] = useState(0);
+  const [queryFilter, setQueryFilter] = useState<undefined|string>();
 
-  const socket = io(serverHost);
-  const [isConnected, setIsConnected] = useState(false);
+  const [infinite, setInfinite] = useState<HTMLIonInfiniteScrollElement|undefined>();
 
+  // const [booksToPost, setBooksToPost] = useState<Book[]>([]);
+  const [isBooksToPostReady, booksToPost, setBooksToPost] = makeBooksToPost();
+
+  // socket
   useEffect(() => {
-    setServerHost(getServerHost());
+    setSocket(io(serverHost, { transports: ["websocket"] }));
+  }, [serverHost]);
 
-    const eventListener = (_event) => {
-      setServerHost(getServerHost());
-    };
-
-    document.addEventListener("storage", eventListener);
-
-    return () => {
-      document.removeEventListener("storage", eventListener);
-    };
-  }, []);
-
+  // socket post book
   useEffect(() => {
     const onPostBook = (serverBook: ServerBook) => {
       let book = bookFromServer(serverBook)
@@ -58,15 +56,16 @@ const Home: React.FC = () => {
     return () => {
       socket.off("post_book", onPostBook);
     };
-  }, [serverHost, books]);
+  }, [socket, books]);
 
+  // socket connection state
   useEffect(() => {
     function onConnect() {
-      setIsConnected(true);
+      setIsSockConnected(true);
     }
 
     function onDisconnect() {
-      setIsConnected(false);
+      setIsSockConnected(false);
     }
 
     socket.on("connect", onConnect);
@@ -76,77 +75,158 @@ const Home: React.FC = () => {
       socket.off("connect", onConnect);
       socket.off("disconnect", onDisconnect);
     };
-  }, [serverHost]);
+  }, [socket]);
 
-  const postBook = (book: Book) => {
-    if (serverHost === "") return;
+  // socket jwt authentication
+  useEffect(() => {
+    if (jwt === null) return;
 
-    fetch(
-      `${serverHost}/book`,
-      {
-        method: "POST",
-        body: JSON.stringify(bookToServer(book)),
+    socket.emit("auth", { jwt_token: jwt });
+  }, [socket]);
+
+  /*
+
+  - instead of posting the darn book, add it to the queue
+  - when the queue or the internet status changes:
+    - if you don't have internet, do nothing
+    - if there is at least one element in the queue:
+      - try to post it
+      - every 15 seconds, try again, until success
+  
+  - the queue of books to be posted should be saved somewhere
+
+  */
+
+  useEffect(() => {
+    if (booksToPost === undefined) return;
+    if (!isBooksToPostReady) return;
+    
+    if (!isConnected) return;
+    if (booksToPost.length < 1) return;
+    if (jwt === null) return;
+
+    const book = booksToPost[0];
+    postBook(serverHost, jwt, book)?.then(
+      () => {
+        setBooksToPost(booksToPost.slice(1));
+      },
+      (reason) => {
+        console.error(`Couldn't post book, due to ${reason}`);
       },
     );
-  };
+  }, [booksToPost, isConnected, isBooksToPostReady]);
 
-  const getBooks = () => {
-    if (serverHost === "") return;
+  interface GetBooksProps {
+    offset: number,
+    size: number,
+    filter?: string,
+  }
 
-    fetch(
-      `${serverHost}/book`,
+  const getBooks = async ({offset, size, filter}: GetBooksProps): Promise<Book[]|null> => {
+    if (serverHost === "") return null;
+    if (jwt === null) return null;
+
+    let searchParamsDict: any = {
+      offset: offset.toString(),
+      size: size.toString(),
+    };
+    if (filter !== undefined) {
+      searchParamsDict.filter = filter;
+    }
+
+    const searchParams = new URLSearchParams(searchParamsDict);
+    const response = await fetch(
+      `${serverHost}/book?` + searchParams.toString(),
       {
         method: "GET",
+        headers: {
+          ...makeJwtHeaders(jwt),
+        },
       }
-    )
-    .then((response) => response.json())
-    .then((response: any[]) => response.map(bookFromServer))
-    .then((books) => Object.fromEntries(
-      books.map((book) => [book.id, book])
-    ))
-    .then((books) => {
-      setBooks(books);
-    })
-    ;
+    );
+    const books = (await response.json()).map(bookFromServer);
+    return books;
   };
 
-  const renderSpinner = () => {
-    // if (booksBeingAdded > 0) {
-    //   return (
-    //     <IonSpinner slot="secondary" />
-    //   );
-    // }
-    return null;
+  const booksListToDict = (books: Book[]) => {
+    return Object.fromEntries(books.map((book) => [book.id, book]));
   };
 
   useEffect(() => {
-    getBooks();
-  }, [serverHost]);
+    setOffset(0);
+    setBooks({});
+  }, [serverHost, queryFilter]);
+
+  useEffect(() => {
+    (
+      getBooks({
+        offset: offset,
+        size: BOOKS_REQUEST_SIZE,
+        filter: queryFilter,
+      })
+      .then((newBooks) => {
+        if (infinite !== undefined) {
+          infinite.complete();
+        }
+
+        if (newBooks === null) return;
+        setBooks((books) => ({
+          ...books,
+          ...booksListToDict(newBooks),
+        }));
+      })
+    );
+  }, [offset, queryFilter]);
+
+  const onInfinite = (event: Event) => {
+    let target = event.target as HTMLIonInfiniteScrollElement;
+    setOffset(offset + BOOKS_REQUEST_SIZE);
+    setInfinite(target);
+  };
 
   const onAddDismiss = () => {
     setIsAddOpen(false);
+  };
+
+  const onSearchbarInput = (event: Event) => {
+    let target = event.target as HTMLIonSearchbarElement;
+    let value = target.value!.trim();
+    if (value === "") {
+      setQueryFilter(undefined);
+    } else {
+      setQueryFilter(value);
+    }
   };
   
   return (
     <IonPage>
       <IonHeader>
+        <SharedToolbar
+          setIsSettingsOpen={setIsSettingsOpen}
+          jwt={jwt}
+          setJwt={setJwt}
+          isConnected={isConnected}
+        />
         <IonToolbar>
-          <IonTitle>Library</IonTitle>
-          {renderSpinner()}
-          <IonButton
-            slot="end" fill="clear"
-            onClick={() => {setIsSettingsOpen(true)}}
-          >
-            <IonIcon slot="icon-only" icon={settings}></IonIcon>
-          </IonButton>
+          <IonSearchbar debounce={500} onIonInput={onSearchbarInput} value={queryFilter} />
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <BookList books={Object.values(books)} />
+        <IonList>
+          {Object.values(books).map(
+            (book) => BookItem(book)
+          )}
+        </IonList>
+        <IonInfiniteScroll onIonInfinite={onInfinite}>
+          <IonInfiniteScrollContent></IonInfiniteScrollContent>
+        </IonInfiniteScroll>
 
         <Settings
           isOpen={isSettingsOpen}
           setIsOpen={setIsSettingsOpen}
+          serverHost={serverHost}
+          setServerHost={setServerHost}
+          booksToPost={booksToPost}
         />
 
         <IonModal isOpen={isAddOpen} onWillDismiss={onAddDismiss}>
@@ -205,12 +285,22 @@ const Home: React.FC = () => {
                 expand="full"
                 onClick={() => {
                   if (bookRating === undefined) return;
-                  postBook({
+
+                  const book = {
                     title: bookTitle,
                     rating: bookRating,
                     read: bookRead,
-                    dateAdded: Date.now(),
-                  });
+                    dateAdded: Math.trunc(Date.now() / 1_000),
+                  };
+
+                  if (booksToPost === undefined) {
+                    // NOTE: 💀
+                    console.error("God stays in heaven, because He is afraid of what He has created...");
+                    return;
+                  }
+
+                  setBooksToPost([...booksToPost, book]);
+
                   setIsAddOpen(false);
                 }}
               >

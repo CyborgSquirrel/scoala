@@ -1,7 +1,5 @@
-// import './ExploreContainer.css';
-
-import { IonCol, IonIcon, IonItem, IonLabel, IonRow } from "@ionic/react";
-import { checkmark, close } from "ionicons/icons";
+import { IonCol, IonIcon, IonItem, IonLabel, IonRow, IonText } from "@ionic/react";
+import { checkmark, close, star, starOutline } from "ionicons/icons";
 
 export interface Book {
   id?: number,
@@ -43,14 +41,36 @@ export const bookToServer = (
 }
 
 const BookItem: React.FC<Book> = ({ id, title, rating, dateAdded, read }) => {
-  let dateAddedDate = new Date(dateAdded);
+  let dateAddedDate = new Date(dateAdded * 1000);
+
+  const stars = (amount: number, maxAmount: number) => {
+    let icons = [];
+    for (let i = 0; i < maxAmount; ++i) {
+      let icon;
+      if (i < amount) {
+        icon = star;
+      } else {
+        icon = starOutline;
+      }
+      icons.push(
+        <IonIcon key={i} icon={icon}></IonIcon>
+      );
+    }
+    return icons;
+  };
+
   return (
-    <IonRow key={id}>
-      <IonCol><IonLabel>{title}</IonLabel></IonCol>
-      <IonCol><IonLabel>{rating}/5</IonLabel></IonCol>
-      <IonCol><IonLabel>{dateAddedDate.toLocaleDateString()}</IonLabel></IonCol>
-      <IonCol><IonIcon icon={read ? checkmark : close} /></IonCol>
-    </IonRow>
+    <IonItem key={id}>
+      <IonLabel>
+        <strong>{title}</strong>
+        <br />
+        {stars(rating, 5)}
+        <br />
+        {dateAddedDate.toLocaleDateString()}
+        <br />
+        Read: <IonIcon icon={read ? checkmark : close} />
+      </IonLabel>
+    </IonItem>
   );
 };
 

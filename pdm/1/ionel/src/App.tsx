@@ -21,22 +21,34 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import LogIn from './components/LogIn';
+import { makeJwt } from './common';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  const [jwt, _setJwt] = makeJwt();
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/login">{
+            jwt === null
+            ? (<LogIn />)
+            : (<Redirect to="/home" />)
+          }</Route>
+          <Route exact path="/home">{
+            jwt !== null
+            ? (<Home />)
+            : (<Redirect to="/login" />)
+          }</Route>
+          <Route exact path="/">
+            <Redirect to="/login" />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  );
+}
 
 export default App;

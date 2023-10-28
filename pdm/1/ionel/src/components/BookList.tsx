@@ -1,4 +1,4 @@
-import { IonCol, IonGrid, IonItem, IonLabel, IonList, IonRow } from "@ionic/react";
+import { IonCol, IonGrid, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonLabel, IonList, IonRow } from "@ionic/react";
 import BookItem, { Book } from "./BookItem";
 
 interface BookListProps {
@@ -6,18 +6,21 @@ interface BookListProps {
 }
 
 const BookList: React.FC<BookListProps> = ({ books }) => {
+  const loadMore = () => {
+    
+  };
+  
   return (
-    <IonGrid>
-      <IonRow>
-        <IonCol><IonLabel>Title</IonLabel></IonCol>
-        <IonCol><IonLabel>Rating</IonLabel></IonCol>
-        <IonCol><IonLabel>Date Added</IonLabel></IonCol>
-        <IonCol><IonLabel>Read</IonLabel></IonCol>
-      </IonRow>
-      {books.map(
-        (book) => BookItem(book)
-      )}
-    </IonGrid>
+    <div>
+      <IonList>
+        {books.map(
+          (book) => BookItem(book)
+        )}
+      </IonList>
+      <IonInfiniteScroll onIonInfinite={loadMore}>
+        <IonInfiniteScrollContent></IonInfiniteScrollContent>
+      </IonInfiniteScroll>
+    </div>
   );
 };
 

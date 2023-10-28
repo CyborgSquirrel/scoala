@@ -1,32 +1,37 @@
 import { IonButton, IonButtons, IonCheckbox, IonContent, IonFab, IonFabButton, IonFooter, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonModal, IonPage, IonSpinner, IonTitle, IonToolbar } from '@ionic/react';
 import { close } from 'ionicons/icons';
 import { useEffect, useState } from 'react';
+import { makeServerHost } from '../common';
+import { Book } from './BookItem';
 
 interface SettingsProps {
   isOpen: boolean,
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
+
+  serverHost: string,
+  setServerHost: React.Dispatch<React.SetStateAction<string>>,
+
+  booksToPost?: Book[],
 }
 
-const Settings: React.FC<SettingsProps> = ({isOpen, setIsOpen}: SettingsProps) => {
-  const [serverHost, setServerHost] = useState("");
-
-  useEffect(() => {
-    let serverHost = window.localStorage.getItem("serverHost");
-    if (serverHost === null) {
-      serverHost = "";
-      window.localStorage.setItem("serverHost", serverHost);
-    }
-    setServerHost(serverHost);
-  }, []);
+const Settings: React.FC<SettingsProps> = (p: SettingsProps) => {
+  const [innerServerHost, setInnerServerHost] = useState(() => {
+    return p.serverHost;
+  });
 
   const onSettingsDismiss = () => {
-    window.localStorage.setItem("serverHost", serverHost);
-    setIsOpen(false);
+    p.setServerHost(innerServerHost);
+    p.setIsOpen(false);
   };
+
+  let booksToPostLength = 0;
+  if (p.booksToPost !== undefined) {
+    booksToPostLength = p.booksToPost.length;
+  }
 
   return (
     <IonModal
-      isOpen={isOpen}
+      isOpen={p.isOpen}
       onWillDismiss={onSettingsDismiss}
     >
       <IonHeader>
@@ -34,25 +39,37 @@ const Settings: React.FC<SettingsProps> = ({isOpen, setIsOpen}: SettingsProps) =
           <IonTitle>Settings</IonTitle>
           <IonButton
             slot="end" fill="clear"
-            onClick={() => {setIsOpen(false)}}
+            onClick={() => {p.setIsOpen(false)}}
           >
             <IonIcon slot="icon-only" icon={close}></IonIcon>
           </IonButton>
         </IonToolbar>
       </IonHeader>
+
       <IonContent>
+
         <IonItem>
           <IonInput
             labelPlacement="stacked"
             label="Server Host"
-            value={serverHost}
+            value={innerServerHost}
             onIonInput={(event) => {
               let value = event.target.value;
               if (typeof value !== "string") return;
-              setServerHost(value);
+              setInnerServerHost(value);
             }}
           />
         </IonItem>
+
+        <IonItem>
+          <IonInput
+            labelPlacement="stacked"
+            label="Books to be posted"
+            value={booksToPostLength}
+            readonly={true}
+          />
+        </IonItem>
+        
       </IonContent>
     </IonModal>
   );
