@@ -1,0 +1,1 @@
+Determina cmmdc a 2 nr naturale.
