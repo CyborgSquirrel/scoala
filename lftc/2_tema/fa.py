@@ -2,7 +2,7 @@
 EBNF:
 
 ```
-fsa = { tranzitie }.
+fsa = { regula }.
 
 regula =
       regula_stare_initiala
@@ -15,7 +15,11 @@ regula_stare_finala ".f" stare.
 regula_tranzitie = ".t" stare tranzitie_char stare.
 
 stare = stare_char { stare_char }.
-stare_char = alfa_mic|alfa_maj.
+stare_char =
+     alfa_mic
+    |alfa_maj
+    |cifra
+.
 
 tranzitie_char =
      alfa_mic
@@ -37,6 +41,8 @@ import itertools
 import sys
 import typing
 
+from putback import PutbackReader
+
 
 @dataclasses.dataclass(frozen=True)
 class FiniteAutomaton:
@@ -47,6 +53,11 @@ class FiniteAutomaton:
     start_state: str
     final_states: typing.Set[str]
     transitions: typing.Dict[str, typing.Dict[str, typing.Set[str]]]
+
+    @staticmethod
+    def read_from_file(path: str) -> typing.Self:
+        with open(path) as f:
+            return FiniteAutomaton.read_from_stream(f)
 
     @staticmethod
     def read_from_stream(stream: io.TextIOBase) -> typing.Self:
@@ -127,15 +138,25 @@ class FiniteAutomaton:
             transitions=transitions,
         )
 
-    def matches(self, text: str) -> bool:
-        return self.longest_prefix_len(text) == len(text)
+    def matches(self, text: typing.Union[str, io.IOBase]) -> bool:
+        return self.longest_prefix(text) == text
 
-    def longest_prefix_len(self, text: str) -> int:
+    def longest_prefix(self, text: typing.Union[str, io.IOBase]) -> typing.Optional[str]:
         assert self.is_deterministic
 
+        if isinstance(text, str):
+            text = io.StringIO(text)
+
+        buf = []
         longest_len = 0
         state = self.start_state
-        for i, char in enumerate(text):
+        for i in itertools.count():
+            char = text.read(1)
+            if char == "":
+                break
+
+            buf.append(char)
+            
             transitions = self.transitions
             if (chars := transitions.get(state)) is None:
                 break
@@ -148,7 +169,17 @@ class FiniteAutomaton:
             if state in self.final_states:
                 longest_len = i+1
 
-        return longest_len
+        buf = "".join(buf)
+        if isinstance(text, PutbackReader):
+            text.putback(buf[longest_len:])
+        
+        if longest_len == 0:
+            if self.start_state in self.final_states:
+                return ""
+            else:
+                return None
+        else:
+            return buf[:longest_len]
 
 
 def main():

@@ -12,7 +12,7 @@ def test_matches(text: str):
 
 
 def test_longest_prefix_len(text: str):
-    longest_prefix_len = fa.longest_prefix_len(text)
+    longest_prefix_len = len(fa.longest_prefix(text))
     before = text[:longest_prefix_len]
     after = text[longest_prefix_len:]
     print(f"[{before}]{after}")

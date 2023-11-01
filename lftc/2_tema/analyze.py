@@ -12,14 +12,18 @@ apar.
 """
 
 import argparse
-import traceback
-import typing
-import itertools
 import dataclasses
 import io
-import string as stringlib
+import itertools
 import pprint
+import string as stringlib
+import traceback
+import typing
+
 from tabulate import tabulate
+
+import fa
+from putback import PutbackReader, AnalyzingError
 
 
 class MyHashMap:
@@ -66,6 +70,11 @@ class MyHashMap:
         return itertools.chain.from_iterable(self.entries)
 
 
+FA_ID = fa.FiniteAutomaton.read_from_file("./fa/id.txt")
+FA_LIT_FLOAT = fa.FiniteAutomaton.read_from_file("./fa/lit_float.txt")
+FA_LIT_INT = fa.FiniteAutomaton.read_from_file("./fa/lit_int.txt")
+
+
 WHITESPACE_CHAR = set(list(" \t\n"))
 STR_LIT_CHAR = set(
       stringlib.ascii_lowercase
@@ -80,16 +89,6 @@ SPECIAL_ATOMS = [
 ]
 NUMBER_LIT_START_CHAR = set(stringlib.digits)
 NUMBER_LIT_PREFIX = set(["0b", "0o", "0x"])
-ID_START = set(
-      stringlib.ascii_lowercase
-    + stringlib.ascii_uppercase
-)
-ID_CONTINUE = set(
-      stringlib.ascii_lowercase
-    + stringlib.ascii_uppercase
-    + stringlib.digits
-    + "_"
-)
 
 WORD_ATOMS = [
     "fn",
@@ -99,6 +98,8 @@ WORD_ATOMS = [
     "struct",
     "let",
     "mut",
+    # TODO: Having ! in WORD_ATOM_CHAR screws things up. After reading ! it
+    # should stop, otherwise it could read something like test!!!.
     "println!",
 ]
 WORD_ATOM_START_CHAR = set(
@@ -160,85 +161,6 @@ class Program:
         return self.ts_lit[value]
 
 
-class AnalyzingError(ValueError):
-    def __init__(self, index: int, message: str):
-        self.index = index
-        self.message = message
-
-    def __str__(self):
-        return f"{self.index}: {self.message}"
-
-
-class PutbackReader:
-    def __init__(self, f: io.TextIOWrapper):
-        self.f = f
-        self.putback_buffer = ""
-        self.index = 0
-
-    def read(self, size: int) -> str:
-        out = ""
-
-        putback_size = min(size, len(self.putback_buffer))
-        out += self.putback_buffer[:putback_size]
-        self.putback_buffer = self.putback_buffer[putback_size:]
-        size -= putback_size
-
-        out += self.f.read(size)
-
-        self.index += len(out)
-
-        return out
-
-    def putback(self, value: str):
-        self.putback_buffer = value + self.putback_buffer
-        self.index -= len(value)
-
-    def make_analyzing_error(self, message: str) -> AnalyzingError:
-        return AnalyzingError(self.index, message)
-
-
-def read_id(f: PutbackReader):
-    found_id = ""
-
-    c = f.read(1)
-    if len(c) <= 0:
-        assert False
-    found_id += c
-    
-    if c in ID_START:
-        while True:
-            c = f.read(1)
-            if c in ID_CONTINUE:
-                found_id += c
-            else:
-                f.putback(c)
-                break
-    elif c == "_":
-        c = f.read(1)
-        if c in ID_CONTINUE:
-            found_id += c
-        else:
-            if len(c) == 0 or c in SYMBOL_ATOMS:
-                raise f.make_analyzing_error("id may not consist of only '_'")
-            else:
-                raise f.make_analyzing_error(f"id starting with '_' may not be followed by '{c}'")
-
-        while True:
-            c = f.read(1)
-            if c in ID_CONTINUE:
-                found_id += c
-            else:
-                f.putback(c)
-                break
-    else:
-        assert False
-
-    if len(found_id) > 250:
-        raise f.make_analyzing_error("id may not be longer than 250 characters")
-    
-    return found_id
-
-
 def analyze(program: Program, f: PutbackReader):
     while True:
         c = f.read(1)
@@ -285,47 +207,18 @@ def analyze(program: Program, f: PutbackReader):
             program.fip.append(FipEntry(ATOM_TO_CODE[found_atom]))
         elif c in NUMBER_LIT_START_CHAR:
             f.putback(c)
-            found_atom = ""
 
-            # prefix
-            if (prefix := f.read(2)) in NUMBER_LIT_PREFIX:
-                found_atom += prefix
-            else:
-                f.putback(prefix)
-                prefix = None
+            found_atom = None
 
-            if prefix == "0b":
-                accepted_char = set("01")
-            elif prefix == "0o":
-                accepted_char = set(stringlib.octdigits)
-            elif prefix == "0x":
-                accepted_char = set(stringlib.hexdigits)
-            else:
-                accepted_char = set(stringlib.digits)
-            
-            # number
-            while True:
-                c = f.read(1)
-                if c in accepted_char:
-                    found_atom += c
-                else:
-                    f.putback(c)
-                    break
+            if found_atom is None:
+                found_atom = FA_LIT_FLOAT.longest_prefix(f)
 
-            # float decimal part
-            if prefix is None:
-                c = f.read(1)
-                if c == ".":
-                    found_atom += c
-                    while True:
-                        c = f.read(1)
-                        if c in accepted_char:
-                            found_atom += c
-                        else:
-                            f.putback(c)
-                            break
-                else:
-                    f.putback(c)
+            if found_atom is None:
+                found_atom = FA_LIT_INT.longest_prefix(f)
+
+            if found_atom is None:
+                # This should be impossible
+                assert False
 
             code = program.get_ts_lit_code(found_atom)
             program.fip.append(FipEntry(ATOM_TO_CODE["lit"], ts_lit_code=code))
@@ -345,7 +238,9 @@ def analyze(program: Program, f: PutbackReader):
                 program.fip.append(FipEntry(ATOM_TO_CODE[found_atom]))
             else:
                 f.putback(found_atom)
-                found_id = read_id(f)
+                found_id = FA_ID.longest_prefix(f)
+                if found_id is None:
+                    f.make_analyzing_error("invalid id")
                 code = program.get_ts_id_code(found_id)
                 program.fip.append(FipEntry(ATOM_TO_CODE["id"], ts_id_code=code))
         else:
