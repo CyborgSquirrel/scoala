@@ -34,10 +34,6 @@ class PostBook:
     date_added: int
 
 
-def get_conn():
-    return contextlib.closing(sqlite3.connect("data.db"))
-
-
 # global stuff
 app = flask.Flask(__name__)
 flask_cors.CORS(app)  # farewell, cors
@@ -139,6 +135,11 @@ def get_books():
     
     # filter
     filter = flask.request.args.get("filter")
+
+    # is_read
+    is_read = flask.request.args.get("is_read")
+    if is_read is not None:
+        is_read = bool(int(is_read))
     
     user_id = flask_jwt.get_jwt_identity()
     with sqlalchemy.orm.Session(engine) as session:
@@ -152,6 +153,9 @@ def get_books():
 
         if filter is not None:
             books_query = books_query.where(db.Book.title.icontains(filter))
+
+        if is_read is not None:
+            books_query = books_query.where(db.Book.read == is_read)
         
         books = list(session.scalars(books_query))
     books = [book.to_jsonable() for book in books]
@@ -182,16 +186,6 @@ def post_book():
     socketio.emit("post_book", response_book, room=str(user_id))
 
     return ("", status.OK)
-
-
-# @socketio.on("connect")
-# def test_connect():
-#     print(flask.request.sid)
-#     print(flask.request)
-
-#     # flask_socketio.join_room()
-    
-#     pass
 
 
 @dataclasses.dataclass

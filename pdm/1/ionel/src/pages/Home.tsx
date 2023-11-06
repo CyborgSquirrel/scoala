@@ -1,8 +1,8 @@
-import { IonButton, IonButtons, IonCheckbox, IonContent, IonFab, IonFabButton, IonFooter, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonSearchbar, IonSpinner, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCheckbox, IonContent, IonFab, IonFabButton, IonFooter, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonSearchbar, IonSelect, IonSelectOption, IonSpinner, IonTitle, IonToolbar } from '@ionic/react';
 import BookList from '../components/BookList';
 import './Home.css';
 import { useEffect, useState } from 'react';
-import { add, settings } from 'ionicons/icons';
+import { add, filterOutline, settings } from 'ionicons/icons';
 import BookItem, { Book, ServerBook, bookFromServer, bookToServer } from '../components/BookItem';
 import { io, Socket } from "socket.io-client";
 import Settings from '../components/Settings';
@@ -32,6 +32,7 @@ const Home: React.FC = () => {
 
   const [offset, setOffset] = useState(0);
   const [queryFilter, setQueryFilter] = useState<undefined|string>();
+  const [queryIsRead, setQueryIsRead] = useState<undefined|boolean>();
 
   const [infinite, setInfinite] = useState<HTMLIonInfiniteScrollElement|undefined>();
 
@@ -84,19 +85,6 @@ const Home: React.FC = () => {
     socket.emit("auth", { jwt_token: jwt });
   }, [socket]);
 
-  /*
-
-  - instead of posting the darn book, add it to the queue
-  - when the queue or the internet status changes:
-    - if you don't have internet, do nothing
-    - if there is at least one element in the queue:
-      - try to post it
-      - every 15 seconds, try again, until success
-  
-  - the queue of books to be posted should be saved somewhere
-
-  */
-
   useEffect(() => {
     if (booksToPost === undefined) return;
     if (!isBooksToPostReady) return;
@@ -120,9 +108,10 @@ const Home: React.FC = () => {
     offset: number,
     size: number,
     filter?: string,
+    is_read?: boolean,
   }
 
-  const getBooks = async ({offset, size, filter}: GetBooksProps): Promise<Book[]|null> => {
+  const getBooks = async ({offset, size, filter, is_read}: GetBooksProps): Promise<Book[]|null> => {
     if (serverHost === "") return null;
     if (jwt === null) return null;
 
@@ -132,6 +121,9 @@ const Home: React.FC = () => {
     };
     if (filter !== undefined) {
       searchParamsDict.filter = filter;
+    }
+    if (is_read !== undefined) {
+      searchParamsDict.is_read = is_read ? 1 : 0;
     }
 
     const searchParams = new URLSearchParams(searchParamsDict);
@@ -155,7 +147,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     setOffset(0);
     setBooks({});
-  }, [serverHost, queryFilter]);
+  }, [serverHost, queryFilter, queryIsRead]);
 
   useEffect(() => {
     (
@@ -163,6 +155,7 @@ const Home: React.FC = () => {
         offset: offset,
         size: BOOKS_REQUEST_SIZE,
         filter: queryFilter,
+        is_read: queryIsRead,
       })
       .then((newBooks) => {
         if (infinite !== undefined) {
@@ -176,7 +169,7 @@ const Home: React.FC = () => {
         }));
       })
     );
-  }, [offset, queryFilter]);
+  }, [offset, queryFilter, queryIsRead]);
 
   const onInfinite = (event: Event) => {
     let target = event.target as HTMLIonInfiniteScrollElement;
@@ -197,6 +190,15 @@ const Home: React.FC = () => {
       setQueryFilter(value);
     }
   };
+
+  const onReadSelectChange = (event: Event) => {
+    let target = event.target as HTMLIonSelectElement;
+    if (target.value === null) {
+      setQueryIsRead(undefined);
+    } else {
+      setQueryIsRead(target.value);
+    }
+  }
   
   return (
     <IonPage>
@@ -209,6 +211,11 @@ const Home: React.FC = () => {
         />
         <IonToolbar>
           <IonSearchbar debounce={500} onIonInput={onSearchbarInput} value={queryFilter} />
+          <IonSelect slot="end" onIonChange={onReadSelectChange}>
+            <IonSelectOption value={null}>Any</IonSelectOption>
+            <IonSelectOption value={true}>Read</IonSelectOption>
+            <IonSelectOption value={false}>Unread</IonSelectOption>
+          </IonSelect>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
