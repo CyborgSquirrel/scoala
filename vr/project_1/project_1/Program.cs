@@ -24,93 +24,6 @@ namespace rt
             // Scene
             var geometries = new Geometry[]
             {
-                // new Sphere(
-                //     new Vector(-50.0, -25.0, 175.0),
-                //     30.0,
-                //     new Material(
-                //         new Color(0.1, 0.0, 0.0, 1.0),
-                //         new Color(0.3, 0.0, 0.0, 1.0),
-                //         new Color(0.5, 0.0, 0.0, 1.0),
-                //         10
-                //     ),
-                //     new Color(0.8, 0.0, 0.0, 1.0)),
-                // new Sphere(
-                //     new Vector(-10.0, 0.0, 100.0),
-                //     10.0,
-                //     new Material(
-                //         new Color(0.1, 0.1, 0.0, 1.0),
-                //         new Color(0.3, 0.3, 0.0, 1.0),
-                //         new Color(0.5, 0.5, 0.0, 1.0),
-                //         10
-                //     ),
-                //     new Color(0.8, 0.8, 0.0, 1.0)
-                // ),
-                // new Sphere(
-                //     new Vector(0.0, 0.0, 200.0),
-                //     40.0,
-                //     new Material(
-                //         new Color(0.0, 0.1, 0.0, 1.0),
-                //         new Color(0.0, 0.3, 0.0, 1.0),
-                //         new Color(0.0, 0.5, 0.5, 1.0),
-                //         10
-                //     ),
-                //     new Color(0.0, 0.8, 0.0, 1.0)
-                // ),
-                // new Sphere(new Vector(0.0, -50.0, 200.0),
-                //     10.0,
-                //     new Material(
-                //         new Color(0.1, 0.1, 0.1, 1.0),
-                //         new Color(0.3, 0.3, 0.3, 1.0),
-                //         new Color(0.5, 0.5, 0.5, 1.0),
-                //         10
-                //     ),
-                //     new Color(0.8, 0.8, 0.8, 1.0)
-                // ),
-                // new Sphere(
-                //     new Vector(10.0, 0.0, 20.0),
-                //     5.0,
-                //     new Material(
-                //         new Color(0.0, 0.1, 0.1, 1.0),
-                //         new Color(0.0, 0.3, 0.3, 1.0),
-                //         new Color(0.0, 0.5, 0.5, 1.0),
-                //         10
-                //     ),
-                //     new Color(0.0, 0.8, 0.8, 1.0)
-                // ),
-                // new Sphere(
-                //     new Vector(-70.0, 0.0, 100.0),
-                //     10.0,
-                //     new Material(
-                //         new Color(0.1, 0.0, 0.1, 1.0),
-                //         new Color(0.3, 0.0, 0.3, 1.0),
-                //         new Color(0.5, 0.0, 0.5, 1.0),
-                //         10
-                //     ),
-                //     new Color(0.8, 0.0, 0.8, 1.0)
-                // ),
-                // new Sphere(
-                //     new Vector(50.0, 25.0, 75.0),
-                //     50.0,
-                //     new Material(
-                //         new Color(0.0, 0.0, 0.1, 1.0),
-                //         new Color(0.0, 0.0, 0.3, 1.0),
-                //         new Color(0.0, 0.0, 0.5, 1.0),
-                //         10
-                //     ),
-                //     new Color(0.0, 0.0, 0.8, 1.0)
-                // ),
-                // new Sphere(
-                //     new Vector(-75.0, 15.0, -75.0),
-                //     5.0,
-                //     new Material(
-                //         new Color(0.07, 0.07, 0.07, 1.0),
-                //         new Color(0.2, 0.2, 0.2, 1.0),
-                //         new Color(0.3, 0.4, 0.4, 1.0),
-                //         10
-                //     ),
-                //     new Color(0.07, 0.07, 0.07, 1.0)
-                // )
-                
                 new Ellipsoid(new Vector(  0.0, -25.0, 100.0), new Vector(1.0, 1.0, 1.0), 5.0, Color.WHITE),
                 
                 new Ellipsoid(new Vector( 15.0, -25.0, 100.0), new Vector(2.0, 0.5, 0.5), 5.0, Color.RED),
@@ -129,33 +42,17 @@ namespace rt
                 new Ellipsoid(new Vector(  0.0,  10.0, 135.0), new Vector(0.5, 5.0, 5.0), 5.0, Color.CYAN),
                 new Ellipsoid(new Vector( 35.0, -25.0, 135.0), new Vector(5.0, 0.5, 5.0), 5.0, Color.MAGENTA),
                 
-                new Sphere(   new Vector(-25.0, -50.0,  75.0),                           25.0, Color.ORANGE)
+                new Sphere(   new Vector(-25.0, -50.0,  75.0),                           25.0, Color.ORANGE),
+                
+                new RawCtMask("../../../raw/walnut.dat", "../../../raw/walnut.raw", new Vector(-5.0, -20.0, 105.0), 0.2,
+                    new ColorMap()
+                        .Add(1, 1, new Color(0.7, 0.0, 0.0, 0.05))
+                        .Add(2, 2, new Color(0.0, 0.7, 0.0, 1.0))
+                ),
             };
 
-            var lights = new Light[]
+            var lights = new []
             {
-                // new Light(
-                //     new Vector(-50.0, 0.0, 0.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     1.0
-                // ),
-                // new Light(
-                //     new Vector(20.0, 20.0, 0.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     1.0
-                // ),
-                // new Light(
-                //     new Vector(0.0, 0.0, 300.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     new Color(0.8, 0.8, 0.8, 1.0),
-                //     1.0
-                // ),
-                
                 new Light(
                     new Vector( 65.0,  40.0,  90.0),
                     new Color(0.8, 0.8, 0.8, 1.0),
@@ -202,10 +99,13 @@ namespace rt
             const double step = 360.0 / n;
 
             var tasks = new Task[n];
+            // var tasks = new Task[1];
             for (var i = 0; i < n; i++)
             {
+                // if (i != 35) continue;
                 var ind = new[]{i};
                 tasks[i] = Task.Run(() =>
+                // tasks[0] = Task.Run(() =>
                 {
                     var k = ind[0];
                     var a = (step * k) * Math.PI / 180.0;

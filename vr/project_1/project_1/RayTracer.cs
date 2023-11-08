@@ -23,7 +23,7 @@ namespace rt
 
         private Intersection FindFirstIntersection(Line ray, double minT, double maxT)
         {
-            var intersection = new Intersection();
+            var intersection = Intersection.NONE;
 
             foreach (var geometry in geometries)
             {
@@ -80,31 +80,27 @@ namespace rt
                     var color = new Color(0, 0, 0, 1);
                     if (intersection.IsUseable())
                     {
-                        var material = intersection.Geometry.Material;
+                        var material = intersection.Material;
 
                         var toCamera = (camera.Position - intersection.Position).Normalize();
                         var surfaceNormal = intersection.Normal;
 
                         // color = intersection.Geometry.Color;
 
-                        if (true)
+                        foreach (var light in lights)
                         {
-                            foreach (var light in lights)
+                            var rayToLight = new Line(intersection.Position, light.Position);
+                            // TODO: Ideally maxT should be infinite or something.
+                            var lightIntersection = FindFirstIntersection(rayToLight, 0.01, 10000);
+                            
+                            var toLight = (light.Position - intersection.Position).Normalize();
+                            var toLightReflected = surfaceNormal * (surfaceNormal * toLight) * 2 - toLight;
+
+                            var lightColor = new Color();
+                            lightColor = material.Ambient * light.Ambient;
+
+                            if (!lightIntersection.IsUseable())
                             {
-                                var rayToLight = new Line(intersection.Position, light.Position);
-                                // TODO: Ideally maxT should be infinite or something.
-                                var lightIntersection = FindFirstIntersection(rayToLight, 0.01, 10000);
-                                if (lightIntersection.IsUseable())
-                                {
-                                    continue;
-                                }
-                                
-                                var toLight = (light.Position - intersection.Position).Normalize();
-                                var toLightReflected = surfaceNormal * (surfaceNormal * toLight) * 2 - toLight;
-
-                                var lightColor = new Color();
-                                lightColor = material.Ambient * light.Ambient;
-
                                 var diffuseCoef = surfaceNormal * toLight;
                                 if (diffuseCoef > 0)
                                 {
@@ -117,16 +113,16 @@ namespace rt
                                     lightColor += material.Specular * light.Specular *
                                                   Math.Pow(specularCoef, material.Shininess);
                                 }
-
-                                lightColor *= light.Intensity;
-
-                                color = new Color(
-                                    Double.Max(color.Red, lightColor.Red),
-                                    Double.Max(color.Green, lightColor.Green),
-                                    Double.Max(color.Blue, lightColor.Blue),
-                                    Double.Max(color.Alpha, lightColor.Alpha)
-                                );
                             }
+
+                            lightColor *= light.Intensity;
+
+                            color = new Color(
+                                Double.Clamp(color.Red + lightColor.Red, 0, 1),
+                                Double.Clamp(color.Green + lightColor.Green, 0, 1),
+                                Double.Clamp(color.Blue + lightColor.Blue, 0, 1),
+                                Double.Clamp(color.Alpha + lightColor.Alpha, 0, 1)
+                            );
                         }
                     }
                     

@@ -66,8 +66,8 @@ namespace rt
                 n1.Normalize();
                 n2.Normalize();
                 
-                var i1 = new Intersection(minT, maxT, this, line, t1, n1);
-                var i2 = new Intersection(minT, maxT, this, line, t2, n2);
+                var i1 = new Intersection(minT, maxT, this, line, t1, n1, Material, Color);
+                var i2 = new Intersection(minT, maxT, this, line, t2, n2, Material, Color);
 
                 return i1.GetBest(i2);
             }
