@@ -3,6 +3,8 @@ import dataclasses
 import datetime
 import hashlib
 import json as jsonlib
+import os
+import pathlib
 import secrets
 import sqlite3
 import time
@@ -11,9 +13,9 @@ from http import HTTPStatus as status
 
 import dacite
 import flask
+import flask_cors
 import flask_jwt_extended as flask_jwt
 import flask_socketio
-import flask_cors
 import sqlalchemy
 import sqlalchemy.orm
 
@@ -32,12 +34,13 @@ class PostBook:
     title: str
     rating: int
     date_added: int
+    lat: float
+    lng: float
 
 
 # global stuff
 app = flask.Flask(__name__)
 flask_cors.CORS(app)  # farewell, cors
-engine = sqlalchemy.create_engine("sqlite:///data.db")
 socketio = flask_socketio.SocketIO(
     app,
     cors_allowed_origins="*",
@@ -51,7 +54,7 @@ class PostUser:
     password: str
 
 
-@app.route("/user", methods=["POST"])
+@app.post("/user")
 def post_user():
     request_user = jsonlib.loads(flask.request.data)
     try:
@@ -82,7 +85,7 @@ class PostUserLogin:
     password: str
 
 
-@app.route("/user/login", methods=["POST"])
+@app.post("/user/login")
 def post_user_login():
     request_user = jsonlib.loads(flask.request.data)
     try:
@@ -110,7 +113,7 @@ def post_user_login():
     return flask.jsonify(dict(access_token=access_token, id=user.id))
 
 
-@app.route("/book", methods=["GET"])
+@app.get("/book")
 @flask_jwt.jwt_required()
 def get_books():
     # offset
@@ -162,7 +165,22 @@ def get_books():
     return flask.jsonify(books)
 
 
-@app.route("/book", methods=["POST"])
+@app.get("/book/image/<int:id>")
+@flask_jwt.jwt_required()
+def get_book_image(id: int):
+    return flask.send_from_directory(str(book_image_dir), str(id))
+
+
+@app.put("/book/image/<int:id>")
+@flask_jwt.jwt_required()
+def put_book_image(id: int):
+    print(flask.request.files)
+    image = flask.request.files["image"]
+    image.save(book_image_dir / str(id))
+    return ("", 200)
+
+
+@app.post("/book")
 @flask_jwt.jwt_required()
 def post_book():
     user_id = flask_jwt.get_jwt_identity()
@@ -185,7 +203,7 @@ def post_book():
     
     socketio.emit("post_book", response_book, room=str(user_id))
 
-    return ("", status.OK)
+    return flask.jsonify(dict(id=response_book["id"]))
 
 
 @dataclasses.dataclass
@@ -218,7 +236,15 @@ def test_disconnect():
 
 
 if __name__ == "__main__":
+    data_dir = pathlib.Path("data")
+    os.makedirs(data_dir, exist_ok=True)
+    
+    book_image_dir = data_dir / "book_image"
+    os.makedirs(book_image_dir, exist_ok=True)
+    
     # database stuff
+    data_path = data_dir / "data.db"
+    engine = sqlalchemy.create_engine(f"sqlite:///{data_path}")
     db.Base.metadata.create_all(engine)
 
     # cli args

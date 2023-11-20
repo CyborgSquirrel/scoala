@@ -1,29 +1,53 @@
-import { IonButton, IonButtons, IonCheckbox, IonContent, IonFab, IonFabButton, IonFooter, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonSearchbar, IonSelect, IonSelectOption, IonSpinner, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCheckbox, IonContent, IonFab, IonFabButton, IonFooter, IonHeader, IonIcon, IonImg, IonInfiniteScroll, IonInfiniteScrollContent, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonSearchbar, IonSelect, IonSelectOption, IonSpinner, IonTitle, IonToolbar } from '@ionic/react';
 import BookList from '../components/BookList';
 import './Home.css';
-import { useEffect, useState } from 'react';
-import { add, filterOutline, settings } from 'ionicons/icons';
-import BookItem, { Book, ServerBook, bookFromServer, bookToServer } from '../components/BookItem';
+import { useEffect, useMemo, useState } from 'react';
+import { add } from 'ionicons/icons';
+import BookItem, { Book, ServerBook, bookFromServer } from '../components/BookItem';
 import { io, Socket } from "socket.io-client";
 import Settings from '../components/Settings';
 import SharedToolbar from '../components/SharedToolbar';
-import { makeBooksToPost, makeIsConnected, makeJwt, makeJwtHeaders, makeServerHost, postBook } from '../common';
+import { Fetcher, makeIsConnected, makeJwt, makeJwtHeaders, makeMapsApiKey, makePreferenceable, makeServerHost, postBook, putBookImage } from '../common';
+import { Camera, CameraResultType } from '@capacitor/camera';
+import { defineCustomElements } from '@ionic/pwa-elements/loader'
+import MyMap from '../components/MyMap';
+import ShowMap from '../components/ShowMap';
 
 const BOOKS_REQUEST_SIZE = 10;
+
+defineCustomElements(window);
+
+interface BookToUpload {
+  bookToPost: Book,
+  imageToPut: string,
+}
 
 const Home: React.FC = () => {
   const [serverHost, setServerHost] = makeServerHost();
   const [jwt, setJwt] = makeJwt();
   const isConnected = makeIsConnected();
 
+  const fetcher = useMemo<undefined|Fetcher>(
+    () => {
+      if (jwt === null) return;
+      return new Fetcher(serverHost, jwt);
+    },
+    [serverHost, jwt],
+  );
+
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [books, setBooks] = useState<{[key: number]: Book}>({});
   
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [mapsApiKey, setMapsApiKey] = makeMapsApiKey();
 
+  // book stuff
   const [bookTitle, setBookTitle] = useState("");
-  const [bookRating, setBookRating]: [number|undefined, any] = useState();
+  const [bookRating, setBookRating]: [undefined|number, any] = useState();
   const [bookRead, setBookRead] = useState(false);
+  const [bookImage, setBookImage] = useState<undefined|string>();
+  const [bookLat, setBookLat] = useState<undefined|number>();
+  const [bookLng, setBookLng] = useState<undefined|number>();
 
   const [socket, setSocket] = useState(() => {
     return io(serverHost, { transports: ["websocket"] });
@@ -36,8 +60,14 @@ const Home: React.FC = () => {
 
   const [infinite, setInfinite] = useState<HTMLIonInfiniteScrollElement|undefined>();
 
-  // const [booksToPost, setBooksToPost] = useState<Book[]>([]);
-  const [isBooksToPostReady, booksToPost, setBooksToPost] = makeBooksToPost();
+  const [isBooksToUploadReady, booksToUpload, setBooksToUpload] = makePreferenceable<BookToUpload[]>("booksToUpload", []);
+
+  const [detailsBook, setDetailsBook] = useState<undefined|Book>();
+
+  let booksToPostLength = 0;
+  if (booksToUpload !== undefined) {
+    booksToPostLength = booksToUpload.length;
+  }
 
   // socket
   useEffect(() => {
@@ -86,23 +116,35 @@ const Home: React.FC = () => {
   }, [socket]);
 
   useEffect(() => {
-    if (booksToPost === undefined) return;
-    if (!isBooksToPostReady) return;
+    if (booksToUpload === undefined) return;
+    if (!isBooksToUploadReady) return;
     
     if (!isConnected) return;
-    if (booksToPost.length < 1) return;
+    if (booksToUpload.length < 1) return;
     if (jwt === null) return;
 
-    const book = booksToPost[0];
-    postBook(serverHost, jwt, book)?.then(
-      () => {
-        setBooksToPost(booksToPost.slice(1));
+    const book = booksToUpload[0];
+    postBook(serverHost, jwt, book.bookToPost)?.then(
+      async (response) => {
+        setBooksToUpload(booksToUpload.slice(1));
+
+        let json = await response.json();
+
+        putBookImage(serverHost, jwt, json.id, book.imageToPut)?.then(
+          () => {
+        
+          },
+          (reason) => {
+            console.error(`Couldn't put book image, due to ${reason}`);
+          },
+        );
       },
       (reason) => {
         console.error(`Couldn't post book, due to ${reason}`);
       },
     );
-  }, [booksToPost, isConnected, isBooksToPostReady]);
+
+  }, [booksToUpload, isConnected, isBooksToUploadReady]);
 
   interface GetBooksProps {
     offset: number,
@@ -198,7 +240,25 @@ const Home: React.FC = () => {
     } else {
       setQueryIsRead(target.value);
     }
-  }
+  };
+
+  const onTakePicture = async () => {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri,
+      saveToGallery: true,
+    });
+    setBookImage(image.webPath);
+  };
+
+  const onBookItemClick = (book: Book) => {
+    setDetailsBook(book);
+  };
+
+  const onBookDetailsDismiss = () => {
+    setDetailsBook(undefined);
+  };
   
   return (
     <IonPage>
@@ -220,9 +280,13 @@ const Home: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <IonList>
-          {Object.values(books).map(
-            (book) => BookItem(book)
-          )}
+          {
+            fetcher !== undefined
+            ? Object.values(books).map(
+              (book) => <BookItem fetcher={fetcher} book={book} onClick={onBookItemClick}></BookItem>
+            )
+            : []
+          }
         </IonList>
         <IonInfiniteScroll onIonInfinite={onInfinite}>
           <IonInfiniteScrollContent></IonInfiniteScrollContent>
@@ -231,9 +295,11 @@ const Home: React.FC = () => {
         <Settings
           isOpen={isSettingsOpen}
           setIsOpen={setIsSettingsOpen}
+          mapsApiKey={mapsApiKey}
+          setMapsApiKey={setMapsApiKey}
           serverHost={serverHost}
           setServerHost={setServerHost}
-          booksToPost={booksToPost}
+          booksToPost={booksToPostLength}
         />
 
         <IonModal isOpen={isAddOpen} onWillDismiss={onAddDismiss}>
@@ -285,6 +351,25 @@ const Home: React.FC = () => {
               />
               <IonLabel>Read</IonLabel>
             </IonItem>
+            <IonItem>
+              <IonButton slot="end" onClick={onTakePicture}>Take Picture</IonButton>
+              <img
+                slot="start"
+                src={bookImage}
+                style={{
+                  width: "200px",
+                }}
+              ></img>
+            </IonItem>
+            <IonItem>
+              <MyMap
+                apiKey={mapsApiKey}
+                markerLat={bookLat}
+                setMarkerLat={setBookLat}
+                markerLng={bookLng}
+                setMarkerLng={setBookLng}
+              ></MyMap>
+            </IonItem>
           </IonContent>
           <IonFooter>
             <IonToolbar>
@@ -292,21 +377,29 @@ const Home: React.FC = () => {
                 expand="full"
                 onClick={() => {
                   if (bookRating === undefined) return;
+                  if (bookImage === undefined) return;
+                  if (bookLat === undefined) return;
+                  if (bookLng === undefined) return;
 
-                  const book = {
-                    title: bookTitle,
-                    rating: bookRating,
-                    read: bookRead,
-                    dateAdded: Math.trunc(Date.now() / 1_000),
+                  const bookToPost: BookToUpload = {
+                    bookToPost: {
+                      title: bookTitle,
+                      rating: bookRating,
+                      read: bookRead,
+                      dateAdded: Math.trunc(Date.now() / 1_000),
+                      lat: bookLat,
+                      lng: bookLng,
+                    },
+                    imageToPut: bookImage,
                   };
 
-                  if (booksToPost === undefined) {
+                  if (booksToUpload === undefined) {
                     // NOTE: 💀
                     console.error("God stays in heaven, because He is afraid of what He has created...");
                     return;
                   }
 
-                  setBooksToPost([...booksToPost, book]);
+                  setBooksToUpload([...booksToUpload, bookToPost]);
 
                   setIsAddOpen(false);
                 }}
@@ -315,6 +408,19 @@ const Home: React.FC = () => {
               </IonButton>
             </IonToolbar>
           </IonFooter>
+        </IonModal>
+
+        <IonModal isOpen={detailsBook !== undefined} onWillDismiss={onBookDetailsDismiss}>
+          {
+            detailsBook !== undefined
+            ?
+            <ShowMap
+              apiKey={mapsApiKey}
+              markerLat={detailsBook?.lat}
+              markerLng={detailsBook?.lng}
+            ></ShowMap>
+            : undefined
+          }
         </IonModal>
 
         <IonFab slot="fixed" vertical="bottom" horizontal="end">

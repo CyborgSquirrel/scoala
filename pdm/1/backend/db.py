@@ -1,7 +1,7 @@
 import datetime
 from typing import List
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer
+from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer
 from sqlalchemy import \
     LargeBinary as Binary  # LargeBinary is a misleading name
 from sqlalchemy import String
@@ -31,6 +31,8 @@ class Book(Base):
     title: Mapped[str] = mapped_column(String())
     rating: Mapped[int] = mapped_column(Integer())
     date_added: Mapped[datetime.datetime] = mapped_column(DateTime())
+    lat: Mapped[float] = mapped_column(Float())
+    lng: Mapped[float] = mapped_column(Float())
 
     user_id: Mapped[int] = mapped_column(ForeignKey("User.id"))
     user: Mapped["User"] = relationship(back_populates="books")
@@ -42,5 +44,7 @@ class Book(Base):
             title=self.title,
             rating=self.rating,
             date_added=int(self.date_added.timestamp()),
+            lat=self.lat,
+            lng=self.lng,
         )
         return book

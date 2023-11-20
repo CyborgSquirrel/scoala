@@ -19,6 +19,31 @@ import { Preferences } from "@capacitor/preferences";
 
 */
 
+export class Fetcher {
+  host: string;
+  jwt: string;
+
+  constructor(host: string, jwt: string) {
+    this.host = host;
+    this.jwt = jwt;
+  }
+
+  fetch(path: string, init?: RequestInit): Promise<Response> {
+    return fetch(
+      this.host + path,
+      {
+        ...init,
+        ...{
+          headers: {
+            ...init?.headers,
+            ...makeJwtHeaders(this.jwt),
+          }
+        }
+      }
+    )
+  }
+}
+
 export const delay = (delay_ms: number) => new Promise(resolve => setTimeout(resolve, delay_ms));
 
 export const postBook = (serverHost: string, jwt: string, book: Book): undefined|Promise<Response> => {
@@ -33,6 +58,32 @@ export const postBook = (serverHost: string, jwt: string, book: Book): undefined
         ...makeJwtHeaders(jwt),
       },
     },
+  );
+};
+
+export const putBookImage = async (serverHost: string, jwt: string, bookId: number, image: string): Promise<undefined|Response> => {
+  if (serverHost === "") return;
+
+  const imageResponse = await fetch(
+    image,
+    {
+      method: "GET",
+    }
+  );
+  const imageBlob = await imageResponse.blob();
+
+  const formData = new FormData();
+  formData.append("image", imageBlob);
+
+  return fetch(
+    `${serverHost}/book/image/${bookId}`,
+    {
+      method: "PUT",
+      body: formData,
+      headers: {
+        ...makeJwtHeaders(jwt),
+      },
+    }
   );
 };
 
@@ -62,7 +113,7 @@ const makeStorable = <T>(
   return [value, setValue];
 };
 
-const makePreferenceable = <T>(
+export const makePreferenceable = <T>(
   name: string,
   defaultValue?: T,
 ): [boolean, undefined|T, Dispatch<SetStateAction<undefined|T>>] => {
@@ -72,7 +123,10 @@ const makePreferenceable = <T>(
   useEffect(() => {
     (async () => {
       const storageValue = (await Preferences.get({ key: name })).value;
-      if (storageValue === null) return;
+      if (storageValue === null) {
+        setIsReady(true);
+        return;
+      }
 
       try {
         setValue(JSON.parse(storageValue));
@@ -98,6 +152,14 @@ const makePreferenceable = <T>(
 export const makeServerHost = (): [string, Dispatch<SetStateAction<string>>] => {
   return makeStorable(
     "serverHost",
+    "",
+    window.localStorage,
+  );
+};
+
+export const makeMapsApiKey = (): [string, Dispatch<SetStateAction<string>>] => {
+  return makeStorable(
+    "mapsApiKey",
     "",
     window.localStorage,
   );
@@ -144,8 +206,4 @@ export const makeIsConnected = () => {
   }, [networkStatus]);
 
   return isConnected
-};
-
-export const makeBooksToPost = (): [boolean, undefined|Book[], Dispatch<SetStateAction<undefined|Book[]>>] => {
-  return makePreferenceable<Book[]>("booksToPost", []);
 };

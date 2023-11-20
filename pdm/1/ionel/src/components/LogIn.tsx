@@ -2,14 +2,12 @@ import { IonButton, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel,
 import { useEffect, useState } from "react";
 import SharedToolbar from "./SharedToolbar";
 import Settings from "./Settings";
-import { makeIsConnected, makeJwt, makeServerHost } from "../common";
+import { makeIsConnected, makeJwt, makeMapsApiKey, makeServerHost } from "../common";
 import { warning, warningOutline } from "ionicons/icons";
 import { useHistory } from "react-router";
 
 const LogIn: React.FC = () => {
   let history = useHistory();
-
-  const [serverHost, setServerHost] = makeServerHost();
 
   const [jwt, setJwt] = makeJwt();
   const isConnected = makeIsConnected();
@@ -17,6 +15,8 @@ const LogIn: React.FC = () => {
   const [inputError, setInputError] = useState("");
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [serverHost, setServerHost] = makeServerHost();
+  const [mapsApiKey, setMapsApiKey] = makeMapsApiKey();
   
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -72,6 +72,8 @@ const LogIn: React.FC = () => {
         <Settings
           isOpen={isSettingsOpen}
           setIsOpen={setIsSettingsOpen}
+          mapsApiKey={mapsApiKey}
+          setMapsApiKey={setMapsApiKey}
           serverHost={serverHost}
           setServerHost={setServerHost}
         />
