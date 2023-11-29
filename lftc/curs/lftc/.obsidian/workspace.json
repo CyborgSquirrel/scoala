@@ -157,8 +157,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "proprietăți de închidere ale limbajelor independente de context.md",
-                "mode": "source",
+                "file": "lema de pompare pentru limbaje independente de context.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -242,7 +242,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "proprietăți de închidere ale limbajelor independente de context.md",
+                "file": "lema de pompare pentru limbaje independente de context.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -259,7 +259,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "proprietăți de închidere ale limbajelor independente de context.md",
+                "file": "lema de pompare pentru limbaje independente de context.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -282,7 +282,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "proprietăți de închidere ale limbajelor independente de context.md"
+                "file": "lema de pompare pentru limbaje independente de context.md"
               }
             }
           }
@@ -303,23 +303,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d31a1835b13e5476",
+  "active": "a52a79254ca4cdf1",
   "lastOpenFiles": [
-    "regulă de producție ciclu.md",
-    "mulțimi regulare; expresii regulare.md",
+    "gramatică  regulară; gramatică de tip 3.md",
     "limbaj generat de o gramatică.md",
-    "relații de derivare.md",
     "extended backus naur form; ebnf.md",
-    "backus naur form; bnf.md",
     "backus naur stuff.md",
+    "backus naur form; bnf.md",
+    "gramatică.md",
+    "mulțimi regulare; expresii regulare.md",
     "expresii regulare echivalente.md",
+    "regulă de producție ciclu.md",
+    "relații de derivare.md",
     "gramatică independentă de context ambiguă și neambiguă.md",
     "regulă de producție redenumire.md",
     "regulă de producție recursivitate.md",
     "lema de pompare pentru limbaje independente de context.md",
-    "gramatică  regulară; gramatică de tip 3.md",
     "gramatică independentă de context; gramatică de tip 2.md",
-    "gramatică.md",
     "proprietăți de închidere ale limbajelor independente de context.md",
     "limbaj independent de context.md",
     "regulă de producție.md",

@@ -61,7 +61,7 @@ program: struct_list TOK_FN TOK_MAIN TOK_L_PAREN TOK_R_PAREN bloc_instr;
 
 struct_list: |struct struct_list
 struct: TOK_STRUCT TOK_ID TOK_L_BRACKET struct_inner TOK_R_BRACKET;
-struct_inner: |struct_membru TOK_SEMI_COL struct_inner;
+struct_inner: |struct_membru TOK_COMMA struct_inner;
 struct_membru: TOK_ID TOK_COL path;
 
 bloc_instr: TOK_L_BRACKET bloc_instr_inner TOK_R_BRACKET;

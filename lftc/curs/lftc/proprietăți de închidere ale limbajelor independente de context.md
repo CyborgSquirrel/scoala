@@ -5,6 +5,6 @@ sunt limbaje independente de context:
 - $L_1L_2$
 - ${L_1}^*$
 
-nu sunt neapărat limbaje independente de context:
+nu sunt neapskărat limbaje independente de context:
 - $L_1\cap L_2$
 - $\overline{L_1}$

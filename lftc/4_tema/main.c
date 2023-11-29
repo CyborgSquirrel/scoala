@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
     scan_init();
 
     anl();
-    printf("The file is sintactically correct!\n");
+    printf("The file is syntactically correct!\n");
     scan_print();
 
     scan_drop();

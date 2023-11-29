@@ -1,5 +1,5 @@
 struct A {
-  b: i32
+  b: i32,
 }
 
 fn main() {

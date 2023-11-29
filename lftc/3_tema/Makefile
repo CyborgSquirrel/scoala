@@ -8,16 +8,18 @@ CFLAGS = -g
 # CFLAGS =
 
 run: target/analyzer
-	@printf '\n\n=== %s ===\n' 'test/2-1.rs'
-	$(RUN_PREFIX) ./target/analyzer test/2-1.rs
-	@printf '\n\n=== %s ===\n' 'test/2-2.rs'
-	$(RUN_PREFIX) ./target/analyzer test/2-2.rs
-	@printf '\n\n=== %s ===\n' 'test/2-3.rs'
-	$(RUN_PREFIX) ./target/analyzer test/2-3.rs
-	@printf '\n\n=== %s ===\n' 'test/3-1.rs'
-	$(RUN_PREFIX) ./target/analyzer test/3-1.rs
-	@printf '\n\n=== %s ===\n' 'test/3-2.rs'
-	$(RUN_PREFIX) ./target/analyzer test/3-2.rs
+	$(RUN_PREFIX) ./target/analyzer a.rs
+
+	# @printf '\n\n=== %s ===\n' 'test/2-1.rs'
+	# $(RUN_PREFIX) ./target/analyzer test/2-1.rs
+	# @printf '\n\n=== %s ===\n' 'test/2-2.rs'
+	# $(RUN_PREFIX) ./target/analyzer test/2-2.rs
+	# @printf '\n\n=== %s ===\n' 'test/2-3.rs'
+	# $(RUN_PREFIX) ./target/analyzer test/2-3.rs
+	# @printf '\n\n=== %s ===\n' 'test/3-1.rs'
+	# $(RUN_PREFIX) ./target/analyzer test/3-1.rs
+	# @printf '\n\n=== %s ===\n' 'test/3-2.rs'
+	# $(RUN_PREFIX) ./target/analyzer test/3-2.rs
 
 target/analyzer: target/flex.c obj.c Makefile
 	mkdir -p ./target

@@ -1,0 +1,5 @@
+Al doilea program contine doua erori
+conform MLP, dar care nu sunt erori in
+limbajul original. Se cere ca acesta
+sa fie compilat si executat in limbajul
+original ales.

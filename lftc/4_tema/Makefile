@@ -22,7 +22,15 @@ run: target/analyzer
 	# @printf '\n\n=== %s ===\n' 'test/3-2.rs'
 	# $(RUN_PREFIX) ./target/analyzer test/3-2.rs
 
-target/analyzer: target/scanner.c target/analyzer.h main.c obj.c Makefile
+target/analyzer: \
+	target/scanner.h \
+	target/scanner.c \
+	target/analyzer.h \
+	target/analyzer.c \
+	main.c \
+	obj.c \
+	Makefile \
+
 	mkdir -p ./target
 	gcc $(CFLAGS) -Wall \
 		./main.c ./target/scanner.c ./target/analyzer.c \

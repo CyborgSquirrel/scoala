@@ -138,14 +138,14 @@ LIT_STR \"[a-zA-Z0-9{} =]*\"
 
 /*** Rule Section ***/
 %%
-fn            { add_atom(yytext, yyleng, CODE_FN     ); }
-main          { add_atom(yytext, yyleng, CODE_MAIN   ); }
-if            { add_atom(yytext, yyleng, CODE_IF     ); }
-while         { add_atom(yytext, yyleng, CODE_WHILE  ); }
-struct        { add_atom(yytext, yyleng, CODE_STRUCT ); }
-let           { add_atom(yytext, yyleng, CODE_LET    ); }
-mut           { add_atom(yytext, yyleng, CODE_MUT    ); }
-"println!"    { add_atom(yytext, yyleng, CODE_PRINTLN); }
+fn           { add_atom(yytext, yyleng, CODE_FN      ); }
+main         { add_atom(yytext, yyleng, CODE_MAIN    ); }
+if           { add_atom(yytext, yyleng, CODE_IF      ); }
+while        { add_atom(yytext, yyleng, CODE_WHILE   ); }
+struct       { add_atom(yytext, yyleng, CODE_STRUCT  ); }
+let          { add_atom(yytext, yyleng, CODE_LET     ); }
+mut          { add_atom(yytext, yyleng, CODE_MUT     ); }
+"println!"   { add_atom(yytext, yyleng, CODE_PRINTLN ); }
 
 {ID}          { add_atom(yytext, yyleng, CODE_ID ); }
 {LIT_INT}     { add_atom(yytext, yyleng, CODE_LIT); }
@@ -185,7 +185,7 @@ mut           { add_atom(yytext, yyleng, CODE_MUT    ); }
 /* yywrap() - wraps the above rule section */
 int yywrap() {}
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
 	program.fip = obj_list_new();
 	program.ts_id_code = 0;
 	program.ts_id = obj_dict_new();
