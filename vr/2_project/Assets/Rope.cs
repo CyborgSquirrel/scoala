@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Rope : MonoBehaviour
 {
+    public Object ropePrefab;
+
     public GameObject attachTo;
     public Vector3 attachToAnchor;
     public Vector3 attachToAxis;
@@ -26,73 +28,92 @@ public class Rope : MonoBehaviour
     void Start()
     {
         Segments = new List<GameObject>();
+        MakeSegments(SegmentsAction.Create);
+    }
 
-        Vector3 currPosition = transform.position;
+    enum SegmentsAction { Draw, Create };
+    void MakeSegments(SegmentsAction action)
+    {
+        Vector3 currPosition = Vector3.zero;
         GameObject prevSegment = null;
 
-        for (int i = 0; i < segmentsNo+1; i++)
+        for (int i = 0; i < segmentsNo + 1; i++)
         {
-            GameObject attacher;
+            GameObject attacher = null;
             bool isAttachTo = false;
-            if (i > 0)
+            if (action == SegmentsAction.Create)
             {
-                attacher = prevSegment;
-            }
-            else
-            {
-                attacher = attachTo;
-                isAttachTo = true;
+                if (i > 0)
+                {
+                    attacher = prevSegment;
+                }
+                else
+                {
+                    attacher = attachTo;
+                    isAttachTo = true;
+                }
             }
 
-            GameObject attachee;
+            GameObject attachee = null;
             if (i < segmentsNo)
             {
-                GameObject segment;
-                segment = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                segment.AddComponent<Rigidbody>();
+                GameObject segment = null;
+                if (action == SegmentsAction.Create)
                 {
-                    Rigidbody rigidbody = segment.GetComponent<Rigidbody>();
+                    //segment = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    segment = (GameObject)Instantiate(ropePrefab);
+                    segment.AddComponent<Rigidbody>();
+                    {
+                        Rigidbody rigidbody = segment.GetComponent<Rigidbody>();
 
-                    // ignore collisions with rope, to combat kraken-ification
-                    rigidbody.excludeLayers |= 1 << LayerMask.NameToLayer("Rope");
-                    segment.layer = LayerMask.NameToLayer("Rope");
+                        // ignore collisions with rope, to combat kraken-ification
+                        rigidbody.excludeLayers |= 1 << LayerMask.NameToLayer("Rope");
+                        segment.layer = LayerMask.NameToLayer("Rope");
 
-                    rigidbody.mass = 0.0001f;
+                        rigidbody.mass = 0.0001f;
+                    }
+                    segment.transform.SetParent(transform, false);
+                    segment.transform.localScale = new Vector3(segmentSize, segmentSize, segmentLength);
+                    segment.transform.position = transform.TransformPoint(currPosition);
+
+                    attachee = segment;
+
+                    prevSegment = segment;
+
+                    Segments.Add(segment);
                 }
-                segment.transform.parent = this.transform;
-                segment.transform.localScale = new Vector3(segmentSize, segmentSize, segmentLength);
-                segment.transform.position = currPosition;
+                else if (action == SegmentsAction.Draw)
+                {
+                    Gizmos.DrawCube(currPosition, new Vector3(segmentSize, segmentSize, segmentLength));
+                }
                 currPosition.z += segmentLength + segmentSpace;
-
-                attachee = segment;
-
-                prevSegment = segment;
-
-                Segments.Add(segment);
             }
             else
             {
                 attachee = attachEndTo;
             }
 
-            if (attacher != null && attachee != null)
+            if (action == SegmentsAction.Create)
             {
-                attacher.AddComponent<HingeJoint>();
-                HingeJoint hingeJoint = attacher.GetComponent<HingeJoint>();
-                if (breakable)
+                if (attacher != null && attachee != null)
                 {
-                    hingeJoint.breakForce = breakForce;
-                }
-                hingeJoint.connectedBody = attachee.GetComponent<Rigidbody>();
-                if (isAttachTo)
-                {
-                    hingeJoint.axis = attachToAxis;
-                    hingeJoint.anchor = attachToAnchor;
-                }
-                else
-                {
-                    hingeJoint.axis = new Vector3(0, 0, 1);
-                    hingeJoint.anchor = new Vector3(0, 0, segmentLength + segmentSpace);
+                    attacher.AddComponent<HingeJoint>();
+                    HingeJoint hingeJoint = attacher.GetComponent<HingeJoint>();
+                    if (breakable)
+                    {
+                        hingeJoint.breakForce = breakForce;
+                    }
+                    hingeJoint.connectedBody = attachee.GetComponent<Rigidbody>();
+                    if (isAttachTo)
+                    {
+                        hingeJoint.axis = attachToAxis;
+                        hingeJoint.anchor = attachToAnchor;
+                    }
+                    else
+                    {
+                        hingeJoint.axis = new Vector3(0, 0, 1);
+                        hingeJoint.anchor = new Vector3(0, 0, segmentLength + segmentSpace);
+                    }
                 }
             }
         }
@@ -110,7 +131,7 @@ public class Rope : MonoBehaviour
         color.a = 0.5f;
         Gizmos.color = color;
 
-        Vector3 size = new Vector3(segmentSize, segmentSize, (segmentLength + segmentSpace) * segmentsNo);
-        Gizmos.DrawCube(transform.position + new Vector3(0, 0, size.z / 2), size);
+        Gizmos.matrix = transform.localToWorldMatrix;
+        MakeSegments(SegmentsAction.Draw);;
     }
 }

@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class UFO : MonoBehaviour
 {
-    float noiseX = 0;
+    public float circleRadius;
+    public float radPerUpdate;
+    public float noiseStrength;
+
+    Vector3 center;
+    float circleRad = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        center = transform.position;
     }
 
     // Update is called once per frame
@@ -22,14 +27,11 @@ public class UFO : MonoBehaviour
     {
         // rotation
         transform.Rotate(0, 2f, 0);
-        
-        // movement
-        float noiseSample = Mathf.PerlinNoise1D(noiseX);
-        noiseX += 0.05f;
 
-        float directionRad = noiseSample * Mathf.PI * 2f;
-        float moveX = Mathf.Cos(directionRad);
-        float moveZ = Mathf.Sin(directionRad);
-        transform.Translate(new Vector3(moveX, 0, moveZ) * 0.5f);
+        // movement
+        Vector3 circlePos = new Vector3(Mathf.Cos(circleRad), 0, Mathf.Sin(circleRad));
+        circlePos += new Vector3(Mathf.PerlinNoise(circlePos.x, circlePos.z), 0, Mathf.PerlinNoise(circlePos.x + 10, circlePos.z)) * noiseStrength;
+        transform.position = center + circlePos * circleRadius;
+        circleRad += radPerUpdate;
     }
 }

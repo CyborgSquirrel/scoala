@@ -11,10 +11,10 @@ TagManager:
   - Rope
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Trigger
+  - Boulder
+  - AnotherTrigger
   - 
   - 
   - 

@@ -7,14 +7,13 @@ public class Antenna : MonoBehaviour
     Vector3 minScale = new Vector3(1, 1, 1);
     Vector3 maxScale = new Vector3(1, 2, 1);
 
-    GameObject ufo;
+    public GameObject ufo;
     GameObject stick;
 
     // Start is called before the first frame update
     void Start()
     {
-        ufo = GameObject.Find("UFO");
-        stick = GameObject.Find("Robot/Antenna/Base/Stick");
+        stick = this.transform.Find("Base/Stick").gameObject;
     }
 
     // Update is called once per frame
