@@ -6,9 +6,6 @@ import json as jsonlib
 import os
 import pathlib
 import secrets
-import sqlite3
-import time
-import typing
 from http import HTTPStatus as status
 
 import dacite
@@ -20,12 +17,6 @@ import sqlalchemy
 import sqlalchemy.orm
 
 import db
-
-
-@dataclasses.dataclass
-class LoginUser:
-    name: str
-    password: str
 
 
 @dataclasses.dataclass
@@ -177,7 +168,7 @@ def put_book_image(id: int):
     print(flask.request.files)
     image = flask.request.files["image"]
     image.save(book_image_dir / str(id))
-    return ("", 200)
+    return ("", status.OK)
 
 
 @app.post("/book")
@@ -204,6 +195,42 @@ def post_book():
     socketio.emit("post_book", response_book, room=str(user_id))
 
     return flask.jsonify(dict(id=response_book["id"]))
+
+
+@dataclasses.dataclass
+class PutBook:
+    read: bool
+    title: str
+    rating: int
+
+
+@app.put("/book/<int:id>")
+@flask_jwt.jwt_required()
+def put_book(id: int):
+    user_id = flask_jwt.get_jwt_identity()
+    request_book = jsonlib.loads(flask.request.data)
+
+    try:
+        request_book = dacite.from_dict(data_class=PutBook, data=request_book)
+    except dacite.DaciteError:
+        return ("", status.BAD_REQUEST)
+
+    with sqlalchemy.orm.Session(engine) as session:
+        session.execute(
+            sqlalchemy.update(db.Book)
+                .filter_by(id=id)
+                .values(
+                    read=request_book.read,
+                    title=request_book.title,
+                    rating=request_book.rating,
+                )
+        )
+        session.commit()
+    
+    # TODO: fix this maybe?
+    # socketio.emit("put_book", response_book, room=str(user_id))
+
+    return ("", status.OK)
 
 
 @dataclasses.dataclass
