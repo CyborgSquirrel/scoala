@@ -89,8 +89,8 @@ tests = itertools.chain.from_iterable([
     # itertools.product([1000], [1000], [3], [3], [4], ALL_RUNNERS),
 
     itertools.product([10], [10], [3], [3], [2], ALL_RUNNERS),
-    itertools.product([1000], [1000], [3], [3], [2,4,8,16], ALL_RUNNERS),
-    itertools.product([10000], [10000], [3], [3], [2,4,8,16], ALL_RUNNERS),
+    itertools.product([1000], [1000], [3], [3], [2,4,8,16,32,64,128,256,512], ALL_RUNNERS),
+    itertools.product([10000], [10000], [3], [3], [2,4,8,16,32,64,128,256,512,1024], ALL_RUNNERS),
 ])
 
 tests = [
