@@ -157,8 +157,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lema de pompare pentru limbaje independente de context.md",
-                "mode": "preview",
+                "file": "extended backus naur form; ebnf.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -242,7 +242,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lema de pompare pentru limbaje independente de context.md",
+                "file": "extended backus naur form; ebnf.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -259,7 +259,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "lema de pompare pentru limbaje independente de context.md",
+                "file": "extended backus naur form; ebnf.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -282,7 +282,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "lema de pompare pentru limbaje independente de context.md"
+                "file": "extended backus naur form; ebnf.md"
               }
             }
           }
@@ -300,13 +300,20 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
   "active": "a52a79254ca4cdf1",
   "lastOpenFiles": [
-    "gramatică  regulară; gramatică de tip 3.md",
+    "gramatică independentă de context; gramatică de tip 2.md",
+    "limbaj independent de context.md",
     "limbaj generat de o gramatică.md",
+    "Untitled.md",
+    "Excalidraw/Drawing 2023-12-03 11.10.12.excalidraw.md",
+    "Excalidraw",
+    "lema de pompare pentru limbaje independente de context.md",
+    "gramatică  regulară; gramatică de tip 3.md",
     "extended backus naur form; ebnf.md",
     "backus naur stuff.md",
     "backus naur form; bnf.md",
@@ -318,10 +325,7 @@
     "gramatică independentă de context ambiguă și neambiguă.md",
     "regulă de producție redenumire.md",
     "regulă de producție recursivitate.md",
-    "lema de pompare pentru limbaje independente de context.md",
-    "gramatică independentă de context; gramatică de tip 2.md",
     "proprietăți de închidere ale limbajelor independente de context.md",
-    "limbaj independent de context.md",
     "regulă de producție.md",
     "12a.md",
     "automat finit.md",
