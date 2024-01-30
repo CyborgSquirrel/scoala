@@ -1,0 +1,1 @@
+Este un [[limbaj generat de o gramatică|limbaj generat]] de o [[gramatică regulară; gramatică de tip 3|gramatică regulară]].

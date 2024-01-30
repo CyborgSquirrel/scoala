@@ -4,179 +4,70 @@
     "type": "split",
     "children": [
       {
-        "id": "686ef209c3fc7903",
+        "id": "8e3c7d2e87a3e5f0",
         "type": "tabs",
+        "dimension": 61.75514626218852,
         "children": [
           {
-            "id": "c812572ae2c89d85",
+            "id": "8b56709e5ab60591",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "limbaj generat de o gramatică.md",
+                "file": "gramatică.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "ddd1ea0c9b81f19c",
+            "id": "067323f3f44351fb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "relații de derivare.md",
+                "file": "relații de precedență wirth-weber.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "e17f92c7d6a8a562",
+            "id": "e8fffe2e977bb3b8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "extended backus naur form; ebnf.md",
-                "mode": "source",
-                "source": false
+                "file": "exercitii.canvas",
+                "viewState": {
+                  "x": 2757.810451290596,
+                  "y": 1576.8054720073912,
+                  "zoom": -0.8970784695651383
+                }
               }
             }
-          },
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "b2ac325027aceb34",
+        "type": "tabs",
+        "dimension": 38.24485373781148,
+        "children": [
           {
-            "id": "ff2315ce187544a5",
+            "id": "1ebdbb009c3f9ae7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "backus naur form; bnf.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d476a42c63afc339",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "backus naur stuff.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "45dd7684242baeee",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "expresii regulare echivalente.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c90bc92a10326cef",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "gramatică independentă de context ambiguă și neambiguă.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a31e4cf2810ee580",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "regulă de producție redenumire.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6904bfa6bb7eb1ec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "regulă de producție recursivitate.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3aa323312aee5dec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "regulă de producție redenumire.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "57e64e470737e5a5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "lema de pompare pentru limbaje independente de context.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1cc7a538bf5a9b0e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "limbaj generat de o gramatică.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a52a79254ca4cdf1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "extended backus naur form; ebnf.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "627a40f1cc0e8ae7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "mulțimi regulare; expresii regulare.md",
+                "file": "relații de precedență wirth-weber.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 12
+        ]
       }
     ],
     "direction": "vertical"
@@ -226,7 +117,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8f841b51de877916",
@@ -242,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "extended backus naur form; ebnf.md",
+                "file": "exercitii.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -259,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "extended backus naur form; ebnf.md",
+                "file": "exercitii.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -282,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "extended backus naur form; ebnf.md"
+                "file": "exercitii.canvas"
               }
             }
           }
@@ -304,32 +196,39 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "a52a79254ca4cdf1",
+  "active": "e8fffe2e977bb3b8",
   "lastOpenFiles": [
-    "gramatică independentă de context; gramatică de tip 2.md",
-    "limbaj independent de context.md",
-    "limbaj generat de o gramatică.md",
-    "Untitled.md",
-    "Excalidraw/Drawing 2023-12-03 11.10.12.excalidraw.md",
-    "Excalidraw",
-    "lema de pompare pentru limbaje independente de context.md",
-    "gramatică  regulară; gramatică de tip 3.md",
-    "extended backus naur form; ebnf.md",
-    "backus naur stuff.md",
-    "backus naur form; bnf.md",
+    "relații de precedență wirth-weber.md",
+    "Excalidraw/relații de precedență wirth-weber 2024-01-30 21.04.10.excalidraw.md",
     "gramatică.md",
-    "mulțimi regulare; expresii regulare.md",
-    "expresii regulare echivalente.md",
-    "regulă de producție ciclu.md",
-    "relații de derivare.md",
-    "gramatică independentă de context ambiguă și neambiguă.md",
-    "regulă de producție redenumire.md",
-    "regulă de producție recursivitate.md",
-    "proprietăți de închidere ale limbajelor independente de context.md",
-    "regulă de producție.md",
-    "12a.md",
-    "automat finit.md",
-    "gramatică dependentă de context.md",
-    "gramatică monotonă.md"
+    "colecția canonică și tabelul de analiză LALR.md",
+    "Excalidraw/colecția canonică și tabelul de analiză LR(1) 2024-01-30 18.19.33.excalidraw.md",
+    "Excalidraw/colecția canonică și tabelul de analiză LALR 2024-01-30 19.24.25.excalidraw.md",
+    "Excalidraw/colecția canonică și tabelul de analiză LALR 2024-01-30 19.30.32.excalidraw.md",
+    "colecția canonică și tabelul de analiză LR(0).md",
+    "colecția canonică și tabelul de analiză LR(1).md",
+    "gramatică LALR.md",
+    "Excalidraw/colecția canonică și tabelul de analiză LR(1) 2024-01-30 18.43.50.excalidraw.md",
+    "colecția canonică și tabelul de analiză SLR.md",
+    "Excalidraw/colecția canonică și tabelul de analiză LR(0) 2024-01-30 16.37.14.excalidraw.md",
+    "gramatică SLR.md",
+    "gramatică LR(k).md",
+    "Excalidraw/colecția canonică LR(0) 2024-01-30 16.23.31.excalidraw.md",
+    "gramatică independentă de context; gramatică de tip 2; GIC.md",
+    "gramatică LL(k).md",
+    "când este un automat push down determinist.md",
+    "secvență acceptată de automat push down; criteriul stivei vide; criteriul stării finale.md",
+    "tranziții; tranziție directă, k-tranziție, + tranziție, * tranziție.md",
+    "relații de derivare; derivare directă, k-derivare, + derivare, * derivare.md",
+    "lema de pompare pentru limbaje regulare.md",
+    "stare accesibilă sau inaccesibilă.md",
+    "forma normală chomsky; FNC.md",
+    "simbol neutilizabil.md",
+    "gramatici.canvas",
+    "exercitii.canvas",
+    "Pasted Image 20240128200120_680.png",
+    "Pasted image 20240128200031.png",
+    "Pasted Image 20240128105752_511.png",
+    "Excalidraw"
   ]
 }

@@ -1,1 +1,0 @@
-[[regulă de producție]]

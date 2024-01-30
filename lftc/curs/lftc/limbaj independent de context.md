@@ -1,0 +1,1 @@
+Este un [[limbaj generat de o gramatică|limbaj generat]] de o [[gramatică independentă de context; gramatică de tip 2; GIC|gramatică independentă de context]].

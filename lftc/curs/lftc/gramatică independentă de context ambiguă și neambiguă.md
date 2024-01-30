@@ -1,4 +1,4 @@
-O [[gramatică independentă de context; gramatică de tip 2|gramatică independentă de context]] $G=(N,\Sigma,P,S)$ este *ambiguă*, dacă și numai dacă există cel puțin un cuvânt $w$ care admite doi arbori de derivare distincți; altfel gramatica este *neambiguă*.
+O [[gramatică independentă de context; gramatică de tip 2; GIC|gramatică independentă de context]] $G=(N,\Sigma,P,S)$ este *ambiguă*, dacă și numai dacă există cel puțin un cuvânt $w$ care admite doi arbori de derivare distincți; altfel gramatica este *neambiguă*.
 
 exemplu de gramatică ambiguă:
 ```
