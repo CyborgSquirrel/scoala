@@ -1,0 +1,1 @@
+Scop: identificarea atomilor lexicali.

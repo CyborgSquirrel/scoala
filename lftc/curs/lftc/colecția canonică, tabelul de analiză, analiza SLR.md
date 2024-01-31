@@ -1,5 +1,8 @@
 [[gramatică SLR]]
 
+Chestiile au forma:
+$[A\rightarrow\alpha.\beta,u]$, $u=\text{FOLLOW}_1(A),|u|=1$
+
 # Exemplu
 
 Pentru gramatica (îmbogățită cu producția $S'\rightarrow S$):
@@ -32,3 +35,17 @@ Tabelul de analiză va fi:
 - **r{n}** reducere cu producția numărul n
 
 ![[colecția canonică și tabelul de analiză SLR 2024-01-30 17.16.18.excalidraw]]
+
+Pentru șirul: $ax$
+
+Analiza va fi:
+$$
+\begin{align}
+&(\$0,ax\$,\varepsilon) \\
+\vdash&(\$0a4,x\$,\varepsilon) \\
+\vdash&(\$0A2,x\$,3) \\
+\vdash&(\$0A2x5,\$,3) \\
+\vdash&(\$0S1,\$,13) \\
+\vdash&\text{acc} \\
+\end{align}
+$$

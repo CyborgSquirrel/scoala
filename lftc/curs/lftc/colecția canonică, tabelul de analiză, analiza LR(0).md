@@ -1,5 +1,7 @@
 [[gramatică LR(k)]]
 
+# Colecția canonică
+
 Element inițial: $[S'\rightarrow .S]$.
 
 Oricând apare un neterminal după punct, se adaugă toate regulile de producție care au neterminalul respectiv în stânga, cu punctul înaintea primului simbol.
@@ -31,3 +33,18 @@ Tabelul de analiză va fi:
 - **s** pare să apară în restul cazurilor?
 
 ![[colecția canonică și tabelul de analiză LR(0) 2024-01-30 16.37.14.excalidraw]]
+
+Pentru șirul: $ab$
+
+Analiza va fi:
+$$
+\begin{align}
+&(\$0,ab\$,\varepsilon) \\
+\vdash&(\$0a3,b\$,\varepsilon) \\
+\vdash&(\$0A2,b\$,2) \\
+\vdash&(\$0A2b5,\$,2) \\
+\vdash&(\$0A2B4,\$,32) \\
+\vdash&(\$0S1,\$,132) \\
+\vdash&\text{acc} \\
+\end{align}
+$$

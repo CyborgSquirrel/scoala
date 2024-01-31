@@ -6,7 +6,6 @@
       {
         "id": "8e3c7d2e87a3e5f0",
         "type": "tabs",
-        "dimension": 61.75514626218852,
         "children": [
           {
             "id": "8b56709e5ab60591",
@@ -14,60 +13,257 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "gramatică.md",
-                "mode": "source",
+                "file": "analiza sintactică.md",
+                "mode": "preview",
                 "source": false
               }
             }
           },
           {
-            "id": "067323f3f44351fb",
+            "id": "4736aa75fbdde7e9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "relații de precedență wirth-weber.md",
+                "file": "analiza lexicală.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "e8fffe2e977bb3b8",
+            "id": "ad37c4b5517885bf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "compilator.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "553d6e109b34cbb7",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
-                "file": "exercitii.canvas",
+                "file": "monstru.canvas",
                 "viewState": {
-                  "x": 2757.810451290596,
-                  "y": 1576.8054720073912,
-                  "zoom": -0.8970784695651383
+                  "x": 3674.6090848905687,
+                  "y": 1618.3000385401194,
+                  "zoom": -2.2149406894233574
                 }
               }
             }
-          }
-        ],
-        "currentTab": 2
-      },
-      {
-        "id": "b2ac325027aceb34",
-        "type": "tabs",
-        "dimension": 38.24485373781148,
-        "children": [
+          },
           {
-            "id": "1ebdbb009c3f9ae7",
+            "id": "bc57dbc21ab76782",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "relații de precedență wirth-weber.md",
+                "file": "convenții cod.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "73aa3c65a921d5bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "relații de precedență wirth-weber exemplu.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "010db2b7ce724264",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Optimizare de cod.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6ffac19b2e9c4f14",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "gramatică de atribute.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "320620aee84d4795",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "atribut sintetizat și moștenit.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3d657a3e0a206ead",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "gramatică s-atributată.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "017c640776d63888",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "atribut sintetizat și moștenit.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3818d76b7f7b70ef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "gramatică simplificată.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "be708aa638098161",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "analizor descendent cu reveniri.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "11b41ae0d479d045",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "analiză leftmost derivation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e573837cea5b781f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "colecția canonică, tabelul de analiză, analiza LR(0).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d9e77acea58c0202",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "analiză rightmost derivation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9abf6f60aa81143b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "colecția canonică, tabelul de analiză, analiza LR(1).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "678176f79e45f416",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "colecția canonică, tabelul de analiză, analiza LR(0).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "63b838f7614c79a6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "analizor descendent cu reveniri.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c55d93a7f606bb76",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "arborele sintactic abstract.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "548a946ba1062f5f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "exemplu traducere cod intermediar.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -134,7 +330,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "exercitii.canvas",
+                "file": "monstru.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +347,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "exercitii.canvas",
+                "file": "monstru.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +370,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "exercitii.canvas"
+                "file": "monstru.canvas"
               }
             }
           }
@@ -196,36 +392,36 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "e8fffe2e977bb3b8",
+  "active": "553d6e109b34cbb7",
   "lastOpenFiles": [
-    "relații de precedență wirth-weber.md",
-    "Excalidraw/relații de precedență wirth-weber 2024-01-30 21.04.10.excalidraw.md",
-    "gramatică.md",
-    "colecția canonică și tabelul de analiză LALR.md",
-    "Excalidraw/colecția canonică și tabelul de analiză LR(1) 2024-01-30 18.19.33.excalidraw.md",
-    "Excalidraw/colecția canonică și tabelul de analiză LALR 2024-01-30 19.24.25.excalidraw.md",
-    "Excalidraw/colecția canonică și tabelul de analiză LALR 2024-01-30 19.30.32.excalidraw.md",
-    "colecția canonică și tabelul de analiză LR(0).md",
-    "colecția canonică și tabelul de analiză LR(1).md",
-    "gramatică LALR.md",
-    "Excalidraw/colecția canonică și tabelul de analiză LR(1) 2024-01-30 18.43.50.excalidraw.md",
-    "colecția canonică și tabelul de analiză SLR.md",
-    "Excalidraw/colecția canonică și tabelul de analiză LR(0) 2024-01-30 16.37.14.excalidraw.md",
-    "gramatică SLR.md",
-    "gramatică LR(k).md",
-    "Excalidraw/colecția canonică LR(0) 2024-01-30 16.23.31.excalidraw.md",
-    "gramatică independentă de context; gramatică de tip 2; GIC.md",
+    "convenții cod.md",
+    "exemplu automat push down.md",
+    "monstru.canvas",
+    "exemplu traducere cod intermediar.md",
+    "arborele sintactic abstract.md",
+    "Excalidraw/exemplu automat push down 2024-01-31 19.10.03.excalidraw.md",
+    "Excalidraw/exemplu automat push down 2024-01-31 19.05.34.excalidraw.md",
     "gramatică LL(k).md",
-    "când este un automat push down determinist.md",
-    "secvență acceptată de automat push down; criteriul stivei vide; criteriul stării finale.md",
-    "tranziții; tranziție directă, k-tranziție, + tranziție, * tranziție.md",
-    "relații de derivare; derivare directă, k-derivare, + derivare, * derivare.md",
-    "lema de pompare pentru limbaje regulare.md",
-    "stare accesibilă sau inaccesibilă.md",
-    "forma normală chomsky; FNC.md",
-    "simbol neutilizabil.md",
+    "derivare de stânga sau dreapta.md",
+    "gramatică LR(k).md",
+    "relații de precedență wirth-weber exemplu.md",
+    "Optimizare de cod.md",
+    "Generare de cod intermediar.md",
+    "interpretor.md",
+    "compilator.md",
+    "limbaj regular.md",
+    "Untitled 1.md",
+    "gramatică.md",
+    "Excalidraw/automat finit reprezentare tabelară 2024-01-28 10.56.09.excalidraw.md",
+    "alfabet.md",
     "gramatici.canvas",
-    "exercitii.canvas",
+    "gramatică de atribute.md",
+    "atribut sintetizat și moștenit.md",
+    "gramatică s-atributată.md",
+    "gramatică l-atributată.md",
+    "gramatică simplificată.md",
+    "gramatică independentă de context; gramatică de tip 2; GIC.md",
+    "quiz",
     "Pasted Image 20240128200120_680.png",
     "Pasted image 20240128200031.png",
     "Pasted Image 20240128105752_511.png",

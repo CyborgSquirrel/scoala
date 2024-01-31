@@ -1,0 +1,11 @@
+- operanzi
+	- constanta numerică
+	- valoarea unei variabile
+- operatori
+	- `@` - adresa variabilei
+	- `^` - valoarea de la adresă
+	- `+`, `*`, etc.
+	- `:=` - atribuire
+	- `<`, `>`, etc.
+	- `goto et` - salt necondiționat
+	- `g{operator_logic} exp1 exp2 et` - salt condiționat (de exemplu `g> 1 2 @start`)

@@ -28,22 +28,22 @@
 		- $\alpha\in(N\cup\Sigma)^*$
 		- $X\in(N\cup\Sigma)$
 
-# Exemplu
+# Algoritm
 
-Gramatica:
-
+Se construiesc următoarele mulțimi, pentru toate $X\in(N\cup\Sigma)$:
 $$
 \begin{align}
-S&\rightarrow aSSb \\
-S&\rightarrow c \\
+\text{Head}^+(X)&=\{Y|X\overset{+}{\Rightarrow}Y\alpha\} \\
+\text{Tail}^+(X)&=\{Y|X\overset{+}{\Rightarrow}\alpha Y\} \\
+\text{Head}^*(X)&=(\text{Head}^+(X)\cup\{X\})\cap\Sigma
 \end{align}
 $$
-Tabel:
 
-|  | $S$ | $a$ | $b$ | $c$ | $\$$ |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| $S$ | = |  | = | < |  |
-| $a$ | = | < |  | < |  |
-| $b$ |  |  |  |  |  |
-| $c$ |  |  |  |  |  |
-| $\$$ |  |  |  |  |  |
+Pentru fiecare producție $A\rightarrow\alpha\in P$, pentru fiecare pereche de simboluri consecutive $XY$ din $\alpha$, se adaugă relațiile:
+- $X\overset{\bullet}{=}Y$
+- $X\overset{\bullet}{\lt}\text{Head}^+(Y)$
+- $\text{Tail}^+(X)\overset{\bullet}{\gt}\text{Head}^*(Y)$
+
+Se mai adaugă și:
+- $\$\overset{\bullet}{\lt}\text{Head}^+(S)$
+- $\text{Tail}^+(S)\overset{\bullet}{\gt}\$$

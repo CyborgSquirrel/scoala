@@ -1,4 +1,4 @@
-![[automat push down; APD]]
+[[automat push down; APD]]
 
 Automatul este **determinist**, dacă:
 

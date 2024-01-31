@@ -1,4 +1,4 @@
-![[automat finit; AF]]
+[[automat finit; AF]]
 
 $M$ este **determinist** (AFD), dacă:
 - $|\delta(q,a)|\le1,\forall q\in Q,a\in\Sigma$
