@@ -1,4 +1,4 @@
-![[gramatică]]
+[[gramatică]]
 
 - $X\overset{\bullet}{=}Y$
 	- $A\rightarrow \alpha XY\beta\in P$
@@ -47,3 +47,9 @@ Pentru fiecare producție $A\rightarrow\alpha\in P$, pentru fiecare pereche de s
 Se mai adaugă și:
 - $\$\overset{\bullet}{\lt}\text{Head}^+(S)$
 - $\text{Tail}^+(S)\overset{\bullet}{\gt}\$$
+
+# Analiză
+
+Automat: $([\text{stiva\_de\_lucru},\text{stiva\_de\_intrare}],\text{stiva\_de\_ieșire}])$
+
+Configurație inițială: $(\$,w\$,\varepsilon)$

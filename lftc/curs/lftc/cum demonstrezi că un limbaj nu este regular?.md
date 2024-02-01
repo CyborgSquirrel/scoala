@@ -1,5 +1,4 @@
-Folosești negația lemei de pompare.
-![[lema de pompare pentru limbaje regulare|lemei de pompare pentru limbaje regulare]]
+Folosești negația [[lema de pompare pentru limbaje regulare|lemei de pompare pentru limbaje regulare]]
 
 Exemplu:
 

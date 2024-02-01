@@ -51,212 +51,56 @@
               "state": {
                 "file": "monstru.canvas",
                 "viewState": {
-                  "x": 3674.6090848905687,
-                  "y": 1618.3000385401194,
-                  "zoom": -2.2149406894233574
+                  "x": 6882.877022360421,
+                  "y": -2697.257230438342,
+                  "zoom": -0.21494068942335764
                 }
               }
             }
           },
           {
-            "id": "bc57dbc21ab76782",
+            "id": "19b8e43d1e73f79e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "convenții cod.md",
+                "file": "gramatică proprie.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "73aa3c65a921d5bd",
+            "id": "364c3a333fdd7579",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "relații de precedență wirth-weber exemplu.md",
+                "file": "translator push down exemplu.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "010db2b7ce724264",
+            "id": "e76c0e53970b67df",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Optimizare de cod.md",
+                "file": "translator finit exemplu.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "6ffac19b2e9c4f14",
+            "id": "1edef90905a94a51",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "gramatică de atribute.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "320620aee84d4795",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "atribut sintetizat și moștenit.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3d657a3e0a206ead",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "gramatică s-atributată.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "017c640776d63888",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "atribut sintetizat și moștenit.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3818d76b7f7b70ef",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "gramatică simplificată.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "be708aa638098161",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "analizor descendent cu reveniri.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "11b41ae0d479d045",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "analiză leftmost derivation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e573837cea5b781f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "colecția canonică, tabelul de analiză, analiza LR(0).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d9e77acea58c0202",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "analiză rightmost derivation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9abf6f60aa81143b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "colecția canonică, tabelul de analiză, analiza LR(1).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "678176f79e45f416",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "colecția canonică, tabelul de analiză, analiza LR(0).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "63b838f7614c79a6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "analizor descendent cu reveniri.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c55d93a7f606bb76",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "arborele sintactic abstract.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "548a946ba1062f5f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "exemplu traducere cod intermediar.md",
+                "file": "gramatică dependentă de context; gramatică de tip 1.md",
                 "mode": "source",
                 "source": false
               }
@@ -394,33 +238,34 @@
   },
   "active": "553d6e109b34cbb7",
   "lastOpenFiles": [
-    "convenții cod.md",
-    "exemplu automat push down.md",
+    "gramatică LALR.md",
     "monstru.canvas",
-    "exemplu traducere cod intermediar.md",
-    "arborele sintactic abstract.md",
-    "Excalidraw/exemplu automat push down 2024-01-31 19.10.03.excalidraw.md",
-    "Excalidraw/exemplu automat push down 2024-01-31 19.05.34.excalidraw.md",
-    "gramatică LL(k).md",
-    "derivare de stânga sau dreapta.md",
-    "gramatică LR(k).md",
+    "gramatică proprie.md",
+    "gramatică epsilon-independentă și epsilon-producții.md",
+    "limbaj independent de context.md",
+    "home.md",
+    "simbol neproductiv sau productiv.md",
+    "translator push down exemplu.md",
+    "translator finit exemplu.md",
+    "gramatică dependentă de context; gramatică de tip 1.md",
+    "gramatică monotonă; gramatică de tip 1.md",
+    "convenții cod.md",
     "relații de precedență wirth-weber exemplu.md",
     "Optimizare de cod.md",
-    "Generare de cod intermediar.md",
-    "interpretor.md",
-    "compilator.md",
-    "limbaj regular.md",
-    "Untitled 1.md",
-    "gramatică.md",
-    "Excalidraw/automat finit reprezentare tabelară 2024-01-28 10.56.09.excalidraw.md",
-    "alfabet.md",
-    "gramatici.canvas",
     "gramatică de atribute.md",
     "atribut sintetizat și moștenit.md",
     "gramatică s-atributată.md",
-    "gramatică l-atributată.md",
     "gramatică simplificată.md",
-    "gramatică independentă de context; gramatică de tip 2; GIC.md",
+    "analizor descendent cu reveniri.md",
+    "analiză leftmost derivation.md",
+    "colecția canonică, tabelul de analiză, analiza LR(0).md",
+    "analiză rightmost derivation.md",
+    "colecția canonică, tabelul de analiză, analiza LR(1).md",
+    "arborele sintactic abstract.md",
+    "exemplu traducere cod intermediar.md",
+    "translatare.md",
+    "exemplu automat push down.md",
+    "gramatici.canvas",
     "quiz",
     "Pasted Image 20240128200120_680.png",
     "Pasted image 20240128200031.png",
