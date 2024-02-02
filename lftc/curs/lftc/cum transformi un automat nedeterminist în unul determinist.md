@@ -1,6 +1,6 @@
 Exemplu:
 
-![[cum transformi un automat nedeterminist în unul determinist? 2024-01-30 12.46.15.excalidraw]]
+![[cum transformi un automat nedeterminist în unul determinist 2024-01-30 12.46.15.excalidraw]]
 
 |  | 0 | 1 |  |
 | ---- | ---- | ---- | ---- |

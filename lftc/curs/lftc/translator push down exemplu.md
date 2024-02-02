@@ -26,7 +26,7 @@ $$
 \vdash&(q_1,a,A,a) \\
 \vdash&(q_1,\varepsilon,AA,aa) \\
 \vdash&(q_2,\varepsilon,AA,aa) \\
-\vdash&(q_2,\varepsilon,A,baa) \\
+\vdash&(q_2,\varepsilon,A,aab) \\
 \vdash&(q_2,\varepsilon,\varepsilon,aabb) \\
 \end{align}
 $$

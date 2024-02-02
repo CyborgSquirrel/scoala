@@ -49,12 +49,24 @@
             "state": {
               "type": "canvas",
               "state": {
-                "file": "monstru.canvas",
+                "file": "main.canvas",
                 "viewState": {
-                  "x": 6882.877022360421,
-                  "y": -2697.257230438342,
-                  "zoom": -0.21494068942335764
+                  "x": -415.9737763707029,
+                  "y": 856.5158358994108,
+                  "zoom": -1.9115829006884044
                 }
+              }
+            }
+          },
+          {
+            "id": "467a85caecb2bb52",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "automat finit reprezentare tabelară, graf.md",
+                "mode": "source",
+                "source": false
               }
             }
           },
@@ -174,7 +186,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "monstru.canvas",
+                "file": "main.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -191,7 +203,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "monstru.canvas",
+                "file": "main.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -214,7 +226,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "monstru.canvas"
+                "file": "main.canvas"
               }
             }
           }
@@ -238,8 +250,18 @@
   },
   "active": "553d6e109b34cbb7",
   "lastOpenFiles": [
+    "Excalidraw/cum transformi un automat nedeterminist în unul determinist 2024-01-30 12.46.15.excalidraw.md",
+    "sunt automatele finite nedeterministe echivalente cu cele deterministe.md",
+    "cum demonstrezi că limbajul generat de o gramatică este egal cu un limbaj.md",
+    "cum transformi un automat nedeterminist în unul determinist.md",
+    "cum demonstrezi că un limbaj nu este regular.md",
+    "când sunt două automate finite echivalente.md",
+    "când este o gramatică ambiguă.md",
+    "main.canvas",
+    "automat finit reprezentare tabelară, graf.md",
+    "Excalidraw/automat finit reprezentare graf.excalidraw.md",
+    "Excalidraw/automat finit reprezentare tabelară.excalidraw.md",
     "gramatică LALR.md",
-    "monstru.canvas",
     "gramatică proprie.md",
     "gramatică epsilon-independentă și epsilon-producții.md",
     "limbaj independent de context.md",
@@ -255,16 +277,6 @@
     "gramatică de atribute.md",
     "atribut sintetizat și moștenit.md",
     "gramatică s-atributată.md",
-    "gramatică simplificată.md",
-    "analizor descendent cu reveniri.md",
-    "analiză leftmost derivation.md",
-    "colecția canonică, tabelul de analiză, analiza LR(0).md",
-    "analiză rightmost derivation.md",
-    "colecția canonică, tabelul de analiză, analiza LR(1).md",
-    "arborele sintactic abstract.md",
-    "exemplu traducere cod intermediar.md",
-    "translatare.md",
-    "exemplu automat push down.md",
     "gramatici.canvas",
     "quiz",
     "Pasted Image 20240128200120_680.png",

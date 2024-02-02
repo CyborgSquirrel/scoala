@@ -1,13 +1,14 @@
 [[automat push down; APD]]
 
+Limbaj:
 $$
 L=\{w\overset{\sim}{w}\mid w\in\{a,b\}^*,\overset{\sim}{w}\text{ e inversul lui }w\}
 $$
 
-Automatul:
+Reprezentare graf:
 ![[exemplu automat push down 2024-01-31 19.05.34.excalidraw]]
 
-Tabelul:
+Reprezentare tabelară:
 ![[exemplu automat push down 2024-01-31 19.10.03.excalidraw]]
 
 Analiză pentru $abbbba$:

@@ -19,21 +19,6 @@ mapare de la
 (stare, simbol)
 la o stare nouă ^C3GO1TtK
 
-0 ^qc5ERWzo
-
-1 ^DFOZ8kNv
-
-0 ^dtWmmbyD
-
-1 ^maCKGYTr
-
-0 ^a7LTHTja
-
-1 ^7ONPkPoy
-
-automatul finit
-corespunzător: ^modGAkXF
-
 
 # Embedded files
 3fc2cc6bc2589b468c7e8366409ad64cada8901d: [[Pasted Image 20240128105752_511.png]]
@@ -474,9 +459,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "ellipse",
-			"version": 154,
-			"versionNonce": 1163974724,
-			"isDeleted": false,
+			"version": 156,
+			"versionNonce": 1124515633,
+			"isDeleted": true,
 			"id": "3oRXCbQxDoc8N0KeAQFDw",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -496,33 +481,16 @@ corespunzător: ^modGAkXF
 			"roundness": {
 				"type": 2
 			},
-			"boundElements": [
-				{
-					"id": "xzR8_i0eDOEbKR_-w3ua1",
-					"type": "arrow"
-				},
-				{
-					"id": "T4plorCTdKQUdPKFeQmGL",
-					"type": "arrow"
-				},
-				{
-					"id": "LfEg3pJzzN8CX_Uphnj_H",
-					"type": "arrow"
-				},
-				{
-					"id": "UoFn5jwzjluMTq7yLdD8R",
-					"type": "arrow"
-				}
-			],
-			"updated": 1706455510950,
+			"boundElements": [],
+			"updated": 1706904364032,
 			"link": null,
 			"locked": false
 		},
 		{
 			"type": "ellipse",
-			"version": 153,
-			"versionNonce": 350275012,
-			"isDeleted": false,
+			"version": 155,
+			"versionNonce": 1697433695,
+			"isDeleted": true,
 			"id": "10JUkkkslvIyehROwfile",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -542,29 +510,16 @@ corespunzător: ^modGAkXF
 			"roundness": {
 				"type": 2
 			},
-			"boundElements": [
-				{
-					"id": "xzR8_i0eDOEbKR_-w3ua1",
-					"type": "arrow"
-				},
-				{
-					"id": "fgLUw6xzvtecBjkePwb43",
-					"type": "arrow"
-				},
-				{
-					"id": "LfEg3pJzzN8CX_Uphnj_H",
-					"type": "arrow"
-				}
-			],
-			"updated": 1706432914066,
+			"boundElements": [],
+			"updated": 1706904364032,
 			"link": null,
 			"locked": false
 		},
 		{
 			"type": "ellipse",
-			"version": 141,
-			"versionNonce": 986343548,
-			"isDeleted": false,
+			"version": 142,
+			"versionNonce": 873935441,
+			"isDeleted": true,
 			"id": "mkj-Dbso1DQRjMwGWvD1O",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -585,15 +540,15 @@ corespunzător: ^modGAkXF
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1706432914066,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false
 		},
 		{
 			"type": "ellipse",
-			"version": 193,
-			"versionNonce": 2076929348,
-			"isDeleted": false,
+			"version": 195,
+			"versionNonce": 1730785553,
+			"isDeleted": true,
 			"id": "RwKAU6HKIv634C3vlxiiR",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -613,29 +568,16 @@ corespunzător: ^modGAkXF
 			"roundness": {
 				"type": 2
 			},
-			"boundElements": [
-				{
-					"id": "fgLUw6xzvtecBjkePwb43",
-					"type": "arrow"
-				},
-				{
-					"id": "pp34yqc0Cul22E0ESLUZM",
-					"type": "arrow"
-				},
-				{
-					"id": "D2SN1_mZyCxkBLuvhJ9Eu",
-					"type": "arrow"
-				}
-			],
-			"updated": 1706432914066,
+			"boundElements": [],
+			"updated": 1706904364032,
 			"link": null,
 			"locked": false
 		},
 		{
 			"type": "freedraw",
-			"version": 122,
-			"versionNonce": 182450428,
-			"isDeleted": false,
+			"version": 123,
+			"versionNonce": 1073659953,
+			"isDeleted": true,
 			"id": "cCjeKaBmCQE_-qa8vlNXv",
 			"fillStyle": "solid",
 			"strokeWidth": 0.5,
@@ -654,7 +596,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914066,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"points": [
@@ -816,9 +758,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "freedraw",
-			"version": 125,
-			"versionNonce": 234169540,
-			"isDeleted": false,
+			"version": 126,
+			"versionNonce": 1416714079,
+			"isDeleted": true,
 			"id": "7RQFvFTQqNXYkOnwt2oOr",
 			"fillStyle": "solid",
 			"strokeWidth": 0.5,
@@ -837,7 +779,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"points": [
@@ -1014,9 +956,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "freedraw",
-			"version": 115,
-			"versionNonce": 1391425916,
-			"isDeleted": false,
+			"version": 116,
+			"versionNonce": 1736020497,
+			"isDeleted": true,
 			"id": "0p6vevh_gx3sd8RUlIR1d",
 			"fillStyle": "solid",
 			"strokeWidth": 0.5,
@@ -1035,7 +977,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"points": [
@@ -1162,9 +1104,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "arrow",
-			"version": 390,
-			"versionNonce": 821816388,
-			"isDeleted": false,
+			"version": 391,
+			"versionNonce": 338498431,
+			"isDeleted": true,
 			"id": "xzR8_i0eDOEbKR_-w3ua1",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1185,7 +1127,7 @@ corespunzător: ^modGAkXF
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1214,9 +1156,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "text",
-			"version": 267,
-			"versionNonce": 1069828732,
-			"isDeleted": false,
+			"version": 268,
+			"versionNonce": 1602168817,
+			"isDeleted": true,
 			"id": "qc5ERWzo",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1235,7 +1177,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"fontSize": 20,
@@ -1251,9 +1193,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "arrow",
-			"version": 342,
-			"versionNonce": 992723396,
-			"isDeleted": false,
+			"version": 343,
+			"versionNonce": 962349983,
+			"isDeleted": true,
 			"id": "T4plorCTdKQUdPKFeQmGL",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1274,7 +1216,7 @@ corespunzător: ^modGAkXF
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1315,9 +1257,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "text",
-			"version": 106,
-			"versionNonce": 800926844,
-			"isDeleted": false,
+			"version": 107,
+			"versionNonce": 1377239505,
+			"isDeleted": true,
 			"id": "DFOZ8kNv",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1336,7 +1278,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"fontSize": 20,
@@ -1352,9 +1294,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "arrow",
-			"version": 386,
-			"versionNonce": 391571780,
-			"isDeleted": false,
+			"version": 387,
+			"versionNonce": 1076854719,
+			"isDeleted": true,
 			"id": "fgLUw6xzvtecBjkePwb43",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1375,7 +1317,7 @@ corespunzător: ^modGAkXF
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1404,9 +1346,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "text",
-			"version": 100,
-			"versionNonce": 1557806332,
-			"isDeleted": false,
+			"version": 101,
+			"versionNonce": 1012441009,
+			"isDeleted": true,
 			"id": "dtWmmbyD",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1425,7 +1367,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"fontSize": 20,
@@ -1441,9 +1383,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "arrow",
-			"version": 460,
-			"versionNonce": 582033604,
-			"isDeleted": false,
+			"version": 461,
+			"versionNonce": 1254567903,
+			"isDeleted": true,
 			"id": "LfEg3pJzzN8CX_Uphnj_H",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1464,7 +1406,7 @@ corespunzător: ^modGAkXF
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1497,9 +1439,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "text",
-			"version": 104,
-			"versionNonce": 1963015548,
-			"isDeleted": false,
+			"version": 105,
+			"versionNonce": 208372113,
+			"isDeleted": true,
 			"id": "maCKGYTr",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1518,7 +1460,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"fontSize": 20,
@@ -1534,9 +1476,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "arrow",
-			"version": 361,
-			"versionNonce": 1155033156,
-			"isDeleted": false,
+			"version": 362,
+			"versionNonce": 1664343039,
+			"isDeleted": true,
 			"id": "pp34yqc0Cul22E0ESLUZM",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1557,7 +1499,7 @@ corespunzător: ^modGAkXF
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1598,9 +1540,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "arrow",
-			"version": 327,
-			"versionNonce": 1635003900,
-			"isDeleted": false,
+			"version": 328,
+			"versionNonce": 2139563889,
+			"isDeleted": true,
 			"id": "D2SN1_mZyCxkBLuvhJ9Eu",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1621,7 +1563,7 @@ corespunzător: ^modGAkXF
 				"type": 2
 			},
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1662,9 +1604,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "text",
-			"version": 95,
-			"versionNonce": 1101709252,
-			"isDeleted": false,
+			"version": 96,
+			"versionNonce": 2104886303,
+			"isDeleted": true,
 			"id": "a7LTHTja",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1683,7 +1625,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"fontSize": 20,
@@ -1699,9 +1641,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "text",
-			"version": 92,
-			"versionNonce": 322244220,
-			"isDeleted": false,
+			"version": 93,
+			"versionNonce": 1072894289,
+			"isDeleted": true,
 			"id": "7ONPkPoy",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1720,7 +1662,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432914067,
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
 			"fontSize": 20,
@@ -1736,9 +1678,9 @@ corespunzător: ^modGAkXF
 		},
 		{
 			"type": "text",
-			"version": 62,
-			"versionNonce": 1141288900,
-			"isDeleted": false,
+			"version": 63,
+			"versionNonce": 365157151,
+			"isDeleted": true,
 			"id": "modGAkXF",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
@@ -1757,7 +1699,7 @@ corespunzător: ^modGAkXF
 			"frameId": null,
 			"roundness": null,
 			"boundElements": [],
-			"updated": 1706432915419,
+			"updated": 1706904367497,
 			"link": null,
 			"locked": false,
 			"fontSize": 20,
@@ -1772,33 +1714,42 @@ corespunzător: ^modGAkXF
 			"baseline": 43
 		},
 		{
-			"id": "UoFn5jwzjluMTq7yLdD8R",
 			"type": "arrow",
-			"x": -120.53930181438255,
-			"y": 140.11562379578191,
-			"width": 17.142857142857167,
-			"height": 10.714285714285722,
-			"angle": 0,
-			"strokeColor": "#1e1e1e",
-			"backgroundColor": "transparent",
+			"version": 17,
+			"versionNonce": 964569151,
+			"isDeleted": true,
+			"id": "UoFn5jwzjluMTq7yLdD8R",
 			"fillStyle": "solid",
 			"strokeWidth": 2,
 			"strokeStyle": "solid",
 			"roughness": 1,
 			"opacity": 100,
+			"angle": 0,
+			"x": -120.53930181438255,
+			"y": 140.11562379578191,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "transparent",
+			"width": 17.142857142857167,
+			"height": 10.714285714285722,
+			"seed": 1544828412,
 			"groupIds": [],
 			"frameId": null,
 			"roundness": {
 				"type": 2
 			},
-			"seed": 1544828412,
-			"version": 16,
-			"versionNonce": 663195844,
-			"isDeleted": false,
-			"boundElements": null,
-			"updated": 1706455510950,
+			"boundElements": [],
+			"updated": 1706904364031,
 			"link": null,
 			"locked": false,
+			"startBinding": null,
+			"endBinding": {
+				"elementId": "3oRXCbQxDoc8N0KeAQFDw",
+				"focus": -0.1927344062681313,
+				"gap": 3.4922649976139795
+			},
+			"lastCommittedPoint": null,
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
 			"points": [
 				[
 					0,
@@ -1808,16 +1759,7 @@ corespunzător: ^modGAkXF
 					17.142857142857167,
 					10.714285714285722
 				]
-			],
-			"lastCommittedPoint": null,
-			"startBinding": null,
-			"endBinding": {
-				"elementId": "3oRXCbQxDoc8N0KeAQFDw",
-				"focus": -0.1927344062681313,
-				"gap": 3.4922649976139795
-			},
-			"startArrowhead": null,
-			"endArrowhead": "arrow"
+			]
 		}
 	],
 	"appState": {
@@ -1835,10 +1777,10 @@ corespunzător: ^modGAkXF
 		"currentItemTextAlign": "center",
 		"currentItemStartArrowhead": null,
 		"currentItemEndArrowhead": "arrow",
-		"scrollX": 609.110730385811,
-		"scrollY": 328.08750120421803,
+		"scrollX": 462.7150119604429,
+		"scrollY": 421.47052388654583,
 		"zoom": {
-			"value": 1.4000000000000001
+			"value": 1.203871964321762
 		},
 		"currentItemRoundness": "round",
 		"gridSize": null,
