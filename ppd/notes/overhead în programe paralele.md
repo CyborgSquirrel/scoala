@@ -1,0 +1,4 @@
+- timp creare thread-uri
+- timp gestiune thread-uri
+- timp de sincronizare
+- timp oprire thread-uri

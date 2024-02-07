@@ -1,0 +1,1 @@
+In a **superscalar** processor, multiple instructions can be simultaneously in the same stage of the execution cycle, which is not possible for **pipelined** processors.

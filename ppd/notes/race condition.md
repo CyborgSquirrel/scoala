@@ -1,0 +1,1 @@
+O condiție a unui program, în care comportamentul acestuia depinde de ordinea unor evenimente necontrolabile, care aduce la rezultate inconsistente sau neprevăzute.

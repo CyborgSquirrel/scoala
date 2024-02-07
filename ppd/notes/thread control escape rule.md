@@ -1,0 +1,1 @@
+Dacă o resursă este creată, folosită, și eliminată în cadrul aceluiași thread, atunci folosirea acelei resurse este [[thread safe code|thread safe code]].

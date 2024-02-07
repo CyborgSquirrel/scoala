@@ -1,0 +1,2 @@
+- între job-uri
+- între faze ale job-urilor

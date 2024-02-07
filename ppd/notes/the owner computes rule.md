@@ -1,0 +1,1 @@
+Procesul care deține datele este responsabil de calculele asociate acelor date.

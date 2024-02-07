@@ -1,0 +1,1 @@
+[[semafor|Semafor]] pentru care $v(s)\in\{0,1\}$.

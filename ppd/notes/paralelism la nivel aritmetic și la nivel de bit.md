@@ -1,0 +1,1 @@
+- între elementele unei operații vectoriale
