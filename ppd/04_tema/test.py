@@ -1,12 +1,9 @@
 import csv
 import dataclasses
 import itertools
-import os.path
 import pathlib
 import subprocess
 import tempfile
-
-import numpy as np
 
 TRIALS = 10
 # TRIALS = 1

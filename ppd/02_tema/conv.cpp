@@ -9,6 +9,7 @@
 #include <iostream>
 #include <istream>
 #include <latch>
+#include <memory>
 #include <ratio>
 #include <string>
 #include <thread>
@@ -305,6 +306,10 @@ int main(int argc, char **argv) {
     end = chrono::steady_clock::now();
 
     delete[] threads;
+
+    for (int i = 0; i < n; ++i) {
+      destroy_at(&canOverwrite[i]);
+    }
     free(canOverwrite);
   } else {
     assert(false);
