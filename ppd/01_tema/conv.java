@@ -173,8 +173,6 @@ class Main {
   }
 
   public static void main(String[] args) {
-    // TODO: cli args
-
     int p = Integer.valueOf(args[0]);
     // - row
     // - col
@@ -194,64 +192,73 @@ class Main {
 
     Matrix dst = Matrix.newUnset(matRowNo, matColNo);
 
-    Thread[] threads = new Thread[p];
-
-    if (method.equals("row")) {
-      int n = matRowNo;
-      int start = 0;
-      int stop = 0;
-      for (int i = 0; i < p; ++i) {
-        int len = n/p;
-        if (i < n%p) {
-          len += 1;
+    if (method.equals("sequential")) {
+      for (int row = 0; row < mat.rowNo; ++row) {
+        for (int col = 0; col < mat.colNo; ++col) {
+          double value = mat.convolveAt(conv, row, col);
+          dst.set(row, col, value);
         }
-
-        stop += len;
-        threads[i] = new MyThreadRow(mat, conv, dst, start, stop);
-        start += len;
-      }
-    } else if (method.equals("col")) {
-      int n = matColNo;
-      int start = 0;
-      int stop = 0;
-      for (int i = 0; i < p; ++i) {
-        int len = n/p;
-        if (i < n%p) {
-          len += 1;
-        }
-
-        stop += len;
-        threads[i] = new MyThreadCol(mat, conv, dst, start, stop);
-        start += len;
-      }
-    } else if (method.equals("block")) {
-      int n = matRowNo * matColNo;
-      int start = 0;
-      int stop = 0;
-      for (int i = 0; i < p; ++i) {
-        int len = n/p;
-        if (i < n%p) {
-          len += 1;
-        }
-
-        stop += len;
-        threads[i] = new MyThreadLinear(mat, conv, dst, start, stop);
-        start += len;
       }
     } else {
-      System.out.println("Invalid method");
-      System.exit(1);
-    }
+      Thread[] threads = new Thread[p];
 
-    for (int i = 0; i < p; ++i) {
-      threads[i].start();
-    }
+      if (method.equals("row")) {
+        int n = matRowNo;
+        int start = 0;
+        int stop = 0;
+        for (int i = 0; i < p; ++i) {
+          int len = n/p;
+          if (i < n%p) {
+            len += 1;
+          }
 
-    for (int i = 0; i < p; ++i) {
-      try {
-        threads[i].join();
-      } catch (InterruptedException ex) {
-        
+          stop += len;
+          threads[i] = new MyThreadRow(mat, conv, dst, start, stop);
+          start += len;
+        }
+      } else if (method.equals("col")) {
+        int n = matColNo;
+        int start = 0;
+        int stop = 0;
+        for (int i = 0; i < p; ++i) {
+          int len = n/p;
+          if (i < n%p) {
+            len += 1;
+          }
+
+          stop += len;
+          threads[i] = new MyThreadCol(mat, conv, dst, start, stop);
+          start += len;
+        }
+      } else if (method.equals("block")) {
+        int n = matRowNo * matColNo;
+        int start = 0;
+        int stop = 0;
+        for (int i = 0; i < p; ++i) {
+          int len = n/p;
+          if (i < n%p) {
+            len += 1;
+          }
+
+          stop += len;
+          threads[i] = new MyThreadLinear(mat, conv, dst, start, stop);
+          start += len;
+        }
+      } else {
+        System.out.println("Invalid method");
+        System.exit(1);
+      }
+
+      for (int i = 0; i < p; ++i) {
+        threads[i].start();
+      }
+
+      for (int i = 0; i < p; ++i) {
+        try {
+          threads[i].join();
+        } catch (InterruptedException ex) {
+      
+        }
       }
     }
 

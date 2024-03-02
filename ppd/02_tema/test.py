@@ -51,7 +51,7 @@ def run_java(test: Test) -> Result:
     )
 
     result = np.fromfile(RESULT_PATH)
-    check_result = np.fromfile(RESULT_PATH)
+    check_result = np.fromfile(check_result_path)
     passed_check = np.allclose(result, check_result)
 
     if not passed_check:
@@ -84,7 +84,7 @@ def run_cpp(test: Test) -> Result:
     )
 
     result = np.fromfile(RESULT_PATH)
-    check_result = np.fromfile(RESULT_PATH)
+    check_result = np.fromfile(check_result_path)
     passed_check = np.allclose(result, check_result)
 
     if not passed_check:

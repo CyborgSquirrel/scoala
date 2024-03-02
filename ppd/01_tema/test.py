@@ -9,7 +9,7 @@ TRIALS = 10
 # TRIALS = 2
 
 MAT_PATH = "./data/mat.txt"
-CONV_PATH = "./data/mat.txt"
+CONV_PATH = "./data/conv.txt"
 
 ALL_METHODS = ["block", "row", "col"]
 
@@ -28,7 +28,7 @@ class Test:
 @dataclasses.dataclass
 class Result:
     test: Test
-    elapsed_average: float
+    elapsed: float
 
 
 def run_java(test: Test):
@@ -93,6 +93,11 @@ tests = itertools.chain.from_iterable([
     itertools.product([1000], [1000], [5], [5], [2, 4, 8, 16], ALL_METHODS, ALL_RUNNERS),
     itertools.product([10], [10000], [5], [5], [2, 4, 8, 16], ALL_METHODS, ALL_RUNNERS),
     itertools.product([10000], [10], [5], [5], [2, 4, 8, 16], ALL_METHODS, ALL_RUNNERS),
+
+    itertools.product([10], [10], [3], [3], [0], ["sequential"], ALL_RUNNERS),
+    itertools.product([1000], [1000], [5], [5], [0], ["sequential"], ALL_RUNNERS),
+    itertools.product([10], [10000], [5], [5], [0], ["sequential"], ALL_RUNNERS),
+    itertools.product([10000], [10], [5], [5], [0], ["sequential"], ALL_RUNNERS),
 ])
 
 tests = [
@@ -106,26 +111,27 @@ for test in tests:
 
     runner = runners[test.runner]
 
-    elapseds = []
+    # elapseds = []
     for trial_index in range(TRIALS):
         start = time.time()
         runner(test)
         stop = time.time()
 
         elapsed = stop - start
-        elapseds.append(elapsed)
+        # elapseds.append(elapsed)
+        results.append(Result(test, elapsed))
     
-    elapsed_average = sum(elapseds) / len(elapseds)
-    results.append(Result(test, elapsed_average))
+    # elapsed_average = sum(elapseds) / len(elapseds)
+    # results.append(Result(test, elapsed_average))
 
 
 with open("data.csv", "w") as f:
     f = csv.writer(f)
     f.writerow(
           [field.name for field in dataclasses.fields(Test)]
-        + ["elapsed_average"]
+        + ["elapsed"]
     )
     f.writerows(
-        dataclasses.astuple(result.test) + (result.elapsed_average,)
+        dataclasses.astuple(result.test) + (result.elapsed,)
         for result in results
     )

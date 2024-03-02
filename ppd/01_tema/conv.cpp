@@ -159,22 +159,29 @@ int main(int argc, char **argv) {
   Matrix conv = Matrix::readFromFile(convBuf, convPath, convRowNo, convColNo);
   Matrix dst = Matrix::newUnset(dstBuf, matRowNo, matColNo);
 
-  void (*f)(Matrix &src, Matrix &conv, Matrix &dst, int start, int stop) = nullptr;
-  int n;
-  if (method == "row") {
-    f = runRow;
-    n = matRowNo;
-  } else if (method == "col") {
-    f = runCol;
-    n = matColNo;
-  } else if (method == "block") {
-    f = runBlock;
-    n = matRowNo * matColNo;
+  if (method == "sequential") {
+    for (int row = 0; row < mat.rowNo; ++row) {
+      for (int col = 0; col < mat.colNo; ++col) {
+        double value = mat.convolveAt(conv, row, col);
+        dst.set(row, col, value);
+      }
+    }
   } else {
-    assert(false);
-  }
+    void (*f)(Matrix &src, Matrix &conv, Matrix &dst, int start, int stop) = nullptr;
+    int n;
+    if (method == "row") {
+      f = runRow;
+      n = matRowNo;
+    } else if (method == "col") {
+      f = runCol;
+      n = matColNo;
+    } else if (method == "block") {
+      f = runBlock;
+      n = matRowNo * matColNo;
+    } else {
+      assert(false);
+    }
 
-  {
     int start = 0;
     int stop = 0;
     thread *threads = new thread[p];
