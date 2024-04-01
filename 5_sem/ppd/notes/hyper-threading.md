@@ -1,0 +1,2 @@
+- often, a processor core is only utilizing a fraction of its resources to execute instructions
+- **hyper-threading** enabled processors contain some duplicated sections, which allow them to execute more instructions simultaneously

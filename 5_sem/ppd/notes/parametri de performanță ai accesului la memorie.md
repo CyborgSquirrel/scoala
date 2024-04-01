@@ -1,0 +1,2 @@
+- **latență** - timpul în care o dată ajunge să fie disponibilă la procesor, după ce s-a inițiat cererea
+- **lățime de bandă** - rata de transfer a datelor din memorie în procesor

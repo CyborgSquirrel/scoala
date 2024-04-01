@@ -1,0 +1,2 @@
+- [[legea lui Amdahl]] - **proporția** părții secvențiale rămâne constantă
+- [[legea lui Gustafson]] - partea secvențială rămâne constantă, deci proporția ei scade odată cu creșterea dimensiunii datelor

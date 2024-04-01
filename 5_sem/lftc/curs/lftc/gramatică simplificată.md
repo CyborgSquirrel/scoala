@@ -1,0 +1,1 @@
+Cred că este o gramatică care nu are simboluri [[simbol neutilizabil sau utilizabil|neutilizabile]]. N-am găsit sa aibă o definiție în curs tho.

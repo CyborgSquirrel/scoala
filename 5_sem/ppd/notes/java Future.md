@@ -1,0 +1,4 @@
+- `void cancel(boolean mayInterruptIfRunning)`
+- `boolean isCancelled()`
+- `boolean isDone()`
+- `V get()`
