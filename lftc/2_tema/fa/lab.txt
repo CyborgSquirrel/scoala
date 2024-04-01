@@ -1,8 +1,0 @@
-.s Q1
-
-.f Q1
-.f Q2
-
-.t Q1 a Q1
-.t Q1 b Q2
-.t Q2 b Q2

@@ -1,4 +1,0 @@
-Unul dintre programe contine doua
-erori care sunt in acelasi timp erori
-in limbajul original (pentru care MLP
-defineste un subset).

@@ -1,1 +1,0 @@
-**Automatul redus** are numărul minim de stări dintre toate [[când este un automat finit determinist, nedeterminist, complet definit; AFD; AFN|automatele finite deterministe]] echivalente.

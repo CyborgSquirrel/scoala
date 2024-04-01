@@ -1,1 +1,0 @@
-Calculeaza suma a n numere citite de la tastatura.

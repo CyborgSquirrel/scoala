@@ -1,1 +1,0 @@
-O succesiune finită de simboluri din $\Sigma$.

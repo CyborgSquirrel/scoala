@@ -1,1 +1,0 @@
-O mulțime finită și nevidă de elemente numite simboluri.
