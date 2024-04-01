@@ -1,2 +1,0 @@
-- **descompunerea datelor** - împarți datele în chunk-uri mai mici (folosești distribuiri diferite, de exemplu [[distribuire liniară, ciclică, bloc|liniară]], [[distribuire liniară, ciclică, bloc|ciclică]])
-- **descompunerea funcțională** - împarți problema în chunk-uri mai mici ... cred? (de exemplu, [[divide et impera|divide et impera]])

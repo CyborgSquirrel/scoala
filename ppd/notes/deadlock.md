@@ -1,1 +1,0 @@
-Într-un grup de thread-uri apare un ciclu pe resursele pe care le așteaptă fiecare thread, și execuția se blochează.

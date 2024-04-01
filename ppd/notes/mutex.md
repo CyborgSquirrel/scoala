@@ -1,1 +1,0 @@
-Este echivalent cu un [[semafor binar|semafor binar]].

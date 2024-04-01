@@ -1,1 +1,0 @@
-Cluster de [[symmetric multiprocessing; SMP|SMP]]-uri.

@@ -1,2 +1,0 @@
-- **urgent-signal-and-continue** - thread-ul deblocat prin `signal` este pus în vârful cozii de așteptare
-- **signal-and-urgent-wait** - thread-ul care a apelat `signal` este pus în vârful cozii de așteptare

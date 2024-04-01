@@ -1,1 +1,0 @@
-![[clasificarea flynn.excalidraw]]

@@ -1,2 +1,0 @@
-- **Gradul de paralelism al unui program**: numărul de procese/operații care se execută în paralel într-un anumit interval de timp
-- **Gradul de paralelism al unui sistem**: numărul de procesoare care se află în execuție într-un anumit interval de timp

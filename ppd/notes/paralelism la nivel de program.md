@@ -1,1 +1,0 @@
-- între părți ale programului

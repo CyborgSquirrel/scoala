@@ -1,1 +1,0 @@
-**Concurența** este abilitatea a unor părți diferite ale unui program să fie executate nesecvențial, fără ca aceasta să afecteze rezultatul.

@@ -1,1 +1,0 @@
-Atunci când un grup de thread-uri nu progresează, pentru că își cedează reciproc execuția.

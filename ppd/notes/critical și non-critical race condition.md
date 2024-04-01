@@ -1,2 +1,0 @@
-- **critical [[race condition|race condition]]** - atunci când ordinea în care se modifică variabilele interne determină starea finală a sistemului
-- **non-critical [[race condition|race condition]]** - atunci când ordinea în care se modifică variabilele interne nu are impact asupra stării finale a sistemului

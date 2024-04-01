@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">My Views App</string>
-    <string name="channel_name">the channel</string>
-    <string name="channel_description">nice channel please subscribe</string>
-    <string name="title_activity_maps">MapsActivity</string>
-</resources>

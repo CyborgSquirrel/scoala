@@ -1,1 +1,0 @@
-Clasă a cărei comportament este corect, chiar dacă instanțele sale sunt accesate de mai multe thread-uri.

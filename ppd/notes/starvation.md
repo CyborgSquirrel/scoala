@@ -1,1 +1,0 @@
-Atunci când unui thread nu i se alocă destul timp de execuție, pentru că este alocat altor thread-uri.

@@ -1,1 +1,0 @@
-Momentul în care scheduler-ul schimbă procesul executat de o unitate de procesare.

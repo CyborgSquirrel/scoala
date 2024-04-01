@@ -1,1 +1,0 @@
-Graficul [[gradul de paralelism; degree of parallelism; DOP|DOP]] în funcție de timp.
