@@ -1,0 +1,1 @@
+Execuția unei secvențe de instrucțiuni din [[CFG; control flow graph; graful fluxului de control|CFG]], de la punctul de intrare până la punctul de ieșire.

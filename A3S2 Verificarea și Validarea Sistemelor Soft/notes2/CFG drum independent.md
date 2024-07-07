@@ -1,0 +1,1 @@
+Orice [[CFG drum|drum]] din [[CFG; control flow graph; graful fluxului de control|CFG]] care execută cel puțin o instrucțiune sau condiție nouă.

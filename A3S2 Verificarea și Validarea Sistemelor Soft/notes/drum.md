@@ -1,0 +1,1 @@
+Un **drum** reprezintă execuția unei secvențe de instrucțiuni de la punctul de intrare într-un [[control flow graph; CFG|CFG]] până la punctul de ieșire al acestuia.

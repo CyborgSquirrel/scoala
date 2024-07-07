@@ -1,0 +1,1 @@
+Identifică cele mai grave consecințe ale [[defect; fault; bug|bug-ului]].

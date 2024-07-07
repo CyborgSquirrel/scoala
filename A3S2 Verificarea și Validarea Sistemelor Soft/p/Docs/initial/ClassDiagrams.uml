@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="341.0" y="179.0">netscape</node>
+    <node x="133.0" y="179.0">META-INF</node>
+    <node x="263.0" y="253.0">javafx</node>
+    <node x="-114.0" y="401.0">org</node>
+    <node x="437.5" y="253.0">inventory.controller</node>
+    <node x="-114.0" y="253.0">images</node>
+    <node x="-114.0" y="179.0">groovyjarjarasm</node>
+    <node x="-114.0" y="327.0">javax</node>
+    <node x="61.0" y="327.0">fxml</node>
+    <node x="81.0" y="-187.0">toolbarButtonGraphics</node>
+    <node x="-114.0" y="31.0">groovyjarjarpicocli</node>
+    <node x="75.0" y="253.0">groovy</node>
+    <node x="149.0" y="-35.5">inventory.service</node>
+    <node x="149.0" y="31.0">groovyjarjarantlr</node>
+    <node x="138.0" y="120.5">inventory.repository</node>
+    <node x="216.0" y="401.0">jdk</node>
+    <node x="401.0" y="327.0">java</node>
+    <node x="382.5" y="401.0">inventory.model</node>
+    <node x="231.0" y="327.0">com</node>
+    <node x="51.0" y="401.0">sun</node>
+    <node x="409.0" y="-4.0">inventory.Main</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic" zoom="0.7362637362637363" showDependencies="false" x="215.0" y="51.291044776119406" />
+  <SelectedNodes>
+    <node>inventory.repository</node>
+    <node>inventory.controller</node>
+    <node>inventory.service</node>
+    <node>inventory.model</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

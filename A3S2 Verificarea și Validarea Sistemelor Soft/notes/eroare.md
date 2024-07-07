@@ -1,0 +1,1 @@
+O acțiune umană (a unui developer sau utilizator) care are ca rezultat un [[defect]].

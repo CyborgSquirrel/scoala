@@ -1,0 +1,2 @@
+- de la $x$ (până) la $y$ => $[x,y]$
+- între $x$ și $y$ => $(x,y)$

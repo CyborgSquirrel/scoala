@@ -1,0 +1,161 @@
+{
+  "main": {
+    "id": "70f74dc159908800",
+    "type": "split",
+    "children": [
+      {
+        "id": "c4168448488ef3cd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4b592227803348d2",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bf774b98a33465ec",
+    "type": "split",
+    "children": [
+      {
+        "id": "8bfa99e8cc48bbd4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea4e885e84cce81e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fb5438b7e0fc7b03",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4e8f427e062f76f1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "470280a87d0f36de",
+    "type": "split",
+    "children": [
+      {
+        "id": "ebdf242cfe488823",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6980addd248cea31",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e321bcc7580531fa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ac755477e4959b44",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "92300b35c58c7c58",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "canvas:Create new canvas": false
+    }
+  },
+  "active": "4b592227803348d2",
+  "lastOpenFiles": [
+    "pair programming.md",
+    "defecțiune.md",
+    "defect.md",
+    "eroare.md",
+    "drum independent.md",
+    "mulțimea drumurilor de bază; mulțimea drumurilor independente.md",
+    "drum.md",
+    "control flow graph; CFG.md",
+    "Pasted image 20240311094703.png",
+    "analiză dinamică.md",
+    "analiză statică.md",
+    "main.canvas",
+    "inspectare fagan.md",
+    "Untitled 1.md",
+    "technical review.md",
+    "walkthrough.md",
+    "Welcome.md"
+  ]
+}

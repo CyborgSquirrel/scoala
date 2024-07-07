@@ -1,0 +1,246 @@
+{
+  "main": {
+    "id": "d5935160d2850d42",
+    "type": "split",
+    "children": [
+      {
+        "id": "96a7f1ae0134ef15",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1f36175f65b0651f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Welcome.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2ce0d9a036d6f009",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "restul.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b24801e95003a8a6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "polinom Lagrange.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b6e85dfc0f709bf9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "rest Lagrange.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5862c47b931f29d8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "rest Hermite.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4835b9348857b53d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "polinom Lagrange.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7f49c8013af038c9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "multiplicitate.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "96c65e6bc5dc06e6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Skm; spațiul funcțiilor spline polinomiale.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 7
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5e073c4ae1433c6c",
+    "type": "split",
+    "children": [
+      {
+        "id": "677c6092969ae869",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6ca0aa96590bcb42",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "389a8dc1e3abfd5a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e58a3f5491d8a007",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a0ba15a519dab6f5",
+    "type": "split",
+    "children": [
+      {
+        "id": "fa7b77db2293d374",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0e738e72afa85a42",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Skm; spațiul funcțiilor spline polinomiale.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bd43e05fe0fe85c8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Skm; spațiul funcțiilor spline polinomiale.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0f5c3112fc89240f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "92b3ffdbdc69d2e2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Skm; spațiul funcțiilor spline polinomiale.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "96c65e6bc5dc06e6",
+  "lastOpenFiles": [
+    "multiplicitate.md",
+    "Skm; spațiul funcțiilor spline polinomiale.md",
+    "polinom Lagrange.md",
+    "rest Lagrange.md",
+    "rest Hermite.md",
+    "polinom Hermite.md",
+    "restul.md",
+    "Welcome.md",
+    "Pasted image 20240301151413.png"
+  ]
+}

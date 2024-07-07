@@ -1,0 +1,1 @@
+Dacă un [[nod de decizie]] conține expresia `x<10 || y>20`, atunci condițiile din acel nod vor fi `x<10` și `y>20`.

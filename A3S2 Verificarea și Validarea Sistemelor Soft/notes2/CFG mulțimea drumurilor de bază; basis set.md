@@ -1,0 +1,1 @@
+Mulțimea [[CFG drum independent|drumurilor independente]] formează **mulțimea drumurilor de bază** ale [[CFG; control flow graph; graful fluxului de control|CFG-ului]]. Aceasta indică numărul minim de teste necesare pentru ca toate instrucțiunile să se execute cel puțin odată.

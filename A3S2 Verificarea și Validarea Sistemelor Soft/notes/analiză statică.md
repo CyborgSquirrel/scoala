@@ -1,0 +1,1 @@
+- nu se execută programul

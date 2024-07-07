@@ -1,0 +1,1 @@
+O relație se află în **1NF**, dacă toate atributele care îi aparțin iau doar valori atomice (deci listele, mulțimile, etc. sunt excluse).

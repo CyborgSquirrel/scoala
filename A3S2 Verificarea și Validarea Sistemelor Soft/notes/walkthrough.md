@@ -1,0 +1,2 @@
+- scenariu
+- echipă eterogenă

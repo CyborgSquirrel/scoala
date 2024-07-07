@@ -1,0 +1,295 @@
+{
+  "main": {
+    "id": "13e2383080a0002b",
+    "type": "split",
+    "children": [
+      {
+        "id": "8e3c7d2e87a3e5f0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8b56709e5ab60591",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "analiza sintactică.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4736aa75fbdde7e9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "analiza lexicală.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ad37c4b5517885bf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "compilator.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "553d6e109b34cbb7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "extended backus naur form; ebnf.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "50b627642417c798",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "exemplu automat push down.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "467a85caecb2bb52",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "automat finit reprezentare tabelară, graf.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "19b8e43d1e73f79e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "gramatică proprie.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "364c3a333fdd7579",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "translator push down exemplu.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e76c0e53970b67df",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "translator finit exemplu.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1edef90905a94a51",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "gramatică dependentă de context; gramatică de tip 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "65105bc882526d35",
+    "type": "split",
+    "children": [
+      {
+        "id": "054f2cd7828b08cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d31a1835b13e5476",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cf0ed221d5066400",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "89c028021e2b920b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8f841b51de877916",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b4f0df23597be5f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "16e795fe6f311b79",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "extended backus naur form; ebnf.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "45b2b1bb2f30e6cc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "extended backus naur form; ebnf.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7b6560e0639da0fd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c208d788335868fd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "extended backus naur form; ebnf.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "553d6e109b34cbb7",
+  "lastOpenFiles": [
+    "main.canvas",
+    "exemplu automat push down.md",
+    "Untitled.canvas",
+    "Excalidraw/cum transformi un automat nedeterminist în unul determinist 2024-01-30 12.46.15.excalidraw.md",
+    "sunt automatele finite nedeterministe echivalente cu cele deterministe.md",
+    "cum demonstrezi că limbajul generat de o gramatică este egal cu un limbaj.md",
+    "cum transformi un automat nedeterminist în unul determinist.md",
+    "cum demonstrezi că un limbaj nu este regular.md",
+    "când sunt două automate finite echivalente.md",
+    "când este o gramatică ambiguă.md",
+    "automat finit reprezentare tabelară, graf.md",
+    "Excalidraw/automat finit reprezentare graf.excalidraw.md",
+    "Excalidraw/automat finit reprezentare tabelară.excalidraw.md",
+    "gramatică LALR.md",
+    "gramatică proprie.md",
+    "gramatică epsilon-independentă și epsilon-producții.md",
+    "limbaj independent de context.md",
+    "home.md",
+    "simbol neproductiv sau productiv.md",
+    "translator push down exemplu.md",
+    "translator finit exemplu.md",
+    "gramatică dependentă de context; gramatică de tip 1.md",
+    "gramatică monotonă; gramatică de tip 1.md",
+    "convenții cod.md",
+    "relații de precedență wirth-weber exemplu.md",
+    "Optimizare de cod.md",
+    "gramatică de atribute.md",
+    "gramatici.canvas",
+    "quiz",
+    "Pasted Image 20240128200120_680.png",
+    "Pasted image 20240128200031.png",
+    "Pasted Image 20240128105752_511.png",
+    "Excalidraw"
+  ]
+}

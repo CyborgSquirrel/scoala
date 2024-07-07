@@ -1,0 +1,1 @@
+Un atribut ne-cheie este dependent funcțional de o parte a unei chei candidat, dar nu de întreaga cheie.

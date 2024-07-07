@@ -1,0 +1,4 @@
+- semnalează prezența defectelor unui program, fără a garanta absența acestora
+- procesul de execuție al unui program cu scopul de a identifica erori
+- observarea comportării unui program în mai multe execuții
+- investigație tehnică și empirică realizată cu scopul de a oferi beneficiarilor testării informații referitoare la programul testat

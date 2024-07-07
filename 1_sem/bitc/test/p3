@@ -1,5 +1,0 @@
-int LSB(unsigned int x){
-	// octetul cel mai putin semnificativ este cel mai din dreapta
-	// fac and intre x si o masca de biti care imi scoate doar cei mai din dreapta opt biti
-	return x & 0xFF;
-}

@@ -1,0 +1,1 @@
+Consecință a unei [[eroare; error; mistake|erori]].

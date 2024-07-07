@@ -1,0 +1,1 @@
+Identifică situațiile în care [[defect; fault; bug|bug-ul]] va produce o [[defecțiune; failure|defecțiune]].

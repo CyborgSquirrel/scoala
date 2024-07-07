@@ -1,0 +1,1 @@
+Acțiune umană prin care rezultă un [[defect; fault; bug|defect]] în produsul soft.

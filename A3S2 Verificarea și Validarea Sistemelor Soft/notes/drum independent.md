@@ -1,0 +1,1 @@
+Un **drum independent** este un [[drum|drum]] care execută o instrucțiune sau o condiție care nu a fost atinsă de celelalte drumuri.

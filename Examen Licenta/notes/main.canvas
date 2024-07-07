@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"312a5217fa7d237c","type":"file","file":"Sisteme de operare/Shell/read.md","x":523,"y":-261,"width":400,"height":181},
+		{"id":"5ec8d2050c295e70","type":"file","file":"Sisteme de operare/Shell/test.md","x":-21,"y":-261,"width":517,"height":1066},
+		{"id":"21738a2a4a43ae74","type":"file","file":"Sisteme de operare/Shell/grep.md","x":960,"y":-261,"width":400,"height":309},
+		{"id":"40109f7471c31f0c","type":"file","file":"Sisteme de operare/Shell/sed.md","x":960,"y":88,"width":503,"height":772},
+		{"id":"b0da94c4c385ef49","type":"file","file":"Sisteme de operare/Shell/citare.md","x":863,"y":-820,"width":297,"height":260},
+		{"id":"db51cd610abc1b85","type":"file","file":"Sisteme de operare/Shell/variabile speciale.md","x":1280,"y":-810,"width":520,"height":250},
+		{"id":"37cb228ae78280e0","type":"file","file":"Sisteme de operare/Shell/expr.md","x":-21,"y":846,"width":397,"height":191},
+		{"id":"a00c1cbb7f05ac52","type":"file","file":"Sisteme de operare/Shell/who.md","x":524,"y":-53,"width":400,"height":180},
+		{"id":"45872ffc9f7092e6","type":"file","file":"Sisteme de operare/Shell/sort.md","x":526,"y":177,"width":397,"height":191},
+		{"id":"c774ffe29e94acd5","type":"file","file":"Sisteme de operare/Shell/wc.md","x":526,"y":409,"width":400,"height":302},
+		{"id":"b21d4da8cebac82d","type":"file","file":"Sisteme de operare/Shell/ps.md","x":1640,"y":-361,"width":820,"height":536},
+		{"id":"915e8607a5b71e9a","type":"file","file":"Sisteme de operare/Shell/ls.md","x":1640,"y":227,"width":820,"height":715},
+		{"id":"15002ac69de312be","type":"file","file":"Sisteme de operare/Shell/chmod.md","x":526,"y":750,"width":400,"height":270},
+		{"id":"740d08ba88af0887","type":"file","file":"Baze de date/2NF.md","x":3660,"y":-499,"width":400,"height":425},
+		{"id":"47ba10a2192ac82d","type":"file","file":"Baze de date/1NF.md","x":3660,"y":-720,"width":400,"height":181},
+		{"id":"22afeec2c3090f45","type":"file","file":"Baze de date/Forme Normale.md","x":4200,"y":-360,"width":600,"height":520},
+		{"id":"9d2729d3e941388f","type":"file","file":"Algoritmica si programare/sortare prin inserție.md","x":1760,"y":1516,"width":669,"height":840},
+		{"id":"13eff4b68d9c1a97","type":"file","file":"Algoritmica si programare/sortare prin selecție.md","x":2469,"y":1516,"width":669,"height":924},
+		{"id":"f5f80e7b1354a1f3","type":"file","file":"Algoritmica si programare/căutare binară.md","x":3520,"y":1756,"width":669,"height":1200},
+		{"id":"4f0141c4ae5bca7a","type":"file","file":"Algoritmica si programare/sortarea bulelor.md","x":1760,"y":2400,"width":669,"height":720},
+		{"id":"8ad3dce5fb1a6720","type":"file","file":"Algoritmica si programare/quicksort.md","x":1031,"y":1516,"width":669,"height":1464},
+		{"id":"187ea8da2bffaa33","type":"file","file":"Algoritmica si programare/mergesort.md","x":320,"y":1516,"width":669,"height":1464},
+		{"id":"75d5b6ea585194e8","type":"file","file":"Sisteme de operare/C/fork.md","x":-613,"y":-2222,"width":400,"height":323},
+		{"id":"cd1ae1c143c3db34","type":"file","file":"Sisteme de operare/C/exec.md","x":-157,"y":-2222,"width":717,"height":922},
+		{"id":"e3acfc29514bdfc0","type":"file","file":"Sisteme de operare/C/pipe.md","x":-613,"y":-1847,"width":400,"height":255},
+		{"id":"c0de5ac57eceba9c","x":4500,"y":344,"width":460,"height":516,"type":"file","file":"Baze de date/SQL.md"},
+		{"id":"6a5aee2d226f307a","type":"file","file":"Sisteme de operare/C/wait.md","x":620,"y":-2222,"width":620,"height":722},
+		{"id":"17c50694c79d20e7","type":"file","file":"TematicaInformatica_2024_Ro.pdf","x":2640,"y":-1740,"width":680,"height":800},
+		{"id":"47acfafdc8168ad5","type":"file","file":"Baze de date/3NF.md","x":3660,"y":-34,"width":400,"height":360},
+		{"id":"71c71015ced39670","type":"file","file":"Baze de date/BCNF.md","x":3660,"y":366,"width":400,"height":320}
+	],
+	"edges":[
+		{"id":"8bc63ac2a86a8aab","fromNode":"740d08ba88af0887","fromSide":"bottom","toNode":"47acfafdc8168ad5","toSide":"top"},
+		{"id":"17529254d6d0e629","fromNode":"47ba10a2192ac82d","fromSide":"bottom","toNode":"740d08ba88af0887","toSide":"top"},
+		{"id":"7fd77d0ead8c0a92","fromNode":"47acfafdc8168ad5","fromSide":"bottom","toNode":"71c71015ced39670","toSide":"top"}
+	]
+}

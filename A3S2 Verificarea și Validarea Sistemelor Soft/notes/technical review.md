@@ -1,0 +1,1 @@
+- echipă omogenă (formată din oameni tehnici)

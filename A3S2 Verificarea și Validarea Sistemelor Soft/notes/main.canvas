@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"2cc37c4a00723d4d","type":"file","file":"inspectare fagan.md","x":-273,"y":-199,"width":333,"height":159},
+		{"id":"1d2c8ec3f773790f","type":"file","file":"walkthrough.md","x":160,"y":-199,"width":263,"height":160},
+		{"id":"34bdac1a9f8cd0a2","type":"file","file":"technical review.md","x":520,"y":-199,"width":320,"height":159},
+		{"id":"a475db67e535d2fe","type":"text","text":"formal (90-120min)","x":232,"y":-440,"width":228,"height":60},
+		{"id":"93c3bb037bbd03c5","type":"text","text":"hibrid","x":1560,"y":-438,"width":120,"height":50},
+		{"id":"3a236a8cb3db1da1","type":"file","file":"pair programming.md","x":1486,"y":-171,"width":269,"height":131},
+		{"id":"bd5ff9e4f5fa6e83","type":"text","text":"HbT (Human based Testing)","x":738,"y":-800,"width":205,"height":60},
+		{"id":"0a515f665ec19961","type":"text","text":"informal (90-120min)","x":1120,"y":-438,"width":240,"height":58},
+		{"id":"feddd19422a3a673","x":1195,"y":-1203,"width":265,"height":223,"type":"file","file":"eroare.md"},
+		{"id":"46e43b40c435e283","x":1560,"y":-1203,"width":271,"height":220,"type":"file","file":"defect.md"},
+		{"id":"2dba6b86d809e2cd","x":1940,"y":-1233,"width":320,"height":280,"type":"file","file":"defecțiune.md"}
+	],
+	"edges":[
+		{"id":"fee617f3faed2cea","fromNode":"a475db67e535d2fe","fromSide":"bottom","toNode":"2cc37c4a00723d4d","toSide":"top"},
+		{"id":"409947da5ff7d67e","fromNode":"a475db67e535d2fe","fromSide":"bottom","toNode":"1d2c8ec3f773790f","toSide":"top"},
+		{"id":"f50d24b8fc1c7458","fromNode":"a475db67e535d2fe","fromSide":"bottom","toNode":"34bdac1a9f8cd0a2","toSide":"top"},
+		{"id":"a70bb5ddba3a3c3a","fromNode":"93c3bb037bbd03c5","fromSide":"bottom","toNode":"3a236a8cb3db1da1","toSide":"top"},
+		{"id":"f674b6e4d82796a5","fromNode":"bd5ff9e4f5fa6e83","fromSide":"bottom","toNode":"a475db67e535d2fe","toSide":"top"},
+		{"id":"ab6a681ae01658f7","fromNode":"bd5ff9e4f5fa6e83","fromSide":"bottom","toNode":"0a515f665ec19961","toSide":"top"},
+		{"id":"660106cfbf2d569f","fromNode":"bd5ff9e4f5fa6e83","fromSide":"bottom","toNode":"93c3bb037bbd03c5","toSide":"top"},
+		{"id":"e484d0a491de7c67","fromNode":"feddd19422a3a673","fromSide":"right","toNode":"46e43b40c435e283","toSide":"left"},
+		{"id":"dfcb777b574c27c7","fromNode":"46e43b40c435e283","fromSide":"right","toNode":"2dba6b86d809e2cd","toSide":"left"}
+	]
+}

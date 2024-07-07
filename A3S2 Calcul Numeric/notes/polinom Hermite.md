@@ -1,0 +1,1 @@
+[[polinom Lagrange|Polinomul Lagrange]] este un caz special al polinomului Hermite, cu $r_k=0,\forall k$.

@@ -1,0 +1,1 @@
+Izolează cea mai scurtă secvență de pași care produce [[defect; fault; bug|bug-ul]].

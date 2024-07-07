@@ -1,0 +1,2 @@
+- **analiza statică** - ❌ nu se execută programul
+- **analiza dinamică** - ✅ se execută programul
