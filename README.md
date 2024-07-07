@@ -2,7 +2,7 @@ UBB Informatică în limba Română, 2021-2024.
 
 # Anul 1 Semestrul 1
 
-[Analiză Matematică](./A1S1 Analiză Matematică)
+[Analiză Matematică](./A1S1%20Analiză%20Matematică)
 [Arhitectura Sistemelor de Calcul](./A1S1 Arhitectura Sistemelor de Calcul)
 [Fundamentele Programării](./A1S1 Fundamentele Programării)
 [Logică Computațională](./A1S1 Logică Computațională)
